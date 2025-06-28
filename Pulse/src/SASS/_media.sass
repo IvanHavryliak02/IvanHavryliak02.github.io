@@ -1,0 +1,196 @@
+@media (max-width: 992px)
+    .presentation
+        &__slide-wrap img, &__carousel
+            width: 600px
+        .slick-next
+            right: -67px
+        .slick-prev
+            left: -67px
+    .container
+        padding: 0 20px
+    .presentation
+        &__content
+            width: 600px
+            margin: 0 auto
+        &-card
+            width: 280px
+            &:nth-child(1), &:nth-child(2),&:nth-child(3)
+                margin-top: 20px
+@media (max-width: 768px)
+    .promo
+        &__wrapper
+            align-items: center
+    .advantages
+        &__wrap
+            flex-direction: column
+            align-items: center
+        &__card
+            margin-top: 40px
+    .consultation
+        .section-header_white
+            text-align: center
+            font-size: 30px
+        &__subheader
+            text-align: center
+            font-size: 18px
+        .form
+            margin: 0 auto
+    .presentation
+        .slick-dots
+            padding-left: 0
+            display: flex
+            width: 120px
+            justify-content: space-between
+            margin-left: 50%
+            transform: translateX(-50%)
+            li
+                transition: 0.5s all
+                border-radius: 10px
+                background-color: #b7b7b7
+                width: 10px
+                height: 10px
+                &::marker
+                    content: none
+                button
+                    display: none
+            .slick-active
+                background-color: #000
+        &__slide-wrap img, &__carousel
+            width: 500px
+    .presentation
+        &__content
+            width: 100%
+            flex-direction: column
+            justify-content: space-between
+            align-items: center
+            align-content: unset
+        &-card
+            width: 350px
+        &__tabs
+            width: 360px    
+            flex-direction: column
+            height: 150px
+        &__tab
+            height: 40px
+            width: 100%
+    .opinion
+        &__card
+            flex-direction: column
+            align-items: center
+        &__card-header
+            text-align: center
+            margin-top: 10px
+        &__card-text
+            width: 100%
+            text-align: justify
+    .uparrow
+        left: 15px
+        
+
+
+@media (max-width: 576px)
+    .footer
+        &__address
+            margin: 0
+            font-size: 15px
+        &__info
+            width: 300px
+            height: 150px
+            padding: 5px 0 0 0
+        &__phone
+            margin-top: 10px
+            font-size: 16px
+        &__ref-container
+            margin-top: 20px
+            width: 190px
+        &__radio-ref
+            width: 45px
+            height: 45px
+            img
+                max-width: 20px
+    .promo
+        &__header
+            font-size: 35px
+        &__subheader
+            font-size: 20px
+        &__icons
+            width: 375px
+            padding: 0 15px
+        &__icon
+            font-size: 12px
+        &__link
+            font-size: 14px
+        .button_main
+            width: 250px
+    .consultation
+        .section-header_white
+            line-height: 45px 
+    .presentation
+        &__slide-wrap img, &__carousel
+            width: 350px
+        .slick-dots
+            li
+                width: 7px
+                height: 7px
+        &-card
+            width: 280px
+        &__tabs
+            width: 280px   
+            height: 150px
+        &__tab
+            height: 40px
+            width: 100%
+    .modal
+        &__exit
+            right: 10px
+            top: 10px
+        &__header
+            font-size: 16px
+        &__subheader
+            font-size: 13px
+        &__wrap
+            min-height: 350px
+            width: 300px
+            padding: 35px 10px 10px 10px
+        &_form
+            width: 280px
+            .form__input
+                height: 45px
+        .button_modal
+            font-size: 14px
+            height: 50px
+        &_info
+            padding: 0
+            min-height: auto
+            height: 150px
+    
+    
+@media (max-width: 376px)
+    .promo
+        &__icons
+            width: 300px
+            flex-wrap: wrap
+            justify-content: space-between
+        &__icon
+            &:nth-child(3)
+                margin: 0 auto
+                margin-top: 20px
+        .button_main
+            width: 220px
+            height: 40px
+            font-size: 14px
+    .consultation
+        .form
+            width: 260px
+            &__input
+                height: 45px
+                font-size: 14px
+            .button_submit
+                height: 50px
+                font-size: 14px
+    .presentation
+        &__slide-wrap img, &__carousel
+            width: 225px
+        .slick-dots
+            width: 70px
+

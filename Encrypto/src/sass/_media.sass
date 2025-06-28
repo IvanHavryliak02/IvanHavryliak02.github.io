@@ -1,0 +1,140 @@
+
+@media (hover: none)
+    .howto:hover
+        color: $dark-text
+
+@media (max-width: 1300px)
+    .container
+        width: 960px
+        .grid
+            grid-template: 100% / 450px 450px
+            .col
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                input
+                    margin: 0
+            .col_grid
+                padding: 40px 0 0 0
+                grid-template: 350px 120px / 150px 250px
+
+@media (max-width: 1000px)
+    .container
+        width: 768px
+        .grid
+            grid-template: 430px 515px / 70%
+            justify-content: center
+            row-gap: 40px
+            .col_grid
+                grid-template: 120px 280px / 150px 300px
+                padding: 0
+        .information
+            grid-row: 2 / 3
+        .howto_grid
+            top: 0
+            transform: translateY(0%) 
+
+@media (max-width: 860px)
+    .container
+        width: 575px
+        .password
+            font-size: 18px
+            margin-top: 25px
+            height: 60px
+        .header
+            margin: 30px 0 0 0
+        .grid
+            grid-template: auto 350px / 70%
+            row-gap:  40px
+            .col_grid
+                max-height: 660px
+                grid-template: 50px auto 310px / 100%
+                row-gap: 20px
+            .information
+                grid-row: 3 / 4
+                .infoheader
+                    font-size: 24px
+                p
+                    text-align: justify
+                    font-size: 18px
+            .error-panel
+                grid-column: 1 / 2
+            .howto_grid
+                margin: 0 auto
+                width: 100%
+                height: 100%
+    .howto
+        font-size: 20px
+        width: 120px
+        height: 35px
+    body
+        .attention-bg
+            .instructions, .attention
+                height: 330px
+                width: 80vw
+                padding: 20px
+            .instructions
+                height: 80vh
+            .attention
+                overflow: auto
+                padding: 50px
+                p
+                    font-size: 16px
+                h2
+                    font-size: 20px
+                .attention-btn
+                    font-size: 18px
+                    width: 100px
+                    height: 25px
+                    margin-top: 30px
+
+@media (max-width: 680px)
+    body
+        .attention-bg
+            .attention
+                //height: 70vh
+                p
+                    text-align: justify
+    .container
+        width: 375px
+        .error-panel
+            font-size: 12px
+        .header
+            font-size: 24px
+        .password
+            font-size: 14px
+            height: 40px
+        .howto
+            font-size: 14px
+            width: 80px
+        .grid
+            grid-template: auto 230px / 80%
+            .howto_grid
+                width: 50%
+                height: 40px
+            .col_grid
+                grid-template: 50px auto 230px / 100%
+                .information
+                    .infoheader
+                        font-size: 18px
+                    p
+                        font-size: 14px
+
+@media (max-width: 390px)
+    body
+        padding: 0
+        .attention-bg
+            .instructions
+                width: 100vw
+                p
+                    text-align: justify
+                    font-size: 12px
+                h2
+                    text-align: left
+                    margin-bottom: 15px
+                
+    .container
+        width: 100vw
+        .grid
+            .col_grid
+                grid-template: 50px auto 340px / 100%

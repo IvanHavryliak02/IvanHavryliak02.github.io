@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="shortcut icon" href="icons/pulse-icon.svg">
+    <title>Pulse</title>
+</head>
+<body>
+ 
+    <section class="promo" id="top">
+        <div class="container">
+            <header class="header">
+                <a href="#" class="header__logo">
+                    <img src="icons/logo.png" class="header__big-logo" alt="logo">
+                    <img src="icons/small_logo.png" class="header__small-logo" alt="logo">
+                </a>
+                <div class="header__official">
+                    The Official Representative
+                    <span>Garmin, Polar, Suunto </span>
+                </div>
+                <div class="header__contacts">
+                    <a href="tel:+15551234567" class="header__phone">+1 555-123-4567</a>
+                    <button class="button" data-callback="callback-button">Request a call</button>
+                </div>
+            </header>
+            <div class="promo__wrapper">
+                <h1 class="promo__header">
+                    Choosing the right<br>heart rate monitor
+                </h1>
+                <h2 class="promo__subheader">
+                    based on your level of fitness
+                </h2>
+                <div class="promo__icons">
+                    <div class="promo__icon">
+                        <img src="icons/clock.png" alt="clock.png">
+                        Selection time: 10 minutes
+                    </div>
+                    <div class="promo__icon">
+                        <img src="icons/hand-car.png" alt="hand-car">
+                        Free shipping
+                    </div>
+                    <div class="promo__icon">
+                        <img src="icons/messages.png" alt="messages">
+                        We will answer all questions
+                    </div>
+                </div>
+                <button class="button button_main" data-callback="callback-button">
+                    Request a consultation
+                </button>
+                <div class="promo__link">
+                    or 
+                    <a href="#">Go to the catalog</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="advantages">
+        <div class="container">
+            <h3 class="section-header">
+                OUR ADVANTAGES
+            </h3>
+            <div class="advantages__wrap">
+                <div class="advantages__card">
+                    <img src="icons/cup.png" alt="cup">
+                    <div class="advantages__card-header">Sharing Experience</div>
+                    <div class="advantages__card-text">Our employees are always ready to share their experience, as they themselves run half-marathons, have swum across the Bosphorus, and are preparing for triathlon competitions!</div>
+                </div>
+                <div class="advantages__card">
+                    <img id="heart" src="icons/heart.png" alt="heart">
+                    <div class="advantages__card-header">Caring for Health</div>
+                    <div class="advantages__card-text">We work to ensure that your sports activities benefit your health and bring joy to you and your loved ones!</div>
+                </div>
+                <div class="advantages__card">
+                    <img src="icons/shoe.png" alt="shoe">
+                    <div class="advantages__card-header">Teaching Running</div>
+                    <div class="advantages__card-text">We help teach the correct running technique! We collaborate with the largest running school <br>in USA - <a href="#">I LOVE RUNNING.</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="consultation">
+        <div class="container">
+            <h3 class="section-header section-header_white">
+                Get a free consultation on choosing<br> a heart rate monitor
+            </h3>
+            <div class="consultation__subheader">
+                Just fill out the application form <br> and we will call you back within 10 minutes.
+            </div>
+            <form class="form" action="#" id="callback-section-form">
+                <div class="form__input-wrapper">
+                    <label for="first" class="form__label">Your name</label>
+                    <input name="username" required type="text" class="form__input" id="first">
+                </div>
+                <div class="form__input-wrapper">
+                    <label for="second" class="form__label">Your phone number</label>
+                    <input name="phoneNumber" required type="tel" class="form__input" id="second">
+                </div>
+                <div class="form__input-wrapper">
+                    <label for="thirst" class="form__label">Your e-mail</label>
+                    <input name="email" required type="email" class="form__input" id="thirst"></div>
+                <button class="button button_submit"> 
+                    Request a callback
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="presentation">
+        <div class="container">
+            <div class="presentation__carousel">
+                <div class="presentation__slide-wrap">
+                    <img src="images/slides/slide1.png" alt="slide">
+                </div>
+                <div class="presentation__slide-wrap">
+                    <img src="images/slides/slide2.png" alt="slide">
+                </div>
+                <div class="presentation__slide-wrap">
+                    <img src="images/slides/slide3.png" alt="slide">
+                </div>
+            </div>
+            <h3 class="section-header section-header_presentation">
+                Catalogue of Heart Rate Monitors
+            </h3>
+            <div class="presentation__tabs">
+                <div id = "fitness" class="presentation__tab clicked"><span>for Fitness</span></div>
+                <div id = "running" class="presentation__tab"><span>for Running</span></div>
+                <div id = "triathlon" class="presentation__tab"><span>for Triathlon</span></div>
+            </div>
+            <div class="presentation__content">
+                <div class="presentation-card presentation-card_margin-top">
+                    <div class="presentation-card__wrap">
+                        <img src="images/pulse-monitor/For_Fitness/pulse-monitor.png" alt="pulse-monitor" class="presentation-card__image">
+                        <div class="presentation-card__header">
+                            Polar FT1
+                        </div>
+                        <div class="presentation-card__text">
+                            For the first steps in heart rate-based training
+                        </div>
+                    </div>
+                    <ul class="presentation-card__list hidden">
+                        <li>You will hear an audio alert about the target heart rate during your workout.</li>
+                        <li>You will see an informative graphical indicator of the target heart rate training zones.</li>
+                        <li>You will also see information about the calorie expenditure for the workout.</li>
+                        <li>You will be able to view data for 10 workouts.</li>
+                    </ul>
+                    <div class="presentation-card__footer">
+                        <a class="presentation-card__details">
+                            Details
+                        </a>
+                        <hr class="presentation-card__line">
+                        <div class="presentation-card__footer-wrap">
+                            <div class="presentation-card__price">
+                                <div class="presentation-card__old-price">
+                                    $52.78
+                                </div>
+                                <div class="presentation-card__current-price">
+                                    $50.00
+                                </div>
+                            </div>
+                            <button class="button button_mini">buy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="presentation-card presentation-card_margin-top">
+                    <div class="presentation-card__wrap">
+                        <img src="images/pulse-monitor/For_Fitness/pulse-monitor.png" alt="pulse-monitor" class="presentation-card__image">
+                        <div class="presentation-card__header">
+                            Polar FT1
+                        </div>
+                        <div class="presentation-card__text">
+                            For the first steps in heart rate-based training
+                        </div>
+                    </div>
+                    <ul class="presentation-card__list hidden">
+                        <li>You will hear an audio alert about the target heart rate during your workout.</li>
+                        <li>You will see an informative graphical indicator of the target heart rate training zones.</li>
+                        <li>You will also see information about the calorie expenditure for the workout.</li>
+                        <li>You will be able to view data for 10 workouts.</li>
+                    </ul>
+                    <div class="presentation-card__footer">
+                        <a class="presentation-card__details">
+                            Details
+                        </a>
+                        <hr class="presentation-card__line">
+                        <div class="presentation-card__footer-wrap">
+                            <div class="presentation-card__price">
+                                <div class="presentation-card__old-price">
+                                    $52.78
+                                </div>
+                                <div class="presentation-card__current-price">
+                                    $50.00
+                                </div>
+                            </div>
+                            <button class="button button_mini">buy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="presentation-card presentation-card_margin-top">
+                    <div class="presentation-card__wrap">
+                        <img src="images/pulse-monitor/For_Fitness/pulse-monitor.png" alt="pulse-monitor" class="presentation-card__image">
+                        <div class="presentation-card__header">
+                            Polar FT1
+                        </div>
+                        <div class="presentation-card__text">
+                            For the first steps in heart rate-based training
+                        </div>
+                    </div>
+                    <ul class="presentation-card__list hidden">
+                        <li>You will hear an audio alert about the target heart rate during your workout.</li>
+                        <li>You will see an informative graphical indicator of the target heart rate training zones.</li>
+                        <li>You will also see information about the calorie expenditure for the workout.</li>
+                        <li>You will be able to view data for 10 workouts.</li>
+                    </ul>
+                    <div class="presentation-card__footer">
+                        <a class="presentation-card__details">
+                            Details
+                        </a>
+                        <hr class="presentation-card__line">
+                        <div class="presentation-card__footer-wrap">
+                            <div class="presentation-card__price">
+                                <div class="presentation-card__old-price">
+                                    $52.78
+                                </div>
+                                <div class="presentation-card__current-price">
+                                    $50.00
+                                </div>
+                            </div>
+                            <button class="button button_mini">buy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="presentation-card presentation-card_margin-top">
+                        <div class="presentation-card__wrap">
+                            <img src="images/pulse-monitor/For_Fitness/pulse-monitor.png" alt="pulse-monitor" class="presentation-card__image">
+                            <div class="presentation-card__header">
+                                Polar FT1
+                            </div>
+                            <div class="presentation-card__text">
+                                For the first steps in heart rate-based training
+                            </div>
+                        </div>
+                        <ul class="presentation-card__list hidden">
+                            <li>You will hear an audio alert about the target heart rate during your workout.</li>
+                            <li>You will see an informative graphical indicator of the target heart rate training zones.</li>
+                            <li>You will also see information about the calorie expenditure for the workout.</li>
+                            <li>You will be able to view data for 10 workouts.</li>
+                        </ul>
+                        <div class="presentation-card__footer">
+                            <a class="presentation-card__details">
+                                Details
+                            </a>
+                            <hr class="presentation-card__line">
+                            <div class="presentation-card__footer-wrap">
+                                <div class="presentation-card__price">
+                                    <div class="presentation-card__old-price">
+                                        $52.78
+                                    </div>
+                                    <div class="presentation-card__current-price">
+                                        $50.00
+                                    </div>
+                                </div>
+                                <button class="button button_mini">buy</button>
+                            </div>
+                        </div>
+                </div>
+                <div class="presentation-card presentation-card_margin-top">
+                        <div class="presentation-card__wrap">
+                            <img src="images/pulse-monitor/For_Fitness/pulse-monitor.png" alt="pulse-monitor" class="presentation-card__image">
+                            <div class="presentation-card__header">
+                                Polar FT1
+                            </div>
+                            <div class="presentation-card__text">
+                                For the first steps in heart rate-based training
+                            </div>
+                        </div>
+                        <ul class="presentation-card__list hidden">
+                            <li>You will hear an audio alert about the target heart rate during your workout.</li>
+                            <li>You will see an informative graphical indicator of the target heart rate training zones.</li>
+                            <li>You will also see information about the calorie expenditure for the workout.</li>
+                            <li>You will be able to view data for 10 workouts.</li>
+                        </ul>
+                        <div class="presentation-card__footer">
+                            <a class="presentation-card__details">
+                                Details
+                            </a>
+                            <hr class="presentation-card__line">
+                            <div class="presentation-card__footer-wrap">
+                                <div class="presentation-card__price">
+                                    <div class="presentation-card__old-price">
+                                        $52.78
+                                    </div>
+                                    <div class="presentation-card__current-price">
+                                        $50.00
+                                    </div>
+                                </div>
+                                <button class="button button_mini">buy</button>
+                            </div>
+                        </div>
+                </div>
+                <div class="presentation-card presentation-card_margin-top">
+                        <div class="presentation-card__wrap">
+                            <img src="images/pulse-monitor/For_Fitness/pulse-monitor.png" alt="pulse-monitor" class="presentation-card__image">
+                            <div class="presentation-card__header">
+                                Polar FT1
+                            </div>
+                            <div class="presentation-card__text">
+                                For the first steps in heart rate-based training
+                            </div>
+                        </div>
+                        <ul class="presentation-card__list hidden">
+                            <li>You will hear an audio alert about the target heart rate during your workout.</li>
+                            <li>You will see an informative graphical indicator of the target heart rate training zones.</li>
+                            <li>You will also see information about the calorie expenditure for the workout.</li>
+                            <li>You will be able to view data for 10 workouts.</li>
+                        </ul>
+                        <div class="presentation-card__footer">
+                            <a class="presentation-card__details">
+                                Details
+                            </a>
+                            <hr class="presentation-card__line">
+                            <div class="presentation-card__footer-wrap">
+                                <div class="presentation-card__price">
+                                    <div class="presentation-card__old-price">
+                                        $52.78
+                                    </div>
+                                    <div class="presentation-card__current-price">
+                                        $50.00
+                                    </div>
+                                </div>
+                                <button class="button button_mini">buy</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="opinion">
+        <div class="container">
+            <h3 class="section-header">customer reviews</h3>
+            <div class="opinion__card">
+                <div class="opinion__card-avatar">
+                    <img src="images/avatar1.png" alt="avatar">
+                </div>
+                <div class="opinion__card-wrap">
+                    <div class="opinion__card-header">
+                        <div class="opinion__card-name">Emily Johnson</div>
+                        <div class="opinion__card-statistic">2 half marathons</div>
+                    </div>
+                    <div class="opinion__card-text">
+                        I didn’t know what to buy for myself, so I reached out to the team at RunSmart. They helped me choose a heart rate monitor that matched my goals and budget perfectly.<br>
+                        After some time, I decided to upgrade my gadget and, without hesitation, went back to them.<br>
+                        <br>
+                        New goals – new gadget!<br>
+                        <br>
+                        Thank you, RunSmart!
+                    </div>
+                </div>
+            </div>
+            <div class="opinion__card">
+                <div class="opinion__card-avatar">
+                    <img src="images/avatar2.png" alt="avatar">
+                </div>
+                <div class="opinion__card-wrap">
+                    <div class="opinion__card-header">
+                        <div class="opinion__card-name">Michael Smith</div>
+                        <div class="opinion__card-statistic">1 half marathons</div>
+                    </div>
+                    <div class="opinion__card-text">
+                        The heart rate monitor is a fantastic tool. I usually ran without one and didn’t realize I was only making things worse for myself.<br>
+                        I bought the heart rate monitor and even received a complimentary training session. They conducted the first session with me, taught me how to use the new gadget, explained the basics of anatomy, and created a training plan for the month ahead.<br>
+                        <br>
+                        With their help, I prepared for my first half marathon! Thank you!!!
+                    </div>
+                </div>
+            </div>
+            <div class="opinion__card">
+                <div class="opinion__card-avatar">
+                    <img src="images/avatar3.png" alt="avatar">
+                </div>
+                <div class="opinion__card-wrap">
+                    <div class="opinion__card-header">
+                        <div class="opinion__card-name">Sarah Miller</div>
+                        <div class="opinion__card-statistic">2 half marathons</div>
+                    </div>
+                    <div class="opinion__card-text">
+                        I struggled to start running for a long time because I had tried several times before, but it became too difficult and I gave up. I heard about RunSmart from friends and about running with a heart rate monitor, so I decided to give it a try.<br>
+                        <br>
+                        I called them, and they asked about my goals and recommended a very interesting option with a discount! Now I’m running and enjoying it! I’ve completed 2 half marathons and several shorter races, and I’m not planning to stop!<br>
+                        <br>
+                        Thank you!!!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1752.2311961247667!2d-118.0617724328199!3d34.05722363026254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2d08bdd13212d%3A0x496d6d9c7415356f!2sCoast%20Machinery%20Movers!5e0!3m2!1suk!2spl!4v1722425021577!5m2!1suk!2spl" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy=""></iframe>
+        <div class="footer__info">
+            <address class="footer__address">2431 Chico Ave, South El Monte, CA</address>
+            <a class="footer__phone" href="tel:+15551234567">+1 555-123-4567</a>
+            <div class="footer__ref-container">
+                <a href="#" class="footer__radio-ref"><img src="icons/facebook.png" alt="facebook"></a>
+                <a href="#" class="footer__radio-ref"><img src="icons/instagram.png" alt="instagram"></a>
+                <a href="#" class="footer__radio-ref"><img src="icons/pinterest.png" alt="pinterest"></a>
+            </div>
+        </div>
+    </footer>
+    <div class="modal modal_background" id="modal-bg">
+        <div class="modal__wrap" id="modal-callback">
+            <div class="modal__exit">&times;</div>
+            <div class="modal__header">Just fill out the application form</div>
+            <div class="modal__subheader">And we will call you back within 10 minutes</div>
+            <form class="form modal_form" id="callback-form" action="#">
+                <div class="form__input-wrapper">
+                    <label for="first-modal" class="form__label">Your name</label>
+                    <input name="username" required type="text" class="form__input" id="first-modal">
+                </div>
+                <div class="form__input-wrapper">
+                    <label for="second-modal" class="form__label">Your phone number with dialing code</label>
+                    <input name="phoneNumber" required type="tel" class="form__input" id="second-modal">
+                </div>
+                <div class="form__input-wrapper">
+                    <label for="thirst-modal" class="form__label">Your e-mail</label>
+                    <input name="email" required type="email" class="form__input" id="thirst-modal"></div>
+                <button class="button button_submit button_modal"> 
+                    Request a callback
+                </button>
+            </form>
+        </div>
+        <div class="modal__wrap" id="modal-order">
+            <div class="modal__exit">&times;</div>
+            <div class="modal__header">Your order is</div>
+            <div class="modal__subheader"></div>
+            <form class="form modal_form" id="order-form" action="#">
+                <div class="form__input-wrapper">
+                    <label for="first-md" class="form__label">Your name</label>
+                    <input name="username" required type="text" class="form__input" id="first-md">
+                </div>
+                <div class="form__input-wrapper">
+                    <label for="second-md" class="form__label">Your phone number</label>
+                    <input name="phoneNumber" required type="tel" class="form__input" id="second-md">
+                </div>
+                <div class="form__input-wrapper">
+                    <label for="thirst-md" class="form__label">Your e-mail</label>
+                    <input name="email" required type="email" class="form__input" id="thirst-md"></div>
+                <button class="button button_submit button_modal"> 
+                    Request a callback
+                </button>
+            </form>
+        </div>
+        <div class="modal__wrap modal_info" id="modal-info">
+            <div class="modal__info-content">
+                <div class="modal__exit">&times;</div>
+                <div class="modal__header">Thank you for your application!</div>
+                <div class="modal__subheader">Our manager will contact you shortly!</div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#top" class="uparrow">
+        <img src="images/uparrow.svg" alt="arrow" class="uparrow__img">
+    </a>
+
+    <script src="JS/form-script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="JS/jquery.validate.min.js"></script>
+    <script src="JS/slick.js"></script>
+    <script src="JS/slick-sett.js"></script>
+    <script src="JS/tub-script.js"></script>
+    <script src="JS/modals-script.js"></script>
+    <script src="JS/up-arrow.js"></script>
+</body>
+</html>

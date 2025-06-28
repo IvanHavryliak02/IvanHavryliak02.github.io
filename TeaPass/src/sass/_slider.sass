@@ -1,0 +1,42 @@
+.slider
+    width: 321px
+    height: 640px
+    display: flex
+    justify-content: center
+    align-items: center
+    &__work-frame
+        background: url('../images/phone-frame.svg') center center/contain no-repeat
+    &-wrap
+        position: absolute
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+    &__slide
+        position: absolute
+        width: 86.6%
+        height: 94.06%
+        z-index: -2
+        opacity: 0
+        transition: 0.5s all
+    &__dots-container
+        margin-top: 28px
+        display: flex
+    &__dot
+        transition: 0.5s all
+        width: 10px
+        height: 10px
+        background-color: $disabled-dot-bg
+        margin-left: 8px
+        border-radius: 10px
+        &:hover
+            cursor: pointer
+        &:first-child
+            margin-left: 4px
+    
+.active-slide
+    opacity: 1
+.dot-active 
+    width: 55px
+    background: $button-bg
+
+    

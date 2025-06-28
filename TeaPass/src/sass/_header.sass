@@ -1,0 +1,49 @@
+.header
+    height: 80px
+    .container_flex
+        justify-content: space-between
+        align-items: flex-end
+    &__logo
+        width: 130px
+        height: 47px
+        object-fit: cover
+        img
+            width: 100%
+            height: 100%
+    &__menu
+        width: 400px
+        height: 50px
+        font-size: 14px
+        font-weight: 700
+        &-trigger
+            display: none
+        &-selector
+            padding: 16px 17px
+            display: inline-block
+            &:last-child
+                padding: 0
+    &__list
+        padding: 0
+        margin: 0
+        width: 100%
+        height: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
+        list-style-type: none
+        a
+            text-decoration: none
+            position: relative
+            &::after
+                transition: 0.25s all
+                display: block
+                content: ''
+                width: 0
+                height: 2px
+                background-color: $dark-font-color
+                position: absolute
+                left: 50%
+                transform: translateX(-50%)
+            &:hover
+                &::after
+                    width: 100%   

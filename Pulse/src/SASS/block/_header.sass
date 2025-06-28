@@ -1,0 +1,73 @@
+
+.header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    &__logo
+        max-width: 250px
+        height: auto
+    &__small-logo
+        display: none
+        max-width: 60px
+        max-height: 45px
+    &__big-logo
+        width: 100%
+    &__official
+        color: #fff
+        font-weight: 500
+        font-size: 12px
+        text-align: center
+        span
+            display: block
+            font-size: 18px
+    &__phone
+        display: block
+        color: #fff
+        font-weight: 700
+        font-size: 18px
+        text-decoration: none
+        &::hover
+            color: #fff
+    &__contacts
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+
+// adaptive part of header
+@media (max-width: 992px)
+    .header
+        padding: 0 10px
+        &__official
+            font-size: 10px
+            span
+                font-size: 16px
+@media (max-width: 768px)
+    .header
+        &__official
+            display: none
+@media (max-width: 576px)
+    .header
+        &__logo
+            width: 170px
+        &__contacts
+            a
+                font-size: 15px
+        .button
+            width: 117px
+            height: 25px
+@media (max-width: 376px)
+    .header
+        &__small-logo
+            display: block
+        &__big-logo
+            display: none
+@media (max-width: 320px)
+    .header
+        &__contacts
+            a
+                font-size: 14px
+        .button
+            width: 108px
+            font-size: 10px
+
+

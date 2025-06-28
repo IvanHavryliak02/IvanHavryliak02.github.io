@@ -1,0 +1,173 @@
+@media (max-width: 1200px)
+    .container
+        max-width: 960px
+        &_grid-work
+            gap: 0 50px
+        &_grid-gift
+            grid-template: 100% / 400px 350px
+        &_grid-offers 
+            grid-template: 100% / 400px 512px
+    .offers
+        &__card-item
+            width: 395px
+    .work
+        &_gift-text-group
+            margin-left: 50px
+    .footer
+        padding: 55px 140px 100px 165px
+
+@media (max-width: 992px)
+    .container
+        max-width: 720px
+        &_grid-benefits
+            gap: 0 45px
+        &_grid-work
+            grid-template: 100% / 350px 284px
+        &_grid-offers
+            grid-template: 650px 530px / 500px
+            justify-content: center
+    .main-section
+        &__img
+            left: 30.439%
+    .rounded-bg
+        min-height: 480px
+    .benefits
+        &__img-container
+            width: 90px
+            height: 90px
+        &__header
+            font-size: 23px
+        &__article
+            font-size: 14px
+            text-align: justify
+        &__card
+            justify-items: center
+    .back-element, .front-element
+        display: none
+    .slider
+        width: 301px
+        height: 600px
+        &__dot
+            margin-left: 25px
+            width: 13px
+            height: 13px
+    .dot-active
+        width: 70px            
+    .work
+        &__txt-grp-header
+            font-size: 35px
+        &__txt-grp-article
+            font-size: 14px
+    .offers
+        &__card-item
+            width: 100%
+            &:first-child
+                margin-left: -40px
+    .contacts
+        &__header
+            font-size: 40px
+    .footer
+        padding: 55px 33px 75px 33px
+        &__blue-leaf, &__orange-leaf
+            display: none
+
+@media (max-width: 768px)
+    .container
+        max-width: 540px
+        &_grid-work
+            grid-template: auto 650px / 100%
+        &_grid-gift
+            gap: 0
+        &_grid-contacts
+            grid-template-columns: auto auto
+            justify-items: center
+            row-gap: 50px
+        &_footer-flex
+            flex-direction: column
+        &_grid-footer
+            width: 100%
+            margin-top: 50px
+    .header
+        &__menu
+            width: auto
+        &__menu-selector
+            &:nth-child(1), &:nth-child(2)
+                display: none
+
+    .main-section
+        &__header
+            font-size: 44px
+            line-height: 55px
+    .slider
+        &-wrap
+            right: 50%
+            transform: translate(50%, -50%)
+        &__dots-container
+            justify-content: center
+    .work
+        &__images-group
+            grid-row: 2 / 3
+        &__text-group
+            margin-top: 30px
+            grid-row: 1 / 2
+            padding: 0 60px
+        &_gift-text-group
+            margin-left: 0
+        &_gift-slider-wrap
+            transform: translate(50%, -50%)
+        &_gift-images-group
+            grid-column: 1 / 2
+    
+    .offers
+        &__card-item
+            &:first-child, &:nth-child(2)
+                margin-left: 0
+    .contacts
+        &__house, &__header, &__form
+            grid-column: 1/3
+        &__input
+            width: 100%
+        &__form
+            flex-direction: column
+            align-items: center
+    .button
+        &_contacts
+            margin: 0
+            margin-top: 25px
+            width: 100%
+    
+@media (max-width: 576px)
+    .container
+        max-width: 100%
+        &_grid-benefits
+            grid-template: repeat(3, auto) / auto
+            row-gap: 40px
+            padding: 0 30px
+        &_grid-offers
+            grid-template: 670px / 296px
+        &_grid-contacts
+            grid-template: repeat(5, auto) / 100%
+            padding: 10px
+        &__img
+            display: none
+        &_grid-footer
+            gap: 20px
+    .main-section
+        padding: 0 10px
+    .offers
+        &__img
+            display: none
+        &__card-item
+            padding: 8px
+        &__outer-wrap
+            top: 30px
+    .work
+        &__text-group
+            padding: 0 25px
+    .contacts
+        &__house, &__header, &__form
+            grid-column: 1/2
+    .footer
+        padding-bottom: 33px
+        &__link
+            margin-bottom: 20px

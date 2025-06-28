@@ -1,0 +1,171 @@
+
+@media(max-width: 1500px)
+    .promo
+        .container
+            width:  870px
+
+@media(max-width: 1200px)
+    .container
+        width: 960px
+    .promo
+        height: 600px
+        &__burger
+            display: flex
+    .menu
+        left: -345px
+        &__arrow
+            display: none
+        &__cross
+            display: flex
+    .links
+        display: none
+    .about-me
+        &_grid
+            grid-template: 240px 320px / 370px 540px
+            gap: 40px 50px
+        &_subgrid
+            grid-template: 134px 134px / 240px 250px
+            gap: 50px
+    .usage
+        &_grid-technologies
+            grid-template: 310px / repeat(3, 270px)
+            justify-content: space-around
+            grid-auto-columns: 270px
+            grid-auto-rows: 310px
+        &_grid-skills
+            grid-template: 70px / repeat(2, 350px)
+            justify-content: space-around
+            grid-auto-columns: 350px
+            grid-auto-rows: 70px
+    .contacts
+        &_grid-main
+            grid-template: 600px / 400px 490px
+
+
+@media(max-width: 992px)
+    .promo
+        .container
+            padding-left: 20px
+    .container
+        width: 720px
+    .about-me
+        &_grid
+            grid-template: 310px 380px / 330px 360px
+            gap: 40px 30px
+        &_subgrid
+            grid-template: 80px / 100%
+            gap: 20px
+            grid-auto-rows: 80px
+            grid-auto-columns: 100%
+    .experience
+        &_grid
+            gap: 0 35px
+    .usage
+        &_grid-technologies
+            grid-template: 310px / repeat(2, 270px)
+            justify-content: center
+        &_grid-skills
+            grid-template: 70px / 350px
+            justify-content: space-around
+    .works
+        &_grid-works
+            grid-template: 450px / repeat(2, 280px)
+    .contacts
+        &_grid-main
+            grid-template: 600px / 280px 420px
+            gap: 20px
+            grid-auto-rows: 50px
+            grid-auto-columns: 1fr
+        &__comment
+            font-size: 16px
+    .title-subheader
+        font-size: 14px
+    .title-main-header
+        font-size: 40px
+        &_section
+            font-size: 30px
+    
+@media(max-width: 768px)
+    .container
+        width: 540px
+    .about-me
+        &__photo
+            grid-row: 1 / 2
+        &_grid
+            justify-content: center
+            grid-template: 300px auto auto / 340px
+            gap: 30px 0 
+    .experience
+        &_grid
+            margin-top: 50px
+            grid-template: auto auto / 340px
+            gap: 50px 0
+            justify-content: center
+    .usage
+        &_grid-technologies
+            grid-template: 310px / repeat(2, 230px)
+    .works
+        &_grid-works
+            grid-template: 450px / 280px
+    .contacts
+        &_grid-main
+            grid-template: 340px auto / 350px
+            justify-content: center
+
+
+
+@media(max-width: 576px)
+    .container
+        width: 100%
+    .menu
+        width: 250px
+        padding: 120px 0 50px 20px
+        a
+            font-weight: 500
+            font-size: 22px
+    .promo
+        min-height: 640px
+        background-position-x: 56% 
+    .title-subheader
+        font-size: 14px
+        font-weight: 700
+    .title-main-header
+        font-size: 26px
+        line-height: 39px
+    .about-me
+        &_grid
+            grid-template: 340px auto auto / 300px
+            gap: 30px 0
+        &_subgrid
+            grid-template: 100px / 100%
+            grid-auto-rows: 100px
+            grid-auto-columns: 100%
+    .experience
+        &_grid
+            grid-template-columns: 300px
+            margin-top: 30px
+    .usage
+        &_grid-technologies
+            grid-template: 310px / 270px
+            margin-top: 20px
+        &_grid-skills
+            grid-template-columns: 300px
+            margin-top: 60px
+        &__skill-lvl
+            font-weight: 500
+    .works
+        &_grid-works
+            margin-top: 20px
+        &__item
+            &:hover
+                transform: scale(1)
+                .works__card-bg
+                    filter: blur(0)
+    .contacts
+        padding: 0
+        min-height: 0
+        &__photo
+            display: none
+        &_grid-main
+            grid-template: 340px / 300px
+    

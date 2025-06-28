@@ -1,0 +1,60 @@
+@use '../base/index' as *
+
+.experience
+    min-height: 560px
+    padding: 60px 0
+    &_grid
+        grid-template: 1fr / 1fr 1fr 
+        gap: 0 135px
+        margin-top: 100px
+    ul
+        padding-left: 45px
+        list-style-type: none
+        border-left: 2px solid $dark-text-color
+    &__ul-title
+        font-size: 20px
+        font-weight: 700
+        position: relative
+        top: -18px
+        &::before
+            content: ''
+            display: block
+            width: 16px
+            height: 16px
+            background-color: $main-color
+            border-radius: 50%
+            position: absolute
+            left: -54px
+            top: 7px
+    &_title
+        top: 5px
+        left: -54px
+    &__head
+        line-height: 15px
+        position: relative
+        padding-left: 56px
+        &::before
+            content: ''
+            display: block
+            width: 47px
+            height: 2px
+            background-color: $dark-text-color
+            position: absolute
+            top: 18px
+            left: -46px
+    &__name-of-university
+        font-weight: 700
+        font-size: 15px
+        line-height: 22px
+    &__study-status
+        font-weight: 500
+        font-size: 13px
+        line-height: 1px
+    &__body
+        padding-top: 15px
+        font-size: 13px
+        line-height: 20px
+    &__item
+        margin-top: 50px
+    &_empty-item
+        line-height: 35px

@@ -1,0 +1,39 @@
+@use '../base/index' as *
+
+.title
+    &-subheader
+        text-align: center
+        position: relative
+        font-size: 16px
+        line-height: 30px
+        z-index: 2
+        @include precircl
+        &_section
+            font-weight: 700
+            margin-bottom: 0
+        &::before
+           left: 50%
+           transform: translateX(-50%) 
+        .icon
+            &::before
+                position: absolute
+                top: 14px
+                left: 3px
+    &-main-header
+        text-align: center
+        font-size: 48px
+        font-weight: 700
+        line-height: 60px
+        &_section
+            font-size: 36px
+.about-me__card
+    .title-subheader
+        position: absolute
+        left: -50px
+div.left-align
+    margin-left: 10px
+    text-align: left
+    &:before
+        left: 5px
+h1.left-align, h2.left-align
+    text-align: left

@@ -1,0 +1,93 @@
+@use '../base/index' as *
+.menu
+    transition: 1s all
+    padding: 150px 0 50px 40px
+    z-index: 5
+    position: absolute
+    top: 0
+    right: -345px
+    width: 345px
+    height: 100%
+    background: $main-color
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: flex-start
+    &__cross
+        position: absolute
+        top: 15px
+        right: 15px
+        display: none
+        width: 40px
+        height: 25px
+        align-items: center
+        justify-content: center
+        .black-line
+            position: absolute
+            width: 25px
+            height: 2px
+            background-color: $light-text-color
+            &:nth-child(1)
+                transform: rotate(-45deg)
+            &:nth-child(2)
+                transform: rotate(45deg)
+    &__arrow
+        color: $light-text-color
+        transition: 1.2s all
+        position: absolute
+        top: 10px
+        left: -50px
+        width: 100px
+        height: 40px
+        border-radius: 2px
+        border-radius: 5px 0 0 5px
+        img
+            position: relative
+            transition: 0.5s all 1s
+            display: block
+            width: 40px
+            height: 40px
+    &__list
+        list-style-type: none
+        li
+            transition: 0.3s all
+            margin-top: 15px
+            position: relative
+            line-height: 36px
+            font-size: 24px
+            font-weight: 700
+            color: $light-text-color
+            a
+                text-transform: uppercase
+            &::before
+                content: ''
+                display: block
+                position: absolute
+                left: -35px
+                top: 10px
+                width: 15px
+                height: 15px
+                border: 1px solid black
+                border-radius: 50%
+            &:hover
+                color: $hovered-menu-color
+                &::before
+                    background-color: $hovered-menu-color
+                    border-color: $hovered-menu-color
+    &:hover
+        right: 0
+        .menu__arrow
+            background-color: $main-color
+            left: -70px
+            img
+                transform: rotate(180deg)
+    &_social-media
+        opacity: 1
+        z-index: 5
+        height: 20px
+        width: 90px
+        flex-direction: row
+        margin: 0 auto
+
+            
+            

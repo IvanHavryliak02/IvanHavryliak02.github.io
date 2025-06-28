@@ -1,0 +1,79 @@
+@use '../base/index' as *
+
+.contacts
+    min-height: 720px
+    padding: 60px 0
+    &__photo
+        width: 100%
+        height: 100%
+        object-fit: cover
+        display: block
+    &_grid-main
+        grid-template: 600px / 400px 585px
+        gap: 0 70px
+        grid-auto-rows: minmax(40px, 150px)
+    &_grid-form
+        margin-top: 30px
+        grid-template: 45px 190px 45px / repeat(2,280px)
+        gap: 30px 25px
+    &_social-media
+        opacity: 1
+        flex-direction: row
+        width: 220px
+        position: static
+        height: 30px
+        margin-top: 20px 
+        .social-media__icon
+            .icon
+                font-size: 30px
+            &:hover
+                color: $main-color
+    &__comment
+        font-weight: 700
+        font-size: 18px
+        color: $dark-text-color 
+        margin-top: 20px
+        span
+            font-weight: 800
+    &__input-wrapper
+        position: relative
+        label
+            background-color: #fff
+            position: absolute
+            left: 7px
+            top: 16px
+            font-weight: 500
+            font-size: 13px
+            line-height: 13px
+            transition: 0.5s all
+            cursor: text
+            padding: 0 5px 0 5px
+        &:nth-child(3)
+            grid-column: 1 / 3
+            grid-row: 2 / 3
+            label
+                top: 12px
+    &__infocomment
+        grid-column: 1 / 3
+        color: #f00
+    &__mail
+        border: none
+        background-color: #fff
+        text-transform: uppercase
+        color: $main-color
+        line-height: 40px
+        padding: 0
+        &::after
+            transition: 0.3s all
+            content: ''
+            display: block
+            margin: 0 auto 
+            width: 0
+            height: 2px
+            background-color: $main-color
+        &:hover
+            &::after
+                width: 100%
+            
+
+

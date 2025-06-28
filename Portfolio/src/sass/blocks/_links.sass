@@ -1,0 +1,52 @@
+@use '../base/index' as *
+
+.social-media
+    transition: 0.5s all
+    opacity: 0
+    display: flex
+    flex-direction: column
+    height: 0
+    justify-content: space-between
+    &__icon
+        transition: 0.3s color
+        &:hover
+            color: $light-text-color
+    
+.links
+    position: absolute
+    left: 30px
+    height: 225px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    &__divider
+        transition: 0.5s all
+        opacity: 0
+        height: 0px
+        width: 2px
+        background-color: $light-text-color
+    &__text
+        transform: rotate(-90deg)
+        transition: 0.5s
+        font-weight: 500
+        font-size: 16px
+        line-height: 20px
+    .social-media__icon
+        &:hover
+            color: $hovered-ico-color
+    &:hover
+        cursor: pointer
+        .social-media
+            opacity: 1
+            height: 90px
+        .links__divider
+            margin-top: 15px
+            opacity: 1
+            height: 70px
+        .links__text
+            transform: rotate(0)
+            margin-top: 15px
+
+
+        

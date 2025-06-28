@@ -1,0 +1,33 @@
+.contacts
+    margin-top: 150px
+    display: flex
+    justify-content: center
+    align-items: center
+    &__house, &__header, &__form
+        grid-column: 1 / 4
+        margin: 0 auto
+    &__house
+        max-height: 82px
+    &__header
+        font-size: 50px
+        line-height: 60px
+        text-align: center
+        font-weight: 900
+    &__form
+        display: flex
+        justify-content: space-between
+        width: 100%
+    &__input
+        width: 395px
+        height: 55px
+        border-radius: 6px
+        border: 1px solid $input-border-color
+        background: $input-border-color
+        text-align: center
+        font-size: 18px
+        font-weight: 700
+        color: $input-text-color
+        &:focus
+            color: black
+
+        

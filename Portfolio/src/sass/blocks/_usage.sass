@@ -1,0 +1,47 @@
+@use '../base/index' as *
+
+.usage
+    min-height: 760px
+    padding: 60px 0
+    &_grid-technologies
+        margin-top: 60px
+        grid-template: 310px/ repeat(4, 270px)
+        grid-auto-columns: 270px
+        grid-auto-rows: 310px
+        gap: 15px
+    &__card
+        border: 1px solid $dark-text-color
+        padding: 30px
+    &__technology-name
+        font-weight: 700
+        font-size: 14px
+        margin-top: 20px
+    &__technology-description
+        font-size: 12px
+        color: $dark-text-color
+        line-height: 18px
+        margin-top: 15px
+    &_grid-skills
+        margin-top: 120px
+        grid-template: repeat(1, 70px) / repeat(3, 350px)
+        gap: 30px 45px
+        grid-auto-columns: 350px
+        grid-auto-rows: 70px
+    &__skill-item
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+    &__skill-info
+        display: flex
+        justify-content: space-between
+        font-weight: 700    
+        font-size: 14px
+    &__skill-bar
+        background-color: $bg-color-toolbar
+        height: 15px
+        border-radius: 4px
+    &__skill-bar-fill
+        background-color: $main-color
+        height: 100%
+        border-radius: 4px
+

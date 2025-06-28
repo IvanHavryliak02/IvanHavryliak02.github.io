@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>Encrypt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="icon" href="icons/header-icon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="icons/header-icon/apple-touch-icon.png">
+    <link rel="icon" sizes="32x32" href="icons/header-icon/favicon-32x32.png">
+    <link rel="icon" sizes="16x16" href="icons/header-icon/favicon-16x16.png">
+    <link rel="icon" sizes="512x512" href="icons/header-icon/android-chrome-512x512.png">
+    <link rel="icon" sizes="192x192" href="icons/header-icon/android-chrome-192x192.png">
+</head>
+<body>
+    <div class="attention-bg">
+        <div class="attention">
+            <h2 class="infoheader">
+                ATTENTION!
+            </h2>
+            <p>
+                This page is created <span class="important">solely to demonstrate my basic skills</span> in writing JS code. <span class="important">UNDER NO CIRCUMSTANCES</span> should you use it for encrypting or decrypting your passwords or any other data. <span class="important">THE RESULTS OF SUCH ENCRYPTION ARE UNRELIABLE FROM A MODERN CRYPTOGRAPHY PERSPECTIVE.</span> If you use this site to handle passwords protecting important information, <span class="important">the author takes no responsibility for the security of data protected by these passwords.</span>
+            </p>
+            <button class="attention-btn">Got it!</button>
+        </div>
+    </div>
+    <div class="container">
+        
+        <h1 class="header">Online Encryptor</h1>
+        <button class="howto">How To</button>
+        <input type="text" id="data" placeholder="Your password" class="password" maxlength="40">
+        <input type="text" id="encrypt-data"placeholder="Your encryption" class="password" maxlength="40">
+        <div class="grid">
+            <div class="col_grid">
+                <div class="information">
+                    <h2 class="infoheader">
+                        ATTENTION!
+                    </h2>
+                    <p>
+                        This page is created <span class="important">solely to demonstrate my basic skills</span> in writing JS code. <span class="important">UNDER NO CIRCUMSTANCES</span> should you use it for encrypting or decrypting your passwords or any other data. <span class="important">THE RESULTS OF SUCH ENCRYPTION ARE UNRELIABLE FROM A MODERN CRYPTOGRAPHY PERSPECTIVE.</span> If you use this site to handle passwords protecting important information, <span class="important">the author takes no responsibility for the security of data protected by these passwords.</span></p>
+                </div>
+                <button class="howto howto_grid" id="start">Start</button>
+                <div class="error-panel"></div>
+            </div>
+            <div class="col">
+                <input type="text" id="uppercase" placeholder="UPPERCASE LETTERS" class="password" maxlength="32">
+                <input type="text" id="lowercase" placeholder="lowercase letters" class="password" maxlength="32">
+                <input type="text" id="characters" placeholder="characters (#$%@!)" class="password" maxlength="32">
+                <input type="text" id="numbers" placeholder="Numbers" class="password" maxlength="10">
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/visual.js"></script>
+</body>
+</html>
