@@ -1,4 +1,4 @@
-@use 'base/index' as *
+
 //base elements: 
 @use 'blocks/_langmenu'
 @use 'blocks/_grid-wrap'
@@ -14,26 +14,6 @@
 @use 'blocks/_usage'
 @use 'blocks/_works'
 @use 'blocks/_contacts'
+@use 'blocks/_general'
 
-.container
-    width: 1140px
-    margin: 0 auto
-
-body
-    background-color: $light-bg-color
-a
-    text-decoration: none
-
-*
-    font-family: "Poppins", sans-serif
-
-.tooltip
-    font-size: 12px
-    border-radius: 5px
-    background-color: $light-text-color
-    border: 1px solid $hovered-border-color
-    color: $dark-text-color
-    display: none
-    position: absolute
-    padding: 5px
-    z-index: 1000
+@use 'base/_media'
