@@ -5,16 +5,10 @@ export default function(sectionSelector){
     const cards = document.querySelectorAll(`${sectionSelector}__item`);
     const cardsContainer = document.querySelector(`${sectionSelector}_grid-works`);
 
-    setDefultAtt();
+    setDefaultAtt();
+    delegateClick(cardsContainer, `${sectionSelector}__item`, operateCard);
 
-    delegateClick(cardsContainer, (e) => {
-        const clickedItem = e.target.closest(`${sectionSelector}__item`);
-        if(clickedItem){
-            operateCard(clickedItem);
-        }
-    })
-
-    function setDefultAtt(){
+    function setDefaultAtt(){
         cards.forEach(item => { 
             item.setAttribute('data-counter', '0');
         })

@@ -1,8 +1,11 @@
 
-export default function(parent, callback){
+export default function(parent, targetSelector, callback){
     parent.addEventListener('click', (e) => {
         e.preventDefault();
-        callback(e);
+        const clickedItem = e.target.closest(targetSelector);
+        if(clickedItem){
+            callback(clickedItem);
+        }
     })
 }
 
