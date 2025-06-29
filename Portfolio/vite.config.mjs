@@ -5,6 +5,7 @@ import legacy from '@vitejs/plugin-legacy';
 
 export default defineConfig({
   root: './src',
+  base: './', // перенести в сорс
   build: {
     outDir: '../dist',
     emptyOutDir: true,
