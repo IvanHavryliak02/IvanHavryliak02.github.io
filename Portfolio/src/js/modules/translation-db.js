@@ -1,4 +1,5 @@
-const translation = {
+
+export default {
     "li-about": {
         "EN": `ABOUT ME`,
         "PL": `O MNIE`
@@ -200,56 +201,3 @@ const translation = {
         "PL": `Lub po prostu skopiuj mój adres e-mail, klikając na niego:`
     },
 };
-
-
-const langmenu = document.querySelector('.langmenu');
-const selectors = document.querySelectorAll('.langmenu__select');
-const firstSection = document.querySelector('.promo');
-const burger = document.querySelector('.langmenu__burger');
-
-function changeLanguage(hash){
-    for(let key in translation){
-        const elements = document.querySelectorAll('.lng-' + key);
-        if(elements.length){
-            elements.forEach(element => {
-                element.innerHTML = translation[key][hash]
-            })
-        }
-    }
-}
-
-function defaultLanguage(){
-    location.href = window.location.pathname + '#EN';
-    let defaultHash = window.location.hash.substring(1);
-    return defaultHash;
-}
-
-let timeOut;
-
-window.addEventListener('scroll', () => {
-    clearTimeout(timeOut);
-    timeOut = setTimeout(() => {
-        if(window.scrollY > firstSection.scrollHeight){
-            langmenu.classList.add('invert-colors');
-        }else{
-            langmenu.classList.remove('invert-colors');
-        }
-    }, 100)
-})
-
-selectors.forEach(selector => {                         //setts default lng, and changes lng in panel
-    if(selector.innerHTML == defaultLanguage()){
-        selector.classList.add('active-sel');
-    }
-    selector.addEventListener('click', function() {
-        location.href = window.location.pathname + '#' + this.innerHTML;
-        let newHash = window.location.hash.substring(1);
-        selectors.forEach((selector) => {
-            selector.classList.remove('active-sel');
-        })
-        if(newHash == this.innerHTML){
-            this.classList.add('active-sel');
-            changeLanguage(newHash);
-        }
-    })
-})
