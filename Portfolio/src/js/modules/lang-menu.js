@@ -5,10 +5,10 @@ import clickDelegate from './click-delegation.js'
 export default function(elementSelector){
     //execution code
     const settings = {
-        defaultLan: 'en'.toUpperCase()
+        defaultLan: 'en'.toUpperCase(),
+        activeClass: 'active-sel'
     }
     const menu = document.querySelector(elementSelector);
-    const activeClass = `${elementSelector}__active-sel`.slice(1);
     let activeButton;
 
     defaultSetting();
@@ -20,13 +20,13 @@ export default function(elementSelector){
             window.location.hash = `#${settings.defaultLan}`
         }
         activeButton = menu.querySelector(`#${settings.defaultLan}`.toLowerCase())
-        activeButton.classList.add(activeClass);
+        activeButton.classList.add(settings.activeClass);
     }
 
     function changeLanguage(clickedItem){
-        activeButton.classList.remove(activeClass);
-        if(!clickedItem.classList.contains(activeClass)){
-            clickedItem.classList.add(activeClass);
+        activeButton.classList.remove(settings.activeClass);
+        if(!clickedItem.classList.contains(settings.activeClass)){
+            clickedItem.classList.add(settings.activeClass);
             const itemContent = clickedItem.innerHTML;
             window.location.hash = `#${itemContent}`;
             activeButton = clickedItem;
