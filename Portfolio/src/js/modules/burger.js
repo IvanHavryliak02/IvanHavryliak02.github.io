@@ -5,15 +5,14 @@ export default function(sectionSelector, menuSelector){
     const menu = document.querySelector(menuSelector)
     const menuCloser = document.querySelector(`${menuSelector}__cross`);
     const initPosition = parseInt(getComputedStyle(menu).left);
-    const menuWidth = parseInt(getComputedStyle(menu).width);
     
     menuTrigger.addEventListener('click', () => {
-        menu.style.left = `${initPosition + menuWidth}px`;
+        menu.style.left = `${initPosition - initPosition}px`;
         menuTrigger.style.display = 'none'; 
     })
 
     menuCloser.addEventListener('click', () => {
-        menu.style.left = `-${menu.offsetWidth}px`;
+        menu.style.left = `${initPosition}px`;
         menuTrigger.style.display = '';  
     })
 }
