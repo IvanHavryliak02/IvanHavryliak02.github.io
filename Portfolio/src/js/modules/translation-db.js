@@ -172,18 +172,6 @@ export default {
         "EN": `<span class="icon-interactive"></span><span class="jquery-tech">Mailer</span> for sending information to manager`,
         "PL": `<span class="icon-interactive"></span><span class="jquery-tech">Mailer</span> do wysyłania informacji do menedżera`
     },
-    "encrypt-layout": {
-        "EN": `<span class="icon-wrench "></span>For layout: Grid`,
-        "PL": `<span class="icon-wrench "></span>Do układu: Grid`
-    },
-    "encrypt-lib": {
-        "EN": `<span class="icon-wrench"></span>Libraries: none`,
-        "PL": `<span class="icon-wrench"></span>Biblioteki: brak`
-    },
-    "encrypt-li1": {
-        "EN": `<span class="icon-interactive"></span>All the interactivity and the script itself are my personal development. No third-party technologies or ideas were used.`,
-        "PL": `<span class="icon-interactive"></span>Cała interaktywność i sam skrypt są moim osobistym rozwojem. Nie użyto technologii ani pomysłów osób trzecich.`
-    },
     "contacts-header": {
         "EN": `Contacts`,
         "PL": `Kontakty`
@@ -200,4 +188,8 @@ export default {
         "EN": `Or just copy my email address by clicking on it:`,
         "PL": `Lub po prostu skopiuj mój adres e-mail, klikając na niego:`
     },
+    'selector-activator': {
+        "EN": `More...`,
+        "PL": `Więcej`
+    }
 };

@@ -1,4 +1,17 @@
 
+@media (pointer: coarse)
+    .works-selector__element
+        &:hover
+            transform: none
+            box-shadow: none
+    .works
+        &__item
+            &:hover
+                box-shadow: none
+                transform: none
+                .works__card-bg
+                    filter: none
+    
 @media(max-width: 1500px)
     .promo
         .container
@@ -86,6 +99,16 @@
             font-size: 30px
     
 @media(max-width: 768px)
+    .langmenu
+        height: 50px
+        .wrapper
+            width: 75px
+        &__select
+            width: 32px
+            height: 32px
+            font-size: 14px
+    .langmenu.invert-colors
+        padding: 10px 0 0px 15px
     .container
         width: 540px
     .about-me
@@ -149,7 +172,7 @@
             grid-template: 310px / 270px
             margin-top: 20px
         &_grid-skills
-            grid-template-columns: 300px
+            grid-template-columns: 250px
             margin-top: 60px
         &__skill-lvl
             font-weight: 500
@@ -168,4 +191,8 @@
             display: none
         &_grid-main
             grid-template: 340px / 300px
+
+    .works-selector
+        width: 85%
+        height: 85%
     
