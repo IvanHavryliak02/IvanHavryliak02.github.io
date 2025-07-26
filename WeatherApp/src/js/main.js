@@ -1,6 +1,14 @@
 import '../sass/general.sass';
-import currentDay from './components/date.js';
+
+import AppBody from './components/app-body.js';
+import LeftPanel from './components/left-panel.js';
+import RightPanel from './components/right-panel.js';
+import CurrentDay from './components/date.js';
+
 
 window.addEventListener('load', () => {
-    new currentDay(document.querySelector('.app-body__left')).render();
+    new AppBody(document.querySelector('.container')).render();
+    new LeftPanel(document.querySelector('.app-body')).render();
+    new RightPanel(document.querySelector('.app-body')).render();
+    new CurrentDay(document.querySelector('.left-panel')).render();
 })

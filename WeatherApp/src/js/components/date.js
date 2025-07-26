@@ -1,12 +1,17 @@
 
-export default class Day{
+import Component from '../modules/component.js'
+
+export default class Day extends Component{
     constructor(parent){
-        this.parent = parent;
-        this.styles = this.getStyles();
+        super(parent, 'span', 'today');
+        this.element = this.createElement(`
+            <span class="today__day"></span>
+            <span class="today__time"></span>
+        `);
         this.date = this.readCurrDate();
-        this.element = this.createElement();
         this.fillData();
-        this.applyStyle();
+        this.styles = this.getStyles();
+        this.applyStyles();
     }
 
     readCurrDate(){
@@ -14,40 +19,24 @@ export default class Day{
               days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
               day = days[now.getDay()];
         return {
-            time: now.getHours(),
+            hour: now.getHours(),
             day: day
         }
     }
 
     getStyles(){
-        const parentHeight = this.parent.offsetHeight,
-              fontSize = Math.round(parentHeight * 0.0417);
-        return {fontSize: fontSize};
-    }
-
-    createElement(){
-        const element = document.createElement('div')
-        element.classList.add('today')
-        element.innerHTML = `
-            <span class="today__day"></span>
-            <span class="today__time"></span>
-        `
-        return element;
+        const fontSize = Math.round(this.parent.offsetHeight * 0.042);
+        const lineHeight = Math.round(fontSize + 8);
+        const marginBottom = Math.round(this.parent.offsetHeight * 0.027)
+        return {
+            fontSize: fontSize,
+            lineHeight: lineHeight,
+            marginBottom: marginBottom
+        };
     }
 
     fillData(){
-        this.element.querySelector('.today__day').textContent = this.date.day + ',';
-        this.element.querySelector('.today__time').textContent = this.date.time + ':00';
-    }
-
-    applyStyle(){
-        for(let styleProp in this.styles){
-            const value = this.styles[styleProp];
-            this.element.style[styleProp] = value + 'px'
-        }
-    }
-
-    render(){
-        this.parent.appendChild(this.element);
+        this.element.querySelector('.today__day').textContent = `${this.date.day},`;
+        this.element.querySelector('.today__time').textContent = `${this.date.hour}:00`;
     }
 }
