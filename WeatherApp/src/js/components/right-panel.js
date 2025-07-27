@@ -11,11 +11,12 @@ export default class RightPanel extends Component{
 
     getStyles(){
         const width = Math.round(this.parent.offsetWidth * (1 - 0.264));
-        const height = Math.round(this.parent.offsetheight * 1);
+        const height = Math.round(this.parent.offsetHeight * 1);
         return {
-            width: width,
-            height: height,
-            padding: '46px 50px'
+            width: `${width}px`,
+            height: `${height}px`,
+            padding: '46px 50px',
+            background: 'transparent'
         }
     }
 }

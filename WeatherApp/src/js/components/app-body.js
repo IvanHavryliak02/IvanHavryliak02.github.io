@@ -15,10 +15,10 @@ export default class AppBody extends Component{
         const height = Math.round(this.parent.offsetHeight * 0.88);
         return {
             display: 'flex',
-            width: width,
-            height: height,
+            width: `${width}px`,
+            height: `${height}px`,
             background: '#efefef',
-            borderRadius: 70
+            borderRadius: `70px`
         }
     }
 }

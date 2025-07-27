@@ -29,9 +29,9 @@ export default class Day extends Component{
         const lineHeight = Math.round(fontSize + 8);
         const marginBottom = Math.round(this.parent.offsetHeight * 0.027)
         return {
-            fontSize: fontSize,
-            lineHeight: lineHeight,
-            marginBottom: marginBottom
+            fontSize: `${fontSize}px`,
+            lineHeight: `${lineHeight}px`,
+            marginBottom: `${marginBottom}px`
         };
     }
 

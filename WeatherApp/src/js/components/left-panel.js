@@ -11,10 +11,10 @@ export default class LeftPanel extends Component{
 
     getStyles(){
         const width = Math.round(this.parent.offsetWidth * 0.264);
-        const height = Math.round(this.parent.offsetheight * 1);
+        const height = Math.round(this.parent.offsetHeight * 1);
         return {
-            width: width,
-            height: height,
+            width: `${width}px`,
+            height: `${height}px`,
             borderRadius: '70px 0 0 70px',
             background: '#fff',
             padding: '48px 0',
