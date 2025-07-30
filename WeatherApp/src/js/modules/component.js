@@ -1,17 +1,23 @@
 
 import createStyleSheet from './sheet-gen.js';
 
+const styleIdObj = {};
+
 export default class Component{
-    constructor(parent, elementType, elementClassName){
+    constructor(parent, elementType, elementSelector){
         this.parent = parent;
         this.elementType = elementType;
-        this.elementClassName = elementClassName;
+        this.elementSelector = elementSelector;
         this.styleSheet = this.getStyleSheet();
     }
 
     createElement(innerCode = ''){
         const element = document.createElement(this.elementType);
-        element.classList.add(this.elementClassName);
+        if(this.elementSelector.startsWith('.')){
+            element.classList.add(`${this.elementSelector.slice(1)}`);
+        }else if(this.elementSelector.startsWith('#')){
+            element.id = `${this.elementSelector}`;
+        }
         element.innerHTML = innerCode;
         return element;
     }
@@ -25,52 +31,69 @@ export default class Component{
     }
 
     applyStyles(){
-        const cssSheet = this.styleSheet;
-        const selector = this.elementClassName;
+        const sheet = this.styleSheet;
+        const selector = this.elementSelector;
         const styles = this.styles;
 
-        createNewRule(styles);
+        createRule(styles, selector);
 
-        function convCamelToKebab(camelExp){ 
-            return camelExp.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
-        }
+        function createRule(obj, header, media = ''){
 
-        function createNewRule(obj, pseudo = '', media = ''){
-            const fullSelector = `.${selector}${pseudo}`;
-            let ruleBody = createCssProps(obj);
-            
-            if(ruleBody){
-                let rule = `${fullSelector} {\n${ruleBody}}\n`
-                if(media) {
-                    rule = `${media} {\n${rule}}\n`
-                }
-                cssSheet.insertRule(rule, cssSheet.cssRules.length);
-            }
+            addStylesRule(obj, header);
 
             for(let prop in obj){
-                const value = obj[prop];
+                if(prop === 'pseudo'){
+                    const pseudoes = obj[prop];
+                    for(let pseudo in pseudoes){
+                        const newHeader = `${header}${pseudo}`
+                        addStylesRule(pseudoes[pseudo], newHeader);
+                    }
+                }
+                if(prop === 'structures'){
+                    const structures = obj[prop];
 
-                if(typeof value === 'object'){
-                    if(/^:/.test(prop)){
-                        createNewRule(value, `${pseudo}${convCamelToKebab(prop)}`, media);
+                    for(let structure in structures){
+                        createRule(structures[structure], `${header} ${structure}`, media);
                     }
-                    else if(/^@media/.test(prop)){
-                        createNewRule(value, pseudo, prop);
+                }
+                if(prop === 'media'){
+                    const media = obj[prop];
+                    
+                    for(let mediaRule in media){
+                        const mediaHeader = `@media ${mediaRule}`;
+                        createRule(media[mediaRule],`${header}`, mediaHeader);
                     }
+
+                }
+            }
+
+            function addStylesRule(localeObj, localeHeader){
+                const props = createCssProps(localeObj);
+                if(props){
+                    let rule = `${localeHeader}{${props}}`;
+                    if(media){
+                        rule = `${media}{${rule}}`;
+                    }
+                    sheet.insertRule(rule, sheet.cssRules.length);
+                    console.log(rule)
                 }
             }
         }
 
         function createCssProps(obj){
-            let props = '';
-            if(obj){
-                for(let prop in obj){
-                    if(typeof obj[prop] !== 'object'){
-                        props += `\t${convCamelToKebab(prop)}: ${obj[prop]};\n`;
-                    }
+            let result = ''
+            for(let prop in obj){
+                if(typeof obj[prop] !== 'object'){
+                    const cssProp = convCamelToKebab(prop);
+                    const value = obj[prop];
+                    result += `${cssProp}:${value};`
                 }
-                return props;
             }
+            return result;
+        }
+
+        function convCamelToKebab(camelExp){ 
+            return camelExp.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
         }
     }
 

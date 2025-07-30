@@ -4,7 +4,7 @@ import Component from "../modules/component.js";
 
 export default class AppBody extends Component{
     constructor(parent){
-        super(parent, 'div', 'app-body');
+        super(parent, 'div', '.app-body');
         this.element = this.createElement();
         this.styles = this.getStyles();
         this.applyStyles();

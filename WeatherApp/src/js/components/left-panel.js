@@ -3,7 +3,7 @@ import Component from "../modules/component.js";
 
 export default class LeftPanel extends Component{
     constructor(parent){
-        super(parent, 'div', 'left-panel');
+        super(parent, 'div', '.left-panel');
         this.element = this.createElement();
         this.styles = this.getStyles();
         this.applyStyles();

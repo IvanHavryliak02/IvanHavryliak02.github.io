@@ -3,7 +3,7 @@ import Component from '../modules/component.js'
 
 export default class Day extends Component{
     constructor(parent){
-        super(parent, 'span', 'today');
+        super(parent, 'span', '#today');
         this.element = this.createElement(`
             <span class="today__day"></span>
             <span class="today__time"></span>

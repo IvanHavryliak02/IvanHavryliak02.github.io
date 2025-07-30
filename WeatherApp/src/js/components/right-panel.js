@@ -3,7 +3,7 @@ import Component from "../modules/component.js";
 
 export default class RightPanel extends Component{
     constructor(parent){
-        super(parent,'div','right-panel');
+        super(parent,'div','.right-panel');
         this.element = this.createElement();
         this.styles = this.getStyles();
         this.applyStyles();
