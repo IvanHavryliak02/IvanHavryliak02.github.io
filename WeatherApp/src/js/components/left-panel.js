@@ -2,16 +2,17 @@
 import Component from "../modules/component.js";
 
 export default class LeftPanel extends Component{
-    constructor(parent){
-        super(parent, 'div', '.left-panel');
+    constructor(parent, elementType, selector){
+        super(parent, elementType, selector);
         this.element = this.createElement();
         this.styles = this.getStyles();
         this.applyStyles();
     }
 
     getStyles(){
-        const width = Math.round(this.parent.offsetWidth * 0.264);
-        const height = Math.round(this.parent.offsetHeight * 1);
+        const width = Math.round(Component.publicStyles['#app-body'].width * 0.264);
+        const height = Math.round(Component.publicStyles['#app-body'].height * 1);
+        this.makeStylesPublic(this.elementSelector, {height:height});
         return {
             width: `${width}px`,
             height: `${height}px`,
@@ -20,7 +21,15 @@ export default class LeftPanel extends Component{
             padding: '48px 0',
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center'
+            alignItems: 'center',
+            media: {
+                '(max-width: 576px)': {
+                    width: '100%',
+                    height: '100vh',
+                    borderRadius: '0',
+                    padding: '10px 0 0 0'
+                }
+            }
         }
     }
 }

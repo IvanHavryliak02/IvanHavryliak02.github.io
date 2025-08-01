@@ -1,14 +1,32 @@
 
 import createStyleSheet from './sheet-gen.js';
 
-const styleIdObj = {};
+const styleBuffer = {};
+
+function getStyleSheet(){
+    let styleSheet = document.querySelector('#components-styles');
+    if(!styleSheet){
+        return createStyleSheet();
+    }
+    return styleSheet.sheet;
+}
+
 
 export default class Component{
+
+    static styleSheet = getStyleSheet();
+    static publicStyles = {}
+
     constructor(parent, elementType, elementSelector){
         this.parent = parent;
         this.elementType = elementType;
         this.elementSelector = elementSelector;
-        this.styleSheet = this.getStyleSheet();
+    }
+
+    makeStylesPublic(elementSelector, styles){
+        if(!Component.publicStyles[elementSelector]){
+            Component.publicStyles[elementSelector] = styles;
+        }
     }
 
     createElement(innerCode = ''){
@@ -16,28 +34,19 @@ export default class Component{
         if(this.elementSelector.startsWith('.')){
             element.classList.add(`${this.elementSelector.slice(1)}`);
         }else if(this.elementSelector.startsWith('#')){
-            element.id = `${this.elementSelector}`;
+            element.id = `${this.elementSelector.slice(1)}`;
         }
         element.innerHTML = innerCode;
         return element;
     }
 
-    getStyleSheet(){
-        let styleSheet = document.querySelector('#components-styles');
-        if(!styleSheet){
-            return createStyleSheet();
-        }
-        return styleSheet.sheet;
-    }
-
     applyStyles(){
-        const sheet = this.styleSheet;
         const selector = this.elementSelector;
         const styles = this.styles;
 
-        createRule(styles, selector);
+        createRules(styles, selector);
 
-        function createRule(obj, header, media = ''){
+        function createRules(obj, header, media = ''){
 
             addStylesRule(obj, header);
 
@@ -53,7 +62,7 @@ export default class Component{
                     const structures = obj[prop];
 
                     for(let structure in structures){
-                        createRule(structures[structure], `${header} ${structure}`, media);
+                        createRules(structures[structure], `${header} ${structure}`, media);
                     }
                 }
                 if(prop === 'media'){
@@ -61,7 +70,7 @@ export default class Component{
                     
                     for(let mediaRule in media){
                         const mediaHeader = `@media ${mediaRule}`;
-                        createRule(media[mediaRule],`${header}`, mediaHeader);
+                        createRules(media[mediaRule],`${header}`, mediaHeader);
                     }
 
                 }
@@ -70,12 +79,19 @@ export default class Component{
             function addStylesRule(localeObj, localeHeader){
                 const props = createCssProps(localeObj);
                 if(props){
-                    let rule = `${localeHeader}{${props}}`;
-                    if(media){
-                        rule = `${media}{${rule}}`;
+                    if(media){ 
+                        if(!styleBuffer[media]){
+                            styleBuffer[media] = {};
+                        }
+                        const mediaObj = styleBuffer[media];
+                        if(!mediaObj[localeHeader]){
+                            mediaObj[localeHeader] = props;
+                        }
+                    }else{
+                        if(!styleBuffer[localeHeader]){
+                            styleBuffer[localeHeader] = props;
+                        }
                     }
-                    sheet.insertRule(rule, sheet.cssRules.length);
-                    console.log(rule)
                 }
             }
         }
@@ -94,6 +110,27 @@ export default class Component{
 
         function convCamelToKebab(camelExp){ 
             return camelExp.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
+        }
+
+    }
+
+    static injectCssRules(){
+        const restRules = [];
+        for(let selector in styleBuffer){
+            if(typeof styleBuffer[selector] !== 'object' ){
+                const newRule = `${selector}{${styleBuffer[selector]}}`;
+                Component.styleSheet.insertRule(newRule, this.styleSheet.cssRules.length)
+            }else{
+                let mediaBody = '';
+                const mediaRules = styleBuffer[selector];
+                for(let selector in mediaRules){
+                    mediaBody += `\n${selector}{${mediaRules[selector]}}`
+                }
+                restRules.push(`${selector}{${mediaBody}}`)
+            }
+        }
+        for(let restRule of restRules){
+            Component.styleSheet.insertRule(restRule, this.styleSheet.cssRules.length)
         }
     }
 

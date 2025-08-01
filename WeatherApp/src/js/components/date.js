@@ -2,8 +2,8 @@
 import Component from '../modules/component.js'
 
 export default class Day extends Component{
-    constructor(parent){
-        super(parent, 'span', '#today');
+    constructor(parent, elementType, selector){
+        super(parent, elementType, selector);
         this.element = this.createElement(`
             <span class="today__day"></span>
             <span class="today__time"></span>
@@ -25,9 +25,10 @@ export default class Day extends Component{
     }
 
     getStyles(){
-        const fontSize = Math.round(this.parent.offsetHeight * 0.042);
+        const parentHeight = Component.publicStyles['#left-panel'].height
+        const fontSize = Math.round(parentHeight * 0.042);
+        const marginBottom = Math.round(parentHeight * 0.027);
         const lineHeight = Math.round(fontSize + 8);
-        const marginBottom = Math.round(this.parent.offsetHeight * 0.027)
         return {
             fontSize: `${fontSize}px`,
             lineHeight: `${lineHeight}px`,
