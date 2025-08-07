@@ -162,9 +162,12 @@ export default class CitiesDropDown extends Component{
             },
             structures: {
                 ' .location__list': {
-                    transition: 'height 0.7s',
+                    transition: 'height 0.7s, opacity 0.7s',
                     overflow: 'hidden',
                     height: '0',
+                    opacity: '0',
+                    transform: 'translateZ(0)',
+                    willChange: 'height',
                     listStyle: 'none',
                     display: 'flex',
                     flexDirection: 'column',
@@ -172,6 +175,7 @@ export default class CitiesDropDown extends Component{
                     structures: {
                         '.active': {
                             height: `${listHeight}px`,
+                            opacity: '1',
                             overflow: 'auto',
                             '-ms-overflow-style': 'none',
                             scrollbarWidth: 'none',
