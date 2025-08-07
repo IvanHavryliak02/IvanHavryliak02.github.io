@@ -43,6 +43,9 @@ export default class Component{
     applyStyles(){
         const selector = this.elementSelector;
         const styles = this.styles;
+        if(!styles){
+            console.error(`Can't find styles object of ${this.elementType}, selector: ${this.elementSelector}`);
+        }
 
         createRules(styles, selector);
 
@@ -62,7 +65,7 @@ export default class Component{
                     const structures = obj[prop];
 
                     for(let structure in structures){
-                        createRules(structures[structure], `${header} ${structure}`, media);
+                        createRules(structures[structure], `${header}${structure}`, media);
                     }
                 }
                 if(prop === 'media'){
@@ -120,6 +123,7 @@ export default class Component{
             if(typeof styleBuffer[selector] !== 'object' ){
                 const newRule = `${selector}{${styleBuffer[selector]}}`;
                 Component.styleSheet.insertRule(newRule, this.styleSheet.cssRules.length)
+                //console.log(newRule);
             }else{
                 let mediaBody = '';
                 const mediaRules = styleBuffer[selector];
@@ -131,6 +135,7 @@ export default class Component{
         }
         for(let restRule of restRules){
             Component.styleSheet.insertRule(restRule, this.styleSheet.cssRules.length)
+            //console.log(restRule)
         }
     }
 

@@ -22,6 +22,7 @@ export default class LeftPanel extends Component{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            color: '#4c4c4c',
             media: {
                 '(max-width: 576px)': {
                     width: '100%',
