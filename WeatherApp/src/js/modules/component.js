@@ -15,12 +15,48 @@ function getStyleSheet(){
 export default class Component{
 
     static styleSheet = getStyleSheet();
-    static publicStyles = {}
+    static publicStyles = {};
+    static promisesExecutor = {
+        pendingPromises: [],
+        addStarterToQueue: function(promiseStarter){
+            this.pendingPromises.push(promiseStarter)
+        },
+        allDone: function(){
+            const promises = this.pendingPromises.map(startPromise => startPromise());
+            Promise.all(promises)
+            .then(() => {
+                console.log('Loaded')
+            })
+            .catch((error) => console.error(`Promises error:`, error));
+        }
+    };
 
     constructor(parent, elementType, elementSelector){
         this.parent = parent;
         this.elementType = elementType;
         this.elementSelector = elementSelector;
+    }
+
+    static injectCssRules(){
+        const restRules = [];
+        for(let selector in styleBuffer){
+            if(typeof styleBuffer[selector] !== 'object' ){
+                const newRule = `${selector}{${styleBuffer[selector]}}`;
+                Component.styleSheet.insertRule(newRule, this.styleSheet.cssRules.length)
+                //console.log(newRule);
+            }else{
+                let mediaBody = '';
+                const mediaRules = styleBuffer[selector];
+                for(let selector in mediaRules){
+                    mediaBody += `\n${selector}{${mediaRules[selector]}}`
+                }
+                restRules.push(`${selector}{${mediaBody}}`)
+            }
+        }
+        for(let restRule of restRules){
+            Component.styleSheet.insertRule(restRule, this.styleSheet.cssRules.length)
+            //console.log(restRule)
+        }
     }
 
     makeStylesPublic(elementSelector, styles){
@@ -115,28 +151,6 @@ export default class Component{
             return camelExp.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
         }
 
-    }
-
-    static injectCssRules(){
-        const restRules = [];
-        for(let selector in styleBuffer){
-            if(typeof styleBuffer[selector] !== 'object' ){
-                const newRule = `${selector}{${styleBuffer[selector]}}`;
-                Component.styleSheet.insertRule(newRule, this.styleSheet.cssRules.length)
-                //console.log(newRule);
-            }else{
-                let mediaBody = '';
-                const mediaRules = styleBuffer[selector];
-                for(let selector in mediaRules){
-                    mediaBody += `\n${selector}{${mediaRules[selector]}}`
-                }
-                restRules.push(`${selector}{${mediaBody}}`)
-            }
-        }
-        for(let restRule of restRules){
-            Component.styleSheet.insertRule(restRule, this.styleSheet.cssRules.length)
-            //console.log(restRule)
-        }
     }
 
     render(){

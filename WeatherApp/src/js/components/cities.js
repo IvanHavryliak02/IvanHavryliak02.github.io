@@ -38,27 +38,38 @@ export default class CitiesDropDown extends Component{
         }
     } 
 
-    async getCurrentLocation(){
-        let longitude = '21.011111111', latitude = '52.23', city = 'Your city', country = 'Country'; 
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                latitude = position.coords.latitude;
+    getCurrentLocation(){
+        let longitude = '21.011111111', latitude = '52.23', city = 'Your city', country = 'Country';
+        const locationPromiseStarter = async () => {
+            try{
+                const position = await new Promise((resolve, reject) => {
+                    navigator.geolocation.getCurrentPosition(resolve, reject, {timeout: 5000});
+                })
                 longitude = position.coords.longitude;
+                latitude = position.coords.latitude;
+            }catch(error){
+                console.warn('Geolocation permissions denied. Default data used.', error.message);
             }
-        )
-        await fetch(`https://api.pencagedata.com/geocode/v1/json?q=${latitude}%2C+${longitude}&key=6a52067d80dc4a93ac2484d789e46886&language=en`,
-            {
-                method: 'GET',
-                headers: {
-                    'Content-type':'application/json'
-                }
-            })
-        .then(data => data.json()).then(data => {
-            city = data.results[0].components.city
-            country = data.results[0].components.country
-        }).catch(error => console.error(error));
-    
-        this.setInputValue(`${city}, ${country}`);
+
+            try{
+                const response = await fetch(`https://api.pencagedata.com/geocode/v1/json?q=${latitude}%2C+${longitude}&key=6a52067d80dc4a93ac2484d789e46886&language=en`,
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-type':'application/json'
+                    }
+                })
+                const data = await response.json();
+                city = data.results[0].components.city || city
+                country = data.results[0].components.country || country
+            }catch(error){
+                console.error(`Geocoding API error:`, error.message);
+            }
+
+            this.setInputValue(`${city}, ${country}`);
+        }               
+
+        Component.promisesExecutor.addStarterToQueue(locationPromiseStarter);
     }
 
     createCitiesList(){

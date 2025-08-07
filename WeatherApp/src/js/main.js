@@ -9,10 +9,12 @@ import CitiesDropDown from './components/cities.js';
 
 
 window.addEventListener('load', () => {
+    console.log('Loading...');
     new AppBody(document.querySelector('.container'), 'div', '#app-body').render();
     new LeftPanel(document.querySelector('#app-body'), 'div', '#left-panel').render();
     new RightPanel(document.querySelector('#app-body'), 'div', '#right-panel').render();
     new CurrentDay(document.querySelector('#left-panel'), 'span', '#today').render();
     new CitiesDropDown(document.querySelector('#left-panel'), 'span', '#location').render();
     Component.injectCssRules();
+    Component.promisesExecutor.allDone();
 })
