@@ -16,18 +16,27 @@ export default class Component{
 
     static styleSheet = getStyleSheet();
     static publicStyles = {};
+    static dataOperator = {
+        weatherData: ''
+    };
     static promisesExecutor = {
-        pendingPromises: [],
+        promisesQueue: [],
+        //isInitialised: false,
+        processing: false,
         addStarterToQueue: function(promiseStarter){
-            this.pendingPromises.push(promiseStarter)
+            this.promisesQueue.push(promiseStarter);
         },
         allDone: function(){
-            const promises = this.pendingPromises.map(startPromise => startPromise());
+            const promises = this.promisesQueue.map(startPromise => startPromise());
+            this.promisesQueue = [];
             Promise.all(promises)
             .then(() => {
+                //if(!this.isInitialised){
+                //    this.isInitialised = true;
+                //}
                 console.log('Loaded')
             })
-            .catch((error) => console.error(`Promises error:`, error));
+            .catch((error) => console.error(`Request error:`, error));
         }
     };
 
