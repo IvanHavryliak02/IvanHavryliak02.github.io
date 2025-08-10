@@ -12,7 +12,7 @@ export default class LeftPanel extends Component{
     getStyles(){
         const width = Math.round(Component.publicStyles['#app-body'].width * 0.264);
         const height = Math.round(Component.publicStyles['#app-body'].height * 1);
-        this.makeStylesPublic(this.elementSelector, {height:height});
+        this.makeStylesPublic(this.elementSelector, {height:height, width: width});
         return {
             width: `${width}px`,
             height: `${height}px`,

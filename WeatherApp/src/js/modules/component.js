@@ -21,8 +21,6 @@ export default class Component{
     };
     static promisesExecutor = {
         promisesQueue: [],
-        //isInitialised: false,
-        processing: false,
         addStarterToQueue: function(promiseStarter){
             this.promisesQueue.push(promiseStarter);
         },
@@ -31,9 +29,6 @@ export default class Component{
             this.promisesQueue = [];
             Promise.all(promises)
             .then(() => {
-                //if(!this.isInitialised){
-                //    this.isInitialised = true;
-                //}
                 console.log('Loaded')
             })
             .catch((error) => console.error(`Request error:`, error));

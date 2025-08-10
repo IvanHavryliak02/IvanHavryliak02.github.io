@@ -1,43 +1,51 @@
 
-import Component from '../modules/component.js'
+import Component from "../modules/component.js";
 
-export default class Day extends Component{
+export default class currentDate extends Component{
+
+    static months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ]
+
     constructor(parent, elementType, selector){
         super(parent, elementType, selector);
         this.element = this.createElement(`
-            <span class="today__day"></span>
-            <span class="today__time"></span>
+            <span class="icon-calendar"></span>
+            <span class="date__month-day"></span>  
         `);
-        this.date = this.readCurrDate();
         this.fillData();
         this.styles = this.getStyles();
         this.applyStyles();
     }
 
-    readCurrDate(){
-        const now = new Date(),
-              days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-              day = days[now.getDay()];
-        return {
-            hour: now.getHours(),
-            day: day
-        }
-    }
-
     getStyles(){
-        const parentHeight = Component.publicStyles['#left-panel'].height
-        const fontSize = Math.round(parentHeight * 0.042);
-        const marginBottom = Math.round(parentHeight * 0.027);
-        const lineHeight = Math.round(fontSize + 8);
+        const parentHeight = Component.publicStyles['#left-panel'].height;
+        const parentWidth = Component.publicStyles['#left-panel'].width;
+        const fontSize = parentHeight * 0.025;
+        const lineHeight = fontSize + 5;
+        const marginTop = parentHeight * 0.0344;
+        const monthDayMLeft = parentWidth * 0.018
         return {
             fontSize: `${fontSize}px`,
             lineHeight: `${lineHeight}px`,
-            marginBottom: `${marginBottom}px`
-        };
+            marginTop: `${marginTop}px`,
+            display: 'flex',
+            alignItems: 'center',
+            structures: {
+                ' .date__month-day': {
+                    marginLeft: `${monthDayMLeft}px`
+                },
+            },
+        }
     }
 
     fillData(){
-        this.element.querySelector('.today__day').textContent = `${this.date.day},`;
-        this.element.querySelector('.today__time').textContent = `${this.date.hour}:00`;
+        const element = this.element;
+        const now = new Date();
+        const currMonth = currentDate.months[now.getMonth()];
+        const currDay = now.getDate();
+
+        element.querySelector('.date__month-day').textContent = `${currMonth} ${currDay}`;
     }
 }
