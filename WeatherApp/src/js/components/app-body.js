@@ -11,8 +11,8 @@ export default class AppBody extends Component{
     }
 
     getStyles(){
-        const width = Math.round(this.parent.offsetWidth * 0.88);
-        const height = Math.round(this.parent.offsetHeight * 0.88);
+        const width = Math.round(Component.publicStyles['.container'].width * 0.88);
+        const height = Math.round(Component.publicStyles['.container'].height * 0.88);
         this.makeStylesPublic(this.elementSelector, {width:width, height:height});
         return {
             display: 'flex',

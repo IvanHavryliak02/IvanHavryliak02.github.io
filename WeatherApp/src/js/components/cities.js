@@ -215,6 +215,7 @@ export default class CitiesDropDown extends Component{
         const listElemHeight = elementHeight + 5;
         const listHeight = listElemHeight * 5;
         const borderStyle = '0.5px solid #e4e4e4ff';
+        const borderTransparent = '0.5px solid transparent' 
 
         return {
             fontSize: `${fontSize}px`,
@@ -228,7 +229,7 @@ export default class CitiesDropDown extends Component{
             },
             structures: {
                 ' .location__list': {
-                    transition: 'height 0.7s, opacity 0.7s',
+                    transition: 'all 0.7s',
                     overflow: 'hidden',
                     height: '0',
                     opacity: '0',
@@ -239,6 +240,9 @@ export default class CitiesDropDown extends Component{
                     flexDirection: 'column',
                     alignItems: 'center',
                     background: '#fff',
+                    borderRight: borderTransparent,
+                    borderBottom: borderTransparent,
+                    borderLeft: borderTransparent,
                     structures: {
                         '.active': {
                             borderRight: borderStyle,
@@ -265,8 +269,8 @@ export default class CitiesDropDown extends Component{
                             transition: 'color 0.7s',
                             position: 'relative',
                             overflow: 'visible',
-                            borderTop: '0.5px solid transparent',
-                            borderBottom: '0.5px solid transparent',
+                            borderTop: borderTransparent,
+                            borderBottom: borderTransparent,
                             width: '100%',
                             transition: 'all 0.4s',
                             pseudo: {

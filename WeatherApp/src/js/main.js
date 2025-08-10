@@ -7,11 +7,14 @@ import CurrentDay from './components/day-time.js';
 import Component from './modules/component.js';
 import CitiesDropDown from './components/cities.js';
 import CurrentDate from './components/date.js';
+import Container from './components/container.js';
 
 
 window.addEventListener('load', () => {
     console.log('Loading...');
     //console.time('timer');
+    new Container(document.querySelector('body'), 'div', '.container').render();
+
     new AppBody(document.querySelector('.container'), 'div', '#app-body').render();
 
     new LeftPanel(document.querySelector('#app-body'), 'div', '#left-panel').render();
