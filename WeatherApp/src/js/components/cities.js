@@ -170,6 +170,7 @@ export default class CitiesDropDown extends Component{
         search.addEventListener('click', (e) => {
             e.stopPropagation();
             arrow.style.transform = 'rotate(90deg)';
+            search.classList.add('active');
             cityList.classList.add('active');
         })
 
@@ -200,6 +201,7 @@ export default class CitiesDropDown extends Component{
             if(e.target !== element){
                 arrow.style.transform = 'rotate(0deg)';
                 cityList.classList.remove('active');
+                search.classList.remove('active');
             }
         })
     }
@@ -209,9 +211,10 @@ export default class CitiesDropDown extends Component{
         const fontSize = Math.round(parentHeight * 0.025);
         const lineHeight = fontSize + 5;
         const elementHeight = lineHeight + 10;
-        const listItemMTop = fontSize * 0.833;
-        const arrowHeight = fontSize/2;
-        const listHeight = (lineHeight+listItemMTop)*5;
+        const arrowHeight = fontSize / 2;
+        const listElemHeight = elementHeight + 5;
+        const listHeight = listElemHeight * 5;
+        const borderStyle = '0.5px solid #e4e4e4ff';
 
         return {
             fontSize: `${fontSize}px`,
@@ -238,6 +241,9 @@ export default class CitiesDropDown extends Component{
                     background: '#fff',
                     structures: {
                         '.active': {
+                            borderRight: borderStyle,
+                            borderBottom: borderStyle,
+                            borderLeft: borderStyle,
                             height: `${listHeight}px`,
                             opacity: '1',
                             overflow: 'auto',
@@ -251,31 +257,25 @@ export default class CitiesDropDown extends Component{
                             }
                         },
                         ' .location__list-item': {
+                            color: 'inherit',
                             display: 'flex',
+                            flex: `0 0 ${listElemHeight}px`,
                             alignItems: 'center',
+                            justifyContent: 'center',
                             transition: 'color 0.7s',
-                            marginTop: `${listItemMTop}px`,
                             position: 'relative',
                             overflow: 'visible',
+                            borderTop: '0.5px solid transparent',
+                            borderBottom: '0.5px solid transparent',
+                            width: '100%',
+                            transition: 'all 0.4s',
                             pseudo: {
                                 ':hover': {
-                                    color: '#000000'
-                                },
-                                '::after':{
-                                    content: "''",
-                                    display: 'block',
-                                    position: 'absolute',
-                                    left: '50%',
-                                    transform: 'translateX(-50%)',
-                                    bottom: '0',
-                                    background: '#000',
-                                    width: '0',
-                                    height: '1px',
-                                    transition: 'width 0.3s'
-                                },  
-                                ':hover::after': {
-                                    width: '100%'
-                                },
+                                    color: '#000000',
+                                    borderTop: borderStyle,
+                                    borderBottom: borderStyle,
+                                    boxShadow: '0 0 4px #e4e4e4ff'
+                                }
                             }
                         },
                     }
@@ -284,11 +284,18 @@ export default class CitiesDropDown extends Component{
                     height: `${elementHeight}px`,
                     display: 'flex',
                     justifyContent: 'center',
+                    alignItems: 'center',
+                    overflow: 'hidden',
+                    border: borderStyle,
+                    borderRadius: '5px 5px 5px 5px',
+                    transition: 'border-radius 0.7s',
                     structures: {
+                        '.active': {
+                            borderRadius: '5px 5px 0 0'
+                        }, 
                         ' input': {
                             width: '90%',
-                            border: '0.5px solid #e4e4e4ff',
-                            borderRadius: '5px 0 0 5px',
+                            border: 'none',
                             background: '#fff',
                             height: `100%`,
                             textAlign: 'center',
@@ -306,8 +313,6 @@ export default class CitiesDropDown extends Component{
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            border: '0.5px solid #e4e4e4ff',
-                            borderRadius: '0 5px 5px 0',
                             structures: {
                                 ' .location__arrow': {
                                     color: '#4c4c4c',
