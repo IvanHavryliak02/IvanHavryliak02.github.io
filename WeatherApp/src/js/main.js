@@ -8,6 +8,7 @@ import Component from './modules/component.js';
 import CitiesDropDown from './components/cities.js';
 import CurrentDate from './components/date.js';
 import Container from './components/container.js';
+import WeatherNow from './components/weather-now.js'
 
 
 window.addEventListener('load', () => {
@@ -23,6 +24,7 @@ window.addEventListener('load', () => {
     new CurrentDay(document.querySelector('#left-panel'), 'span', '#today').render();
     new CitiesDropDown(document.querySelector('#left-panel'), 'span', '#location').render();
     new CurrentDate(document.querySelector('#left-panel'), 'span', '#date').render();
+    new WeatherNow(document.querySelector('#left-panel'), 'div', '#now').render();
     
     Component.injectCssRules();
     Component.promisesExecutor.allDone();

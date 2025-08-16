@@ -7,7 +7,7 @@ export default class CitiesDropDown extends Component{
     static isInitialised = false;
     static weatherPromiseStarter = async (lat, long) => {
         try{
-            const response = await fetch(`https://api.pen-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,relative_humidity_2m,surface_pressure,visibility,wind_speed_10m,rain,cloud_cover,showers,snowfall,weather_code&timezone=auto`, {
+            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,relative_humidity_2m,surface_pressure,visibility,wind_speed_10m,rain,cloud_cover,showers,snowfall,weather_code&timezone=auto`, {
                 method: 'GET',
                 headers: {
                     'Content-type':'application/json'
@@ -68,7 +68,7 @@ export default class CitiesDropDown extends Component{
         const country = inputData[2].trim();
         let lon, lat;
         try{
-            const response = await fetch(`https://api.pencagedata.com/geocode/v1/json?q=${city}%2C+${country}&key=6a52067d80dc4a93ac2484d789e46886`,
+            const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${city}%2C+${country}&key=6a52067d80dc4a93ac2484d789e46886`,
             {
                 method: 'GET',
                 headers: {
@@ -100,7 +100,7 @@ export default class CitiesDropDown extends Component{
             }
 
             try{
-                const response = await fetch(`https://api.pencagedata.com/geocode/v1/json?q=${latitude}%2C+${longitude}&key=6a52067d80dc4a93ac2484d789e46886&language=en`,
+                const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}%2C+${longitude}&key=6a52067d80dc4a93ac2484d789e46886&language=en`,
                 {
                     method: 'GET',
                     headers: {
@@ -206,7 +206,7 @@ export default class CitiesDropDown extends Component{
         })
     }
 
-        getStyles(){
+    getStyles(){
         const parentHeight = Component.publicStyles['#left-panel'].height;
         const fontSize = Math.round(parentHeight * 0.025);
         const lineHeight = fontSize + 5;
