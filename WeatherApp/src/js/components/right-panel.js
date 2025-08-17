@@ -12,6 +12,7 @@ export default class RightPanel extends Component{
     getStyles(){
         const width = Math.round(Component.publicStyles['#app-body'].width * (1 - 0.264));
         const height = Math.round(Component.publicStyles['#app-body'].height * 1);
+        this.makeStylesPublic(this.elementSelector, {width: width, height: height});
         return {
             width: `${width}px`,
             height: `${height}px`,

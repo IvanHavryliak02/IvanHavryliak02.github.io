@@ -8,7 +8,8 @@ import Component from './modules/component.js';
 import CitiesDropDown from './components/cities.js';
 import CurrentDate from './components/date.js';
 import Container from './components/container.js';
-import WeatherNow from './components/weather-now.js'
+import WeatherNow from './components/weather-now.js';
+import ItemsBlock from './components/items-block.js';
 
 
 window.addEventListener('load', () => {
@@ -26,6 +27,10 @@ window.addEventListener('load', () => {
     new CurrentDate(document.querySelector('#left-panel'), 'span', '#date').render();
     new WeatherNow(document.querySelector('#left-panel'), 'div', '#now').render();
     
+    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#conditions', 'Atmospheric conditions').render();
+    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#hourly', 'Hourly weather').render();
+    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#weekly', 'Weekly weather').render();
+
     Component.injectCssRules();
     Component.promisesExecutor.allDone();
 

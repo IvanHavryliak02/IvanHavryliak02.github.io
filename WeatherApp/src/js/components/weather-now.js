@@ -93,6 +93,9 @@ export default class WeatherNow extends Component{
                             width: `${wrapHeight}px`,
                             fontSize: `${descrFZ}px`,
                             marginRight: '10px',
+                        },
+                        ' .now__descr': {
+                            fontSize: `${descrFZ}px`
                         }
                     } 
                 }
