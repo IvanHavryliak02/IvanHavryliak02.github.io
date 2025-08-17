@@ -5,7 +5,9 @@ export default class WeatherNow extends Component{
     constructor(parent, elementType, selector){
         super(parent, elementType, selector);
         this.element = this.createElement(`
-            <img class="now__weather-type" alt="weather now">
+            <div class="now__weather-wrap">
+                <img class="now__weather-type" alt="weather now">
+            </div>
             <span class="now__temp"></span>
             <div class="now__wrap">
                 <img class="now__status" alt="status now">
@@ -25,11 +27,12 @@ export default class WeatherNow extends Component{
             'hot.svg': 'Sunny',
             'lightning.svg': 'Lightning',
             'part-cloud.svg': 'Partly cloudy',
-            'rain.svg': 'Rainy',
+            'rain-cloud.svg': 'Rainy',
             'snow.svg': 'Snowy',
             'storm.svg': 'Stormy',
             'sun.svg': 'Sunny',
-            'tornado.svg': 'Tornado'
+            'tornado.svg': 'Tornado',
+            'haze.svg': 'Hazy'
         }
         try{
             const data = Component.dataOperator.weatherData;
@@ -44,39 +47,43 @@ export default class WeatherNow extends Component{
             this.element.querySelector('.now__status').src = src;
             this.element.querySelector('.now__descr').textContent = weatherDescr[weatherImage]
         }catch(err){
-            console.error(err.message)
+            console.error(`${this.element} can't find his data:`,err.message)
         }
     }
 
     getStyles(){
-        const parentWidth = Component.publicStyles['#left-panel'].width;
         const parentHeight = Component.publicStyles['#left-panel'].height;
-        const marginTop = 107/960 * parentHeight;
+        const marginTop = 90/960 * parentHeight;
         const width = 256/960 * parentHeight;
         const tempFZ = 96/960 * parentHeight;
         const tempMB = 82/960 * parentHeight;
-        const wrapWidth = 101/447 * parentWidth;
         const wrapHeight = 32/960 * parentHeight;
         const descrFZ = 20/960 * parentHeight;
         return{
             marginTop: `${marginTop}px`,
             width: `${width}px`,
-
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             structures: {
-                ' .now__weather-type': {
+                ' .now__weather-wrap': {
                     width: '100%',
                     marginBottom: `${marginTop}px`,
+                    height: `${width}px`,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    structures: {
+                        ' .now__weather-type': {
+                            width: '100%'
+                        },
+                    }
                 },
                 ' .now__temp': {
                     fontSize: `${tempFZ}px`,
                     marginBottom: `${tempMB}px`,
                 },
                 ' .now__wrap': {
-                    minWidth: `${wrapWidth}px`,
-                    maxWidth: `${parentWidth - 30}px`,
                     height: `${wrapHeight}px`,
                     display: 'flex',
                     alignItems: 'center',
@@ -84,7 +91,8 @@ export default class WeatherNow extends Component{
                     structures: {
                         ' .now__status': {
                             width: `${wrapHeight}px`,
-                            fontSize: `${descrFZ}px`
+                            fontSize: `${descrFZ}px`,
+                            marginRight: '10px',
                         }
                     } 
                 }

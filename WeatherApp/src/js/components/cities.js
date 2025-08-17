@@ -62,12 +62,12 @@ export default class CitiesDropDown extends Component{
     } 
 
     async createWeatherRequest(){
-        const input = this.input;
-        const inputData = input.value.match(/^(.*?),(.*)$/);
-        const city = inputData[1].trim();
-        const country = inputData[2].trim();
         let lon, lat;
         try{
+            const input = this.input;
+            const inputData = input.value.match(/^(.*?),(.*)$/);
+            const city = inputData[1].trim();
+            const country = inputData[2].trim();
             const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${city}%2C+${country}&key=6a52067d80dc4a93ac2484d789e46886`,
             {
                 method: 'GET',
