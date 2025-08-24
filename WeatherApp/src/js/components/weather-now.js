@@ -47,7 +47,7 @@ export default class WeatherNow extends Component{
             this.element.querySelector('.now__status').src = src;
             this.element.querySelector('.now__descr').textContent = weatherDescr[weatherImage]
         }catch(err){
-            console.error(`${this.element} can't find his data:`,err.message)
+            console.error(`${this.elementSelector} can't find his data:`,err.message)
         }
     }
 

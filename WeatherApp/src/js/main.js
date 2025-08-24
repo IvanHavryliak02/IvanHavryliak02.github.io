@@ -10,6 +10,8 @@ import CurrentDate from './components/date.js';
 import Container from './components/container.js';
 import WeatherNow from './components/weather-now.js';
 import ItemsBlock from './components/items-block.js';
+import ValueCard from './components/value-card.js';
+import ShowMore from './components/more.js';
 
 
 window.addEventListener('load', () => {
@@ -30,6 +32,94 @@ window.addEventListener('load', () => {
     new ItemsBlock(document.querySelector('#right-panel'), 'div', '#conditions', 'Atmospheric conditions').render();
     new ItemsBlock(document.querySelector('#right-panel'), 'div', '#hourly', 'Hourly weather').render();
     new ItemsBlock(document.querySelector('#right-panel'), 'div', '#weekly', 'Weekly weather').render();
+
+    new ValueCard(
+        document.querySelector('.conditions__container'), 
+        'div', 
+        '#value-card-hum', 
+        'Humidity, %',
+        () => {
+            const data = Component.dataOperator.weatherData;
+            const hour = new Date().getHours();
+            const value = data.hourly.relative_humidity_2m[hour]
+            return value;
+        },
+        {
+            background: '#ffc300', 
+            startPoint: '50%',
+            min: 5,
+            max: 100,
+            dividerShow: true,
+        }
+    ).render();
+
+    new ValueCard(
+        document.querySelector('.conditions__container'), 
+        'div', 
+        '#value-card-press', 
+        'Pressure, hPa',
+        () => {
+            const data = Component.dataOperator.weatherData;
+            const hour = new Date().getHours();
+            const value = data.hourly.surface_pressure[hour]
+            return Math.round(value);
+        },
+        {
+            background: '#ffc300', 
+            startPoint: '50%',
+            min: 963,
+            max: 1063,
+            dividerShow: true,
+        } 
+    ).render();
+
+    new ValueCard(
+        document.querySelector('.conditions__container'), 
+        'div', 
+        '#value-card-vis', 
+        'Visibility, km',
+        () => {
+            const data = Component.dataOperator.weatherData;
+            const hour = new Date().getHours();
+            const value = data.hourly.visibility[hour]
+            return Math.floor(value/1000);
+        },
+        {
+            background: '#ffc300', 
+            startPoint: '0%',
+            min: 0,
+            max: 10,
+            dividerShow: false,
+        } 
+       
+    ).render();
+
+    new ValueCard(
+        document.querySelector('.conditions__container'), 
+        'div', 
+        '#value-card-wind', 
+        'Wind speed, km/h',
+        () => {
+            const data = Component.dataOperator.weatherData;
+            const hour = new Date().getHours();
+            const value = data.hourly.wind_speed_10m[hour]
+            return Math.round(value);
+        },
+        {
+                background: '#ffc300', 
+                startPoint: '0%',
+                min: 0,
+                max: 40,
+                dividerShow: false,
+        } 
+        
+    ).render();
+
+    new ShowMore(
+        document.querySelector('.conditions__container'), 
+        'div', 
+        '#show-more'
+    ).render();
 
     Component.injectCssRules();
     Component.promisesExecutor.allDone();

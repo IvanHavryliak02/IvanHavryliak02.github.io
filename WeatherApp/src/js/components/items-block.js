@@ -16,8 +16,11 @@ export default class ItemsBlock extends Component{
     }
 
     getStyles(){
-        const headerFZ = 40/960 * Component.publicStyles['#right-panel'].height;
-        const mBott = 47/960 * Component.publicStyles['#right-panel'].height;
+        const parentHeight = Component.publicStyles['#right-panel'].height;
+        const parentWidth = Component.publicStyles['#right-panel'].width;
+        const headerFZ = 40/960 * parentHeight;
+        const mBott = 47/960 * parentHeight;
+        const containerWidth = 933/1246 * parentWidth
         return {
             marginBottom: `${mBott}px`,
             structures: {
@@ -26,6 +29,11 @@ export default class ItemsBlock extends Component{
                     fontSize: `${headerFZ}px`,
                     marginBottom: '24px',
                     fontWeight: '400'
+                },
+                [` .${this.blockName}__container`]: {
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    maxWidth: `${containerWidth}px`
                 }
             }
         }
