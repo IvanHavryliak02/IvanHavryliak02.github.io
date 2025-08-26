@@ -12,6 +12,8 @@ import WeatherNow from './components/weather-now.js';
 import ItemsBlock from './components/items-block.js';
 import ValueCard from './components/value-card.js';
 import ShowMore from './components/more.js';
+import ValueSwitch from './components/value-switch.js';
+
 
 
 window.addEventListener('load', () => {
@@ -32,6 +34,7 @@ window.addEventListener('load', () => {
     new ItemsBlock(document.querySelector('#right-panel'), 'div', '#conditions', 'Atmospheric conditions').render();
     new ItemsBlock(document.querySelector('#right-panel'), 'div', '#hourly', 'Hourly weather').render();
     new ItemsBlock(document.querySelector('#right-panel'), 'div', '#weekly', 'Weekly weather').render();
+    new ValueSwitch(document.querySelector('#right-panel'), 'div', '#value-switch').render();
 
     new ValueCard(
         document.querySelector('.conditions__container'), 

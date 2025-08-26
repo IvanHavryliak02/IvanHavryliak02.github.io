@@ -103,9 +103,7 @@ export default class ValueCard extends Component{
 
     getStyles(){
         const parentHeight = Component.publicStyles['#right-panel'].height;
-        const parentWidth = Component.publicStyles['#right-panel'].width;
         const height = 150/960 * parentHeight;
-        const marginRight = 33/1246 * parentWidth;
 
         const valueMT = 20/150 * height; 
         const valueMB = 17.5/150 * height; 
@@ -122,9 +120,7 @@ export default class ValueCard extends Component{
             borderRadius: `15px`,
             padding: '10px 8px',
             background: '#fff',
-            //display: 'inline-block',
             color: '#4c4c4c',
-            //marginRight: `${marginRight}px`,
             structures: {
                 [` .${this.selector}__label`]: {
                     color: '#7C7C7C',

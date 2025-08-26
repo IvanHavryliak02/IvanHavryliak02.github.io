@@ -38,10 +38,12 @@ export default class WeatherNow extends Component{
             const data = Component.dataOperator.weatherData;
             const hour = new Date().getHours();
             const code = data.hourly.weather_code[hour];
-            const temp = Math.round(data.hourly.temperature_2m[hour]);
-            const tempUnit = '°C'  
+            let temp = data.hourly.temperature_2m[hour];
             const weatherImage = Component.dataOperator.weatherDecoder.whatsImage(code, temp);
+            const tempUnit = Component.dataOperator.unitChecker.unit === 'cels' ? '°C' : '°F';
             const src = `./icons/lightTheme/ico-${weatherImage}`;
+
+            temp = Math.round(Component.dataOperator.unitChecker.calculateTemp(temp));
             this.element.querySelector('.now__weather-type').src = src;
             this.element.querySelector('.now__temp').textContent = `${temp} ${tempUnit}`;
             this.element.querySelector('.now__status').src = src;
@@ -82,6 +84,7 @@ export default class WeatherNow extends Component{
                 ' .now__temp': {
                     fontSize: `${tempFZ}px`,
                     marginBottom: `${tempMB}px`,
+                    whiteSpace: 'nowrap',
                 },
                 ' .now__wrap': {
                     height: `${wrapHeight}px`,

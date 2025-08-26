@@ -18,6 +18,7 @@ export default class RightPanel extends Component{
             height: `${height}px`,
             padding: '46px 50px',
             background: 'transparent',
+            position: 'relative',
             media: {
                 '(max-width: 576px)': {
                     width: '100%',

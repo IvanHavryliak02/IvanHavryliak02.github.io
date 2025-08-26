@@ -28,6 +28,16 @@ export default class Component{
         subscribe: function (subscriberFunc){
             this.weatherSubs.push(subscriberFunc);
         },
+        unitChecker: {
+            unit: 'cels',
+            calculateTemp: function(temp) {
+                if(this.unit === 'cels'){
+                    return temp;
+                }else {
+                    return temp * 1.8 + 32 
+                }
+            }
+        },
         weatherDecoder:{ 
             weatherCodes: {
                     precised: {

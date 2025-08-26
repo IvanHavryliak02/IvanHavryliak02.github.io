@@ -20,7 +20,7 @@ export default class ItemsBlock extends Component{
         const parentWidth = Component.publicStyles['#right-panel'].width;
         const headerFZ = 40/960 * parentHeight;
         const mBott = 47/960 * parentHeight;
-        const containerWidth = 933/1246 * parentWidth
+        const containerWidth = 933/960 * parentHeight
         return {
             marginBottom: `${mBott}px`,
             structures: {
