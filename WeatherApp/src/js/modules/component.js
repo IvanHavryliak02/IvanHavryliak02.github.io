@@ -38,6 +38,19 @@ export default class Component{
                 }
             }
         },
+        userTime: {
+            month: '',
+            date: '',
+            weekday: '',
+            hour: '',
+            getUserDate: function (){
+                const date = new Date();
+                this.date = date.getDate();
+                this.month = date.getMonth();
+                this.weekday = date.getDay();
+                this.hour = date.getHours();
+            }
+        },
         weatherDecoder:{ 
             weatherCodes: {
                     precised: {

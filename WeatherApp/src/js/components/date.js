@@ -42,9 +42,8 @@ export default class currentDate extends Component{
 
     fillData(){
         const element = this.element;
-        const now = new Date();
-        const currMonth = currentDate.months[now.getMonth()];
-        const currDay = now.getDate();
+        const currMonth = currentDate.months[Component.dataOperator.userTime.month];
+        const currDay = Component.dataOperator.userTime.date;
 
         element.querySelector('.date__month-day').textContent = `${currMonth} ${currDay}`;
     }

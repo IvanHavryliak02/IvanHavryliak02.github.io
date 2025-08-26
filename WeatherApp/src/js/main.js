@@ -1,10 +1,10 @@
 import '../sass/general.sass';
 
+import Component from './modules/component.js';
 import AppBody from './components/app-body.js';
 import LeftPanel from './components/left-panel.js';
 import RightPanel from './components/right-panel.js';
 import CurrentDay from './components/day-time.js';
-import Component from './modules/component.js';
 import CitiesDropDown from './components/cities.js';
 import CurrentDate from './components/date.js';
 import Container from './components/container.js';
@@ -18,6 +18,7 @@ import ValueSwitch from './components/value-switch.js';
 
 window.addEventListener('load', () => {
     console.log('Loading...');
+    Component.dataOperator.userTime.getUserDate();
     //console.time('timer');
     new Container(document.querySelector('body'), 'div', '.container').render();
 
@@ -43,7 +44,7 @@ window.addEventListener('load', () => {
         'Humidity, %',
         () => {
             const data = Component.dataOperator.weatherData;
-            const hour = new Date().getHours();
+            const hour = Component.dataOperator.userTime.hour;
             const value = data.hourly.relative_humidity_2m[hour]
             return value;
         },
@@ -63,7 +64,7 @@ window.addEventListener('load', () => {
         'Pressure, hPa',
         () => {
             const data = Component.dataOperator.weatherData;
-            const hour = new Date().getHours();
+            const hour = Component.dataOperator.userTime.hour;
             const value = data.hourly.surface_pressure[hour]
             return Math.round(value);
         },
@@ -83,7 +84,7 @@ window.addEventListener('load', () => {
         'Visibility, km',
         () => {
             const data = Component.dataOperator.weatherData;
-            const hour = new Date().getHours();
+            const hour = Component.dataOperator.userTime.hour;
             const value = data.hourly.visibility[hour]
             return Math.floor(value/1000);
         },
@@ -104,7 +105,7 @@ window.addEventListener('load', () => {
         'Wind speed, km/h',
         () => {
             const data = Component.dataOperator.weatherData;
-            const hour = new Date().getHours();
+            const hour = Component.dataOperator.userTime.hour;
             const value = data.hourly.wind_speed_10m[hour]
             return Math.round(value);
         },

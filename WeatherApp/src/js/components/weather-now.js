@@ -36,7 +36,7 @@ export default class WeatherNow extends Component{
         }
         try{
             const data = Component.dataOperator.weatherData;
-            const hour = new Date().getHours();
+            const hour = Component.dataOperator.userTime.hour;
             const code = data.hourly.weather_code[hour];
             let temp = data.hourly.temperature_2m[hour];
             const weatherImage = Component.dataOperator.weatherDecoder.whatsImage(code, temp);

@@ -15,12 +15,10 @@ export default class DayAndTime extends Component{
     }
 
     readCurrDate(){
-        const now = new Date(),
-              days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-              day = days[now.getDay()];
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
         return {
-            hour: now.getHours(),
-            day: day
+            hour: Component.dataOperator.userTime.hour,
+            day: days[Component.dataOperator.userTime.weekday]
         }
     }
 
