@@ -17,7 +17,6 @@ export default class ItemsBlock extends Component{
 
     getStyles(){
         const parentHeight = Component.publicStyles['#right-panel'].height;
-        const parentWidth = Component.publicStyles['#right-panel'].width;
         const headerFZ = 40/960 * parentHeight;
         const mBott = 47/960 * parentHeight;
         const containerWidth = 933/960 * parentHeight
@@ -34,6 +33,9 @@ export default class ItemsBlock extends Component{
                     display: 'flex',
                     justifyContent: 'space-between',
                     maxWidth: `${containerWidth}px`
+                },
+                [` .hourly__container`]: {
+                    width: '100%'
                 }
             }
         }

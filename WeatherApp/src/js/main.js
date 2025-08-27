@@ -13,6 +13,8 @@ import ItemsBlock from './components/items-block.js';
 import ValueCard from './components/value-card.js';
 import ShowMore from './components/more.js';
 import ValueSwitch from './components/value-switch.js';
+import HourlyCard from './components/hourly-card.js';
+import ScrollContainer from './components/scroll-container.js'
 
 
 
@@ -34,6 +36,7 @@ window.addEventListener('load', () => {
     
     new ItemsBlock(document.querySelector('#right-panel'), 'div', '#conditions', 'Atmospheric conditions').render();
     new ItemsBlock(document.querySelector('#right-panel'), 'div', '#hourly', 'Hourly weather').render();
+    new ScrollContainer(document.querySelector('.hourly__container'), 'div', '.scroll-container').render();
     new ItemsBlock(document.querySelector('#right-panel'), 'div', '#weekly', 'Weekly weather').render();
     new ValueSwitch(document.querySelector('#right-panel'), 'div', '#value-switch').render();
 
@@ -124,6 +127,10 @@ window.addEventListener('load', () => {
         'div', 
         '#show-more'
     ).render();
+
+    for(let i = 0; i < 24; i++){
+        new HourlyCard(document.querySelector('.scroll-container__content'), 'div', '.hourly-card', i).render();
+    }
 
     Component.injectCssRules();
     Component.promisesExecutor.allDone();

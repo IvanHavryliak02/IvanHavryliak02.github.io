@@ -7,7 +7,7 @@ export default class CitiesDropDown extends Component{
     static isInitialised = false;
     static weatherPromiseStarter = async (lat, long) => {
         try{
-            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,relative_humidity_2m,surface_pressure,visibility,wind_speed_10m,rain,cloud_cover,showers,snowfall,weather_code&timezone=auto`, {
+            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,relative_humidity_2m,surface_pressure,visibility,wind_speed_10m,weather_code&timezone=auto`, {
                 method: 'GET',
                 headers: {
                     'Content-type':'application/json'
