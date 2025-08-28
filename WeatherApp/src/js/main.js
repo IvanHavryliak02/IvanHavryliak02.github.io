@@ -14,14 +14,16 @@ import ValueCard from './components/value-card.js';
 import ShowMore from './components/more.js';
 import ValueSwitch from './components/value-switch.js';
 import HourlyCard from './components/hourly-card.js';
-import ScrollContainer from './components/scroll-container.js'
+import ScrollContainer from './components/scroll-container.js';
+import DailyCard from './components/daily-card.js';
 
 
 
 window.addEventListener('load', () => {
     console.log('Loading...');
-    Component.dataOperator.userTime.getUserDate();
     //console.time('timer');
+    Component.dataOperator.userTime.getUserDate();
+    
     new Container(document.querySelector('body'), 'div', '.container').render();
 
     new AppBody(document.querySelector('.container'), 'div', '#app-body').render();
@@ -33,13 +35,9 @@ window.addEventListener('load', () => {
     new CitiesDropDown(document.querySelector('#left-panel'), 'span', '#location').render();
     new CurrentDate(document.querySelector('#left-panel'), 'span', '#date').render();
     new WeatherNow(document.querySelector('#left-panel'), 'div', '#now').render();
-    
-    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#conditions', 'Atmospheric conditions').render();
-    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#hourly', 'Hourly weather').render();
-    new ScrollContainer(document.querySelector('.hourly__container'), 'div', '.scroll-container').render();
-    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#weekly', 'Weekly weather').render();
-    new ValueSwitch(document.querySelector('#right-panel'), 'div', '#value-switch').render();
 
+    new ValueSwitch(document.querySelector('#right-panel'), 'div', '#value-switch').render();
+    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#conditions', 'Atmospheric conditions').render();
     new ValueCard(
         document.querySelector('.conditions__container'), 
         'div', 
@@ -121,16 +119,35 @@ window.addEventListener('load', () => {
         } 
         
     ).render();
-
     new ShowMore(
         document.querySelector('.conditions__container'), 
         'div', 
         '#show-more'
     ).render();
 
+
+    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#hourly', 'Hourly weather').render();
+    new ScrollContainer(document.querySelector('.hourly__container'), 'div', '.hourly__scroll').render();
     for(let i = 0; i < 24; i++){
-        new HourlyCard(document.querySelector('.scroll-container__content'), 'div', '.hourly-card', i).render();
+        new HourlyCard(
+            document.querySelector('.hourly__scroll__content'), 
+            'div', 
+            '.hourly-card', 
+            i
+        ).render();
     }
+
+    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#daily', 'Daily weather').render();
+    new ScrollContainer(document.querySelector('.daily__container'), 'div', '.daily__scroll').render();
+    for(let i = 0; i < 7; i++){
+        new DailyCard(
+            document.querySelector('.daily__scroll__content'), 
+            'div', 
+            '.daily-card', 
+            i
+        ).render();
+    }
+
 
     Component.injectCssRules();
     Component.promisesExecutor.allDone();

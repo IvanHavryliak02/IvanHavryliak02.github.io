@@ -4,16 +4,17 @@ export default class ScrollContainer extends Component{
 
     constructor(parent, elementType, selector){
         super(parent, elementType, selector);
+        this.blockName = selector.slice(1);
         this.element = this.createElement(`
-            <div class="scroll-container__nav">
-                <div class="scroll-container__arrow-left">
+            <div class="${this.blockName}__nav">
+                <div class="${this.blockName}__arrow-left">
                     <--
                 </div>
-                <div class="scroll-container__arrow-right">
+                <div class="${this.blockName}__arrow-right">
                     -->
                 </div>
             </div>
-            <div class="scroll-container__content">
+            <div class="${this.blockName}__content">
             
             </div>
         `);
@@ -24,8 +25,8 @@ export default class ScrollContainer extends Component{
 
     addListeners(){
         
-        const scrollElement = this.element.querySelector('.scroll-container__content');
-        const nav = this.element.querySelector('.scroll-container__nav');
+        const scrollElement = this.element.querySelector(`.${this.blockName}__content`);
+        const nav = this.element.querySelector(`.${this.blockName}__nav`);
         let pos = scrollElement.scrollLeft;
         scrollElement.addEventListener('wheel', e => {
             e.preventDefault();
@@ -35,7 +36,7 @@ export default class ScrollContainer extends Component{
         
         
         nav.addEventListener('click', (e) => {
-            if(e.target.closest('.scroll-container__arrow-left')){
+            if(e.target.closest(`.${this.blockName}__arrow-left`)){
                 if(scrollElement.scrollLeft > 0){
                     pos -= 100;
                     if(pos < 0){
@@ -43,7 +44,7 @@ export default class ScrollContainer extends Component{
                     }
                 }   
             }
-            if(e.target.closest('.scroll-container__arrow-right')){
+            if(e.target.closest(`.${this.blockName}__arrow-right`)){
                 if(scrollElement.scrollLeft + scrollElement.clientWidth < scrollElement.scrollWidth){
                     pos += 100; 
                 }
@@ -61,7 +62,7 @@ export default class ScrollContainer extends Component{
             height: '100%',
             position: 'relative',
             structures: {
-                ' .scroll-container__content': {
+                [` .${this.blockName}__content`]: {
                     width: '100%',
                     height: '100%',
                     display: 'flex',
@@ -77,14 +78,14 @@ export default class ScrollContainer extends Component{
                         },
                     },
                 },
-                ' .scroll-container__arrow-left': {
+                [` .${this.blockName}__arrow-left`]: {
                     marginRight: '20px',
                     cursor: 'pointer',
                 },
-                ' .scroll-container__arrow-right': {
+                [` .${this.blockName}__arrow-right`]: {
                     cursor: 'pointer',
                 },
-                ' .scroll-container__nav': {
+                [` .${this.blockName}__nav`]: {
                     position: 'absolute',
                     right: '0',
                     display: 'flex',

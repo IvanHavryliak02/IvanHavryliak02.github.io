@@ -43,7 +43,11 @@ export default class HourlyCard extends Component{
         const parentHeight = Component.publicStyles['#right-panel'].height;
         const width = 144/1246 * parentWidth;
         const height = 206/960 * parentHeight;
-        const imgWidth = 80/144 * width;
+        const imgWidth = 60/144 * width;
+        const tempFZ = 18/206 * height;
+        const tempLH = tempFZ + 4;
+        const timeFZ = 22/206 * height;
+        const timeLH = timeFZ + 5;
 
         return {
             width: `${width}px`,
@@ -62,7 +66,16 @@ export default class HourlyCard extends Component{
                 ' .hourly-card__status': {
                     width: `${imgWidth}px`,
                     height: `${imgWidth}px`,
-                }
+                },
+                ' .hourly-card__time': {
+                    fontSize: `${timeFZ}px`,
+                    lineHeight: `${timeLH}px`
+                },
+                ' .hourly-card__temp': {
+                    fontSize: `${tempFZ}px`,
+                    lineHeight: `${tempLH}px`
+                },
+
             }
         }
     }

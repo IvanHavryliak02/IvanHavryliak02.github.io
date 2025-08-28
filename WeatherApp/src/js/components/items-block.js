@@ -18,7 +18,7 @@ export default class ItemsBlock extends Component{
     getStyles(){
         const parentHeight = Component.publicStyles['#right-panel'].height;
         const headerFZ = 40/960 * parentHeight;
-        const mBott = 47/960 * parentHeight;
+        const mBott = 45/960 * parentHeight;
         const containerWidth = 933/960 * parentHeight
         return {
             marginBottom: `${mBott}px`,
@@ -26,7 +26,7 @@ export default class ItemsBlock extends Component{
                 [` .${this.blockName}__header`]: {
                     color: '#4C4C4C',
                     fontSize: `${headerFZ}px`,
-                    marginBottom: '24px',
+                    marginBottom: '15px',
                     fontWeight: '400'
                 },
                 [` .${this.blockName}__container`]: {
@@ -34,7 +34,10 @@ export default class ItemsBlock extends Component{
                     justifyContent: 'space-between',
                     maxWidth: `${containerWidth}px`
                 },
-                [` .hourly__container`]: {
+                ' .hourly__container': {
+                    width: '100%'
+                },
+                ' .daily__container': {
                     width: '100%'
                 }
             }

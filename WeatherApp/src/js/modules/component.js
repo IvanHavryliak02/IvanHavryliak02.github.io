@@ -50,9 +50,13 @@ export default class Component{
                 this.weekday = date.getDay();
                 this.hour = date.getHours();
             },
-            findWeekday: function(){
+            findWeekday: function(i = 'none'){
                 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-                return days[this.weekday]
+                if(i === 'none'){
+                    return days[this.weekday]
+                }else{
+                    return days[i];
+                } 
             },
         },
         weatherDecoder:{ 
