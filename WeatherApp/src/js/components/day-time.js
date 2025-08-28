@@ -8,18 +8,10 @@ export default class DayAndTime extends Component{
             <span class="today__day"></span>
             <span class="today__time"></span>
         `);
-        this.date = this.readCurrDate();
-        this.fillData();
+        this.weekday = Component.dataOperator.userTime.findWeekday();
+        this.fillData(this.weekday);
         this.styles = this.getStyles();
         this.applyStyles();
-    }
-
-    readCurrDate(){
-        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-        return {
-            hour: Component.dataOperator.userTime.hour,
-            day: days[Component.dataOperator.userTime.weekday]
-        }
     }
 
     getStyles(){
@@ -34,8 +26,8 @@ export default class DayAndTime extends Component{
         };
     }
 
-    fillData(){
-        this.element.querySelector('.today__day').textContent = `${this.date.day},`;
-        this.element.querySelector('.today__time').textContent = `${this.date.hour}:00`;
+    fillData(weekday){
+        this.element.querySelector('.today__day').textContent = `${weekday},`;
+        this.element.querySelector('.today__time').textContent = `${Component.dataOperator.userTime.hour}:00`;
     }
 }
