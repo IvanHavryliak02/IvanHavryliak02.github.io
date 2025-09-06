@@ -12,8 +12,9 @@ export default class LeftPanel extends Component{
     getStyles(){
         const width = Math.round(Component.publicStyles['#app-body'].width * 0.264);
         const height = Math.round(Component.publicStyles['#app-body'].height * 1);
-        this.makeStylesPublic(this.elementSelector, {height:height, width: width});
+        this.makeStylesPublic('#left-panel', {height:height, width: width});
         return {
+            float: 'left',
             width: `${width}px`,
             height: `${height}px`,
             borderRadius: '70px 0 0 70px',
@@ -23,6 +24,13 @@ export default class LeftPanel extends Component{
             flexDirection: 'column',
             alignItems: 'center',
             color: '#4c4c4c',
+            transition: '0.7s all',
+            structures: {
+                '.more': {
+                    float: 'right',
+                    borderRadius: '0 70px 70px 0',
+                }
+            },
             media: {
                 '(max-width: 576px)': {
                     width: '100%',

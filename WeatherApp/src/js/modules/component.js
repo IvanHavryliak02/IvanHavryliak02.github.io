@@ -150,18 +150,32 @@ export default class Component{
     }
 
     createElement(innerCode = ''){
+
         const element = document.createElement(this.elementType);
-        if(this.elementSelector.startsWith('.')){
-            element.classList.add(`${this.elementSelector.slice(1)}`);
-        }else if(this.elementSelector.startsWith('#')){
-            element.id = `${this.elementSelector.slice(1)}`;
+
+        const addSelector = (selector) => {
+            if(selector.startsWith('.')){
+                element.classList.add(`${selector.slice(1)}`);
+            }else if(selector.startsWith('#')){
+                element.id = `${selector.slice(1)}`;
+            }
         }
+
+        if(Array.isArray(this.elementSelector)){
+            this.elementSelector.forEach(selector => {
+                addSelector(selector);
+            });
+        }else{
+            addSelector(this.elementSelector);
+        }
+
         element.innerHTML = innerCode;
         return element;
     }
 
     applyStyles(){
-        const selector = this.elementSelector;
+        const selector = Array.isArray(this.elementSelector) ? this.elementSelector[0] : this.elementSelector;
+
         const styles = this.styles;
         if(!styles){
             console.error(`Can't find styles object of ${this.elementType}, selector: ${this.elementSelector}`);

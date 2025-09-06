@@ -21,23 +21,23 @@ import DailyCard from './components/daily-card.js';
 
 window.addEventListener('load', () => {
     console.log('Loading...');
-    //console.time('timer');
+    console.time('timer');
     Component.dataOperator.userTime.getUserDate();
     
     new Container(document.querySelector('body'), 'div', '.container').render();
 
     new AppBody(document.querySelector('.container'), 'div', '#app-body').render();
 
-    new LeftPanel(document.querySelector('#app-body'), 'div', '#left-panel').render();
-    new RightPanel(document.querySelector('#app-body'), 'div', '#right-panel').render();
+    new LeftPanel(document.querySelector('#app-body'), 'div', ['#left-panel', '.more']).render();
+    new RightPanel(document.querySelector('#app-body'), 'div', ['#right-panel', '.more']).render();
 
     new CurrentDay(document.querySelector('#left-panel'), 'span', '#today').render();
     new CitiesDropDown(document.querySelector('#left-panel'), 'span', '#location').render();
     new CurrentDate(document.querySelector('#left-panel'), 'span', '#date').render();
     new WeatherNow(document.querySelector('#left-panel'), 'div', '#now').render();
 
-    new ValueSwitch(document.querySelector('#right-panel'), 'div', '#value-switch').render();
-    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#conditions', 'Atmospheric conditions').render();
+    new ValueSwitch(document.querySelector('#right-panel'), 'div', ['#value-switch', '.more']).render();
+    new ItemsBlock(document.querySelector('.right-panel__container'), 'div', '#conditions', 'Atmospheric conditions').render();
     new ValueCard(
         document.querySelector('.conditions__container'), 
         'div', 
@@ -126,7 +126,7 @@ window.addEventListener('load', () => {
     ).render();
 
 
-    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#hourly', 'Hourly weather').render();
+    new ItemsBlock(document.querySelector('.right-panel__container'), 'div', '#hourly', 'Hourly weather').render();
     new ScrollContainer(document.querySelector('.hourly__container'), 'div', '.hourly__scroll').render();
     for(let i = 0; i < 24; i++){
         new HourlyCard(
@@ -137,7 +137,7 @@ window.addEventListener('load', () => {
         ).render();
     }
 
-    new ItemsBlock(document.querySelector('#right-panel'), 'div', '#daily', 'Daily weather').render();
+    new ItemsBlock(document.querySelector('.right-panel__container'), 'div', '#daily', 'Daily weather').render();
     new ScrollContainer(document.querySelector('.daily__container'), 'div', '.daily__scroll').render();
     for(let i = 0; i < 7; i++){
         new DailyCard(
@@ -152,5 +152,5 @@ window.addEventListener('load', () => {
     Component.injectCssRules();
     Component.promisesExecutor.allDone();
 
-    //console.timeEnd('timer')
+    console.timeEnd('timer')
 })

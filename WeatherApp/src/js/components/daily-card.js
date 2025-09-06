@@ -36,7 +36,6 @@ export default class DailyCard extends Component{
             const weatherCode = data.daily.weather_code[dayNumber];
             let maxTemp = data.daily.temperature_2m_max[i];
             let minTemp = data.daily.temperature_2m_min[i];
-            console.log(weatherCode, maxTemp)
             const imgType = dataOperator.weatherDecoder.whatsImage(weatherCode, maxTemp);
             const dayName = dataOperator.userTime.findWeekday(dayNumber)
             maxTemp = dataOperator.unitChecker.calculateTemp(maxTemp)

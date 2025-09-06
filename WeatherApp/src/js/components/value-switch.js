@@ -36,20 +36,8 @@ export default class ValueSwitch extends Component{
             borderRadius: '10px',
             background: '#4c4c4c',
             cursor: 'pointer',
-            structures: {
-                ' .value-switch__cels': {
-                    zIndex: '1',
-                    width: '50%',
-                    textAlign: 'center',
-                    color: '#4c4c4c',
-                    transition: `${animationDuration} all`
-                },
-                ' .value-switch__faren': {
-                    zIndex: '1',
-                    width: '50%',
-                    textAlign: 'center',
-                    transition: `${animationDuration} all`
-                },
+            transition: '0.7s all',
+            pseudo: {
                 '::after': {
                     content: "''",
                     position: 'absolute',
@@ -61,6 +49,24 @@ export default class ValueSwitch extends Component{
                     left: '0',
                     boxSizing: 'border-box',
                     zIndex: '0',
+                    transition: `${animationDuration} all`
+                },
+            },
+            structures: {
+                '.more': {
+                    left: `${right}px`,
+                },
+                ' .value-switch__cels': {
+                    zIndex: '1',
+                    width: '50%',
+                    textAlign: 'center',
+                    color: '#4c4c4c',
+                    transition: `${animationDuration} all`
+                },
+                ' .value-switch__faren': {
+                    zIndex: '1',
+                    width: '50%',
+                    textAlign: 'center',
                     transition: `${animationDuration} all`
                 },
                 '.active::after': {

@@ -15,12 +15,12 @@ export default class AppBody extends Component{
         const height = Math.round(Component.publicStyles['.container'].height * 0.88);
         this.makeStylesPublic(this.elementSelector, {width:width, height:height});
         return {
-            display: 'flex',
+            //display: 'flex',
             width: `${width}px`,
             height: `${height}px`,
             background: '#efefef',
             borderRadius: `70px`,
-            justifyContent: 'space-between',
+            //justifyContent: 'space-between',
             media: {
                 '(max-width: 576px)': {
                     width: '100%',

@@ -11,6 +11,7 @@ export default class More extends Component{
         `)
         this.styles = this.getStyles();
         this.applyStyles();
+        this.addListeners();
     }
 
     getStyles(){
@@ -43,5 +44,18 @@ export default class More extends Component{
                 }
             } 
         }
+    }
+
+    addListeners(){
+        const element = this.element;
+        element.addEventListener('click', () => {
+            const content = [
+                document.querySelector('#left-panel'),
+                document.querySelector('#right-panel'),
+                document.querySelector('#value-switch'),
+                document.querySelector('.right-panel__container')
+            ]
+            content.forEach(item => item.classList.add('more'));
+        })
     }
 }
