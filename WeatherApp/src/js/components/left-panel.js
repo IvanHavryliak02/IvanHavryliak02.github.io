@@ -25,6 +25,7 @@ export default class LeftPanel extends Component{
             alignItems: 'center',
             color: '#4c4c4c',
             transition: '0.7s all',
+            position: 'relative',
             structures: {
                 '.more': {
                     float: 'right',

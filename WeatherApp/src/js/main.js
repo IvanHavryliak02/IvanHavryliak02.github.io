@@ -17,6 +17,8 @@ import HourlyCard from './components/hourly-card.js';
 import ScrollContainer from './components/scroll-container.js';
 import DailyCard from './components/daily-card.js';
 import Chart from './components/chart.js';
+import ReturnLine from './components/return-line.js';
+import keys from './modules/keys.js';
 
 
 
@@ -36,6 +38,7 @@ window.addEventListener('load', () => {
     new CitiesDropDown(document.querySelector('#left-panel'), 'span', '#location').render();
     new CurrentDate(document.querySelector('#left-panel'), 'span', '#date').render();
     new WeatherNow(document.querySelector('#left-panel'), 'div', '#now').render();
+    new ReturnLine(document.querySelector('#left-panel'), 'div', '#return').render();
 
     new ValueSwitch(document.querySelector('#right-panel'), 'div', ['#value-switch']).render();
     new ItemsBlock(document.querySelector('.right-panel__container'), 'div', ['#conditions', '.conditions_modif'], 'Atmospheric conditions').render();
@@ -200,6 +203,7 @@ window.addEventListener('load', () => {
 
     Component.injectCssRules();
     Component.promisesExecutor.allDone();
+    keys();
 
     console.timeEnd('timer')
 })

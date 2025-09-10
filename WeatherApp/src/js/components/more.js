@@ -59,7 +59,8 @@ export default class More extends Component{
                 document.querySelector('#right-panel'),
                 document.querySelector('#value-switch'),
                 document.querySelector('.right-panel__container'),
-                document.querySelector('.right-panel__more-container')
+                document.querySelector('.right-panel__more-container'),
+                document.querySelector('#return')
             ]
             content.forEach(item => item.classList.add('more'));
         })
