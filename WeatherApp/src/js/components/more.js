@@ -42,7 +42,12 @@ export default class More extends Component{
                     fontSize: `${titleFS}px`,
                     lineHeight: `${titleLH}px`
                 }
-            } 
+            },
+            pseudo: {
+                ':hover': {
+                    cursor: 'pointer'
+                }
+            }
         }
     }
 
@@ -53,7 +58,8 @@ export default class More extends Component{
                 document.querySelector('#left-panel'),
                 document.querySelector('#right-panel'),
                 document.querySelector('#value-switch'),
-                document.querySelector('.right-panel__container')
+                document.querySelector('.right-panel__container'),
+                document.querySelector('.right-panel__more-container')
             ]
             content.forEach(item => item.classList.add('more'));
         })

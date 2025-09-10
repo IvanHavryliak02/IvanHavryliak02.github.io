@@ -5,7 +5,8 @@ export default class RightPanel extends Component{
     constructor(parent, elementType, selector){
         super(parent, elementType, selector);
         this.element = this.createElement(`
-            <div class="right-panel__container more"></div>
+            <div class="right-panel__container"></div>
+            <div class="right-panel__more-container"></div>
         `);
         this.styles = this.getStyles();
         this.applyStyles();
@@ -24,8 +25,15 @@ export default class RightPanel extends Component{
             float: 'right',
             transition: '0.7s all',
             structures: {
-                '.more': {
-                    float: 'left',
+                ' .right-panel__more-container': {
+                    display: 'none',
+                    width: '100%',
+                    height: '100%',
+                    structures: {
+                        '.more': {
+                            display: 'block'
+                        }
+                    }
                 },
                 ' .right-panel__container': {
                     structures: {
@@ -33,7 +41,10 @@ export default class RightPanel extends Component{
                             display: 'none'
                         }
                     }
-                }
+                },
+                '.more': {
+                    float: 'left',
+                },
             },
             media: {
                 '(max-width: 576px)': {

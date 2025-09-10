@@ -34,7 +34,7 @@ export default class Component{
                 if(this.unit === 'cels'){
                     return temp;
                 }else {
-                    return temp * 1.8 + 32 
+                    return Math.round((temp * 1.8 + 32)*10)/10 
                 }
             }
         },
@@ -175,7 +175,6 @@ export default class Component{
 
     applyStyles(){
         const selector = Array.isArray(this.elementSelector) ? this.elementSelector[0] : this.elementSelector;
-
         const styles = this.styles;
         if(!styles){
             console.error(`Can't find styles object of ${this.elementType}, selector: ${this.elementSelector}`);

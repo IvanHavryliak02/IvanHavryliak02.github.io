@@ -16,6 +16,7 @@ import ValueSwitch from './components/value-switch.js';
 import HourlyCard from './components/hourly-card.js';
 import ScrollContainer from './components/scroll-container.js';
 import DailyCard from './components/daily-card.js';
+import Chart from './components/chart.js';
 
 
 
@@ -23,25 +24,26 @@ window.addEventListener('load', () => {
     console.log('Loading...');
     console.time('timer');
     Component.dataOperator.userTime.getUserDate();
-    
+
     new Container(document.querySelector('body'), 'div', '.container').render();
 
     new AppBody(document.querySelector('.container'), 'div', '#app-body').render();
 
-    new LeftPanel(document.querySelector('#app-body'), 'div', ['#left-panel', '.more']).render();
-    new RightPanel(document.querySelector('#app-body'), 'div', ['#right-panel', '.more']).render();
+    new LeftPanel(document.querySelector('#app-body'), 'div', ['#left-panel']).render();
+    new RightPanel(document.querySelector('#app-body'), 'div', ['#right-panel']).render();
 
     new CurrentDay(document.querySelector('#left-panel'), 'span', '#today').render();
     new CitiesDropDown(document.querySelector('#left-panel'), 'span', '#location').render();
     new CurrentDate(document.querySelector('#left-panel'), 'span', '#date').render();
     new WeatherNow(document.querySelector('#left-panel'), 'div', '#now').render();
 
-    new ValueSwitch(document.querySelector('#right-panel'), 'div', ['#value-switch', '.more']).render();
-    new ItemsBlock(document.querySelector('.right-panel__container'), 'div', '#conditions', 'Atmospheric conditions').render();
+    new ValueSwitch(document.querySelector('#right-panel'), 'div', ['#value-switch']).render();
+    new ItemsBlock(document.querySelector('.right-panel__container'), 'div', ['#conditions', '.conditions_modif'], 'Atmospheric conditions').render();
+
     new ValueCard(
-        document.querySelector('.conditions__container'), 
-        'div', 
-        '#value-card-hum', 
+        document.querySelector('.conditions__container'),
+        'div',
+        '#value-card-hum',
         'Humidity, %',
         () => {
             const data = Component.dataOperator.weatherData;
@@ -50,7 +52,7 @@ window.addEventListener('load', () => {
             return value;
         },
         {
-            background: '#ffc300', 
+            background: '#ffc300',
             startPoint: '50%',
             min: 5,
             max: 100,
@@ -59,9 +61,9 @@ window.addEventListener('load', () => {
     ).render();
 
     new ValueCard(
-        document.querySelector('.conditions__container'), 
-        'div', 
-        '#value-card-press', 
+        document.querySelector('.conditions__container'),
+        'div',
+        '#value-card-press',
         'Pressure, hPa',
         () => {
             const data = Component.dataOperator.weatherData;
@@ -70,39 +72,39 @@ window.addEventListener('load', () => {
             return Math.round(value);
         },
         {
-            background: '#ffc300', 
+            background: '#ffc300',
             startPoint: '50%',
             min: 963,
             max: 1063,
             dividerShow: true,
-        } 
+        }
     ).render();
 
     new ValueCard(
-        document.querySelector('.conditions__container'), 
-        'div', 
-        '#value-card-vis', 
+        document.querySelector('.conditions__container'),
+        'div',
+        '#value-card-vis',
         'Visibility, km',
         () => {
             const data = Component.dataOperator.weatherData;
             const hour = Component.dataOperator.userTime.hour;
             const value = data.hourly.visibility[hour]
-            return Math.floor(value/1000);
+            return Math.floor(value / 1000);
         },
         {
-            background: '#ffc300', 
+            background: '#ffc300',
             startPoint: '0%',
             min: 0,
             max: 10,
             dividerShow: false,
-        } 
-       
+        }
+
     ).render();
 
     new ValueCard(
-        document.querySelector('.conditions__container'), 
-        'div', 
-        '#value-card-wind', 
+        document.querySelector('.conditions__container'),
+        'div',
+        '#value-card-wind',
         'Wind speed, km/h',
         () => {
             const data = Component.dataOperator.weatherData;
@@ -111,43 +113,90 @@ window.addEventListener('load', () => {
             return Math.round(value);
         },
         {
-                background: '#ffc300', 
-                startPoint: '0%',
-                min: 0,
-                max: 40,
-                dividerShow: false,
-        } 
-        
+            background: '#ffc300',
+            startPoint: '0%',
+            min: 0,
+            max: 40,
+            dividerShow: false,
+        }
+
     ).render();
     new ShowMore(
-        document.querySelector('.conditions__container'), 
-        'div', 
+        document.querySelector('.conditions__container'),
+        'div',
         '#show-more'
     ).render();
 
 
     new ItemsBlock(document.querySelector('.right-panel__container'), 'div', '#hourly', 'Hourly weather').render();
     new ScrollContainer(document.querySelector('.hourly__container'), 'div', '.hourly__scroll').render();
-    for(let i = 0; i < 24; i++){
+    for (let i = 0; i < 24; i++) {
         new HourlyCard(
-            document.querySelector('.hourly__scroll__content'), 
-            'div', 
-            '.hourly-card', 
+            document.querySelector('.hourly__scroll__content'),
+            'div',
+            '.hourly-card',
             i
         ).render();
     }
 
     new ItemsBlock(document.querySelector('.right-panel__container'), 'div', '#daily', 'Daily weather').render();
     new ScrollContainer(document.querySelector('.daily__container'), 'div', '.daily__scroll').render();
-    for(let i = 0; i < 7; i++){
+    for (let i = 0; i < 7; i++) {
         new DailyCard(
-            document.querySelector('.daily__scroll__content'), 
-            'div', 
-            '.daily-card', 
+            document.querySelector('.daily__scroll__content'),
+            'div',
+            '.daily-card',
             i
         ).render();
     }
 
+    new ItemsBlock(document.querySelector('.right-panel__more-container'), 'div', ['#hourly-trend', '.trend_modif'], 'Hourly Maximum Temperature Trend').render();
+    new ScrollContainer(document.querySelector('.hourly-trend__container'), 'div', ['.hourly-scroll', '.scroll_modif'], {bottom: '-50px', left: '0'}).render()
+    new Chart(
+        document.querySelector('.hourly-scroll__content'),
+        'div',
+        '#hourly-chart',
+        () => {
+            const data = Component.dataOperator.weatherData;
+            const dataXArr = data.hourly.time;
+            const dataYArr = data.hourly.temperature_2m
+            const x = [], y = [];
+            const unitChecker = Component.dataOperator.unitChecker;
+            for (let i = 0; i < 24; i++) {
+                x.push(dataXArr[i].match(/\d{2}:\d{2}/)[0])
+                y.push(unitChecker.calculateTemp(dataYArr[i]));
+            }
+            return {
+                x: x,
+                y: y
+            }
+        }
+    ).render();
+
+    new ItemsBlock(document.querySelector('.right-panel__more-container'), 'div', ['#daily-trend', '.trend_modif'], 'Daily Maximum Temperature Trend').render();
+    new ScrollContainer(document.querySelector('.daily-trend__container'), 'div', ['.daily-scroll', '.scroll_modif'], {bottom: '-50px', left: '0'}).render()
+    new Chart(
+        document.querySelector('.daily-scroll__content'),
+        'div',
+        '#hourly-chart',
+        () => {
+            const data = Component.dataOperator.weatherData;
+            const dataYArr = data.daily.temperature_2m_max
+            const x = [], y = [];
+            const unitChecker = Component.dataOperator.unitChecker;
+            const userDay = Component.dataOperator.userTime.weekday;
+            for (let i = 0; i < 7; i++) {
+                let day = userDay + i;
+                day = day >= 7 ? day - 7 : day;
+                x.push(Component.dataOperator.userTime.findWeekday(day).slice(0, 3))
+                y.push(unitChecker.calculateTemp(dataYArr[i]));
+            }
+            return {
+                x: x,
+                y: y
+            }
+        }
+    ).render();
 
     Component.injectCssRules();
     Component.promisesExecutor.allDone();

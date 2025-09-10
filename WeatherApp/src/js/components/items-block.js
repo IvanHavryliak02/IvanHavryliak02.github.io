@@ -4,7 +4,8 @@ import Component from '../modules/component.js'
 export default class ItemsBlock extends Component{
     constructor(parent, elementType, selector, headerContent){
         super(parent, elementType, selector);
-        this.blockName = selector.slice(1);
+        this.blockName = Array.isArray(selector) ? selector[0] : selector;
+        this.blockName = this.blockName.slice(1)
         this.element = this.createElement(`
             <h2 class="${this.blockName}__header">
                 ${headerContent}
@@ -27,11 +28,15 @@ export default class ItemsBlock extends Component{
                     color: '#4C4C4C',
                     fontSize: `${headerFZ}px`,
                     marginBottom: '15px',
-                    fontWeight: '400'
+                    fontWeight: '400',
+                    userSelect: 'none',
                 },
                 [` .${this.blockName}__container`]: {
                     display: 'flex',
                     justifyContent: 'space-between',
+                   
+                },
+                '.conditions_modif': {
                     maxWidth: `${containerWidth}px`
                 },
                 ' .hourly__container': {
@@ -39,6 +44,13 @@ export default class ItemsBlock extends Component{
                 },
                 ' .daily__container': {
                     width: '100%'
+                },
+                '.trend_modif': {
+                    structures: {
+                        [` .hourly-trend__header, .daily-trend__header`]: {
+                            textAlign: 'right'
+                        },
+                    }
                 }
             }
         }

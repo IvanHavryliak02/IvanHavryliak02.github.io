@@ -2,9 +2,11 @@ import Component from '../modules/component.js'
 
 export default class ScrollContainer extends Component{
 
-    constructor(parent, elementType, selector){
+    constructor(parent, elementType, selector, navAlign = {top: '-50px', right: '0'}){
         super(parent, elementType, selector);
-        this.blockName = selector.slice(1);
+        this.navAlign = navAlign;
+        this.blockName = Array.isArray(selector) ? selector[0] : selector;
+        this.blockName = this.blockName.slice(1);
         this.element = this.createElement(`
             <div class="${this.blockName}__nav">
                 <div class="${this.blockName}__arrow-left">
@@ -20,21 +22,22 @@ export default class ScrollContainer extends Component{
         `);
         this.styles = this.getStyles();
         this.applyStyles();
-        this.addListeners();
+        this.addListeners()
+        
     }
 
-    addListeners(){
-        
+
+    addListeners(){ 
         const scrollElement = this.element.querySelector(`.${this.blockName}__content`);
-        const nav = this.element.querySelector(`.${this.blockName}__nav`);
+        
         let pos = scrollElement.scrollLeft;
         scrollElement.addEventListener('wheel', e => {
             e.preventDefault();
             scrollElement.scrollLeft += e.deltaY;
             pos = scrollElement.scrollLeft;
         })
-        
-        
+
+        const nav = this.element.querySelector(`.${this.blockName}__nav`);
         nav.addEventListener('click', (e) => {
             if(e.target.closest(`.${this.blockName}__arrow-left`)){
                 if(scrollElement.scrollLeft > 0){
@@ -87,12 +90,23 @@ export default class ScrollContainer extends Component{
                 },
                 [` .${this.blockName}__nav`]: {
                     position: 'absolute',
-                    right: '0',
                     display: 'flex',
-                    top: '-50px',
                     fontSize: '20px',
                     color: '#4c4c4c',
                     userSelect: 'none',
+                    zIndex: '1000',
+                    ...this.navAlign
+                },
+                '.scroll_modif': {
+                    structures: {
+                        ' .hourly-scroll__content': {
+                            display: 'block'
+                        },
+                        ' .daily-scroll__content': {
+                            display: 'block'
+                        }
+                    }
+                    
                 }
             }
         }
