@@ -11,29 +11,27 @@ export default class AppBody extends Component{
     }
 
     getStyles(){
-        const parentWidth = Component.publicStyles['.container'].width;
-        const parentHeight = Component.publicStyles['.container'].height;
-        const width = 1693 / 1920 * parentWidth;
-        const height = 960 / 1080 * parentHeight;
-        const borderRadius = 70 / 960 * parentHeight;
+        const scale = Component.dataOperator.userData.scale;
+        const width = 1693 * scale;
+        const height = 960 * scale;
+        const borderRadius = 70 * scale;
         this.makeStylesPublic(this.elementSelector, {width:width, height:height});
+
         const theme = Component.dataOperator.userData.theme;
         const backgroundColor = theme === 'light' ? '#efefef' : '#3A3A3A'
         return {
-            //display: 'flex',
             width: `${width}px`,
             height: `${height}px`,
             background: backgroundColor,
             borderRadius: `${borderRadius}px`,
-            //justifyContent: 'space-between',
-            media: {
+            /* media: {
                 '(max-width: 576px)': {
                     width: '100%',
                     height: "auto",
                     flexDirection: 'column',
                     borderRadius: '0',
                 }
-            }
+            } */
         }
     }
 }

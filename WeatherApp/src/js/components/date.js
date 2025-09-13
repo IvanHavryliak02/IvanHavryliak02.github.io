@@ -28,12 +28,12 @@ export default class currentDate extends Component{
     }
 
     getStyles(){
-        const parentHeight = Component.publicStyles['#left-panel'].height;
-        const parentWidth = Component.publicStyles['#left-panel'].width;
-        const fontSize = 24 / 960 * parentHeight;
-        const lineHeight = fontSize + 5;
-        const marginTop = 33 / 960 * parentHeight;
-        const monthDayMLeft = 8 / 447 * parentWidth
+        const scale = Component.dataOperator.userData.scale;
+
+        const fontSize = 24 * scale;
+        const lineHeight = fontSize + 5 * scale;
+        const marginTop = 33 * scale;
+        const monthDayMLeft = 8 * scale;
         return {
             fontSize: `${fontSize}px`,
             lineHeight: `${lineHeight}px`,

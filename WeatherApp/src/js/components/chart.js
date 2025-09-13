@@ -92,8 +92,8 @@ export default class ChartWrap extends Component{
     }
 
     getStyles(){
-        const parentHeight = Component.publicStyles['#right-panel'].height;
-        const height = 300/884 * parentHeight;
+        const scale = Component.dataOperator.userData.scale;
+        const height = 330 * scale;
         return {
             width: `200%`,
             height: `${height}px`,

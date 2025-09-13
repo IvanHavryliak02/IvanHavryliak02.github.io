@@ -38,13 +38,14 @@ export default class More extends Component{
     }
 
     getStyles(){
-        const parentHeight = Component.publicStyles['#right-panel'].height;
-        const parentWidth = Component.publicStyles['#right-panel'].width;
-        const height = 150/960 * parentHeight;
-        const imgSize = 78/150 * height;
-        const imgMB = 20/150 * height;
+        const scale = Component.dataOperator.userData.scale;
+
+        const height = 150 * scale;
+        const imgSize = 78 * scale;
+        const imgMB = 20 * scale;
         const titleFS = imgMB; 
-        const titleLH = titleFS + 4;
+        const titleLH = titleFS + 4 * scale;
+        const borderRadius = 10 * scale;
 
         const theme = Component.dataOperator.userData.theme;
         const background = theme === "light" ? '#ffffff' : '#5e5e5e';
@@ -58,7 +59,7 @@ export default class More extends Component{
             justifyContent: 'center',
             flexDirection: 'column',
             background: background,
-            borderRadius: '15px',
+            borderRadius: `${borderRadius}px`,
             structures: {
                 ' .show-more__img': {
                     display: 'block',

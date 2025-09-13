@@ -207,12 +207,13 @@ export default class CitiesDropDown extends Component{
     }
 
     getStyles(){
-        const parentHeight = Component.publicStyles['#left-panel'].height;
-        const fontSize = 29 / 960 * parentHeight;
+        const scale = Component.dataOperator.userData.scale;
+        const fontSize = 29 * scale;
+        const itemFontSize = fontSize - 3;
         
         const lineHeight = fontSize + 5;
         const elementHeight = lineHeight + 10;
-        const borderRadius = 5 / 29 * elementHeight;
+        const borderRadius = 5 * scale;
         const arrowHeight = fontSize / 2;
         const listElemHeight = elementHeight + 5;
         const listHeight = listElemHeight * 5;
@@ -270,6 +271,7 @@ export default class CitiesDropDown extends Component{
                             }
                         },
                         ' .location__list-item': {
+                            fontSize: `${itemFontSize}px`,
                             color: listItemColor,
                             display: 'flex',
                             flex: `0 0 ${listElemHeight}px`,

@@ -60,6 +60,16 @@ export default class ScrollContainer extends Component{
     }
 
     getStyles(){
+        const scale = Component.dataOperator.userData.scale;
+        const navWidth = 85 * scale;
+        const navFZ = 23 * scale;
+        let arrowSettings = {};
+        for(let key in this.navAlign){
+            let value = parseInt(this.navAlign[key]);
+            value *= scale;
+            arrowSettings[key] = `${value}px`
+        }
+        
 
         const theme = Component.dataOperator.userData.theme;
         const arrowColor = theme === 'light' ? '#4c4c4c' : '#ffffff';
@@ -85,22 +95,22 @@ export default class ScrollContainer extends Component{
                     },
                 },
                 [` .${this.blockName}__arrow-left`]: {
-                    marginRight: '20px',
                     cursor: 'pointer',
                     color: arrowColor,
                 },
                 [` .${this.blockName}__arrow-right`]: {
                     cursor: 'pointer',
-                     color: arrowColor,
+                    color: arrowColor,
                 },
                 [` .${this.blockName}__nav`]: {
+                    width: `${navWidth}px`,
                     position: 'absolute',
                     display: 'flex',
-                    fontSize: '20px',
-                    color: '#4c4c4c',
+                    justifyContent: 'space-between',
+                    fontSize: `${navFZ}px`,
                     userSelect: 'none',
                     zIndex: '1000',
-                    ...this.navAlign
+                    ...arrowSettings
                 },
                 '.scroll_modif': {
                     structures: {

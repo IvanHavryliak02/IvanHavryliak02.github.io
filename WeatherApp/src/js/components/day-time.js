@@ -20,10 +20,10 @@ export default class DayAndTime extends Component{
     }
 
     getStyles(){
-        const parentHeight = Component.publicStyles['#left-panel'].height
-        const fontSize = 40 / 960 * parentHeight;
-        const marginBottom = 26 / 960 * parentHeight;
-        const lineHeight = fontSize + 8;
+        const scale = Component.dataOperator.userData.scale;
+        const fontSize = 40 * scale;
+        const marginBottom = 26 * scale;
+        const lineHeight = fontSize + 8 * scale;
         return {
             fontSize: `${fontSize}px`,
             lineHeight: `${lineHeight}px`,

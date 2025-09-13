@@ -56,14 +56,15 @@ export default class WeatherNow extends Component{
     }
 
     getStyles(){
-        const parentHeight = Component.publicStyles['#left-panel'].height;
-        const marginTop = 90/960 * parentHeight;
-        const width = 256/960 * parentHeight;
-        const tempFZ = 96/960 * parentHeight;
-        const tempMB = 82/960 * parentHeight;
-        const wrapHeight = 32/960 * parentHeight;
-        const descrFZ = 20/960 * parentHeight;
-        const statusMR = 10 / 256 * width;
+        const scale = Component.dataOperator.userData.scale;
+
+        const marginTop = 90 * scale;
+        const width = 256 * scale;
+        const tempFZ = 96 * scale;
+        const tempMB = 82 * scale;
+        const wrapHeight = 32 * scale;
+        const descrFZ = 20 * scale;
+        const statusMR = 10 * scale;
         return{
             marginTop: `${marginTop}px`,
             width: `${width}px`,

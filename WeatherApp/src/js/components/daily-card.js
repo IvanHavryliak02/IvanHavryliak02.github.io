@@ -30,7 +30,7 @@ export default class DailyCard extends Component{
             const todayNumber = dataOperator.userData.weekday;
             let dayNumber = i + todayNumber;
             if(dayNumber > 6){
-                dayNumber = dayNumber - 7;
+                dayNumber -= 7;
             }
 
             const weatherCode = data.daily.weather_code[dayNumber];
@@ -56,16 +56,22 @@ export default class DailyCard extends Component{
     }
 
     getStyles(){
-        const parentWidth = Component.publicStyles['#right-panel'].width;
-        const parentHeight = Component.publicStyles['#right-panel'].height;
-        const width = 144/1246 * parentWidth;
-        const height = 206/960 * parentHeight;
-        const imgWidth = 60/144 * width;
-        const wrapWidth = 73/144 * width;
-        const wrapFZ = 18/206 * height;
-        const wrapLH = wrapFZ + 4;
-        const dayFZ = 22/206 * height;
-        const dayLH = dayFZ + 5;
+        const scale = Component.dataOperator.userData.scale;
+
+        const width = 144 * scale;
+        const height = 206 * scale;
+        const borderRadius = 10 * scale;
+        const marginRight = 22 * scale;
+        const padding = 12 * scale;
+
+        const imgWidth = 60 * scale;
+        const wrapWidth = 73 * scale;
+        const wrapFZ = 18 * scale;
+        const wrapLH = wrapFZ + 4 * scale;
+        
+        const dayFZ = 22 * scale;
+        const dayLH = dayFZ + 5 * scale;
+        
 
         const theme = Component.dataOperator.userData.theme
         const background = theme === 'light' ? '#ffffff' : '#5e5e5e'
@@ -73,11 +79,11 @@ export default class DailyCard extends Component{
         return {
             width: `${width}px`,
             height: `${height}px`,
-            borderRadius: '10px',
+            borderRadius: `${borderRadius}px`,
             background: background,
-            marginRight: '22px',
+            marginRight: `${marginRight}px`,
             flexShrink: '0',
-            padding: '12px',
+            padding: `${padding}px`,
             color: color,
             display: 'flex',
             flexDirection: 'column',
@@ -91,7 +97,6 @@ export default class DailyCard extends Component{
             structures: {
                 ' .daily-card__status': {
                     width: `${imgWidth}px`,
-                    height: `${imgWidth}px`,
                 },
                 ' .daily-card__wrap': {
                     minWidth: `${wrapWidth}px`,

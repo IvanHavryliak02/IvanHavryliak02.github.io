@@ -41,15 +41,20 @@ export default class HourlyCard extends Component{
 
 
     getStyles(){
-        const parentWidth = Component.publicStyles['#right-panel'].width;
-        const parentHeight = Component.publicStyles['#right-panel'].height;
-        const width = 144/1246 * parentWidth;
-        const height = 206/960 * parentHeight;
-        const imgWidth = 60/144 * width;
-        const tempFZ = 18/206 * height;
-        const tempLH = tempFZ + 4;
-        const timeFZ = 22/206 * height;
-        const timeLH = timeFZ + 5;
+        const scale = Component.dataOperator.userData.scale;
+
+        const width = 144 * scale
+        const height = 206 * scale;
+        const borderRadius = 10 * scale;
+        const marginRight = 22 * scale;
+        const padding = 12 * scale;
+
+        const imgWidth = 60 * scale;
+        const tempFZ = 18 * scale;
+        const tempLH = tempFZ + 4 * scale;
+        const timeFZ = 22 * scale;
+        const timeLH = timeFZ + 5 * scale;
+
 
         const theme = Component.dataOperator.userData.theme
         const background = theme === 'light' ? '#ffffff' : '#5e5e5e'
@@ -59,12 +64,12 @@ export default class HourlyCard extends Component{
         return {
             width: `${width}px`,
             height: `${height}px`,
-            borderRadius: '10px',
+            borderRadius: `${borderRadius}px`,
             background: background ,
-            marginRight: '22px',
-            flexShrink: '0',
-            padding: '12px',
+            marginRight: `${marginRight}px`,
+            padding: `${padding}px`,
             color: color,
+            flexShrink: '0',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',

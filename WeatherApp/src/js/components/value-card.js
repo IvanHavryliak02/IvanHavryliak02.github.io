@@ -39,6 +39,7 @@ export default class ValueCard extends Component{
 
     fillProgress = async () => {
         try{
+            
             const progressBar = this.element.querySelector(`.${this.selector}__progressbar`);
             const progressItem = this.element.querySelector(`.${this.selector}__progress`); 
             let value = this.element.querySelector(`.${this.selector}__value`).textContent;
@@ -48,7 +49,7 @@ export default class ValueCard extends Component{
             const startPoint = Number.parseInt(this.barSettings.startPoint);
 
             const valueDiff = max - min;
-            const pxBarWidth = progressBar.offsetWidth - 7;
+            const pxBarWidth = progressBar.offsetWidth - 8;
             const scale = valueDiff / pxBarWidth;
             const valueStart = (startPoint / 100 * valueDiff) + min
             const valueProgress = Math.abs(valueStart - value);
@@ -102,27 +103,26 @@ export default class ValueCard extends Component{
     }
 
     getStyles(){
-        const parentHeight = Component.publicStyles['#right-panel'].height;
-        const parentWidth = Component.publicStyles['#right-panel'].width;
-        const width = 130 / 1245 * parentWidth;
-        const height = 130 / 960 * parentHeight;
-        const marginRight = 33 / 1245 * parentWidth;
-        const padding = 10 / 130 * height;
-        const labelFZ = 20 / 130 * height;
-        const labelLH = labelFZ + 4;
+        const scale = Component.dataOperator.userData.scale;
+        const width = 150 * scale;
+        const height = 150 * scale;
+        const marginRight = 33 * scale;
+        const padding = 10 * scale;
+        const labelFZ = 20 * scale;
+        const labelLH = labelFZ + 4 * scale;
         
 
-        const valueMT = 20 / 130 * height; 
-        const valueMB = 17 / 130 * height; 
-        const valueFZ = 36 / 130 * height;
-        const valueLH = valueFZ + 7;
+        const valueMT = 20 * scale; 
+        const valueMB = 17 * scale; 
+        const valueFZ = 36 * scale;
+        const valueLH = valueFZ + 7 * scale;
 
-        const barHeight = Math.round(20 / 130 * height);
+        const barHeight = Math.round(20 * scale);
         const progressHeight = Math.round(barHeight - 6);
-        const dividerHeight = Math.round(35 / 20 * barHeight);
-        const borderRadius = Math.round(10 / 20 * barHeight)
+        const dividerHeight = Math.round(35 * scale);
+        const borderRadius = Math.round(10 * scale)
         
-        const barBorderRadius = Math.round(10 / 20 * barHeight);
+        const barBorderRadius = Math.round(10 * scale);
 
         const theme = Component.dataOperator.userData.theme;
         const background = theme === 'light' ? '#ffffff' : '#5e5e5e';
@@ -131,8 +131,8 @@ export default class ValueCard extends Component{
         const barBorderColor = theme === 'light' ? 'rgba(76,76,76,0.3)' : 'rgba(255,255,255,0.5)';
         const dividerColor = theme === 'light' ? 'rgba(76,76,76,0.3)' : '#ffffff';
         return {
-            minWidth: `12%`,
-            height: `15.6%`,
+            minWidth: `${width}px`,
+            height: `${height}px`,
             marginRight: `${marginRight}px`,
             borderRadius: `${borderRadius}px`,
             padding: `${padding}px`,

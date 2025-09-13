@@ -13,12 +13,11 @@ export default class RightPanel extends Component{
     }
 
     getStyles(){
-        const parentWidth = Component.publicStyles['#app-body'].width
-        const parentHeight = Component.publicStyles['#app-body'].height
-        const width = 1246 / 1693 * parentWidth;
-        const height = 960 / 960 * parentHeight;
-        const widthPadding = 45 / 1246 * width;
-        const heightPadding = 50 / 960 * height;
+        const scale = Component.dataOperator.userData.scale;
+        const width = 1246 * scale;
+        const height = 960 * scale;
+        const widthPadding = 45 * scale;
+        const heightPadding = 50 * scale;
         this.makeStylesPublic('#right-panel', {width: width, height: height});
         return {
             width: `${width}px`,
@@ -50,13 +49,6 @@ export default class RightPanel extends Component{
                     float: 'left',
                 },
             },
-            media: {
-                '(max-width: 576px)': {
-                    width: '100%',
-                    height: 'auto',
-                    padding: '0'
-                }
-            }
         }
     }
 }

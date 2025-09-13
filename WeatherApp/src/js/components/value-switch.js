@@ -15,14 +15,13 @@ export default class ValueSwitch extends Component{
     }
 
     getStyles(){
-        const parentHeight = Component.publicStyles['#right-panel'].height;
-        const parentWidth = Component.publicStyles['#right-panel'].width;
-        const width = 120/1245 * parentWidth;
-        const height = 45/960 * parentHeight;
-        const fontSize = 20/45 * height;
-        const right = 42/1245 * parentWidth;
-        const top = 42/960 * parentHeight;
-        const borderRadius = 10 / 45 * height;
+        const scale = Component.dataOperator.userData.scale;
+        const width = 120 * scale;
+        const height = 45 * scale;
+        const fontSize = 20 * scale;
+        const right = 42 * scale;
+        const top = 42 * scale;
+        const borderRadius = 10 * scale;
         const animationDuration = '0.7s'
         
         const theme = Component.dataOperator.userData.theme;

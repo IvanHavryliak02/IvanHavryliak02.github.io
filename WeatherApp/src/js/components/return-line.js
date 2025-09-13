@@ -26,12 +26,14 @@ export default class ReturnLine extends Component{
     }
 
     getStyles(){
-        const parentWidth = Component.publicStyles['#left-panel'].width;
-        const parentHeight = Component.publicStyles['#left-panel'].height;
-        const width = 4 / 447 * parentWidth;
-        const height = 80 / 960 * parentHeight;
-        const borderRadius = 2 / 4 * width;
-        const right = 20 / 447 * parentWidth;
+        const scale = Component.dataOperator.userData.scale;
+        const width = 4 * scale;
+        const height = 80 * scale;
+        const borderRadius = 2 * scale;
+        const right = 20 * scale;
+        const hoveredWidth = width + 30;
+        const animationDuration = '0.7s';
+
         const theme = Component.dataOperator.userData.theme;
         const background = theme === 'light' ? 'rgba(76,76,76,0.4)' : 'rgba(255,255,255,0.6)'
         return {
@@ -44,14 +46,16 @@ export default class ReturnLine extends Component{
             top: '50%',
             transform: 'translateY(-50%)',
             display: 'none',
+            transition: `all ${animationDuration}`,
             pseudo: {
                 ':hover': {
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    width: `${hoveredWidth}px`,
                 }
             },
             structures: {
                 '.more': {
-                    display: 'block'
+                    display: 'block',
                 }
             }
         }
