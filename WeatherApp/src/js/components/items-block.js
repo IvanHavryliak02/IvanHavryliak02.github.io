@@ -18,26 +18,24 @@ export default class ItemsBlock extends Component{
 
     getStyles(){
         const parentHeight = Component.publicStyles['#right-panel'].height;
-        const headerFZ = 40/960 * parentHeight;
-        const mBott = 45/960 * parentHeight;
-        const containerWidth = 933/960 * parentHeight
+        const headerFZ = 40 / 960 * parentHeight;
+        const marginBottom = 47 / 960 * parentHeight;
+        const headerMB = 15 / 960 * parentHeight;
+
+        const theme = Component.dataOperator.userData.theme;
+        const headerColor = theme === 'light' ? '#4C4C4C' : '#ffffff';
         return {
-            marginBottom: `${mBott}px`,
+            marginBottom: `${marginBottom }px`,
             structures: {
                 [` .${this.blockName}__header`]: {
-                    color: '#4C4C4C',
+                    color: headerColor,
                     fontSize: `${headerFZ}px`,
-                    marginBottom: '15px',
+                    marginBottom: `${headerMB}px`,
                     fontWeight: '400',
                     userSelect: 'none',
                 },
                 [` .${this.blockName}__container`]: {
                     display: 'flex',
-                    justifyContent: 'space-between',
-                   
-                },
-                '.conditions_modif': {
-                    maxWidth: `${containerWidth}px`
                 },
                 ' .hourly__container': {
                     width: '100%'

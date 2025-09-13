@@ -13,13 +13,17 @@ export default class RightPanel extends Component{
     }
 
     getStyles(){
-        const width = Math.round(Component.publicStyles['#app-body'].width * (1 - 0.264));
-        const height = Math.round(Component.publicStyles['#app-body'].height * 1);
+        const parentWidth = Component.publicStyles['#app-body'].width
+        const parentHeight = Component.publicStyles['#app-body'].height
+        const width = 1246 / 1693 * parentWidth;
+        const height = 960 / 960 * parentHeight;
+        const widthPadding = 45 / 1246 * width;
+        const heightPadding = 50 / 960 * height;
         this.makeStylesPublic('#right-panel', {width: width, height: height});
         return {
             width: `${width}px`,
             height: `${height}px`,
-            padding: '46px 50px',
+            padding: `${widthPadding}px ${heightPadding }px`,
             background: 'transparent',
             position: 'relative',
             float: 'right',

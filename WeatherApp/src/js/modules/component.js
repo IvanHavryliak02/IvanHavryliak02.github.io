@@ -38,17 +38,19 @@ export default class Component{
                 }
             }
         },
-        userTime: {
+        userData: {
             month: '',
             date: '',
             weekday: '',
             hour: '',
-            getUserDate: function (){
+            theme: '',
+            getUserData: function (){
                 const date = new Date();
                 this.date = date.getDate();
                 this.month = date.getMonth();
                 this.weekday = date.getDay();
                 this.hour = date.getHours();
+                this.theme = this.hour > 21 || this.hour < 6 ? 'dark' : 'light';
             },
             findWeekday: function(i = 'none'){
                 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -57,7 +59,7 @@ export default class Component{
                 }else{
                     return days[i];
                 } 
-            },
+            }
         },
         weatherDecoder:{ 
             weatherCodes: {

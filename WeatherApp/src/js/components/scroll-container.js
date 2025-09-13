@@ -60,6 +60,9 @@ export default class ScrollContainer extends Component{
     }
 
     getStyles(){
+
+        const theme = Component.dataOperator.userData.theme;
+        const arrowColor = theme === 'light' ? '#4c4c4c' : '#ffffff';
         return {
             width: '100%',
             height: '100%',
@@ -84,9 +87,11 @@ export default class ScrollContainer extends Component{
                 [` .${this.blockName}__arrow-left`]: {
                     marginRight: '20px',
                     cursor: 'pointer',
+                    color: arrowColor,
                 },
                 [` .${this.blockName}__arrow-right`]: {
                     cursor: 'pointer',
+                     color: arrowColor,
                 },
                 [` .${this.blockName}__nav`]: {
                     position: 'absolute',

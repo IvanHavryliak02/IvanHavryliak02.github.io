@@ -10,26 +10,33 @@ export default class LeftPanel extends Component{
     }
 
     getStyles(){
-        const width = Math.round(Component.publicStyles['#app-body'].width * 0.264);
-        const height = Math.round(Component.publicStyles['#app-body'].height * 1);
+        const parentWidth = Component.publicStyles['#app-body'].width;
+        const parentHeight = Component.publicStyles['#app-body'].height;
+        const width = 447 / 1693 * parentWidth;
+        const height = 960 / 960 * parentHeight;
+        const heightPadding = 50 / 960 * height;
+        const theme = Component.dataOperator.userData.theme;
+
+        const borderRadius = 70 / 960 * parentHeight;
+        const backgroundColor = theme === 'light' ? '#ffffff' : '#4A4A4A';
+        const color = theme === 'light' ? '#4c4c4c' : '#ffffff';
         this.makeStylesPublic('#left-panel', {height:height, width: width});
         return {
-            float: 'left',
             width: `${width}px`,
             height: `${height}px`,
-            borderRadius: '70px 0 0 70px',
-            background: '#fff',
-            padding: '48px 0',
+            borderRadius: `${borderRadius}px 0 0 ${borderRadius}px`,
+            background: backgroundColor,
+            color: color,
+            float: 'left',
+            padding: `${heightPadding}px 0`,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            color: '#4c4c4c',
-            transition: '0.7s all',
             position: 'relative',
             structures: {
                 '.more': {
                     float: 'right',
-                    borderRadius: '0 70px 70px 0',
+                    borderRadius: `0 ${borderRadius}px ${borderRadius}px 0`,
                 }
             },
             media: {

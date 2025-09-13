@@ -25,7 +25,7 @@ import keys from './modules/keys.js';
 window.addEventListener('load', () => {
     console.log('Loading...');
     console.time('timer');
-    Component.dataOperator.userTime.getUserDate();
+    Component.dataOperator.userData.getUserData();
 
     new Container(document.querySelector('body'), 'div', '.container').render();
 
@@ -50,14 +50,13 @@ window.addEventListener('load', () => {
         'Humidity, %',
         () => {
             const data = Component.dataOperator.weatherData;
-            const hour = Component.dataOperator.userTime.hour;
+            const hour = Component.dataOperator.userData.hour;
             const value = data.hourly.relative_humidity_2m[hour]
             return value;
         },
         {
-            background: '#ffc300',
             startPoint: '50%',
-            min: 5,
+            min: 0,
             max: 100,
             dividerShow: true,
         }
@@ -70,12 +69,11 @@ window.addEventListener('load', () => {
         'Pressure, hPa',
         () => {
             const data = Component.dataOperator.weatherData;
-            const hour = Component.dataOperator.userTime.hour;
+            const hour = Component.dataOperator.userData.hour;
             const value = data.hourly.surface_pressure[hour]
             return Math.round(value);
         },
         {
-            background: '#ffc300',
             startPoint: '50%',
             min: 963,
             max: 1063,
@@ -90,12 +88,11 @@ window.addEventListener('load', () => {
         'Visibility, km',
         () => {
             const data = Component.dataOperator.weatherData;
-            const hour = Component.dataOperator.userTime.hour;
+            const hour = Component.dataOperator.userData.hour;
             const value = data.hourly.visibility[hour]
             return Math.floor(value / 1000);
         },
         {
-            background: '#ffc300',
             startPoint: '0%',
             min: 0,
             max: 10,
@@ -111,12 +108,11 @@ window.addEventListener('load', () => {
         'Wind speed, km/h',
         () => {
             const data = Component.dataOperator.weatherData;
-            const hour = Component.dataOperator.userTime.hour;
+            const hour = Component.dataOperator.userData.hour;
             const value = data.hourly.wind_speed_10m[hour]
             return Math.round(value);
         },
         {
-            background: '#ffc300',
             startPoint: '0%',
             min: 0,
             max: 40,
@@ -187,11 +183,11 @@ window.addEventListener('load', () => {
             const dataYArr = data.daily.temperature_2m_max
             const x = [], y = [];
             const unitChecker = Component.dataOperator.unitChecker;
-            const userDay = Component.dataOperator.userTime.weekday;
+            const userDay = Component.dataOperator.userData.weekday;
             for (let i = 0; i < 7; i++) {
                 let day = userDay + i;
                 day = day >= 7 ? day - 7 : day;
-                x.push(Component.dataOperator.userTime.findWeekday(day).slice(0, 3))
+                x.push(Component.dataOperator.userData.findWeekday(day).slice(0, 3))
                 y.push(unitChecker.calculateTemp(dataYArr[i]));
             }
             return {

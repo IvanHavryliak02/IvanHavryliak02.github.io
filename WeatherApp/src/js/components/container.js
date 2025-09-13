@@ -13,13 +13,15 @@ export default class Container extends Component{
         const width = window.innerWidth;
         const height = window.innerHeight;
         this.makeStylesPublic(this.elementSelector, {width: width, height: height});
+        const theme = Component.dataOperator.userData.theme;
+        const background = theme === 'light' ? '#dddddd' : '#313131';
         return {
             width: `${width}px`,
             height: `${height}px`,
             display: `flex`,
             justifyContent: `center`,
             alignItems: `center`,
-            background: `#ddd`,
+            background: background,
         }
     }
 }

@@ -208,19 +208,28 @@ export default class CitiesDropDown extends Component{
 
     getStyles(){
         const parentHeight = Component.publicStyles['#left-panel'].height;
-        const fontSize = Math.round(parentHeight * 0.025);
+        const fontSize = 29 / 960 * parentHeight;
+        
         const lineHeight = fontSize + 5;
         const elementHeight = lineHeight + 10;
+        const borderRadius = 5 / 29 * elementHeight;
         const arrowHeight = fontSize / 2;
         const listElemHeight = elementHeight + 5;
         const listHeight = listElemHeight * 5;
+        const itemBoxShadow = '0 0 4px #e4e4e4ff';
+
+        const theme = Component.dataOperator.userData.theme;
+        const listBg = theme === 'light' ? '#ffffff' : '#4c4c4c';
+        const arrowColor = theme === 'light' ? '#4c4c4c' : '#ffffff';
+        const listItemColor = theme === 'light' ? 'inherit' : '#dfdfdfff';
+        const hoverColor = theme === 'light' ? '#000000' : '#ffffff';
         const borderStyle = '0.5px solid #e4e4e4ff';
         const borderTransparent = '0.5px solid transparent' 
 
         return {
             fontSize: `${fontSize}px`,
             lineHeight: `${lineHeight}px`,
-            background: '#fff',
+            background: 'transparent',
             height: `${elementHeight}px`,
             pseudo: {
                 ':hover': {
@@ -239,7 +248,7 @@ export default class CitiesDropDown extends Component{
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    background: '#fff',
+                    background: listBg,
                     borderRight: borderTransparent,
                     borderBottom: borderTransparent,
                     borderLeft: borderTransparent,
@@ -261,12 +270,11 @@ export default class CitiesDropDown extends Component{
                             }
                         },
                         ' .location__list-item': {
-                            color: 'inherit',
+                            color: listItemColor,
                             display: 'flex',
                             flex: `0 0 ${listElemHeight}px`,
                             alignItems: 'center',
                             justifyContent: 'center',
-                            transition: 'color 0.7s',
                             position: 'relative',
                             overflow: 'visible',
                             borderTop: borderTransparent,
@@ -275,10 +283,10 @@ export default class CitiesDropDown extends Component{
                             transition: 'all 0.4s',
                             pseudo: {
                                 ':hover': {
-                                    color: '#000000',
+                                    color: hoverColor,
                                     borderTop: borderStyle,
                                     borderBottom: borderStyle,
-                                    boxShadow: '0 0 4px #e4e4e4ff'
+                                    boxShadow: itemBoxShadow,
                                 }
                             }
                         },
@@ -291,16 +299,16 @@ export default class CitiesDropDown extends Component{
                     alignItems: 'center',
                     overflow: 'hidden',
                     border: borderStyle,
-                    borderRadius: '5px 5px 5px 5px',
+                    borderRadius: `${borderRadius}px`,
                     transition: 'border-radius 0.7s',
                     structures: {
                         '.active': {
-                            borderRadius: '5px 5px 0 0'
+                            borderRadius: `${borderRadius}px ${borderRadius}px 0 0`
                         }, 
                         ' input': {
                             width: '90%',
                             border: 'none',
-                            background: '#fff',
+                            background: 'transparent',
                             height: `100%`,
                             textAlign: 'center',
                             fontSize: 'inherit',
@@ -319,7 +327,7 @@ export default class CitiesDropDown extends Component{
                             alignItems: 'center',
                             structures: {
                                 ' .location__arrow': {
-                                    color: '#4c4c4c',
+                                    color: arrowColor,
                                     fontSize: `${arrowHeight}px`,
                                     transition: 'transform 0.7s',
                                 }

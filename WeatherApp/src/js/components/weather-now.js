@@ -36,12 +36,14 @@ export default class WeatherNow extends Component{
         }
         try{
             const data = Component.dataOperator.weatherData;
-            const hour = Component.dataOperator.userTime.hour;
+            const hour = Component.dataOperator.userData.hour;
             const code = data.hourly.weather_code[hour];
             let temp = data.hourly.temperature_2m[hour];
             const weatherImage = Component.dataOperator.weatherDecoder.whatsImage(code, temp);
             const tempUnit = Component.dataOperator.unitChecker.unit === 'cels' ? '°C' : '°F';
-            const src = `./icons/lightTheme/ico-${weatherImage}`;
+            const theme = Component.dataOperator.userData.theme;
+            const iconFolder = theme === 'light' ? 'lightTheme' : 'darkTheme';
+            const src = `./icons/${iconFolder}/ico-${weatherImage}`;
 
             temp = Math.round(Component.dataOperator.unitChecker.calculateTemp(temp));
             this.element.querySelector('.now__weather-type').src = src;
@@ -61,6 +63,7 @@ export default class WeatherNow extends Component{
         const tempMB = 82/960 * parentHeight;
         const wrapHeight = 32/960 * parentHeight;
         const descrFZ = 20/960 * parentHeight;
+        const statusMR = 10 / 256 * width;
         return{
             marginTop: `${marginTop}px`,
             width: `${width}px`,
@@ -95,7 +98,7 @@ export default class WeatherNow extends Component{
                         ' .now__status': {
                             width: `${wrapHeight}px`,
                             fontSize: `${descrFZ}px`,
-                            marginRight: '10px',
+                            marginRight: `${statusMR}px`,
                         },
                         ' .now__descr': {
                             fontSize: `${descrFZ}px`

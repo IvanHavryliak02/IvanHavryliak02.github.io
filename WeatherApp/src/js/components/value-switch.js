@@ -22,34 +22,40 @@ export default class ValueSwitch extends Component{
         const fontSize = 20/45 * height;
         const right = 42/1245 * parentWidth;
         const top = 42/960 * parentHeight;
+        const borderRadius = 10 / 45 * height;
         const animationDuration = '0.7s'
+        
+        const theme = Component.dataOperator.userData.theme;
+        const color = theme === 'light' ? '#ffffff' : '#4c4c4c'
+        const background = theme === 'light' ? '#4c4c4c' : '#ffffff'
+        const borderColor = theme === 'light' ? 'rgba(76, 76, 76, 0.4)' : '#8c8c8c'
         return {
             width: `${width}px`,
             height: `${height}px`,
-            display: 'flex',
-            alignItems: 'center',
-            color: '#ffffff',
             fontSize: `${fontSize}px`,
-            position: 'absolute',
             right: `${right}px`,
             top: `${top}px`,
-            borderRadius: '10px',
-            background: '#4c4c4c',
+            background: background,
+            color: color,
+            borderRadius: `${borderRadius}px`,
+            transition: `${animationDuration} all`,
+            display: 'flex',
+            alignItems: 'center',
+            position: 'absolute',
             cursor: 'pointer',
-            transition: '0.7s all',
             pseudo: {
                 '::after': {
                     content: "''",
+                    borderRadius: `${borderRadius}px`,
+                    border: `1px solid ${borderColor}`,
+                    transition: `${animationDuration} all`,
+                    background: color,
                     position: 'absolute',
                     width: '50%',
                     height: '100%',
-                    borderRadius: '10px',
-                    border: '1px solid rgba(76, 76, 76, 0.4)',
-                    background: '#fff',
                     left: '0',
                     boxSizing: 'border-box',
                     zIndex: '0',
-                    transition: `${animationDuration} all`
                 },
             },
             structures: {
@@ -57,26 +63,27 @@ export default class ValueSwitch extends Component{
                     left: `${right}px`,
                 },
                 ' .value-switch__cels': {
+                    color: background,
+                    transition: `${animationDuration} all`,
                     zIndex: '1',
                     width: '50%',
                     textAlign: 'center',
-                    color: '#4c4c4c',
-                    transition: `${animationDuration} all`
                 },
                 ' .value-switch__faren': {
+                    transition: `${animationDuration} all`,
                     zIndex: '1',
                     width: '50%',
                     textAlign: 'center',
-                    transition: `${animationDuration} all`
+                    
                 },
                 '.active::after': {
                     left: '50%'
                 },
                 '.active': {
-                    color: '#4C4C4C',
+                    color: background,
                     structures: {
                         ' .value-switch__cels': {
-                            color: '#fff'
+                            color: color
                         }
                     }
                 }

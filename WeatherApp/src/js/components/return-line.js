@@ -26,14 +26,22 @@ export default class ReturnLine extends Component{
     }
 
     getStyles(){
+        const parentWidth = Component.publicStyles['#left-panel'].width;
+        const parentHeight = Component.publicStyles['#left-panel'].height;
+        const width = 4 / 447 * parentWidth;
+        const height = 80 / 960 * parentHeight;
+        const borderRadius = 2 / 4 * width;
+        const right = 20 / 447 * parentWidth;
+        const theme = Component.dataOperator.userData.theme;
+        const background = theme === 'light' ? 'rgba(76,76,76,0.4)' : 'rgba(255,255,255,0.6)'
         return {
-            width: '4px',
-            height: '80px',
-            borderRadius: '2px',
+            width: `${width}px`,
+            height: `${height}px`,
+            borderRadius: `${borderRadius}px`,
+            right: `${right}px`,
+            background: background,
             position: 'absolute',
-            background: '#4c4c4c',
             top: '50%',
-            right: '20px',
             transform: 'translateY(-50%)',
             display: 'none',
             pseudo: {

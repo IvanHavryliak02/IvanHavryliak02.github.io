@@ -23,14 +23,16 @@ export default class HourlyCard extends Component{
             const tempBlock = this.element.querySelector('.hourly-card__temp');
 
             const data = Component.dataOperator.weatherData;
-            const weatherTime= data.hourly.time[i].match(/\d{2}:\d{2}$/)[0];
+            const weatherTime = data.hourly.time[i].match(/\d{2}:\d{2}$/)[0];
             const code = data.hourly.weather_code[i];
             let temp = data.hourly.temperature_2m[i];
+            const theme = Component.dataOperator.userData.theme;
             const srcImg = Component.dataOperator.weatherDecoder.whatsImage(code,temp);
+            const srcFolder = theme === 'light' ? 'lightTheme' : 'darkTheme';
             temp = Math.round(Component.dataOperator.unitChecker.calculateTemp(temp));
 
             timeBlock.textContent = weatherTime;
-            statusBlock.src = `icons/lightTheme/ico-${srcImg}`;
+            statusBlock.src = `icons/${srcFolder}/ico-${srcImg}`;
             tempBlock.textContent = `${temp}°`   
         }catch(err){
             console.error(`${this.elementSelector} can't find his data:`,err.message)
@@ -49,15 +51,20 @@ export default class HourlyCard extends Component{
         const timeFZ = 22/206 * height;
         const timeLH = timeFZ + 5;
 
+        const theme = Component.dataOperator.userData.theme
+        const background = theme === 'light' ? '#ffffff' : '#5e5e5e'
+        const color = theme === 'light' ? '#4c4c4c' : '#ffffff';
+
+
         return {
             width: `${width}px`,
             height: `${height}px`,
             borderRadius: '10px',
-            background: '#ffffff',
+            background: background ,
             marginRight: '22px',
             flexShrink: '0',
             padding: '12px',
-            color: '#4c4c4c',
+            color: color,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',

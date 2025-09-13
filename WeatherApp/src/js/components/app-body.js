@@ -11,15 +11,20 @@ export default class AppBody extends Component{
     }
 
     getStyles(){
-        const width = Math.round(Component.publicStyles['.container'].width * 0.88);
-        const height = Math.round(Component.publicStyles['.container'].height * 0.88);
+        const parentWidth = Component.publicStyles['.container'].width;
+        const parentHeight = Component.publicStyles['.container'].height;
+        const width = 1693 / 1920 * parentWidth;
+        const height = 960 / 1080 * parentHeight;
+        const borderRadius = 70 / 960 * parentHeight;
         this.makeStylesPublic(this.elementSelector, {width:width, height:height});
+        const theme = Component.dataOperator.userData.theme;
+        const backgroundColor = theme === 'light' ? '#efefef' : '#3A3A3A'
         return {
             //display: 'flex',
             width: `${width}px`,
             height: `${height}px`,
-            background: '#efefef',
-            borderRadius: `70px`,
+            background: backgroundColor,
+            borderRadius: `${borderRadius}px`,
             //justifyContent: 'space-between',
             media: {
                 '(max-width: 576px)': {

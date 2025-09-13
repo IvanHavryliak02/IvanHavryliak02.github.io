@@ -19,13 +19,21 @@ export default class currentDate extends Component{
         this.applyStyles();
     }
 
+    fillData(){
+        const element = this.element;
+        const currMonth = currentDate.months[Component.dataOperator.userData.month];
+        const currDay = Component.dataOperator.userData.date;
+
+        element.querySelector('.date__month-day').textContent = `${currMonth} ${currDay}`;
+    }
+
     getStyles(){
         const parentHeight = Component.publicStyles['#left-panel'].height;
         const parentWidth = Component.publicStyles['#left-panel'].width;
-        const fontSize = parentHeight * 0.025;
+        const fontSize = 24 / 960 * parentHeight;
         const lineHeight = fontSize + 5;
-        const marginTop = parentHeight * 0.0344;
-        const monthDayMLeft = parentWidth * 0.018
+        const marginTop = 33 / 960 * parentHeight;
+        const monthDayMLeft = 8 / 447 * parentWidth
         return {
             fontSize: `${fontSize}px`,
             lineHeight: `${lineHeight}px`,
@@ -40,11 +48,5 @@ export default class currentDate extends Component{
         }
     }
 
-    fillData(){
-        const element = this.element;
-        const currMonth = currentDate.months[Component.dataOperator.userTime.month];
-        const currDay = Component.dataOperator.userTime.date;
-
-        element.querySelector('.date__month-day').textContent = `${currMonth} ${currDay}`;
-    }
+   
 }

@@ -43,11 +43,13 @@ export default class ChartWrap extends Component{
 
     createNewChart(){
         const chart = this.element.querySelector(`.${this.blockName}__chart`);
+        const theme = Component.dataOperator.userData.theme;
+        const borderColor = theme === 'light' ? '#4C4C4C' : '#ffffff'
         return new Chart(chart, {
             type: 'line',
             data: {
                 datasets: [{
-                    borderColor: '#4C4C4C',
+                    borderColor: borderColor ,
                     borderWidth: 1,
                     tension: 0.4,
                     pointRadius: 0,
@@ -58,17 +60,18 @@ export default class ChartWrap extends Component{
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    y: {
+                    x: {
+                        grid: {display: false},
                         ticks: {
-                            display: false,
+                            color: borderColor,
                             font: {
                                 family: 'Inter'
                             }
                         }
                     },
-                    x: {
-                        grid: {display: false},
+                    y: {
                         ticks: {
+                            display: false,
                             font: {
                                 family: 'Inter'
                             }
@@ -77,9 +80,10 @@ export default class ChartWrap extends Component{
                 },
                 plugins: {
                     datalabels: {
+                        
                         anchor: 'end',
                         align: 'top',
-                        color: '#4c4c4c',
+                        color: borderColor,
                         font: { weight: 'normal', family: 'Inter' }
                     }
                 } 

@@ -8,8 +8,7 @@ export default class ValueCard extends Component{
             selector, 
             label, 
             valueCallback,
-            barSettings = {
-                background: '#000', 
+            barSettings = { 
                 startPoint: '50%',
                 min: 0,
                 max: 100,
@@ -54,6 +53,7 @@ export default class ValueCard extends Component{
             const valueStart = (startPoint / 100 * valueDiff) + min
             const valueProgress = Math.abs(valueStart - value);
             let width = valueProgress / scale;
+
             if(value <= min){
                 width = ((valueStart - min) / scale)
             }
@@ -103,27 +103,47 @@ export default class ValueCard extends Component{
 
     getStyles(){
         const parentHeight = Component.publicStyles['#right-panel'].height;
-        const height = 150/960 * parentHeight;
+        const parentWidth = Component.publicStyles['#right-panel'].width;
+        const width = 130 / 1245 * parentWidth;
+        const height = 130 / 960 * parentHeight;
+        const marginRight = 33 / 1245 * parentWidth;
+        const padding = 10 / 130 * height;
+        const labelFZ = 20 / 130 * height;
+        const labelLH = labelFZ + 4;
+        
 
-        const valueMT = 20/150 * height; 
-        const valueMB = 17.5/150 * height; 
-        const valueFZ = 36/150 * height;
-        const valueLH = 44/150 * height;
+        const valueMT = 20 / 130 * height; 
+        const valueMB = 17 / 130 * height; 
+        const valueFZ = 36 / 130 * height;
+        const valueLH = valueFZ + 7;
 
-        let barheight = Math.round(20/150 * height);
-        const wrapHeight = Math.round(barheight - 6);
-        const dividerHeight = Math.round(35/20 * barheight);
+        const barHeight = Math.round(20 / 130 * height);
+        const progressHeight = Math.round(barHeight - 6);
+        const dividerHeight = Math.round(35 / 20 * barHeight);
+        const borderRadius = Math.round(10 / 20 * barHeight)
+        
+        const barBorderRadius = Math.round(10 / 20 * barHeight);
 
+        const theme = Component.dataOperator.userData.theme;
+        const background = theme === 'light' ? '#ffffff' : '#5e5e5e';
+        const color = theme === 'light' ? '#4c4c4c' : '#ffffff';
+        const labelColor = theme === 'light' ? '#7C7C7C' : 'rgba(255,255,255,0.8)';
+        const barBorderColor = theme === 'light' ? 'rgba(76,76,76,0.3)' : 'rgba(255,255,255,0.5)';
+        const dividerColor = theme === 'light' ? 'rgba(76,76,76,0.3)' : '#ffffff';
         return {
-            height: `${height}px`,
-            minWidth: `${height}px`,
-            borderRadius: `15px`,
-            padding: '10px 8px',
-            background: '#fff',
-            color: '#4c4c4c',
+            minWidth: `12%`,
+            height: `15.6%`,
+            marginRight: `${marginRight}px`,
+            borderRadius: `${borderRadius}px`,
+            padding: `${padding}px`,
+            background: background,
+            color: color,
+            
             structures: {
                 [` .${this.selector}__label`]: {
-                    color: '#7C7C7C',
+                    fontSize: `${labelFZ}px`,
+                    lingHeight: `${labelLH}px`,
+                    color: labelColor,
                     display: 'block',
                     textAlign: 'center',
                 },
@@ -134,16 +154,16 @@ export default class ValueCard extends Component{
                     lineHeight: `${valueLH}px`
                 },
                 [` .${this.selector}__progressbar`]: {
-                    border: '0.5px solid rgba(76,76,76,0.3)',
-                    height: `${barheight}px`,
-                    borderRadius: '10px',
+                    border: `1px solid ${barBorderColor}`,
+                    height: `${barHeight}px`,
+                    borderRadius: `${barBorderRadius}px`,
                     display: 'flex',
                     alignItems: 'center',
                     position: 'relative',
                     structures: {
                         [` .${this.selector}__progress`]: {
-                            background: this.barSettings.background,
-                            height: `${wrapHeight}px`,
+                            background: '#FFC300',
+                            height: `${progressHeight}px`,
                             width: '0',
                             position: 'absolute',
                         },
@@ -155,7 +175,7 @@ export default class ValueCard extends Component{
                             top: '50%',
                             transform: 'translate(-50%, -50%) rotate(90deg)',
                             height: '1px', 
-                            background: 'rgba(76,76,76,0.3)'
+                            background: dividerColor
                         }
                     } 
                 }

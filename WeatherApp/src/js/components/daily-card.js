@@ -27,7 +27,7 @@ export default class DailyCard extends Component{
             const data = Component.dataOperator.weatherData;
             const dataOperator = Component.dataOperator;
 
-            const todayNumber = dataOperator.userTime.weekday;
+            const todayNumber = dataOperator.userData.weekday;
             let dayNumber = i + todayNumber;
             if(dayNumber > 6){
                 dayNumber = dayNumber - 7;
@@ -37,12 +37,14 @@ export default class DailyCard extends Component{
             let maxTemp = data.daily.temperature_2m_max[i];
             let minTemp = data.daily.temperature_2m_min[i];
             const imgType = dataOperator.weatherDecoder.whatsImage(weatherCode, maxTemp);
-            const dayName = dataOperator.userTime.findWeekday(dayNumber)
+            const dayName = dataOperator.userData.findWeekday(dayNumber)
             maxTemp = dataOperator.unitChecker.calculateTemp(maxTemp)
             minTemp = dataOperator.unitChecker.calculateTemp(minTemp)
 
             dayBlock.textContent = dayName.slice(0, 3).toUpperCase();
-            imgBlock.src = `icons/lightTheme/ico-${imgType}`;
+            const theme = Component.dataOperator.userData.theme;
+            const srcFolder = theme === 'light' ? 'lightTheme' : 'darkTheme';
+            imgBlock.src = `icons/${srcFolder}/ico-${imgType}`;
             maxTempBlock.textContent = `${Math.round(maxTemp)}°`;
             minTempBlock.textContent = `${Math.round(minTemp)}°`;
 
@@ -62,15 +64,19 @@ export default class DailyCard extends Component{
         const wrapLH = wrapFZ + 4;
         const dayFZ = 22/206 * height;
         const dayLH = dayFZ + 5;
+
+        const theme = Component.dataOperator.userData.theme
+        const background = theme === 'light' ? '#ffffff' : '#5e5e5e'
+        const color = theme === 'light' ? '#4c4c4c' : '#ffffff'
         return {
             width: `${width}px`,
             height: `${height}px`,
             borderRadius: '10px',
-            background: '#ffffff',
+            background: background,
             marginRight: '22px',
             flexShrink: '0',
             padding: '12px',
-            color: '#4c4c4c',
+            color: color,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
