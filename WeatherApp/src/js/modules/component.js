@@ -84,7 +84,8 @@ export default class Component{
                         50: 'drizzle.svg',
                         60: 'rain-cloud.svg',
                         70: 'snow.svg',
-                        80: 'storm.svg'
+                        80: 'storm.svg',
+                        90: 'storm.svg'
                     }
                 },
             whatsImage: function(code, temp){
