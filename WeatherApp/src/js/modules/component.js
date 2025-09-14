@@ -65,9 +65,6 @@ export default class Component{
                 }else{
                     return days[i];
                 } 
-            },
-            scaleParam: function (param){
-                return param * this.scale;
             }
         },
         weatherDecoder:{ 

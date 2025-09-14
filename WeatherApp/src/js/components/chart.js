@@ -20,7 +20,6 @@ export default class ChartWrap extends Component{
         this.blockName = this.blockName.slice(1);
         this.element = this.createElement(`
             <canvas class="${this.blockName}__chart"></canvas>
-
         `)
         this.styles = this.getStyles();
         this.applyStyles();
@@ -47,6 +46,7 @@ export default class ChartWrap extends Component{
         const fontSize = 20 * scale;
         const theme = Component.dataOperator.userData.theme;
         const borderColor = theme === 'light' ? '#4C4C4C' : '#ffffff'
+        const gridColor = theme === 'light' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.4)';
         return new Chart(chart, {
             type: 'line',
             data: {
@@ -73,12 +73,18 @@ export default class ChartWrap extends Component{
                         }
                     },
                     y: {
+                        grid: {
+                            color: gridColor
+                        },
                         ticks: {
                             display: false,
                             font: {
                                 family: 'Inter',
                                 
                             }
+                        },
+                        border: {
+                            display: false
                         }
                     }
                 },
@@ -98,9 +104,16 @@ export default class ChartWrap extends Component{
     getStyles(){
         const scale = Component.dataOperator.userData.scale;
         const height = 330 * scale;
+        const widthPadding = 35 * scale;
+        const heightPadding = 50 * scale;
+
+        const theme = Component.dataOperator.userData.theme;
+        const background = theme === 'light' ? '#ffffff' : '#5a5a5a'
         return {
             width: `200%`,
             height: `${height}px`,
+            padding: `${heightPadding}px ${widthPadding}px`,
+            background: background,
         }
     }
     

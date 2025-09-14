@@ -63,6 +63,8 @@ export default class ScrollContainer extends Component{
         const scale = Component.dataOperator.userData.scale;
         const navWidth = 85 * scale;
         const navFZ = 23 * scale;
+        const borderRadius = 10 * scale;
+
         let arrowSettings = {};
         for(let key in this.navAlign){
             let value = parseInt(this.navAlign[key]);
@@ -115,10 +117,12 @@ export default class ScrollContainer extends Component{
                 '.scroll_modif': {
                     structures: {
                         ' .hourly-scroll__content': {
-                            display: 'block'
+                            display: 'block',
+                            borderRadius: `${borderRadius}px`
                         },
                         ' .daily-scroll__content': {
-                            display: 'block'
+                            display: 'block',
+                            borderRadius: `${borderRadius}px`
                         }
                     }
                     
