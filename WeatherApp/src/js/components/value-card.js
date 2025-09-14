@@ -39,47 +39,43 @@ export default class ValueCard extends Component{
 
     fillProgress = async () => {
         try{
-            
-            const progressBar = this.element.querySelector(`.${this.selector}__progressbar`);
             const progressItem = this.element.querySelector(`.${this.selector}__progress`); 
-            let value = +this.element.querySelector(`.${this.selector}__value`).textContent;
-            const min = this.barSettings.min;
-            const max = this.barSettings.max;
+            let value = +this.element.querySelector(`.${this.selector}__value`).textContent; 
+            const scale = Component.dataOperator.userData.scale;
+            const borderRadius = Math.round(10 * scale);
+            const min = this.barSettings.min; 
+            const max = this.barSettings.max; 
             const startPoint = Number.parseInt(this.barSettings.startPoint);
-
-            const valueDiff = max - min;
-            const pxBarWidth = progressBar.offsetWidth - 8;
-            const scale = valueDiff / pxBarWidth;
-            const valueStart = (startPoint / 100 * valueDiff) + min
-            const valueProgress = Math.abs(valueStart - value);
-            let width = valueProgress / scale;
-
-            if(value <= min){
-                width = ((valueStart - min) / scale)
+            const dif = max - min;
+            const startValue = dif * startPoint / 100 + min;
+            if(value < min){
+                value = min
             }
-            if(value >= max){
-                width = ((max - valueStart) / scale)
+            if(value > max){
+                value = max
             }
-            
-            if(value <= valueStart && startPoint !== 0){
-                progressItem.style.right = this.barSettings.startPoint;
+            if(value <= startValue && startPoint !== 0){
+                progressItem.style.right = `-${startPoint}%`;
+                progressItem.style.transform = 'translateX(-100%)'
                 progressItem.style.left = '';
-                progressItem.style.borderRadius = '10px 0 0 10px'
+                progressItem.style.borderRadius = `${borderRadius}px 0 0 ${borderRadius}px`
                 
             }
-            if(value >= valueStart && startPoint !== 0){
+            if(value >= startValue && startPoint !== 0){
                 progressItem.style.left = this.barSettings.startPoint
                 progressItem.style.right = '';
-                progressItem.style.borderRadius = '0 10px 10px 0'
+                progressItem.style.transform = ''
+                progressItem.style.borderRadius = `0 ${borderRadius}px ${borderRadius}px 0`
             }
             if(startPoint === 0){
-                progressItem.style.borderRadius = '10px 10px 10px 10px'
-                progressItem.style.left = '3px'
+                progressItem.style.borderRadius = `${borderRadius}px`
             }
-            if(valueStart === 0 && value >= max){
-                progressBar.style.justifyContent = 'center'
-            }
-            progressItem.style.width = `${Math.round(width)}px`
+            
+            
+            let width = 0;
+            value = Math.abs(value - startValue);
+            width = value / dif * 100;
+            progressItem.style.width = `${width}%`
 
         }catch(err){
             console.error(`${this.elementSelector} can't find his data:`, err.message)
@@ -117,7 +113,7 @@ export default class ValueCard extends Component{
         const valueLH = valueFZ + 7 * scale;
 
         const barHeight = Math.round(20 * scale);
-        const progressHeight = Math.round(barHeight - 6);
+        const progressPadding = Math.round(3 * scale);
         const dividerHeight = Math.round(35 * scale);
         const borderRadius = Math.round(10 * scale)
         
@@ -159,18 +155,18 @@ export default class ValueCard extends Component{
                     display: 'flex',
                     alignItems: 'center',
                     position: 'relative',
+                    padding: `${progressPadding}px`,                    
                     structures: {
                         [` .${this.selector}__progress`]: {
-                            height: `${progressHeight}px`,
+                            height: `100%`,
                             background: '#FFC300',
-                            width: '0',
-                            position: 'absolute',
+                            position: 'relative'
                         },
                         [` .${this.selector}__divider`]: {
                             display: 'none',
                             position: 'absolute',
                             width: `${dividerHeight}px`,
-                            left: `${this.barSettings.startPoint}`,
+                            left: this.barSettings.startPoint,
                             top: '50%',
                             transform: 'translate(-50%, -50%) rotate(90deg)',
                             height: '1px', 
