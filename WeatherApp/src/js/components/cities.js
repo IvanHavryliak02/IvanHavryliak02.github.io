@@ -211,11 +211,11 @@ export default class CitiesDropDown extends Component{
         const fontSize = 29 * scale;
         const itemFontSize = fontSize - 3;
         
-        const lineHeight = fontSize + 5;
-        const elementHeight = lineHeight + 10;
+        const lineHeight = fontSize + 5 * scale;
+        const elementHeight = lineHeight + 10 * scale;
         const borderRadius = 5 * scale;
         const arrowHeight = fontSize / 2;
-        const listElemHeight = elementHeight + 5;
+        const listElemHeight = elementHeight + 5 * scale;
         const listHeight = listElemHeight * 5;
         const itemBoxShadow = '0 0 4px #e4e4e4ff';
 

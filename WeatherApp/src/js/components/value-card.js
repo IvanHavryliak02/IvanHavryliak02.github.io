@@ -42,8 +42,7 @@ export default class ValueCard extends Component{
             
             const progressBar = this.element.querySelector(`.${this.selector}__progressbar`);
             const progressItem = this.element.querySelector(`.${this.selector}__progress`); 
-            let value = this.element.querySelector(`.${this.selector}__value`).textContent;
-            value = Number.parseInt(value);
+            let value = +this.element.querySelector(`.${this.selector}__value`).textContent;
             const min = this.barSettings.min;
             const max = this.barSettings.max;
             const startPoint = Number.parseInt(this.barSettings.startPoint);
@@ -148,10 +147,10 @@ export default class ValueCard extends Component{
                     textAlign: 'center',
                 },
                 [` .${this.selector}__value`]: {
-                    textAlign: 'center',
                     margin: `${valueMT}px 0 ${valueMB}px 0`,
                     fontSize: `${valueFZ}px`,
-                    lineHeight: `${valueLH}px`
+                    lineHeight: `${valueLH}px`,
+                    textAlign: 'center',
                 },
                 [` .${this.selector}__progressbar`]: {
                     border: `1px solid ${barBorderColor}`,
@@ -162,8 +161,8 @@ export default class ValueCard extends Component{
                     position: 'relative',
                     structures: {
                         [` .${this.selector}__progress`]: {
-                            background: '#FFC300',
                             height: `${progressHeight}px`,
+                            background: '#FFC300',
                             width: '0',
                             position: 'absolute',
                         },
