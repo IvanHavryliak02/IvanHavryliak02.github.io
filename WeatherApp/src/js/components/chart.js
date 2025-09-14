@@ -43,6 +43,8 @@ export default class ChartWrap extends Component{
 
     createNewChart(){
         const chart = this.element.querySelector(`.${this.blockName}__chart`);
+        const scale = Component.dataOperator.userData.scale;
+        const fontSize = 20 * scale;
         const theme = Component.dataOperator.userData.theme;
         const borderColor = theme === 'light' ? '#4C4C4C' : '#ffffff'
         return new Chart(chart, {
@@ -65,7 +67,8 @@ export default class ChartWrap extends Component{
                         ticks: {
                             color: borderColor,
                             font: {
-                                family: 'Inter'
+                                family: 'Inter',
+                                size: `${fontSize}px`
                             }
                         }
                     },
@@ -73,7 +76,8 @@ export default class ChartWrap extends Component{
                         ticks: {
                             display: false,
                             font: {
-                                family: 'Inter'
+                                family: 'Inter',
+                                
                             }
                         }
                     }
@@ -84,7 +88,7 @@ export default class ChartWrap extends Component{
                         anchor: 'end',
                         align: 'top',
                         color: borderColor,
-                        font: { weight: 'normal', family: 'Inter' }
+                        font: { weight: 'normal', family: 'Inter', size: `${fontSize}px` }
                     }
                 } 
             }

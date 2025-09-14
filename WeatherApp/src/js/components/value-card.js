@@ -71,7 +71,6 @@ export default class ValueCard extends Component{
                 progressItem.style.borderRadius = `${borderRadius}px`
             }
             
-            
             let width = 0;
             value = Math.abs(value - startValue);
             width = value / dif * 100;
