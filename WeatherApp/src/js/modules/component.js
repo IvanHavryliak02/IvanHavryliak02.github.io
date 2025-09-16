@@ -200,7 +200,9 @@ export default class Component{
                     const pseudoes = obj[prop];
                     for(let pseudo in pseudoes){
                         const newHeader = `${header}${pseudo}`
-                        addStylesRule(pseudoes[pseudo], newHeader);
+                        
+                        //addStylesRule(pseudoes[pseudo], newHeader);
+                        createRules(pseudoes[pseudo], newHeader, media);
                     }
                 }
                 if(prop === 'structures'){

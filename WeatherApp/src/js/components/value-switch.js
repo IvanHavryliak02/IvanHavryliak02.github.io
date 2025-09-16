@@ -29,6 +29,7 @@ export default class ValueSwitch extends Component{
         const background = theme === 'light' ? '#4c4c4c' : '#ffffff'
         const borderColor = theme === 'light' ? 'rgba(76, 76, 76, 0.4)' : '#8c8c8c'
         return {
+            zIndex: '1000',
             width: `${width}px`,
             height: `${height}px`,
             fontSize: `${fontSize}px`,

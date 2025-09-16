@@ -19,34 +19,47 @@ export default class RightPanel extends Component{
         const widthPadding = 45 * scale;
         const heightPadding = 50 * scale;
         this.makeStylesPublic('#right-panel', {width: width, height: height});
+
+
         return {
             width: `${width}px`,
             height: `${height}px`,
-            padding: `${widthPadding}px ${heightPadding }px`,
             background: 'transparent',
             position: 'relative',
-            float: 'right',
-            transition: '0.7s all',
+            transition: 'transform 1s',
             structures: {
                 ' .right-panel__more-container': {
-                    display: 'none',
+                    padding: `${widthPadding}px ${heightPadding }px`,
+                    position: 'absolute',
+                    inset: '0',
+                    opacity: '0',
                     width: '100%',
                     height: '100%',
+                    transition: 'opacity 1s',
+                    zIndex: '1',
                     structures: {
                         '.more': {
-                            display: 'block'
+                            opacity: '1',
+                            zIndex: '2',
                         }
-                    }
+                    },
                 },
                 ' .right-panel__container': {
+                    padding: `${widthPadding}px ${heightPadding }px`,
+                    position: 'absolute',
+                    inset: '0',
+                    opacity: '1',
+                    transition: 'opacity 1s',
+                    zIndex: '2',
                     structures: {
                         '.more': {
-                            display: 'none'
+                            opacity: '0',
+                            zIndex: '1',
                         }
                     }
                 },
                 '.more': {
-                    float: 'left',
+                    transform: 'translateX(-35.87%)',
                 },
             },
         }

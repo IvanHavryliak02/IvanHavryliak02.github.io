@@ -15,7 +15,7 @@ export default class AppBody extends Component{
         const width = 1693 * scale;
         const height = 960 * scale;
         const borderRadius = 70 * scale;
-        this.makeStylesPublic(this.elementSelector, {width:width, height:height});
+        this.makeStylesPublic(this.elementSelector, {width:width, height:height, borderRadius: borderRadius});
 
         const theme = Component.dataOperator.userData.theme;
         const backgroundColor = theme === 'light' ? '#efefef' : '#3A3A3A'
@@ -24,14 +24,16 @@ export default class AppBody extends Component{
             height: `${height}px`,
             background: backgroundColor,
             borderRadius: `${borderRadius}px`,
-            /* media: {
-                '(max-width: 576px)': {
-                    width: '100%',
+            position: 'relative',
+            display: 'flex',
+            media: {
+                '(max-width: 1200px)': {
+                    width: '100vw',
                     height: "auto",
                     flexDirection: 'column',
                     borderRadius: '0',
                 }
-            } */
+            }
         }
     }
 }

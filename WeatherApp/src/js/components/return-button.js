@@ -1,10 +1,10 @@
 
 import Component from '../modules/component.js';
 
-export default class ReturnLine extends Component{
+export default class ReturnButton extends Component{
     constructor(parent, elementType, selector){
         super(parent, elementType, selector);
-        this.element = this.createElement();
+        this.element = this.createElement('back');
         this.styles = this.getStyles();
         this.applyStyles();
         this.addListeners();
@@ -27,30 +27,29 @@ export default class ReturnLine extends Component{
 
     getStyles(){
         const scale = Component.dataOperator.userData.scale;
-        const width = 4 * scale;
-        const height = 80 * scale;
+
+        const fontSize = 32 * scale;
         const borderRadius = 2 * scale;
-        const right = 20 * scale;
-        const hoveredWidth = width + 30;
         const animationDuration = '0.7s';
 
         const theme = Component.dataOperator.userData.theme;
-        const background = theme === 'light' ? 'rgba(76,76,76,0.4)' : 'rgba(255,255,255,0.6)'
+        const color = theme === 'light' ? 'rgba(76,76,76,0.4)' : 'rgba(255,255,255,0.6)'
+        const hoverColor = theme === 'light' ? '#000' : '#fff'
         return {
-            width: `${width}px`,
-            height: `${height}px`,
+            fontSize: `${fontSize}px`,
             borderRadius: `${borderRadius}px`,
-            right: `${right}px`,
-            background: background,
+            color: color,
+            textTransform: 'uppercase',
+            right: `0`,
             position: 'absolute',
             top: '50%',
-            transform: 'translateY(-50%)',
+            transform: 'translateY(-50%) rotate(-90deg)',
             display: 'none',
             transition: `all ${animationDuration}`,
             pseudo: {
                 ':hover': {
                     cursor: 'pointer',
-                    width: `${hoveredWidth}px`,
+                    color: hoverColor,
                 }
             },
             structures: {

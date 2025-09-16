@@ -46,7 +46,7 @@ export default class ChartWrap extends Component{
         const fontSize = 20 * scale;
         const theme = Component.dataOperator.userData.theme;
         const borderColor = theme === 'light' ? '#4C4C4C' : '#ffffff'
-        const gridColor = theme === 'light' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.4)';
+        const gridColor = theme === 'light' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.2)';
         return new Chart(chart, {
             type: 'line',
             data: {

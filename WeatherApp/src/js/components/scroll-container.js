@@ -111,7 +111,7 @@ export default class ScrollContainer extends Component{
                     justifyContent: 'space-between',
                     fontSize: `${navFZ}px`,
                     userSelect: 'none',
-                    zIndex: '1000',
+                    zIndex: '50',
                     ...arrowSettings
                 },
                 '.scroll_modif': {
