@@ -70,10 +70,12 @@ export default class RightPanel extends Component{
                     structures: {
                         ' .right-panel__container': {
                             position: 'static',
+                            padding: '0'
                         },
                         ' .right-panel__more-container':{
                             position: 'static',
-                            opacity: '1'
+                            opacity: '1',
+                            padding: '0'
                         },
                         
                     }

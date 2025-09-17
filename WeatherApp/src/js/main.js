@@ -18,7 +18,7 @@ import ScrollContainer from './components/scroll-container.js';
 import DailyCard from './components/daily-card.js';
 import Chart from './components/chart.js';
 import ReturnButton from './components/return-button.js';
-import keys from './modules/keys.js';
+import addGlobalListeners from './modules/global-listeners.js';
 
 
 
@@ -199,7 +199,7 @@ window.addEventListener('load', () => {
 
     Component.injectCssRules();
     Component.promisesExecutor.allDone();
-    keys();
+    addGlobalListeners();
 
     console.timeEnd('timer')
 })

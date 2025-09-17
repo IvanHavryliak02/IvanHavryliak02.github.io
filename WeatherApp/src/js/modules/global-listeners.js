@@ -2,6 +2,7 @@
 
 
 export default () => {
+    let timer;
     document.addEventListener('keydown', (e) => {
         if(e.key === 'Escape'){
             const content = [
@@ -14,5 +15,13 @@ export default () => {
             ]
             content.forEach(item => item.classList.remove('more'));
         }
+    })
+    window.addEventListener('resize', () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            if(window.innerWidth >= 1200){ 
+                location.reload()
+            }
+        }, 200)
     })
 }
