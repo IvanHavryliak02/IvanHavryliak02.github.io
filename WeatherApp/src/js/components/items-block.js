@@ -45,10 +45,31 @@ export default class ItemsBlock extends Component{
                     width: '100%'
                 },
                 '.trend_modif': {
+                    textAlign: 'right',
+                }
+            },
+            media: {
+                'max-width: 1200px': {
                     structures: {
-                        [` .hourly-trend__header, .daily-trend__header`]: {
-                            textAlign: 'right'
+                        [` .${this.blockName}__header`]: {
+                            fontSize: '26px',
+                            marginBottom: '15px',
                         },
+                        ' .conditions__container': {
+                            justifyContent: 'space-between',
+                        }
+                    }
+                },
+                'max-width: 620px': {
+                    structures: {
+                        ' .conditions__container': {
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        },
+                        [` .${this.blockName}__header`]: {
+                            fontSize: '20px',
+                            textAlign: 'center'
+                        }
                     }
                 }
             }

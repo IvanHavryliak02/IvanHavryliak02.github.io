@@ -22,12 +22,23 @@ export default class DayAndTime extends Component{
     getStyles(){
         const scale = Component.dataOperator.userData.scale;
         const fontSize = 40 * scale;
-        const marginBottom = 26 * scale;
+        const marginBottom = 25 * scale;
         const lineHeight = fontSize + 8 * scale;
         return {
             fontSize: `${fontSize}px`,
             lineHeight: `${lineHeight}px`,
-            marginBottom: `${marginBottom}px`
+            marginBottom: `${marginBottom}px`,
+            media: {
+                'max-width: 1200px': {
+                    fontSize: '36px',
+                    marginBottom: `35px`,
+                    lineHeight: '39px',
+                },
+                'max-width: 620px': {
+                    fontSize: '28px',
+                    marginBottom: '26px'
+                }
+            }
         };
     }
 }

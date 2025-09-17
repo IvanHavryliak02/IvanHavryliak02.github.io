@@ -201,7 +201,6 @@ export default class Component{
                     for(let pseudo in pseudoes){
                         const newHeader = `${header}${pseudo}`
                         
-                        //addStylesRule(pseudoes[pseudo], newHeader);
                         createRules(pseudoes[pseudo], newHeader, media);
                     }
                 }
@@ -216,7 +215,7 @@ export default class Component{
                     const media = obj[prop];
                     
                     for(let mediaRule in media){
-                        const mediaHeader = `@media ${mediaRule}`;
+                        const mediaHeader = `@media (${mediaRule})`;
                         createRules(media[mediaRule],`${header}`, mediaHeader);
                     }
 

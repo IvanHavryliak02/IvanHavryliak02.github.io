@@ -81,7 +81,7 @@ export default class WeatherNow extends Component{
                     alignItems: 'center',
                     structures: {
                         ' .now__weather-type': {
-                            width: '100%'
+                            width: '100%',
                         },
                     }
                 },
@@ -95,16 +95,40 @@ export default class WeatherNow extends Component{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
+                    fontSize: `${descrFZ}px`,
                     structures: {
                         ' .now__status': {
                             width: `${wrapHeight}px`,
-                            fontSize: `${descrFZ}px`,
                             marginRight: `${statusMR}px`,
                         },
-                        ' .now__descr': {
-                            fontSize: `${descrFZ}px`
-                        }
                     } 
+                }
+            },
+            media: {
+                'max-width: 1200px': {
+                    marginTop: '55px',
+                    width: '200px',
+                    structures: {
+                        ' .now__weather-wrap': {
+                            height: '160px',
+                            marginBottom: '55px'
+                        },
+                        ' .now__temp': {
+                            fontSize: '60px',
+                            marginBottom: '50px'
+                        },
+                        ' .now__wrap': {
+                            fontSize: '18px',
+                            height: 'auto',
+                            structures: {
+                                ' .now__status': {
+                                    width: `25px`,
+                                    marginRight: `10px`,
+                                },
+                            } 
+                        },
+                        
+                    }
                 }
             }
         }

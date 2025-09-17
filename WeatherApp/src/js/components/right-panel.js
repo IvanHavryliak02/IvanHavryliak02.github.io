@@ -28,6 +28,20 @@ export default class RightPanel extends Component{
             position: 'relative',
             transition: 'transform 1s',
             structures: {
+                ' .right-panel__container': {
+                    padding: `${widthPadding}px ${heightPadding }px`,
+                    position: 'absolute',
+                    inset: '0',
+                    opacity: '1',
+                    transition: 'opacity 1s',
+                    zIndex: '2',
+                    structures: {
+                        '.more': {
+                            opacity: '0',
+                            zIndex: '1',
+                        }
+                    }
+                },
                 ' .right-panel__more-container': {
                     padding: `${widthPadding}px ${heightPadding }px`,
                     position: 'absolute',
@@ -44,24 +58,30 @@ export default class RightPanel extends Component{
                         }
                     },
                 },
-                ' .right-panel__container': {
-                    padding: `${widthPadding}px ${heightPadding }px`,
-                    position: 'absolute',
-                    inset: '0',
-                    opacity: '1',
-                    transition: 'opacity 1s',
-                    zIndex: '2',
-                    structures: {
-                        '.more': {
-                            opacity: '0',
-                            zIndex: '1',
-                        }
-                    }
-                },
                 '.more': {
                     transform: 'translateX(-35.87%)',
                 },
             },
+            media: {
+                'max-width: 1200px': {
+                    width: '600px',
+                    height: 'auto',
+                    padding: '20px',
+                    structures: {
+                        ' .right-panel__container': {
+                            position: 'static',
+                        },
+                        ' .right-panel__more-container':{
+                            position: 'static',
+                            opacity: '1'
+                        },
+                        
+                    }
+                },
+                'max-width: 620px': {
+                    width: '100%',
+                }
+            }
         }
     }
 }

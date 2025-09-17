@@ -97,6 +97,7 @@ export default class DailyCard extends Component{
             structures: {
                 ' .daily-card__status': {
                     width: `${imgWidth}px`,
+                    height: `${imgWidth}px`,
                 },
                 ' .daily-card__wrap': {
                     minWidth: `${wrapWidth}px`,
@@ -108,6 +109,28 @@ export default class DailyCard extends Component{
                 ' .daily-card__day': {
                     fontSize: `${dayFZ}px`,
                     lineHeight: `${dayLH}px`,
+                }
+            },
+            media: {
+                'max-width: 1200px': {
+                    width: '110px',
+                    height: '150px',
+                    padding: '15px',
+                    borderRadius: '7px',
+                     marginRight: '20px',
+                    structures: {
+                        ' .daily-card__day': {
+                            fontSize: '17px'
+                        },
+                        ' .daily-card__status': {
+                            width: '50px',
+                            height: '50px'
+                        },
+                        ' .daily-card__wrap': {
+                            fontSize: '17px',
+                            minWidth: '60px'
+                        }
+                    }
                 }
             }
         }

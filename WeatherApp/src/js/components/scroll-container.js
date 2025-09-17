@@ -124,8 +124,37 @@ export default class ScrollContainer extends Component{
                             display: 'block',
                             borderRadius: `${borderRadius}px`
                         }
+                    }  
+                }
+            },
+            media: {
+                'max-width: 1200px': {
+                    structures: {
+                        [` .${this.blockName}__nav`]: {
+                            width: '65px',
+                            fontSize: '20px',
+                            top: '-42px',
+                            height: '23px'
+                        },
+                        '.scroll_modif': {
+                            structures: {
+                                ' .hourly-scroll__content': {
+                                    borderRadius: `15px`
+                                },
+                                ' .daily-scroll__content': {
+                                    borderRadius: `15px`
+                                }
+                            }  
+                        }
                     }
                     
+                },
+                'max-width: 620px': {
+                    structures: {
+                        [` .${this.blockName}__nav`]: {
+                            display: 'none'
+                        }
+                    }
                 }
             }
         }

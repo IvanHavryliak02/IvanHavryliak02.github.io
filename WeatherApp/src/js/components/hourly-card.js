@@ -88,6 +88,27 @@ export default class HourlyCard extends Component{
                     lineHeight: `${tempLH}px`
                 },
 
+            },
+            media: {
+                'max-width: 1200px': {
+                    width: '110px',
+                    height: '150px',
+                    padding: '15px',
+                    borderRadius: '7px',
+                    marginRight: '20px',
+                    structures: {
+                        ' .hourly-card__time': {
+                            fontSize: '17px'
+                        },
+                        ' .hourly-card__status': {
+                            width: '50px',
+                            height: '50px'
+                        },
+                        ' .hourly-card__temp': {
+                            fontSize: '17px'
+                        }
+                    }
+                }
             }
         }
     }

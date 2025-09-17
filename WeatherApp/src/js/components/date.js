@@ -45,6 +45,18 @@ export default class currentDate extends Component{
                     marginLeft: `${monthDayMLeft}px`
                 },
             },
+            media: {
+                'max-width: 1200px': {
+                    fontSize: '20px',
+                    lineHeight: '24px',
+                    marginTop: '20px',
+                    structures: {
+                        ' .date__month-day': {
+                            marginLeft: `10px`
+                        },
+                    }
+                }
+            }
         }
     }
 

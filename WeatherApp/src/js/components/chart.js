@@ -33,11 +33,15 @@ export default class ChartWrap extends Component{
             const config = this.chart.config._config;
             config.data.labels = plotData.x;
             config.data.datasets[0].data = plotData.y;
-            config.options.scales.y.suggestedMin = Math.min(...plotData.y) - 2;
-            config.options.scales.y.suggestedMax = Math.max(...plotData.y) + 2;
+            config.options.scales.y.suggestedMin = Math.min(...plotData.y) - 5;
+            config.options.scales.y.suggestedMax = Math.max(...plotData.y) + 5;
             this.chart.update()
             
         }catch(err){console.error(`Horly trend arror:`, err.message)}
+    }
+
+    whenResized(){
+
     }
 
     createNewChart(){
@@ -61,6 +65,14 @@ export default class ChartWrap extends Component{
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                onResize(chart){
+                    if(window.innerWidth <= 1200){
+                        chart.options.scales.x.ticks.font.size = 14;
+                        chart.options.scales.y.ticks.font.size = 14;
+                        chart.options.plugins.datalabels.font.size = 14;  
+                    }
+                    chart.update();
+                },
                 scales: {
                     x: {
                         grid: {display: false},
@@ -114,6 +126,15 @@ export default class ChartWrap extends Component{
             height: `${height}px`,
             padding: `${heightPadding}px ${widthPadding}px`,
             background: background,
+            media: {
+                'max-width: 1200px': {
+                    height: '240px',
+                    width: `300%`,
+                },
+                'max-width: 620px': {
+                    width: `400%`,
+                }
+            }
         }
     }
     

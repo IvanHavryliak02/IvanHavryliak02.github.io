@@ -250,9 +250,6 @@ export default class CitiesDropDown extends Component{
                     flexDirection: 'column',
                     alignItems: 'center',
                     background: listBg,
-                    borderRight: borderTransparent,
-                    borderBottom: borderTransparent,
-                    borderLeft: borderTransparent,
                     structures: {
                         '.active': {
                             borderRight: borderStyle,
@@ -295,7 +292,7 @@ export default class CitiesDropDown extends Component{
                     }
                 },
                 ' .location__search': {
-                    height: `${elementHeight}px`,
+                    height: `100%`,
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -309,9 +306,9 @@ export default class CitiesDropDown extends Component{
                         }, 
                         ' input': {
                             width: '90%',
+                            height: '100%',
                             border: 'none',
                             background: 'transparent',
-                            height: `100%`,
                             textAlign: 'center',
                             fontSize: 'inherit',
                             color: 'inherit',
@@ -323,17 +320,43 @@ export default class CitiesDropDown extends Component{
                         },
                         ' .location__dropdown': {
                             width: '10%',
-                            height: `100%`,
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
+                            fontSize: `${arrowHeight}px`,
                             structures: {
                                 ' .location__arrow': {
                                     color: arrowColor,
-                                    fontSize: `${arrowHeight}px`,
                                     transition: 'transform 0.7s',
                                 }
                             }
+                        },
+                    }
+                }
+            },
+            media: {
+                'max-width: 1200px': {
+                    height: '40px',
+                    fontSize: '24px',
+                    structures: {
+                        ' .location__list .location__list-item': {
+                            fontSize: '20px',
+                            flex: '0 0 40px'
+                        },
+                        ' .location__search': {
+                            borderRadius: `7px`,
+                            structures: {
+                                '.active': {
+                                    borderRadius: `7px 7px 0 0`,
+                                    
+                                },
+                                ' .location__dropdown': {
+                                    fontSize: '10px'
+                                } 
+                            }
+                        },
+                        ' .location__list.active': {
+                            height: '213px',
                         }
                     }
                 }

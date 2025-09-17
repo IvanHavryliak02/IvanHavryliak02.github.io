@@ -27,10 +27,11 @@ export default class AppBody extends Component{
             position: 'relative',
             display: 'flex',
             media: {
-                '(max-width: 1200px)': {
-                    width: '100vw',
+                'max-width: 1200px': {
+                    width: '100%',
                     height: "auto",
                     flexDirection: 'column',
+                    alignItems: 'center',
                     borderRadius: '0',
                 }
             }

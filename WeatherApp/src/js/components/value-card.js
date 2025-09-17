@@ -132,7 +132,6 @@ export default class ValueCard extends Component{
             padding: `${padding}px`,
             background: background,
             color: color,
-            
             structures: {
                 [` .${this.selector}__label`]: {
                     fontSize: `${labelFZ}px`,
@@ -172,6 +171,47 @@ export default class ValueCard extends Component{
                             background: dividerColor
                         }
                     } 
+                }
+            },
+            media: {
+                'max-width: 1200px': {
+                    minWidth: '110px',
+                    height: '110px',
+                    marginRight: '0',
+                    borderRadius: '7px',
+                    padding: '7px',
+                    structures: {
+                        [` .${this.selector}__label`]:{
+                            fontSize: '16px'
+                        },
+                        [` .${this.selector}__value`]:{
+                            fontSize: '28px',
+                            margin: `20px 0`,
+                            lineHeight: '21px',
+                        },
+                        [` .${this.selector}__progressbar`]: {
+                            height: '16px',
+                            borderRadius: '10px',
+                            padding: '3px',
+                            structures: {
+                                [` .${this.selector}__divider`]: {
+                                    width: '24px',
+                                }
+                                
+                            }
+                        }
+                    },
+                },
+                'max-width: 620px': {
+                    width: '100px',
+                    minHeight: '115px',
+                    height: 'auto',
+                    marginBottom: '15px',
+                    structures: {
+                        [` .${this.selector}__label`]:{
+                            fontSize: '14px'
+                        },
+                    }
                 }
             }
         }

@@ -87,6 +87,30 @@ export default class ValueSwitch extends Component{
                         }
                     }
                 }
+            },
+            media: {
+                'max-width: 1200px': {
+                    width: '75px',
+                    height: '35px',
+                    fontSize: '15px',
+                    top: '15px',
+                    right: '18px',
+                    borderRadius: '8px',
+                    pseudo: {
+                        '::after': {
+                            borderRadius: '8px'
+                        },
+                    },
+                },
+                'max-width: 620px': {
+                    position: 'fixed',
+                    width: '60px',
+                    height: '30px',
+                    fontSize: '13px',
+                    top: 'auto',
+                    bottom: '20px',
+                    right: '20px',
+                }
             }
 
         }

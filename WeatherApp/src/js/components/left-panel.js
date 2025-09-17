@@ -10,15 +10,12 @@ export default class LeftPanel extends Component{
     }
 
     getStyles(){
-        //const scale = Component.dataOperator.userData.scale;
-        const parentWidth = Component.publicStyles['#app-body'].width;
-        const parentHeight = Component.publicStyles['#app-body'].height;
-        const parentBR = Component.publicStyles['#app-body'].borderRadius;
-        const width = 447 / 1693 * parentWidth;
-        const height = parentHeight;
-        const widthPadding = 80 / 447 * width;
-        const heightPadding = 50 / 960 * height;
-        const borderRadius = parentBR;
+        const scale = Component.dataOperator.userData.scale;
+        const width = 447 * scale;
+        const height = 960 * scale;
+        const widthPadding = 20 * scale;
+        const heightPadding = 50 * scale;
+        const borderRadius = 70 * scale;
 
         const theme = Component.dataOperator.userData.theme;
         const backgroundColor = theme === 'light' ? '#ffffff' : '#4A4A4A';
@@ -43,11 +40,11 @@ export default class LeftPanel extends Component{
                 }
             },
             media: {
-                '(max-width: 1200px)': {
+                'max-width: 1200px': {
                     width: '100%',
-                    height: '100vh',
-                    flexDirection: 'column',
+                    height: 'auto',
                     borderRadius: '0',
+                    padding: '20px',
                 }
             }
         }

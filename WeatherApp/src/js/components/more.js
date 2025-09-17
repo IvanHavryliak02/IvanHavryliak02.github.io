@@ -77,6 +77,11 @@ export default class More extends Component{
                 ':hover': {
                     cursor: 'pointer'
                 }
+            },
+            media: {
+                'max-width: 1200px': {
+                    display: 'none'
+                }
             }
         }
     }

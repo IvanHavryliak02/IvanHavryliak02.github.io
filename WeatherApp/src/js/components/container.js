@@ -23,6 +23,13 @@ export default class Container extends Component{
             justifyContent: `center`,
             alignItems: `center`,
             background: background,
+            media: {
+                'max-width: 1200px': {
+                    width: '100vw',
+                    height: 'auto',
+                    display: 'block',
+                }
+            }
         }
     }
 }
