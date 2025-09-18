@@ -42,7 +42,8 @@ export default class ValueCard extends Component{
             const progressItem = this.element.querySelector(`.${this.selector}__progress`); 
             let value = +this.element.querySelector(`.${this.selector}__value`).textContent; 
             const scale = Component.dataOperator.userData.scale;
-            const borderRadius = Math.round(10 * scale);
+            //const borderRadius = Math.round(10 * scale);
+            const borderRadius = window.innerWidth <= 1200 ? 10 : Math.round(10 * scale);
             const min = this.barSettings.min; 
             const max = this.barSettings.max; 
             const startPoint = Number.parseInt(this.barSettings.startPoint);
