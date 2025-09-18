@@ -1,5 +1,7 @@
 
-import Component from '../modules/component.js'
+import Component from '../modules/component.js';
+import unitChecker from '../modules/unit-checker.js';
+import userData from '../modules/user-data.js';
 
 export default class ValueSwitch extends Component{
 
@@ -15,7 +17,7 @@ export default class ValueSwitch extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
         const width = 120 * scale;
         const height = 45 * scale;
         const fontSize = 20 * scale;
@@ -24,7 +26,7 @@ export default class ValueSwitch extends Component{
         const borderRadius = 10 * scale;
         const animationDuration = '0.7s'
         
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const color = theme === 'light' ? '#ffffff' : '#4c4c4c'
         const background = theme === 'light' ? '#4c4c4c' : '#ffffff'
         const borderColor = theme === 'light' ? 'rgba(76, 76, 76, 0.4)' : '#8c8c8c'
@@ -120,9 +122,9 @@ export default class ValueSwitch extends Component{
         this.element.addEventListener('click', (e) => {
             this.element.classList.toggle('active');
             if(this.element.classList.contains('active')){
-                Component.dataOperator.unitChecker.unit = 'faren'
+                unitChecker.unit = 'faren'
             }else{
-                Component.dataOperator.unitChecker.unit = 'cels'
+                unitChecker.unit = 'cels'
             }
             Component.dataOperator.dataIsReady();
         })

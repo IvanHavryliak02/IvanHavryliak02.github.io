@@ -1,4 +1,5 @@
-import Component from '../modules/component.js'
+import Component from '../modules/component.js';
+import userData from '../modules/user-data.js';
 
 export default class ScrollContainer extends Component{
 
@@ -60,7 +61,7 @@ export default class ScrollContainer extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
         const navWidth = 85 * scale;
         const navFZ = 23 * scale;
         const borderRadius = 10 * scale;
@@ -73,7 +74,7 @@ export default class ScrollContainer extends Component{
         }
         
 
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const arrowColor = theme === 'light' ? '#4c4c4c' : '#ffffff';
         return {
             width: '100%',

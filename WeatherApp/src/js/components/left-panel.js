@@ -1,5 +1,6 @@
 
 import Component from "../modules/component.js";
+import userData from "../modules/user-data.js";
 
 export default class LeftPanel extends Component{
     constructor(parent, elementType, selector){
@@ -10,14 +11,14 @@ export default class LeftPanel extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
         const width = 447 * scale;
         const height = 960 * scale;
         const widthPadding = 20 * scale;
         const heightPadding = 50 * scale;
         const borderRadius = 70 * scale;
 
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const backgroundColor = theme === 'light' ? '#ffffff' : '#4A4A4A';
         const color = theme === 'light' ? '#4c4c4c' : '#ffffff';
         this.makeStylesPublic('#left-panel', {height:height, width: width});

@@ -1,5 +1,6 @@
 
 import Component from '../modules/component.js'
+import userData from '../modules/user-data.js';
 
 export default class DayAndTime extends Component{
     constructor(parent, elementType, selector){
@@ -8,7 +9,7 @@ export default class DayAndTime extends Component{
             <span class="today__day"></span>
             <span class="today__time"></span>
         `);
-        this.weekday = Component.dataOperator.userData.findWeekday();
+        this.weekday = userData.findWeekday();
         this.fillData(this.weekday);
         this.styles = this.getStyles();
         this.applyStyles();
@@ -16,11 +17,11 @@ export default class DayAndTime extends Component{
 
     fillData(weekday){
         this.element.querySelector('.today__day').textContent = `${weekday},`;
-        this.element.querySelector('.today__time').textContent = `${Component.dataOperator.userData.hour}:00`;
+        this.element.querySelector('.today__time').textContent = `${userData.hour}:00`;
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
         const fontSize = 40 * scale;
         const marginBottom = 25 * scale;
         const lineHeight = fontSize + 8 * scale;

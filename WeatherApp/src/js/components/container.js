@@ -1,5 +1,6 @@
 
 import Component from "../modules/component.js";
+import userData from "../modules/user-data.js";
 
 export default class Container extends Component{
     constructor(parent, elementType, selector){
@@ -14,7 +15,7 @@ export default class Container extends Component{
         const height = window.innerHeight;
         this.makeStylesPublic(this.elementSelector, {width: width, height: height});
         
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const background = theme === 'light' ? '#dddddd' : '#313131';
         return {
             width: `${width}px`,

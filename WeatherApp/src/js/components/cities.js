@@ -1,6 +1,7 @@
 
-import Component from "../modules/component";
-import citiesDB from "../modules/citiesDB";
+import Component from "../modules/component.js";
+import citiesDB from "../modules/citiesDB.js";
+import userData from "../modules/user-data.js";
 
 export default class CitiesDropDown extends Component{
 
@@ -111,9 +112,9 @@ export default class CitiesDropDown extends Component{
                 console.error(`This error must have occured due to a bad response from the geocoding API.`)
             }
             if(!data.error){
-                Component.dataOperator.weatherData = data;
+                Component.dataOperator.APIData = data;
             }
-            console.log(Component.dataOperator.weatherData)
+            console.log(Component.dataOperator.APIData)
         }catch(error){
             console.error("Weather API request error:", error.message);
         }
@@ -223,7 +224,7 @@ export default class CitiesDropDown extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
         const fontSize = 29 * scale;
         const itemFontSize = fontSize - 3;
         
@@ -235,7 +236,7 @@ export default class CitiesDropDown extends Component{
         const listHeight = listElemHeight * 5;
         const itemBoxShadow = '0 0 4px #e4e4e4ff';
 
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const listBg = theme === 'light' ? '#ffffff' : '#4c4c4c';
         const arrowColor = theme === 'light' ? '#4c4c4c' : '#ffffff';
         const listItemColor = theme === 'light' ? 'inherit' : '#dfdfdfff';

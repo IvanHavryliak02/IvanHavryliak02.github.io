@@ -1,5 +1,6 @@
 
 import Component from '../modules/component.js';
+import userData from '../modules/user-data.js';
 import {
       Chart,
       LineController,
@@ -46,9 +47,9 @@ export default class ChartWrap extends Component{
 
     createNewChart(){
         const chart = this.element.querySelector(`.${this.blockName}__chart`);
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
         const fontSize = 20 * scale;
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const borderColor = theme === 'light' ? '#4C4C4C' : '#ffffff'
         const gridColor = theme === 'light' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.2)';
         return new Chart(chart, {
@@ -114,12 +115,12 @@ export default class ChartWrap extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
         const height = 330 * scale;
         const widthPadding = 35 * scale;
         const heightPadding = 50 * scale;
 
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const background = theme === 'light' ? '#ffffff' : '#5a5a5a'
         return {
             width: `200%`,

@@ -1,5 +1,8 @@
 
 import Component from '../modules/component.js';
+import unitChecker from '../modules/unit-checker.js';
+import userData from '../modules/user-data.js';
+import weatherDecoder from '../modules/weather-decoder.js';
 
 export default class WeatherNow extends Component{
     constructor(parent, elementType, selector){
@@ -35,17 +38,17 @@ export default class WeatherNow extends Component{
             'haze.svg': 'Hazy'
         }
         try{
-            const data = Component.dataOperator.weatherData;
-            const hour = Component.dataOperator.userData.hour;
+            const data = Component.dataOperator.APIData;
+            const hour = userData.hour;
             const code = data.hourly.weather_code[hour];
             let temp = data.hourly.temperature_2m[hour];
-            const weatherImage = Component.dataOperator.weatherDecoder.whatsImage(code, temp);
-            const tempUnit = Component.dataOperator.unitChecker.unit === 'cels' ? '°C' : '°F';
-            const theme = Component.dataOperator.userData.theme;
+            const weatherImage = weatherDecoder.whatsImage(code, temp);
+            const tempUnit = unitChecker.unit === 'cels' ? '°C' : '°F';
+            const theme = userData.theme;
             const iconFolder = theme === 'light' ? 'lightTheme' : 'darkTheme';
             const src = `./icons/${iconFolder}/ico-${weatherImage}`;
 
-            temp = Math.round(Component.dataOperator.unitChecker.calculateTemp(temp));
+            temp = Math.round(unitChecker.calculateTemp(temp));
             this.element.querySelector('.now__weather-type').src = src;
             this.element.querySelector('.now__temp').textContent = `${temp} ${tempUnit}`;
             this.element.querySelector('.now__status').src = src;
@@ -56,7 +59,7 @@ export default class WeatherNow extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
 
         const marginTop = 90 * scale;
         const width = 256 * scale;

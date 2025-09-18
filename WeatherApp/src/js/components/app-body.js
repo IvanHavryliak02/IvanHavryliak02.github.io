@@ -1,6 +1,6 @@
 
 import Component from "../modules/component.js";
-
+import userData from '../modules/user-data.js';
 
 export default class AppBody extends Component{
     constructor(parent, elementType, selector){
@@ -11,13 +11,13 @@ export default class AppBody extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
         const width = 1693 * scale;
         const height = 960 * scale;
         const borderRadius = 70 * scale;
         this.makeStylesPublic(this.elementSelector, {width:width, height:height, borderRadius: borderRadius});
 
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const backgroundColor = theme === 'light' ? '#efefef' : '#3A3A3A'
         return {
             width: `${width}px`,

@@ -1,5 +1,6 @@
 
 import Component from "../modules/component.js";
+import userData from "../modules/user-data.js";
 
 export default class RightPanel extends Component{
     constructor(parent, elementType, selector){
@@ -13,7 +14,7 @@ export default class RightPanel extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
         const width = 1246 * scale;
         const height = 960 * scale;
         const widthPadding = 45 * scale;

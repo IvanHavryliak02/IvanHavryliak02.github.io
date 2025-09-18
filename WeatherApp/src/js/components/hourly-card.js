@@ -1,5 +1,8 @@
 
-import Component from '../modules/component.js'
+import Component from '../modules/component.js';
+import unitChecker from '../modules/unit-checker.js';
+import userData from '../modules/user-data.js';
+import weatherDecoder from '../modules/weather-decoder.js'
 
 export default class HourlyCard extends Component{
     constructor(parent, elementType, selector, i){
@@ -22,14 +25,14 @@ export default class HourlyCard extends Component{
             const statusBlock = this.element.querySelector('.hourly-card__status');
             const tempBlock = this.element.querySelector('.hourly-card__temp');
 
-            const data = Component.dataOperator.weatherData;
+            const data = Component.dataOperator.APIData;
             const weatherTime = data.hourly.time[i].match(/\d{2}:\d{2}$/)[0];
             const code = data.hourly.weather_code[i];
             let temp = data.hourly.temperature_2m[i];
-            const theme = Component.dataOperator.userData.theme;
-            const srcImg = Component.dataOperator.weatherDecoder.whatsImage(code,temp);
+            const theme = userData.theme;
+            const srcImg = weatherDecoder.whatsImage(code,temp);
             const srcFolder = theme === 'light' ? 'lightTheme' : 'darkTheme';
-            temp = Math.round(Component.dataOperator.unitChecker.calculateTemp(temp));
+            temp = Math.round(unitChecker.calculateTemp(temp));
 
             timeBlock.textContent = weatherTime;
             statusBlock.src = `icons/${srcFolder}/ico-${srcImg}`;
@@ -41,7 +44,7 @@ export default class HourlyCard extends Component{
 
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
 
         const width = 144 * scale
         const height = 206 * scale;
@@ -56,7 +59,7 @@ export default class HourlyCard extends Component{
         const timeLH = timeFZ + 5 * scale;
 
 
-        const theme = Component.dataOperator.userData.theme
+        const theme = userData.theme
         const background = theme === 'light' ? '#ffffff' : '#5e5e5e'
         const color = theme === 'light' ? '#4c4c4c' : '#ffffff';
 

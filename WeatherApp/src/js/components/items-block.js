@@ -1,5 +1,6 @@
 
 import Component from '../modules/component.js'
+import userData from '../modules/user-data.js';
 
 export default class ItemsBlock extends Component{
     constructor(parent, elementType, selector, headerContent){
@@ -17,13 +18,13 @@ export default class ItemsBlock extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
 
         const headerFZ = 40 * scale;
         const marginBottom = 50 * scale;
         const headerMB = 15 * scale;
 
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const headerColor = theme === 'light' ? '#4C4C4C' : '#ffffff';
         return {
             marginBottom: `${marginBottom }px`,

@@ -1,5 +1,6 @@
 
-import Component from '../modules/component.js'
+import Component from '../modules/component.js';
+import userData from '../modules/user-data.js';
 
 export default class More extends Component{
 
@@ -16,7 +17,7 @@ export default class More extends Component{
     }
 
     setImageSrc(){
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const srcFolder = theme === "light" ? 'lightTheme' : 'darkTheme';
         const src = `icons/${srcFolder}/ico-stat.svg`;
         this.element.querySelector('.show-more__img').src = src;
@@ -38,7 +39,7 @@ export default class More extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
 
         const height = 150 * scale;
         const imgSize = 78 * scale;
@@ -47,7 +48,7 @@ export default class More extends Component{
         const titleLH = titleFS + 4 * scale;
         const borderRadius = 10 * scale;
 
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const background = theme === "light" ? '#ffffff' : '#5e5e5e';
         const titleColor = theme === "light" ? '#4c4c4c' : '#ffffff';
 

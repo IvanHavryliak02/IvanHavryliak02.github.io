@@ -1,6 +1,3 @@
-
-import createStyleSheet from './sheet-gen.js';
-
 const styleBuffer = {};
 
 function getStyleSheet(){
@@ -11,101 +8,30 @@ function getStyleSheet(){
     return styleSheet.sheet;
 }
 
+function createStyleSheet(){
+    const sheetTag = document.createElement('style');
+    sheetTag.id = 'components-styles';
+    document.head.appendChild(sheetTag);
+    return sheetTag.sheet;
+}
+
 
 export default class Component{
 
     static styleSheet = getStyleSheet();
     static publicStyles = {};
     static dataOperator = {
-        weatherData: '',
-        weatherSubs: [],
+        APIData: '',
+        APIDataSubs: [],
         dataIsReady: async function(){
-            Promise.all(this.weatherSubs.map(startPromise => startPromise()))
+            Promise.all(this.APIDataSubs.map(startPromise => startPromise()))
             .then(() => {
                 console.log('loaded');
             }).catch((error) => console.error("Can't find data at weather data object:", error.message))
         },
         subscribe: function (subscriberFunc){
-            this.weatherSubs.push(subscriberFunc);
+            this.APIDataSubs.push(subscriberFunc);
         },
-        unitChecker: {
-            unit: 'cels',
-            calculateTemp: function(temp) {
-                if(this.unit === 'cels'){
-                    return temp;
-                }else {
-                    return Math.round((temp * 1.8 + 32)*10)/10 
-                }
-            }
-        },
-        userData: {
-            month: '',
-            date: '',
-            weekday: '',
-            hour: '',
-            theme: '',
-            scale: '',
-            getUserData: function (){
-                const date = new Date();
-                this.date = date.getDate();
-                this.month = date.getMonth();
-                this.weekday = date.getDay();
-                this.hour = date.getHours();
-                this.theme = this.hour >= 18 || this.hour <= 6 ? 'dark' : 'light';
-                this.wievportWidth = window.innerWidth;
-                this.wievportHeight = window.innerHeight;
-                const scaleX = window.innerWidth / 1920;
-                const scaleY = window.innerHeight / 1080;
-                this.scale = Math.round(Math.min(scaleX, scaleY)*100)/100
-            },
-            findWeekday: function(i = 'none'){
-                const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-                if(i === 'none'){
-                    return days[this.weekday]
-                }else{
-                    return days[i];
-                } 
-            }
-        },
-        weatherDecoder:{ 
-            weatherCodes: {
-                    precised: {
-                        0: 'sun.svg',
-                        1: 'part-cloud.svg',
-                        3: 'cloud.svg',
-                        11: 'fog.svg',
-                        17: 'lightning.svg',
-                        19: 'tornado.svg',
-                        51: 'drizzle.svg',
-                        62: 'rain-cloud.svg',
-                        72: 'snow.svg',
-                        95: 'storm.svg',
-                        101: 'hot.svg',
-                    },
-                    general: {
-                        0: 'sun.svg',
-                        20: 'cloud.svg',
-                        30: 'haze.svg',
-                        40: 'fog.svg',
-                        50: 'drizzle.svg',
-                        60: 'rain-cloud.svg',
-                        70: 'snow.svg',
-                        80: 'storm.svg',
-                        90: 'storm.svg'
-                    }
-                },
-            whatsImage: function(code, temp){
-                let primeRes;
-                if(code === 0 && temp > 28){
-                    primeRes = 'hot.svg';
-                }else if(this.weatherCodes.precised[code]){
-                    primeRes = this.weatherCodes.precised[code]
-                }else{
-                    primeRes = this.weatherCodes.general[Math.floor(code/10)*10]
-                }
-                return primeRes;
-            }
-        }
     };
 
     static promisesExecutor = {
@@ -193,7 +119,7 @@ export default class Component{
 
         function createRules(obj, header, media = ''){
 
-            addStylesRule(obj, header);
+            addRule(obj, header);
 
             for(let prop in obj){
                 if(prop === 'pseudo'){
@@ -208,7 +134,8 @@ export default class Component{
                     const structures = obj[prop];
 
                     for(let structure in structures){
-                        createRules(structures[structure], `${header}${structure}`, media);
+                        const newHeader = `${header}${structure}`;
+                        createRules(structures[structure], newHeader, media);
                     }
                 }
                 if(prop === 'media'){
@@ -222,7 +149,7 @@ export default class Component{
                 }
             }
 
-            function addStylesRule(localeObj, localeHeader){
+            function addRule(localeObj, localeHeader){
                 const props = createCssProps(localeObj);
                 if(props){
                     if(media){ 

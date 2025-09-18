@@ -1,5 +1,6 @@
 
 import Component from "../modules/component.js";
+import userData from "../modules/user-data.js";
 
 export default class currentDate extends Component{
 
@@ -21,14 +22,14 @@ export default class currentDate extends Component{
 
     fillData(){
         const element = this.element;
-        const currMonth = currentDate.months[Component.dataOperator.userData.month];
-        const currDay = Component.dataOperator.userData.date;
+        const currMonth = currentDate.months[userData.month];
+        const currDay = userData.date;
 
         element.querySelector('.date__month-day').textContent = `${currMonth} ${currDay}`;
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
 
         const fontSize = 24 * scale;
         const lineHeight = fontSize + 5 * scale;

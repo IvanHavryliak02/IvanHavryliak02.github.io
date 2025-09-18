@@ -1,5 +1,6 @@
 
 import Component from '../modules/component.js'
+import userData from '../modules/user-data.js';
 
 export default class ValueCard extends Component{
     constructor(
@@ -41,8 +42,7 @@ export default class ValueCard extends Component{
         try{
             const progressItem = this.element.querySelector(`.${this.selector}__progress`); 
             let value = +this.element.querySelector(`.${this.selector}__value`).textContent; 
-            const scale = Component.dataOperator.userData.scale;
-            //const borderRadius = Math.round(10 * scale);
+            const scale = userData.scale;
             const borderRadius = window.innerWidth <= 1200 ? 10 : Math.round(10 * scale);
             const min = this.barSettings.min; 
             const max = this.barSettings.max; 
@@ -98,7 +98,7 @@ export default class ValueCard extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
         const width = 150 * scale;
         const height = 150 * scale;
         const marginRight = 33 * scale;
@@ -119,7 +119,7 @@ export default class ValueCard extends Component{
         
         const barBorderRadius = Math.round(10 * scale);
 
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const background = theme === 'light' ? '#ffffff' : '#5e5e5e';
         const color = theme === 'light' ? '#4c4c4c' : '#ffffff';
         const labelColor = theme === 'light' ? '#7C7C7C' : 'rgba(255,255,255,0.8)';

@@ -1,5 +1,6 @@
 
 import Component from '../modules/component.js';
+import userData from '../modules/user-data.js';
 
 export default class ReturnButton extends Component{
     constructor(parent, elementType, selector){
@@ -26,13 +27,13 @@ export default class ReturnButton extends Component{
     }
 
     getStyles(){
-        const scale = Component.dataOperator.userData.scale;
+        const scale = userData.scale;
 
         const fontSize = 32 * scale;
         const borderRadius = 2 * scale;
         const animationDuration = '0.7s';
 
-        const theme = Component.dataOperator.userData.theme;
+        const theme = userData.theme;
         const color = theme === 'light' ? 'rgba(76,76,76,0.4)' : 'rgba(255,255,255,0.6)'
         const hoverColor = theme === 'light' ? '#000' : '#fff'
         return {
