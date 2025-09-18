@@ -24,7 +24,6 @@ import addGlobalListeners from './modules/global-listeners.js';
 
 window.addEventListener('load', () => {
     console.log('Loading...');
-    console.time('timer');
     Component.dataOperator.userData.getUserData();
 
     new Container(document.querySelector('body'), 'div', '.container').render();
@@ -200,6 +199,4 @@ window.addEventListener('load', () => {
     Component.injectCssRules();
     Component.promisesExecutor.allDone();
     addGlobalListeners();
-
-    console.timeEnd('timer')
 })
