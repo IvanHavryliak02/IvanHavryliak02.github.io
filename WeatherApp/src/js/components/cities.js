@@ -114,7 +114,6 @@ export default class CitiesDropDown extends Component{
             if(!data.error){
                 Component.dataOperator.APIData = data;
             }
-            console.log(Component.dataOperator.APIData)
         }catch(error){
             console.error("Weather API request error:", error.message);
         }

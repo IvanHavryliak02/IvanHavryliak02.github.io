@@ -1,4 +1,4 @@
-const styleBuffer = {};
+let styleBuffer = {};
 
 function getStyleSheet(){
     let styleSheet = document.querySelector('#components-styles');
@@ -26,7 +26,9 @@ export default class Component{
         dataIsReady: async function(){
             Promise.all(this.APIDataSubs.map(startPromise => startPromise()))
             .then(() => {
-                console.log('loaded');
+                if(Component.loader){
+                    Component.loader.hide();
+                }
             }).catch((error) => console.error("Can't find data at weather data object:", error.message))
         },
         subscribe: function (subscriberFunc){
@@ -51,7 +53,7 @@ export default class Component{
     };
 
     static injectCssRules(){
-        const restRules = [];
+        let restRules = [];
         for(let selector in styleBuffer){
             if(typeof styleBuffer[selector] !== 'object' ){
                 const newRule = `${selector}{${styleBuffer[selector]}}`;
@@ -70,7 +72,20 @@ export default class Component{
             Component.styleSheet.insertRule(restRule, this.styleSheet.cssRules.length)
             //console.log(restRule)
         }
+        restRules = null;
+        styleBuffer = {};
     };
+
+    static clearResurses(){
+        styleBuffer = {};
+        Component.styleSheet = null;
+        Component.publicStyles = {};
+    }
+
+    static setLoader(loader){
+
+        Component.loader = loader;
+    }
 
     constructor(parent, elementType, elementSelector){
         this.parent = parent;
@@ -189,5 +204,6 @@ export default class Component{
 
     render(){
         this.parent.appendChild(this.element);
+        return this
     }
 }

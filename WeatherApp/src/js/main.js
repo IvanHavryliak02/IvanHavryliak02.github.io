@@ -2,6 +2,7 @@ import '../sass/general.sass';
 import unitChecker from './modules/unit-checker.js';
 import userData from './modules/user-data.js';
 
+import LoadingScreen from './components/loading-screen.js';
 import Component from './modules/component.js';
 import AppBody from './components/app-body.js';
 import LeftPanel from './components/left-panel.js';
@@ -25,8 +26,10 @@ import addGlobalListeners from './modules/global-listeners.js';
 
 
 window.addEventListener('load', () => {
-    console.log('Loading...');
     userData.getUserData();
+
+    Component.setLoader(new LoadingScreen(document.querySelector('body'), 'div', '#load-screen').render())
+    Component.injectCssRules();
 
     new Container(document.querySelector('body'), 'div', '.container').render();
 
@@ -198,6 +201,7 @@ window.addEventListener('load', () => {
     ).render();
 
     Component.injectCssRules();
+    Component.clearResurses();
     Component.promisesExecutor.allDone();
     addGlobalListeners();
 })
