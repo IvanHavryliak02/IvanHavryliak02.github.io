@@ -19,6 +19,7 @@ export default class LoadingScreen extends Component {
         this.element.querySelector('.status').textContent = 'Done'
         setTimeout(() => {
             this.element.classList.add('hidden');
+            document.querySelector('#app-body').classList.remove('hide')
         }, 700)
     }
 

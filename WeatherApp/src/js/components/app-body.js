@@ -26,6 +26,11 @@ export default class AppBody extends Component{
             borderRadius: `${borderRadius}px`,
             position: 'relative',
             display: 'flex',
+            structures: {
+                '.hide': {
+                    display: 'none'
+                }
+            },
             media: {
                 'max-width: 1200px': {
                     width: '100%',

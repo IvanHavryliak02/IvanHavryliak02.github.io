@@ -33,7 +33,7 @@ window.addEventListener('load', () => {
 
     new Container(document.querySelector('body'), 'div', '.container').render();
 
-    new AppBody(document.querySelector('.container'), 'div', '#app-body').render();
+    new AppBody(document.querySelector('.container'), 'div', ['#app-body','.hide']).render();
 
     new LeftPanel(document.querySelector('#app-body'), 'div', ['#left-panel']).render();
     new RightPanel(document.querySelector('#app-body'), 'div', ['#right-panel']).render();
