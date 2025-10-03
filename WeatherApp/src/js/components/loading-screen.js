@@ -7,7 +7,7 @@ export default class LoadingScreen extends Component {
         super(parent, elementType, selector);
         this.element = this.createElement(`
             <div class="load-screen__loader"></div>
-            <div class="load-screen__load-status status"></div>    
+            <div class="load-screen__load-status status">checking your location</div>    
         `)
         this.styles = this.getStyles();
         this.applyStyles();
@@ -20,15 +20,16 @@ export default class LoadingScreen extends Component {
         setTimeout(() => {
             this.element.classList.add('hidden');
         }, 700)
-        
     }
 
     getStyles(){
         const background = userData.theme === 'light' ? '#e8e6e6ff' : '#4a4a4a'
+        const color = userData.theme === 'light' ? '#4a4a4a' : '#e8e6e6ff'
         return {
+            background: `${background}`,
+            color: `${color}`,
             width: `100vw`, 
             height: `100vh`, 
-            background: `${background}`,
             display: `flex`,
             flexDirection: `column`,
             justifyContent: `center`,
@@ -66,7 +67,6 @@ export default class LoadingScreen extends Component {
         let i = 0;
         
         const timers = [
-            changeData('Checking your location'),
             changeData('Requesting geolocation'),
             changeData('Waiting for forecast'), 
         ]
@@ -80,6 +80,4 @@ export default class LoadingScreen extends Component {
             }, i*1000)
         }
     }
-
-    
 }

@@ -1,3 +1,5 @@
+import { prefix as prefixer} from 'inline-style-prefixer'
+
 let styleBuffer = {};
 
 function getStyleSheet(){
@@ -83,7 +85,6 @@ export default class Component{
     }
 
     static setLoader(loader){
-
         Component.loader = loader;
     }
 
@@ -136,31 +137,28 @@ export default class Component{
 
             addRule(obj, header);
 
-            for(let prop in obj){
-                if(prop === 'pseudo'){
-                    const pseudoes = obj[prop];
-                    for(let pseudo in pseudoes){
-                        const newHeader = `${header}${pseudo}`
-                        
-                        createRules(pseudoes[pseudo], newHeader, media);
-                    }
-                }
-                if(prop === 'structures'){
-                    const structures = obj[prop];
-
-                    for(let structure in structures){
-                        const newHeader = `${header}${structure}`;
-                        createRules(structures[structure], newHeader, media);
-                    }
-                }
-                if(prop === 'media'){
-                    const media = obj[prop];
+            if(obj.pseudo){
+                const pseudoes = obj.pseudo;
+                for(let pseudo in pseudoes){
+                    const newHeader = `${header}${pseudo}`
                     
-                    for(let mediaRule in media){
-                        const mediaHeader = `@media (${mediaRule})`;
-                        createRules(media[mediaRule],`${header}`, mediaHeader);
-                    }
+                    createRules(pseudoes[pseudo], newHeader, media);
+                }
+            }
+            if(obj.structures){
+                const structures = obj.structures;
 
+                for(let structure in structures){
+                    const newHeader = `${header}${structure}`;
+                    createRules(structures[structure], newHeader, media);
+                }
+            }
+            if(obj.media){
+                const media = obj.media;
+                
+                for(let mediaRule in media){
+                    const mediaHeader = `@media (${mediaRule})`;
+                    createRules(media[mediaRule],`${header}`, mediaHeader);
                 }
             }
 
@@ -185,18 +183,28 @@ export default class Component{
         }
 
         function createCssProps(obj){
-            let result = ''
-            for(let prop in obj){
-                if(typeof obj[prop] !== 'object'){
-                    const cssProp = convCamelToKebab(prop);
-                    const value = obj[prop];
-                    result += `${cssProp}:${value};`
+            let result = '';
+            const propObject = Object.fromEntries(
+                Object.entries(obj).filter(([key,value]) => typeof value !== 'object')
+            )
+            const prefixStylesObj = prefixer(propObject);
+            for(let prop in prefixStylesObj){
+                const cssProp = camelToKebab(prop);
+                const value = prefixStylesObj[prop];
+                let rule = '';
+                if(Array.isArray(value)){
+                    value.forEach(innerValue => {
+                        rule += `${cssProp}:${innerValue};`
+                    })
+                }else{
+                    rule = `${cssProp}:${value};`
                 }
+                result += rule
             }
             return result;
         }
 
-        function convCamelToKebab(camelExp){ 
+        function camelToKebab(camelExp){ 
             return camelExp.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
         }
 

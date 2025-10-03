@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "chart.js": "^4.5.0",
-    "chartjs-plugin-datalabels": "^2.2.0"
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "inline-style-prefixer": "^7.0.1"
   }
 }
