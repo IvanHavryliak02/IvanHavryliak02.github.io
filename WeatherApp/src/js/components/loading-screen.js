@@ -6,8 +6,10 @@ export default class LoadingScreen extends Component {
     constructor(parent, elementType, selector){
         super(parent, elementType, selector);
         this.element = this.createElement(`
-            <div class="load-screen__loader"></div>
-            <div class="load-screen__load-status status"></div>    
+            <div class="load-screen__wrap">
+                <div class="load-screen__loader"></div>
+                <div class="load-screen__load-status status"></div> 
+            </div> 
         `)
         this.styles = this.getStyles();
         this.applyStyles();
@@ -73,11 +75,20 @@ export default class LoadingScreen extends Component {
                     marginBottom: `15px`,
                     animation: `spin 2s ease infinite`,
                 },
+                ' .load-screen__wrap': {
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textAlign: 'center'
+                },
                 '.hidden': {
                     width: '0',
                     height: '0',
                     opacity: '0',
-
                 }
             }
         }
