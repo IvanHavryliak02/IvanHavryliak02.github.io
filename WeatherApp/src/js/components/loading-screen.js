@@ -7,20 +7,40 @@ export default class LoadingScreen extends Component {
         super(parent, elementType, selector);
         this.element = this.createElement(`
             <div class="load-screen__loader"></div>
-            <div class="load-screen__load-status status">checking your location</div>    
+            <div class="load-screen__load-status status"></div>    
         `)
         this.styles = this.getStyles();
         this.applyStyles();
-        this.timers = this.setStatus();
+    }
+    
+    hide(){
+        setTimeout(() => {
+            document.querySelector('#app-body').classList.remove('hide')
+            this.element.classList.add('hidden');
+        }, 1000)
     }
 
-    hide(){
-        this.timers.forEach(timer => clearTimeout(timer));
-        this.element.querySelector('.status').textContent = 'Done'
+    setStatus(status, statusType){
+        const statusBlock = this.element.querySelector('.status');
+        switch(statusType){
+            case 'err': 
+                statusBlock.style.color = '#f44444ff'
+                break;
+            case 'warn':
+                statusBlock.style.color = '#f8c325ff'
+                break;
+            default: 
+                statusBlock.style.color = ''
+                break;
+        }
+        statusBlock.textContent = status
+    }
+
+    show(){
+        this.element.classList.remove('hidden');
         setTimeout(() => {
-            this.element.classList.add('hidden');
-            document.querySelector('#app-body').classList.remove('hide')
-        }, 700)
+            document.querySelector('#app-body').classList.add('hide')         
+        }, 600)
     }
 
     getStyles(){
@@ -40,7 +60,7 @@ export default class LoadingScreen extends Component {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             zIndex: `10000`,
-            transition: 'width 1s, height 1s, opacity 1s',
+            transition: 'width 1s, height 1s, opacity 0.5s',
             structures: {
                 ' .load-screen__loader': {
                     width: `50px`,
@@ -63,22 +83,5 @@ export default class LoadingScreen extends Component {
         }
     }
 
-    setStatus(){
-        const status = this.element.querySelector('.load-screen__load-status');
-        let i = 0;
-        
-        const timers = [
-            changeData('Requesting geolocation'),
-            changeData('Waiting for forecast'), 
-        ]
-
-        return timers
-
-        function changeData(text){
-            i++
-            return setTimeout(() => {
-                status.textContent = text;
-            }, i*1000)
-        }
-    }
+    
 }

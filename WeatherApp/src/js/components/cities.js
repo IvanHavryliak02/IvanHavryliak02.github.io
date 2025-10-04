@@ -20,38 +20,40 @@ export default class CitiesDropDown extends Component{
         );
         this.inputData = {
            fullStr: null,
-            cutStr: null
+            cutStr: null,
         }
         this.input = this.element.querySelector('input');
         this.styles = this.getStyles();
-        this.checkChanges = this.checkInput();
+        this.checkInput = this.initInput();
         this.getCurrentLocation();
         this.createCitiesList();
         this.addListeners();
         this.applyStyles();
     };
 
-    checkInput(){
+    initInput(){
         const input = this.input;
         const search = this.element.querySelector('.location__search')
         let oldValue = input.value;
         return function(newValue){
             if(newValue !== oldValue){
                 if(/[,\s]/.test(newValue)){
+                    Component.loader.show();
+                    Component.loader.setStatus('Making request');
                     this.createWeatherRequest();
                     search.style.border = '1px solid #e4e4e4ff';
                     oldValue = newValue;
                 }else{
                     search.style.border = '1px solid red'
                 }
-                
             }
         }
     } 
 
     setInputValue(originalString){
         const input = this.input;
-        if(originalString.length >= 18){
+        this.inputData.prevStr = input.value;
+        if(originalString.length > 17){
             this.inputData.fullStr = originalString;
             input.value = originalString.slice(0,16) + '..';
             this.inputData.cutStr = input.value;
@@ -59,7 +61,7 @@ export default class CitiesDropDown extends Component{
             input.value = originalString;
         }
         if(CitiesDropDown.isInitialised){
-            this.checkChanges(originalString);
+            this.checkInput(originalString);
         }
     }
 
@@ -67,16 +69,17 @@ export default class CitiesDropDown extends Component{
         let longitude = '21.011111111', latitude = '52.23', city = 'Warsaw', country = 'Poland';
         const locationPromiseStarter = async () => {
             try{
+                Component.loader.setStatus('Calculating your geolocation')
                 const position = await new Promise((resolve, reject) => {
                     navigator.geolocation.getCurrentPosition(resolve, reject);
                 })
                 longitude = position.coords.longitude;
                 latitude = position.coords.latitude;
             }catch(error){
-                console.warn('Geolocation permissions denied. Default data used.', error.message);
+                Component.loader.setStatus('Location detection failed. Default data used', 'warn');
             }
-
             try{
+                Component.loader.setStatus('Requesting city and country names')
                 const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}%2C+${longitude}&key=6a52067d80dc4a93ac2484d789e46886&language=en`,
                 {
                     method: 'GET',
@@ -101,6 +104,7 @@ export default class CitiesDropDown extends Component{
 
     weatherPromiseStarter = async (lat, long) => {
         try{
+            Component.loader.setStatus('Requesting forecast');
             const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,relative_humidity_2m,surface_pressure,visibility,wind_speed_10m,weather_code&timezone=auto`, {
                 method: 'GET',
                 headers: {
@@ -108,11 +112,10 @@ export default class CitiesDropDown extends Component{
                 }
             })
             const data = await response.json();
-            if(!lat || !long){
-                console.error(`This error must have occured due to a bad response from the geocoding API.`)
-            }
             if(!data.error){
                 Component.dataOperator.APIData = data;
+            }else{
+                Component.loader.setStatus(`Can't find ${this.input.value}`, 'err')
             }
         }catch(error){
             console.error("Weather API request error:", error.message);
@@ -122,6 +125,7 @@ export default class CitiesDropDown extends Component{
     async createWeatherRequest(){
         let lon, lat;
         try{
+            Component.loader.setStatus('Requesting geolocation coords');
             const input = this.input;
             const inputData = input.value.match(/^(.*?),(.*)$/) || input.value.match(/^(.*?)\s(.*)$/);
             const city = inputData[1].trim();
