@@ -14,8 +14,8 @@ const example = {
     characters: '@$!&^%*#'
 }
 
-let stroke = "";
-let cstroke = "";
+let inputValue = "";
+let outputValue = "";
 let digits = "";
 let bigAlphabet = "";
 let smallAlphabet = "";
@@ -39,7 +39,7 @@ function isNotRepeated (input){
     return isNotRepeated;
 }
 
-// Проверка на наличие недопустимых символов
+
 function containsInvalidCharacters(input, validChars) {
     for (let i = 0; i < input.length; i++) {
         if (!validChars.includes(input[i])) {
@@ -49,7 +49,7 @@ function containsInvalidCharacters(input, validChars) {
     return false;
 }
 
-// Функция объединяет все допустимые символы
+
 function getValidCharacters() {
     return digits + bigAlphabet + smallAlphabet + symbols;
 }
@@ -65,23 +65,23 @@ function ifEmpty(array, objectValue, inputName) {
 function setKey() {
     let key;
     let counter = 0;
-    if (stroke == '') {
-        for (let i = 0; i < cstroke.length; i++) {
-            if (/^\d$/.test(cstroke[i])) {
+    if (inputValue == '') {
+        for (let i = 0; i < outputValue.length; i++) {
+            if (/^\d$/.test(outputValue[i])) {
                 counter++;
                 if (counter % 4 === 0) {
-                    key = Number(cstroke[i]);
+                    key = Number(outputValue[i]);
                     keyPosition = i;
                     break;
                 }
             }
         }
-    } else if (cstroke == '') {
-        for (let i = 0; i < stroke.length; i++) {
-            if (/^\d$/.test(stroke[i])) {
+    } else if (outputValue == '') {
+        for (let i = 0; i < inputValue.length; i++) {
+            if (/^\d$/.test(inputValue[i])) {
                 counter++;
                 if (counter % 4 === 0) {
-                    key = Number(stroke[i]);
+                    key = Number(inputValue[i]);
                     keyPosition = i;
                     break;
                 }
@@ -93,23 +93,24 @@ function setKey() {
 
 function encode(array, i, localKey) {
     for (let j = 0; j < array.length; j++) {
-        if (array[j] === stroke[i]) {
+        if (array[j] === inputValue[i]) {
             if ((j + localKey) > (array.length - 1)) {
-                cstroke += array[(j + localKey) - array.length];
+                outputValue += array[(j + localKey) - array.length];
             } else {
-                cstroke += array[j + localKey];
+                outputValue += array[j + localKey];
             };
         };
     };
 }
 
 function decode(array, i, localKey) {
+    console.log('Decoding...')
     for (let j = 0; j < array.length; j++) {
-        if (array[j] === cstroke[i]) {
+        if (array[j] === outputValue[i]) {
             if ((j - localKey) < 0) {
-                stroke += array[(j - localKey) + array.length];
+                inputValue += array[(j - localKey) + array.length];
             } else {
-                stroke += array[j - localKey];
+                inputValue += array[j - localKey];
             };
         };
     };
@@ -120,8 +121,8 @@ function letsWork() {
     ifEmpty(bigAlphabet, example.uppercase, uppercaseField);
     ifEmpty(smallAlphabet, example.lowercase, lowercaseField);
     ifEmpty(symbols, example.characters, charactersField);
-    stroke = datafield.value;
-    cstroke = encryptDataField.value;
+    inputValue = datafield.value;
+    outputValue = encryptDataField.value;
     digits = numbersField.value;
     bigAlphabet = uppercaseField.value;
     smallAlphabet = lowercaseField.value;
@@ -130,19 +131,19 @@ function letsWork() {
     let localKey = setKey();
 
 
-    if(stroke != '' && cstroke != ''){
+    if(inputValue != '' && outputValue != ''){
         errorPanel.style.opacity = '1';
         errorPanel.innerHTML = 'One of the input fields for either the source data or the encrypted data must be empty.'
-    }else if(stroke == '' && cstroke == ''){
+    }else if(inputValue == '' && outputValue == ''){
         errorPanel.style.opacity = '1';
         errorPanel.innerHTML = "Inputs of data or encryption can't be empty"; 
     }else 
-    if (containsInvalidCharacters(stroke, validCharacters)) {
+    if (containsInvalidCharacters(inputValue, validCharacters)) {
         errorPanel.innerHTML = 'Input in "Your Password" field contains invalid characters. Encryption failed.';
         encryptDataField.disabled = true;
         errorPanel.style.opacity = '1';
         return;
-    }else if (containsInvalidCharacters(cstroke, validCharacters)) {
+    }else if (containsInvalidCharacters(outputValue, validCharacters)) {
         errorPanel.innerHTML = 'Input in "Your Encryption" field contains invalid characters. Decryption failed';
         datafield.disabled = true;
         errorPanel.style.opacity = '1';
@@ -161,49 +162,48 @@ function letsWork() {
         errorPanel.style.opacity = '0';
     }
 
-    if ((stroke == '') && (cstroke != '')) {
-        for (let i = 0; i < cstroke.length; i++) {
-            if (digits.includes(cstroke[i])) {
+    if ((inputValue == '') && (outputValue != '')) {
+        for (let i = 0; i < outputValue.length; i++) {
+            if (digits.includes(outputValue[i])) {
                 if ((i === keyPosition)) {
-                    stroke += localKey;
+                    inputValue += localKey;
                 } else {
                     decode(digits, i, localKey);
                 };
             } else
-            if (bigAlphabet.includes(cstroke[i])) {
+            if (bigAlphabet.includes(outputValue[i])) {
                 decode(bigAlphabet, i, localKey);
             } else
-            if (smallAlphabet.includes(cstroke[i])) {
+            if (smallAlphabet.includes(outputValue[i])) {
                 decode(smallAlphabet, i, localKey);
             } else
-            if (symbols.includes(cstroke[i])) {
+            if (symbols.includes(outputValue[i])) {
                 decode(symbols, i, localKey);
             };
         };
-        datafield.value = stroke;
+        datafield.value = inputValue;
     } else 
-    if ((cstroke == "") && (stroke != "")) {
+    if ((outputValue == "") && (inputValue != "")) {
         let localKey = setKey();
-        let flag = false;
-        for (let i = 0; i < stroke.length; i++) {
-            if (digits.includes(stroke[i])) {
+        for (let i = 0; i < inputValue.length; i++) {
+            if (digits.includes(inputValue[i])) {
                 if ((i === keyPosition)) {
-                    cstroke += localKey;
+                    outputValue += localKey;
                 } else {
                     encode(digits, i, localKey);
                 };
             } else
-            if (bigAlphabet.includes(stroke[i])) {
+            if (bigAlphabet.includes(inputValue[i])) {
                 encode(bigAlphabet, i, localKey);
             } else
-            if (smallAlphabet.includes(stroke[i])) {
+            if (smallAlphabet.includes(inputValue[i])) {
                 encode(smallAlphabet, i, localKey);
             } else
-            if (symbols.includes(stroke[i])) {
+            if (symbols.includes(inputValue[i])) {
                 encode(symbols, i, localKey);
             };
         };
-        encryptDataField.value = cstroke;
+        encryptDataField.value = outputValue;
     }
 }
 
