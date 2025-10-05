@@ -29,8 +29,8 @@ export default {
         "PL": `Nazywam się Ivan Havryliak`
     },
     "ami": {
-        "EN": `And I am a beginner<br> web developer`,
-        "PL": `Jestem początkującym<br> web deweloperem`
+        "EN": `And I am a<br> web developer`,
+        "PL": `Jestem<br> web deweloperem`
     },
     "orange-btn": {
         "EN": `Portfolio`,
@@ -45,16 +45,17 @@ export default {
         "PL": `Nazywam się Ivan`
     },
     "me-descr": {
-        "EN": `I am a beginner front-end developer currently living in Lublin, Poland. Unfortunately, I don't have any work experience yet, and I am actively looking for a company where I can be useful. On my part, I can guarantee attention to details, strong communication skills within a team, and a pragmatic approach. Nowadays, I am a full-time student at Lublin University of Technology, studying at the Faculty of Electrical Engineering.`,
-        "PL": `Jestem początkującym programistą front-end, obecnie mieszkającym w Lublinie, Polska. Niestety, nie mam jeszcze żadnego doświadczenia zawodowego i aktywnie szukam firmy, w której mogę być potrzebny. Z mojej strony mogę zagwarantować uwagę na szczegóły, silne umiejętności komunikacyjne w zespole oraz pragmatyczne podejście. Obecnie jestem studentem studiów dziennych na Politechnice Lubelskiej, na Wydziale Elektrotechniki.`
+        "EN": `I am a front-end developer currently living in Lublin, Poland. Nowadays, I am a full-time student at Lublin University of Technology. I became interested in computers from an early age, ever since I received my first personal computer. That is why, at the first opportunity, I enrolled in a polytechnic college. There I realized that I was truly passionate about exact sciences such as mathematics, physics, and especially computer science. I particularly enjoyed writing code in C during informatics classes. In college, I also gained my first knowledge of computer networks and got acquainted with Linux. In my free time outside of college, I was fascinated by web development. At first, it was just a hobby — I loved “drawing with code.” Over time, however, this hobby grew into a serious pursuit that I am eager to keep developing. `,
+        "PL": `Jestem front-end developerem i obecnie mieszkam w Lublinie. Studiuję w formie stacjonarnej na Politechnice Lubelskiej. Zainteresowałem się komputerami już we wczesnym dzieciństwie, odkąd otrzymałem swój pierwszy komputer osobisty. Dlatego przy pierwszej okazji zapisałem się do technikum politechnicznego. Tam zrozumiałem, że naprawdę pasjonują mnie nauki ścisłe, takie jak matematyka, fizyka, a szczególnie informatyka. Szczególnie podobało mi się pisanie kodu w języku C na zajęciach z informatyki. W technikum zdobyłem też pierwszą wiedzę o sieciach komputerowych i zapoznałem się z systemem Linux. W wolnym czasie poza zajęciami fascynowałem się tworzeniem stron internetowych. Początkowo było to tylko hobby — uwielbiałem „rysować kodem”. Z czasem jednak to hobby przerodziło się w poważne zajęcie, w którym bardzo chcę się rozwijać.
+`
     },
     "webdev": {
         "EN": `Web-development`,
         "PL": `Tworzenie stron internetowych`
     },
     "webdev-discr": {
-        "EN": `Creating the front-end of web pages using various interactive elements—animations, sliders, forms, tabs, and more.`,
-        "PL": `Tworzenie front-endu stron internetowych z użyciem różnych elementów interaktywnych — animacji, sliderów, formularzy, zakładek i innych.`
+        "EN": `Creating the front-end of web pages using various interactive elements—animations, sliders, forms, tabs, API data and more.`,
+        "PL": `Tworzenie front-endu stron internetowych z użyciem różnych elementów interaktywnych — animacji, sliderów, formularzy, zakładek, danych otrzymanych z API i innych narzędzi.`
     },
     "exp-header": {
         "EN": `Experience`,
@@ -73,8 +74,8 @@ export default {
         "PL": `Politechnika Lubelska, Polska<br>`
     },
     "un-stat": {
-        "EN": `Currently in the third year of study`,
-        "PL": `Obecnie w trzecim roku studiów`
+        "EN": `Currently in the fourth year of study`,
+        "PL": `Obecnie na czwartym roku studiów`
     },
     "un-descr": {
         "EN": `<p>Department of Electrical Engineering and Computer Science, majoring in Electrical Engineering, full-time studies, Bachelor of Engineering.<br>The program included basic programming in C/C++, with the programming course lasting a total of one year. The rest of the time was spent on calculating the parameters of electromechanical machines, electrical circuits, and more. The entire curriculum was grounded in mathematics and specialized physics.</p>`,
@@ -89,8 +90,8 @@ export default {
         "PL": `Kursy Rozwoju Front-endu`
     },
     "ac-descr": {
-        "EN": `<p>Studied and reinforced knowledge through real projects attached to this portfolio.Experience includes working with: project bundler Gulp, interactive elements such as tabs, sliders, forms (including submission using mailer technology), various types of menus, styling effects, animations, Flexbox and Grid technologies, the Bootstrap library, integrating Google Maps into projects, and pixel-perfect layout techniques. Acquired basic knowledge of JavaScript sufficient for writing simple scripts or editing existing technologies.</p>`,
-        "PL": `<p>Studiowałem i wzmacniałem wiedzę poprzez rzeczywiste projekty załączone do tego portfolio. Doświadczenie obejmuje pracę z: bundlerem projektów Gulp, elementami interaktywnymi takimi jak zakładki, slidery, formularze (w tym przesyłanie z użyciem technologii mailer), różnymi typami meni, efektami stylizacji, animacjami, technologiami Flexbox i Grid, biblioteką Bootstrap, integracją Google Maps z projektami oraz technikami układów pixel-perfect. Nabyłem podstawową wiedzę z JavaScript wystarczającą do pisania prostych skryptów lub edytowania istniejących technologii.</p>`
+        "EN": `<p>Studied and reinforced knowledge through working on projects attached to this portfolio. Experience includes working with: project bundler Gulp, creating interactive elements such as tabs, sliders, forms (including submission using mailer technology), various types of menus, styling effects, animations, Flexbox and Grid technologies, the Bootstrap library, integrating Google Maps into projects, and pixel-perfect layout techniques. Acquired basic knowledge of JavaScript sufficient for writing simple scripts or editing existing technologies.</p>`,
+        "PL": `<p>Studiowałem i wzmacniałem wiedzę poprzez realizacje projektów załączonych do tego portfolio. Doświadczenie obejmuje pracę z: bundlerem projektów Gulp, elementami interaktywnymi takimi jak zakładki, slidery, formularze (w tym przesyłanie z użyciem technologii mailer), różnymi typami meni, efektami stylizacji, animacjami, technologiami Flexbox i Grid, biblioteką Bootstrap, integracją Google Maps z projektami oraz technikami układów pixel-perfect. Nabyłem podstawową wiedzę z JavaScript wystarczającą do pisania prostych skryptów lub edytowania istniejących technologii.</p>`
     },
     "col-name": {
         "EN": `Khmelnytskyi College of Technology, Ukraine<br>`,
@@ -109,8 +110,27 @@ export default {
         "PL": `Doświadczenie Zawodowe`
     },
     "noworkexp": {
-        "EN": `<p>Unfortunately, I currently do not have any work experience. However, I am eager to join a real company and gain experience from those who have been professionally and extensively involved in web development.</p>`,
-        "PL": `<p>Niestety, obecnie nie mam żadnego doświadczenia zawodowego. Jednak z zapałem chcę dołączyć do prawdziwej firmy i zdobyć doświadczenie od tych, którzy profesjonalnie zajmują się tworzeniem stron internetowych.</p>`
+        "EN": `<p>All my experience comes from working on non-commercial projects, which are attached to this portfolio along with the portfolio itself.
+        Among them are:<br>
+        <br>
+        Pulse, Tpass, and Portfolio landing pages — built entirely from scratch by me, including the scripts for interactive elements.<br>
+        <br>
+        Encrypto — a small web application that uses a Caesar cipher with a floating key to encode and decode passwords.<br>
+        <br>
+        WeatherApp — the most complex project I have developed. It is a single-page web widget that displays the current weather forecast, the next 7 days, and hourly updates for the current day. What makes it unique is that if you open the src folder of this project on GitHub, you won’t find any HTML or SASS code. That’s because the entire project was built on my own mini-framework based on JavaScript classes and their instances. More details can be found in the project’s ReadMe on GitHub.<br>
+        <br>
+        ES module Circular Menu — fully designed and implemented by me, starting from the mathematical formula to the coding solution. You can check it out in the Projects section of my Portfolio. This circular menu is the component used to showcase the Pulse, Encrypto, and Tpass projects.</p>`,
+        "PL": `<p>Całe moje doświadczenie pochodzi z realizacji projektów non-profit, które są dołączone do tego portfolio, wraz z samym portfolio.
+        Wśród nich znajdują się:<br>
+        <br>
+        Strony landingowe Pulse, Tpass i Portfolio — stworzone całkowicie od podstaw przeze mnie, łącznie ze skryptami interaktywnych elementów.<br>
+        <br>
+        Encrypto — mała aplikacja webowa wykorzystująca szyfr Cezara z pływającym kluczem do kodowania i dekodowania haseł.<br>
+        <br>
+        WeatherApp — najbardziej złożony projekt, który stworzyłem. To jednostronicowy widżet webowy pokazujący prognozę pogody na bieżącą godzinę, na kolejne 7 dni oraz aktualizacje godzinowe dla bieżącego dnia. Unikalne jest to, że jeśli otworzysz folder src tego projektu na GitHubie, nie znajdziesz tam żadnego kodu HTML ani SASS. Cały projekt został bowiem napisany na moim własnym mini-frameworku opartym na klasach JavaScript i ich instancjach. Więcej szczegółów można znaleźć w pliku ReadMe tego projektu na GitHubie.<br>
+        <br>
+        Moduł ES Circular Menu — w pełni zaprojektowany i zaimplementowany przeze mnie, począwszy od formuły matematycznej aż po kodową realizację. Można go zobaczyć w sekcji Projektów w moim Portfolio. Ten okrągły selector jest komponentem użytym do prezentacji projektów Pulse, Encrypto i TPass.</p>
+        `
     },
     "skills-header": {
         "EN": `Skills`,
