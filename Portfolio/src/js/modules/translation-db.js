@@ -45,8 +45,8 @@ export default {
         "PL": `Nazywam się Ivan`
     },
     "me-descr": {
-        "EN": `I am a front-end developer currently living in Lublin, Poland. Nowadays, I am a full-time student at Lublin University of Technology. I became interested in computers from an early age, ever since I received my first personal computer. That is why, at the first opportunity, I enrolled in a polytechnic college. There I realized that I was truly passionate about exact sciences such as mathematics, physics, and especially computer science. I particularly enjoyed writing code in C during informatics classes. In college, I also gained my first knowledge of computer networks and got acquainted with Linux. In my free time outside of college, I was fascinated by web development. At first, it was just a hobby — I loved “drawing with code.” Over time, however, this hobby grew into a serious pursuit that I am eager to keep developing. `,
-        "PL": `Jestem front-end developerem i obecnie mieszkam w Lublinie. Studiuję w formie stacjonarnej na Politechnice Lubelskiej. Zainteresowałem się komputerami już we wczesnym dzieciństwie, odkąd otrzymałem swój pierwszy komputer osobisty. Dlatego przy pierwszej okazji zapisałem się do technikum politechnicznego. Tam zrozumiałem, że naprawdę pasjonują mnie nauki ścisłe, takie jak matematyka, fizyka, a szczególnie informatyka. Szczególnie podobało mi się pisanie kodu w języku C na zajęciach z informatyki. W technikum zdobyłem też pierwszą wiedzę o sieciach komputerowych i zapoznałem się z systemem Linux. W wolnym czasie poza zajęciami fascynowałem się tworzeniem stron internetowych. Początkowo było to tylko hobby — uwielbiałem „rysować kodem”. Z czasem jednak to hobby przerodziło się w poważne zajęcie, w którym bardzo chcę się rozwijać.
+        "EN": `I am a front-end developer currently living in Lublin, Poland. Nowadays, I am a full-time student at Lublin University of Technology. I became interested in computers from an early age, ever since I received my first personal computer. That is why, at the first opportunity, I enrolled in a polytechnic college. There I realized that I was truly passionate about exact sciences such as mathematics, physics, and especially computer science. I particularly enjoyed writing code in C during informatics classes. In college, I also gained my first knowledge of computer networks and got acquainted with Linux (variouse distributions). In my free time outside of college, I was fascinated by web development. At first, it was just a hobby — I loved “drawing with code.” Over time, however, this hobby grew into a serious pursuit that I am eager to keep developing. `,
+        "PL": `Jestem front-end developerem i obecnie mieszkam w Lublinie. Studiuję w formie stacjonarnej na Politechnice Lubelskiej. Zainteresowałem się komputerami już we wczesnym dzieciństwie, odkąd otrzymałem swój pierwszy komputer osobisty. Dlatego przy pierwszej okazji zapisałem się do technikum politechnicznego. Tam zrozumiałem, że naprawdę pasjonują mnie nauki ścisłe, takie jak matematyka, fizyka, a szczególnie informatyka. Bardzo mi się podobało pisanie kodu w języku Pascal, Delphi, C na zajęciach z informatyki. W technikum zdobyłem też pierwszą wiedzę o sieciach komputerowych i zapoznałem się z systemem Linux (różne dystrybucje). W wolnym czasie poza zajęciami fascynowałem się tworzeniem stron internetowych. Początkowo było to tylko hobby — uwielbiałem „rysować kodem”. Z czasem jednak to hobby przerodziło się w poważne zajęcie, w którym bardzo chcę się rozwijać.
 `
     },
     "webdev": {
@@ -109,8 +109,8 @@ export default {
         "EN": `Work Experience`,
         "PL": `Doświadczenie Zawodowe`
     },
-    "noworkexp": {
-        "EN": `<p>All my experience comes from working on non-commercial projects, which are attached to this portfolio along with the portfolio itself.
+    "workexp": {
+        "EN": `<p>All my experience comes from working on projects, which are attached to this portfolio along with the portfolio itself.
         Among them are:<br>
         <br>
         Pulse, Tpass, and Portfolio landing pages — built entirely from scratch by me, including the scripts for interactive elements.<br>
@@ -120,7 +120,7 @@ export default {
         WeatherApp — the most complex project I have developed. It is a single-page web widget that displays the current weather forecast, the next 7 days, and hourly updates for the current day. What makes it unique is that if you open the src folder of this project on GitHub, you won’t find any HTML or SASS code. That’s because the entire project was built on my own mini-framework based on JavaScript classes and their instances. More details can be found in the project’s ReadMe on GitHub.<br>
         <br>
         ES module Circular Menu — fully designed and implemented by me, starting from the mathematical formula to the coding solution. You can check it out in the Projects section of my Portfolio. This circular menu is the component used to showcase the Pulse, Encrypto, and Tpass projects.</p>`,
-        "PL": `<p>Całe moje doświadczenie pochodzi z realizacji projektów non-profit, które są dołączone do tego portfolio, wraz z samym portfolio.
+        "PL": `<p>Całe moje doświadczenie pochodzi z realizacji projektów, które są dołączone do tego portfolio, wraz z samym portfolio.
         Wśród nich znajdują się:<br>
         <br>
         Strony landingowe Pulse, Tpass i Portfolio — stworzone całkowicie od podstaw przeze mnie, łącznie ze skryptami interaktywnych elementów.<br>
@@ -151,6 +151,18 @@ export default {
     "js-descr": {
         "EN": `JS, or JavaScript, is a programming language that can bring your page to life. It allows you to make the page respond to user actions and change its behavior based on those interactions.`,
         "PL": `JS, czyli JavaScript, to język programowania, który może ożywić twoją stronę. Umożliwia to stronie reagowanie na działania użytkownika i zmienianie jej zachowania w zależności od tych interakcji.`
+    },
+    "sass-descr": {
+        "EN": `SASS is a preprocessor that makes writing CSS code more convenient.`,
+        "PL": `SASS to preprocesor, który ułatwia pisanie kodu CSS.`
+    },
+    "gulp-descr": {
+        "EN": `Gulp is a task runner that automates repetitive workflows, like compressing files to make websites load faster, adding vendor prefixes for better browser support, and compiling project files for deployment.`,
+        "PL": `Gulp to narzędzie automatyzujące powtarzalne zadania, takie jak kompresja plików, aby strony ładowały się szybciej, dodawanie prefiksów dla lepszej obsługi w różnych przeglądarkach oraz kompilacja plików projektu do wdrożenia.`
+    },
+    "vite-descr": {
+        "EN": `Vite is a newer build tool that performs the same main tasks as Gulp—optimizing files, ensuring browser compatibility, and building the project—but also provides a super fast development server with instant browser updates, making the coding process much quicker.`,
+        "PL": `Vite to nowsze narzędzie do budowania, które wykonuje te same główne zadania co Gulp — optymalizuje pliki, zapewnia zgodność z przeglądarkami i buduje projekt — ale dodatkowo oferuje bardzo szybki serwer deweloperski z natychmiastowymi aktualizacjami w przeglądarce, co znacznie przyspiesza pracę programisty.`
     },
     "works-header": {
         "EN": `Portfolio`,
