@@ -34,17 +34,15 @@
         display: none
     .about-me
         &_grid
-            grid-template: 240px 320px / 370px 540px
+            grid-template: auto auto / 370px 540px
             gap: 40px 50px
         &_subgrid
             grid-template: 134px 134px / 240px 250px
             gap: 50px
     .usage
         &_grid-technologies
-            grid-template: 310px / repeat(3, 270px)
+            grid-template: auto / repeat(3, 270px)
             justify-content: space-around
-            grid-auto-columns: 270px
-            grid-auto-rows: 310px
         &_grid-skills
             grid-template: 70px / repeat(2, 350px)
             justify-content: space-around
@@ -63,7 +61,7 @@
         width: 720px
     .about-me
         &_grid
-            grid-template: 310px 380px / 330px 360px
+            grid-template: auto auto / 330px 360px
             gap: 40px 30px
         &_subgrid
             grid-template: 80px / 100%
@@ -75,7 +73,7 @@
             gap: 0 35px
     .usage
         &_grid-technologies
-            grid-template: 310px / repeat(2, 270px)
+            grid-template: auto / repeat(2, 270px)
             justify-content: center
         &_grid-skills
             grid-template: 70px / 350px
@@ -126,7 +124,7 @@
             justify-content: center
     .usage
         &_grid-technologies
-            grid-template: 310px / repeat(2, 230px)
+            grid-template: auto / repeat(2, 230px)
     .works
         &_grid-works
             grid-template: 450px / 280px
@@ -169,7 +167,7 @@
             margin-top: 30px
     .usage
         &_grid-technologies
-            grid-template: 310px / 270px
+            grid-template: auto / 270px
             margin-top: 20px
         &_grid-skills
             grid-template-columns: 250px
