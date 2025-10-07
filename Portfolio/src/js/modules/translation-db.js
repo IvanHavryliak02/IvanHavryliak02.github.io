@@ -176,33 +176,21 @@ export default {
         "EN": `Technology used:`,
         "PL": `Użyte technologie:`
     },
-    "pulse-layout": {
-        "EN": `<span class="icon-wrench"></span>For layout: flexbox`,
-        "PL": `<span class="icon-wrench"></span>Do układu: flexbox`
+    "wap-layout": {
+        "EN": `<span class="icon-wrench"></span>Layout: Flexbox`,
+        "PL": `<span class="icon-wrench"></span>Układ: Flexbox`
     },
-    "pulse-lib": {
-        "EN": `<span class="icon-wrench"></span>Libraries: jQuery`,
-        "PL": `<span class="icon-wrench"></span>Biblioteki: jQuery`
+    "wap-lib": {
+        "EN": `<span class="icon-wrench"></span>Libraries: Chart.js`,
+        "PL": `<span class="icon-wrench"></span>Biblioteki: Chart.js`
     },
     "elem-use": {
         "EN": `Interactive elements:`,
         "PL": `Elementy interaktywne:`
     },
-    "pulse-li1": {
-        "EN": `<span class="icon-interactive"></span>Animations and stylistic changes on hover is developer's idea`,
-        "PL": `<span class="icon-interactive"></span>Animacje i zmiany stylu przy najechaniu to pomysł dewelopera`
-    },
-    "pulse-li2": {
-        "EN": `<span class="icon-interactive"></span>Slider implemented using <span class="jquery-tech">Slick-Slider;</span>`,
-        "PL": `<span class="icon-interactive"></span>Slider zaimplementowany przy użyciu <span class="jquery-tech">Slick-Slider;</span>`
-    },
-    "pulse-li3": {
-        "EN": `<span class="icon-interactive"></span>Form validation based on the <span class="jquery-tech">JqueryValidation plugin;</span>`,
-        "PL": `<span class="icon-interactive"></span>Walidacja formularza oparta na pluginie <span class="jquery-tech">JqueryValidation;</span>`
-    },
-    "pulse-li4": {
-        "EN": `<span class="icon-interactive"></span><span class="jquery-tech">Mailer</span> for sending information to manager`,
-        "PL": `<span class="icon-interactive"></span><span class="jquery-tech">Mailer</span> do wysyłania informacji do menedżera`
+    "wap-li1": {
+        "EN": `<span class="icon-interactive"></span>The entire project is built solely in JavaScript, using a microframework of my own design.`,
+        "PL": `<span class="icon-interactive"></span>Cały projekt został zbudowany wyłącznie w JavaScript, z wykorzystaniem mikroframeworka mojego własnego autorstwa.`
     },
     "contacts-header": {
         "EN": `Contacts`,
