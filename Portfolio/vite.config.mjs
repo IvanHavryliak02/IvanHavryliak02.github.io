@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import viteImagemin from 'vite-plugin-imagemin';
 import autoprefixer from 'autoprefixer';
 import legacy from '@vitejs/plugin-legacy';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   root: './src',
@@ -65,6 +66,14 @@ export default defineConfig({
         ],
       },
     }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'loadable',
+          dest: '',
+        },
+      ],
+    }),
     legacy({
       targets: ['defaults', 'not IE 11'],
     })
@@ -72,7 +81,7 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: [
-        autoprefixer({}) // add options if needed
+        autoprefixer({}) 
       ],
     }
   }
