@@ -6,7 +6,7 @@ export default function(sectionSelector){
     const cardsContainer = document.querySelector(`${sectionSelector}_grid-works`);
 
     setDefaultAtt();
-    delegateClick(cardsContainer, `${sectionSelector}__item`, operateCard);
+    delegateClick(cardsContainer, `${sectionSelector}__item`, operateCard, true);
 
     function setDefaultAtt(){
         cards.forEach(item => { 
