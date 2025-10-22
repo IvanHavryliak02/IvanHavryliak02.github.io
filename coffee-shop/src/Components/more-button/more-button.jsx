@@ -13,6 +13,7 @@ const MoreButtonEl = styled.button`
     border-radius: 3px;
     transition: 0.5s all;
     cursor: pointer;
+    font-weight: bold;
     &:hover {
         background: #fff;
         color: #000;

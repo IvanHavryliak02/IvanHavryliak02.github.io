@@ -9,7 +9,7 @@ import MoreButton from "../../Components/more-button/more-button";
 import mainBg from './main-bg.png'
 
 const TitleSectionEl = styled.section`
-    height: 100vh;
+    min-height: 640px;
     padding: 30px 0 0 0;
     background: url(${mainBg}) center / cover no-repeat;
 `

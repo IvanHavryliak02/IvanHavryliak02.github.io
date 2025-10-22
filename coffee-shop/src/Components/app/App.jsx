@@ -1,12 +1,14 @@
 
 import TitleSection from "../../sections/title-section/title-section"
+import AboutSection from "../../sections/about-section/about-section";
 
 function App() {
-  return (
-    <div className="App">
-      <TitleSection></TitleSection>
-    </div>
-  );
+	return (
+		<>
+			<TitleSection/>
+			<AboutSection/>
+		</>
+	);
 }
 
 export default App;
