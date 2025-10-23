@@ -1,9 +1,20 @@
 
 import styled from 'styled-components';
-import firstLiImg from './light-beans.png'
+import lightLiImg from './light-beans.png'
+import darkLiImg from './dark-beans.png'
 
 const NavMenuEl = styled.nav`
     height: 100%;
+    ul {
+        li {
+            color: ${({$type}) => $type === 'dark' ? '#000' : '#fff' };
+            &:first-child {
+                &::before {
+                    background: url(${({$type}) => $type === 'dark' ? darkLiImg : lightLiImg }) center / cover no-repeat;
+                }
+            }
+        }
+    }
 ` 
 
 const UnList = styled.ul`
@@ -18,7 +29,6 @@ const UnList = styled.ul`
 const ListItem = styled.li`
     display: block;
     font-size: 12px;
-    color: #ffffff;
     margin-left: 40px;
     &:first-child {
         margin-left: 35px;
@@ -29,7 +39,6 @@ const ListItem = styled.li`
             content: '';
             width: 35px;
             height: 35px;
-            background: url(${firstLiImg}) center / cover no-repeat;
             position: absolute;
             left: -30px;
             bottom: 0;
@@ -37,10 +46,10 @@ const ListItem = styled.li`
     };
 `
 
-export default function NavMenu() {
+export default function NavMenu({type}) {
     
     return (
-        <NavMenuEl>
+        <NavMenuEl $type={type}>
             <UnList>
                 <ListItem>Coffee house</ListItem>
                 <ListItem>Our coffee</ListItem>
