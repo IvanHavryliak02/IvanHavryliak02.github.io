@@ -7,11 +7,16 @@ const NavMenuEl = styled.nav`
     height: 100%;
     ul {
         li {
-            color: ${({$type}) => $type === 'dark' ? '#000' : '#fff' };
             &:first-child {
                 &::before {
                     background: url(${({$type}) => $type === 'dark' ? darkLiImg : lightLiImg }) center / cover no-repeat;
                 }
+            }
+            &::after {
+                background: ${({$type}) => $type === 'dark' ? '#000' : '#fff' };
+            }
+            button {
+                color: ${({$type}) => $type === 'dark' ? '#000' : '#fff' };
             }
         }
     }
@@ -30,6 +35,7 @@ const ListItem = styled.li`
     display: block;
     font-size: 12px;
     margin-left: 40px;
+    position: relative;
     &:first-child {
         margin-left: 35px;
     };
@@ -44,6 +50,26 @@ const ListItem = styled.li`
             bottom: 0;
         };  
     };
+    &::after {
+        content: '';
+        width: 0;
+        height: 2px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -5px;
+        transition: 0.3s width;
+    }
+    &:hover {
+        &::after {
+            width: 100%;
+        }
+    }
+    button {
+        cursor: pointer;
+        background: transparent; 
+        border: none;
+    }
 `
 
 export default function NavMenu({type}) {
@@ -51,9 +77,9 @@ export default function NavMenu({type}) {
     return (
         <NavMenuEl $type={type}>
             <UnList>
-                <ListItem>Coffee house</ListItem>
-                <ListItem>Our coffee</ListItem>
-                <ListItem>For your pleasure</ListItem>
+                <ListItem><button>Coffee house</button></ListItem>
+                <ListItem><button>Our coffee</button></ListItem>
+                <ListItem><button>For your pleasure</button></ListItem>
             </UnList>
         </NavMenuEl>
         
