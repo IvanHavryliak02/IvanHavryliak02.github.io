@@ -1,6 +1,6 @@
 import { Component } from "react";
 import styled from "styled-components";
-import HeaderBlock from "../../Components/header-block/header-block"
+import Header from "../header/header";
 import Container from "../../Components/container/container"
 import MainHeader from "../../Components/main-header/main-header";
 import BeansDivider from "../../Components/beans-divider/beans-divider";
@@ -20,7 +20,7 @@ export default class MainSection extends Component {
         return(
             <TitleSectionEl>
                 <Container>
-                    <HeaderBlock/>
+                    <Header/>
                     <MainHeader>Everything You Love About Coffee</MainHeader>
                     <BeansDivider/>
                     <SubHeader margt={35}>We makes every day full of energy and taste</SubHeader>

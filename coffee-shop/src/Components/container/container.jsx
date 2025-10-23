@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const ContainerEl = styled.div`
-    width: 1320px;
+    width: 1140px;
     margin: 0 auto;
 `
 

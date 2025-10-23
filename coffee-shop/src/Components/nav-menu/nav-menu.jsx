@@ -1,11 +1,10 @@
-import { Component } from "react";
+
 import styled from 'styled-components';
 import firstLiImg from './light-beans.png'
 
-const HeaderEl = styled.header`
-    width: 100%;
-    height: 40px;
-`
+const NavMenuEl = styled.nav`
+    height: 100%;
+` 
 
 const UnList = styled.ul`
     display: flex;
@@ -38,17 +37,16 @@ const ListItem = styled.li`
     };
 `
 
-export default class HeaderBlock extends Component {
+export default function NavMenu() {
     
-    render() {
-        return (
-            <HeaderEl>
-                <UnList>
-                    <ListItem>Coffee house</ListItem>
-                    <ListItem>Our coffee</ListItem>
-                    <ListItem>For your pleasure</ListItem>
-                </UnList>
-            </HeaderEl>
-        )
-    }
+    return (
+        <NavMenuEl>
+            <UnList>
+                <ListItem>Coffee house</ListItem>
+                <ListItem>Our coffee</ListItem>
+                <ListItem>For your pleasure</ListItem>
+            </UnList>
+        </NavMenuEl>
+        
+    )
 } 
