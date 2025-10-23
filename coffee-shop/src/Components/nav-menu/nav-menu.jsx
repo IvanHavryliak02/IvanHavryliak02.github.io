@@ -1,10 +1,10 @@
 
 import styled from 'styled-components';
-import lightLiImg from './light-beans.png'
-import darkLiImg from './dark-beans.png'
+import lightLiImg from './light-beans.svg'
+import darkLiImg from './dark-beans.svg'
 
 const NavMenuEl = styled.nav`
-    height: 100%;
+    height: 40px;
     ul {
         li {
             &:first-child {
@@ -46,8 +46,8 @@ const ListItem = styled.li`
             width: 35px;
             height: 35px;
             position: absolute;
-            left: -30px;
-            bottom: 0;
+            left: -32px;
+            bottom: 7px;
         };  
     };
     &::after {
