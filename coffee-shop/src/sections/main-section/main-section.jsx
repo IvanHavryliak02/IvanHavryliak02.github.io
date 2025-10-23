@@ -14,7 +14,7 @@ const TitleSectionEl = styled.section`
     background: url(${mainBg}) center / cover no-repeat;
 `
 
-export default class TitleSection extends Component {
+export default class MainSection extends Component {
 
     render() {
         return(

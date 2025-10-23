@@ -12,6 +12,7 @@ const DescriptionBlockEl = styled.div`
 const TextWrapper = styled.div`
     margin-top: 41px;
     line-height: 20px;
+    font-size: 14px;
 `
 
 export default class DescriptionBlock extends Component {
