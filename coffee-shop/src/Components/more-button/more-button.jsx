@@ -8,7 +8,6 @@ const MoreButtonEl = styled.button`
     color: #fff;
     font-size: 14px;
     margin: 0 auto;
-    display: block;
     margin-top: 20px;
     border-radius: 3px;
     transition: 0.5s all;
@@ -18,10 +17,12 @@ const MoreButtonEl = styled.button`
         background: #fff;
         color: #000;
     }
+
+    display: ${({$hide}) => $hide ? 'none' : 'block'};
 `
 
-export default function MoreButton({children}) {
+export default function MoreButton({children, hide, changeAppState}) {
     return (
-        <MoreButtonEl>{children}</MoreButtonEl>
+        <MoreButtonEl onClick={() => changeAppState('ourCoffee')} $hide={hide}>{children}</MoreButtonEl>
     )
 }

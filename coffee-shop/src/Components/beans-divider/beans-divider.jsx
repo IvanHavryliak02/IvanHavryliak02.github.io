@@ -3,7 +3,7 @@ import darkBeans from "./dark-beans.svg";
 import lightBeans from "./light-beans.svg";
 
 const Divider = styled.div`
-    display: block;
+    display: ${({$hide}) => $hide ? 'none' : 'block'};
     margin: 0 auto;
     width: 30px;
     height: 30px;
@@ -34,8 +34,8 @@ const Divider = styled.div`
 `
 
 
-export default function BeansDivider({type}) {
+export default function BeansDivider({type, hide}) {
     return (
-        <Divider $type={type}/>
+        <Divider $hide = {hide} $type={type}/>
     )
 }

@@ -11,10 +11,10 @@ const FooterEl = styled.footer`
     align-items: center;
 `
 
-export default function Footer() {
+export default function Footer({changeAppState}) {
     return (
         <FooterEl>
-            <NavMenu type={'dark'}/>
+            <NavMenu changeAppState={changeAppState} type={'dark'}/>
             <BeansDivider type={'dark'}/>
         </FooterEl>
     )

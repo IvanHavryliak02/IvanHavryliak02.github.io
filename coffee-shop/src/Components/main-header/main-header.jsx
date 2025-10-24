@@ -5,11 +5,12 @@ const MainHeaderEl = styled.h1`
     font-size: 40px;
     color: #fff;
     text-align: center;
-    margin-top: 110px;
+    
+    margin-top: ${({$margt}) => $margt}px;
 `
 
-export default function MainHeader({children}) {
+export default function MainHeader({children, margt}) {
     return (
-        <MainHeaderEl>{children}</MainHeaderEl>
+        <MainHeaderEl $margt={margt}>{children}</MainHeaderEl>
     )
 }

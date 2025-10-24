@@ -9,9 +9,10 @@ const HeaderEl = styled.header`
 export default class Header extends Component {
     
     render() {
+        const {changeAppState} = this.props
         return (
             <HeaderEl>
-                <NavMenu/>
+                <NavMenu changeAppState={changeAppState}/>
             </HeaderEl>
         )
     }

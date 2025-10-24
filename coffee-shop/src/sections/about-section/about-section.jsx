@@ -7,12 +7,12 @@ const AboutSectionEl = styled.section`
     min-height: 520px;
     background: #fff;
     padding: 80px 0 100px 0;
+    display: ${({$hideSection}) => $hideSection ? 'none' : 'block'}
 `
 
-export default function AboutSection() {
-
+export default function AboutSection({hideSection}) {
     return (
-        <AboutSectionEl>
+        <AboutSectionEl $hideSection = {hideSection}>
             <Container>
                 <DescriptionBlock/>
             </Container>

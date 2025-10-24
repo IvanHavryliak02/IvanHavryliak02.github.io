@@ -13,6 +13,7 @@ const BestSectionEl = styled.section`
     min-height: 500px;
     background: url(${imageBg}) center / cover no-repeat;
     padding: 80px 0 100px 0;
+    display: ${({$hideSection}) => $hideSection ? 'none' : 'block'}
 `
 
 const CardsWrap = styled.div`
@@ -22,9 +23,9 @@ const CardsWrap = styled.div`
     margin: 40px auto 0 auto;
 `
 
-export default function BestSection() {
+export default function BestSection({hideSection}) {
     return (
-        <BestSectionEl>
+        <BestSectionEl $hideSection={hideSection}>
             <Container>
                 <SubHeader type={'dark'}>Our best</SubHeader>
                 <CardsWrap>

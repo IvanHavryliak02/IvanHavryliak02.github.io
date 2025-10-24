@@ -72,14 +72,14 @@ const ListItem = styled.li`
     }
 `
 
-export default function NavMenu({type}) {
-    
+export default function NavMenu({type, changeAppState}) {
+
     return (
         <NavMenuEl $type={type}>
             <UnList>
-                <ListItem><button>Coffee house</button></ListItem>
-                <ListItem><button>Our coffee</button></ListItem>
-                <ListItem><button>For your pleasure</button></ListItem>
+                <ListItem><button onClick={() => changeAppState('primary')}>Coffee house</button></ListItem>
+                <ListItem><button onClick={() => changeAppState('ourCoffee')}>Our coffee</button></ListItem>
+                <ListItem><button onClick={() => changeAppState('yourPleasure')}>For your pleasure</button></ListItem>
             </UnList>
         </NavMenuEl>
         
