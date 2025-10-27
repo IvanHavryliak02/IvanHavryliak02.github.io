@@ -23,7 +23,8 @@ const CardsWrap = styled.div`
     margin: 40px auto 0 auto;
 `
 
-export default function BestSection({hideSection}) {
+export default function BestSection({appState}) {
+    const hideSection = appState !== 'primary';
     return (
         <BestSectionEl $hideSection={hideSection}>
             <Container>

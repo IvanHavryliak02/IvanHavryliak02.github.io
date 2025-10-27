@@ -1,13 +1,15 @@
 import { Component } from "react";
+
 import MainSection from "../../sections/main-section/main-section"
 import AboutSection from "../../sections/about-section/about-section";
 import BestSection from "../../sections/best-section/best-section";
+import ImgAboutSection from '../../sections/img-about-section/img-about-section'
 import Footer from "../../sections/footer/footer";
 
 export default class App extends Component {
 	
 	state = {
-		appState: 'primary' // 'ourCoffee', 'yourPleasure', 'coffeeDesc'
+		appState: 'ourCoffee' // 'ourCoffee', 'yourPleasure', 'coffeeDesc'
 	}
 
 	changeAppState = (newAppState) => {
@@ -16,12 +18,12 @@ export default class App extends Component {
 
 	render() {
 		const {appState} = this.state;
-		const hideSection = appState !== 'primary';
 		return (
 			<>
 				<MainSection changeAppState={this.changeAppState} appState = {appState}/>
-				<AboutSection hideSection = {hideSection}/>
-				<BestSection hideSection = {hideSection}/>
+				<AboutSection appState = {appState}/>
+				<BestSection appState = {appState}/>
+				<ImgAboutSection appState = {appState}/>
 				<Footer changeAppState={this.changeAppState}/>
 			</>
 		);
