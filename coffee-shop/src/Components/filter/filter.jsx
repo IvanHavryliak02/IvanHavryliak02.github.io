@@ -46,25 +46,80 @@ const TitledGroup = styled.div`
 `
 
 export default class Filter extends Component {
-    state = {
-        term: '',
-        filter: 'Brazil'
+    
+    constructor(props){
+        super(props);
+        this.state = {
+            term: '',
+            filter: ''
+        }
     }
 
+    changeStateValue = (value, callback, stateKey) => {
+        callback(value);
+        this.setState({
+            [stateKey]: value
+        })
+    }
 
     render() {
+        const {changeTerm, changeFilter} = this.props
+        
         return (
             <FilterEl>
                 <TitledGroup $width={285}>
-                    <span>Lookiing for</span>
-                    <input placeholder='start typing here...' />
+                    <span>Looking for</span>
+                    <input 
+                        placeholder='start typing here...'
+                        value={this.state.term}
+                        onFocus={() => {
+                            this.changeStateValue(
+                                '',
+                                changeFilter,
+                                'filter'
+                            );  
+                        }}
+                        onChange={(e) => {
+                            this.changeStateValue(
+                                e.target.value,
+                                changeTerm,
+                                'term'
+                            );  
+                        }} 
+                    />
                 </TitledGroup>
                 <TitledGroup $width={325}>
                     <span>Or filter</span>
                     <div className='wrap'>
-                        <button>Brazil</button>
-                        <button>Kenya</button>
-                        <button>Columbia</button>
+                        <button onClick={
+                            (e) => {
+                                this.changeStateValue(
+                                    e.target.textContent,
+                                    changeFilter,
+                                    'filter'
+                                )
+                            }
+                        }
+                        >Brazil</button>
+                        <button onClick={
+                            (e) => {
+                                this.changeStateValue(
+                                    e.target.textContent,
+                                    changeFilter,
+                                    'filter'
+                                )
+                            }
+                        }
+                        >Kenya</button>
+                        <button onClick={
+                            (e) => {
+                                this.changeStateValue(
+                                    e.target.textContent,
+                                    changeFilter,
+                                    'filter'
+                                );
+                            }
+                        }>Columbia</button>
                     </div>
                 </TitledGroup>
             </FilterEl>

@@ -33,20 +33,36 @@ export default class CoffeeShopSection extends Component{
         data: [
             {articleName: 'AROMISTICO Coffee 1 kg', country: 'Brazil', price: 6.99, id: 1},
             {articleName: 'AROMISTICO Coffee 1 kg', country: 'Kenya', price: 6.99, id: 2},
-            {articleName: 'AROMISTICO Coffee 1 kg', country: 'Columbia', price: 6.99, id: 3},
-            {articleName: 'AROMISTICO Coffee 1 kg', country: 'Brazil', price: 6.99, id: 4},
-            {articleName: 'AROMISTICO Coffee 1 kg', country: 'Brazil', price: 6.99, id: 5},
-            {articleName: 'AROMISTICO Coffee 1 kg', country: 'Brazil', price: 6.99, id: 6},
+            {articleName: 'Arabica Coffee 1 kg', country: 'Columbia', price: 6.99, id: 3},
+            {articleName: 'Arabica Coffee 1 kg', country: 'Brazil', price: 6.99, id: 4},
+            {articleName: 'Telestico Coffee 1 kg', country: 'Brazil', price: 6.99, id: 5},
+            {articleName: 'Telestico Coffee 1 kg', country: 'Brazil', price: 6.99, id: 6},
         ],
         term: '',
         filter: ''
     }
 
+    changeTerm = (term) => {
+        this.setState({
+            term: term,
+            filter: ''
+        })
+    }
+
+    changeFilter = (newFilter) => {
+        this.setState({
+            filter: newFilter
+        })
+    }
+
     render() {
         const {appState} = this.props;
-        const {data} = this.state;
+        const {data, term, filter} = this.state;
         const hideSection = appState !== 'ourCoffee' && appState !== 'yourPleasure'
-        const shopCards = data.map(element => (
+        let cardsToShow = data.filter(element => element.articleName.toLowerCase().includes(term.toLowerCase()))
+            .filter(element => element.country.toLowerCase().includes(filter.toLowerCase()))
+
+        const shopCards = cardsToShow.map(element => 
             <ShopCard 
                 src={aramisticoCoffeeImg} 
                 title = {element.articleName}
@@ -54,11 +70,15 @@ export default class CoffeeShopSection extends Component{
                 price = {element.price}
                 key = {element.id}   
             />
-        ))
+        )
+
         return (
             <CoffeeShopSectionEl $hideSection = {hideSection}>
                 <Container>
-                    <Filter/>
+                    <Filter 
+                        changeTerm={this.changeTerm}
+                        changeFilter={this.changeFilter}
+                    />
                     <ShopGridWrap>
                         <ShopGrid>
                             {shopCards}
