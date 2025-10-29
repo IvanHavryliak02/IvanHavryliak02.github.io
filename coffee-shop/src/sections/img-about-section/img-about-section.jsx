@@ -22,7 +22,7 @@ const Divider = styled.div`
 `
 
 export default function ImgAboutSection({appState}){
-    const hideSection = appState !== 'ourCoffee'
+    const hideSection = appState !== 'ourCoffee' && appState !== 'yourPleasure'
     return (
         <ImgAboutSectionEl $hideSection={hideSection}>
             <Container>

@@ -5,6 +5,7 @@ import AboutSection from "../../sections/about-section/about-section";
 import BestSection from "../../sections/best-section/best-section";
 import ImgAboutSection from '../../sections/img-about-section/img-about-section'
 import Footer from "../../sections/footer/footer";
+import CoffeeShopSection from "../../sections/coffee-shop-section/coffee-shop-section";
 
 export default class App extends Component {
 	
@@ -24,6 +25,7 @@ export default class App extends Component {
 				<AboutSection appState = {appState}/>
 				<BestSection appState = {appState}/>
 				<ImgAboutSection appState = {appState}/>
+				<CoffeeShopSection appState = {appState}/>
 				<Footer changeAppState={this.changeAppState}/>
 			</>
 		);
