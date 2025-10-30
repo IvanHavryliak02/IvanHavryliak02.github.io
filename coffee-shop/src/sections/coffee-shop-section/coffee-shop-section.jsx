@@ -35,7 +35,7 @@ export default class CoffeeShopSection extends Component{
             {articleName: 'AROMISTICO Coffee 1 kg', country: 'Kenya', price: 6.99, id: 2},
             {articleName: 'Arabica Coffee 1 kg', country: 'Columbia', price: 6.99, id: 3},
             {articleName: 'Arabica Coffee 1 kg', country: 'Brazil', price: 6.99, id: 4},
-            {articleName: 'Telestico Coffee 1 kg', country: 'Brazil', price: 6.99, id: 5},
+            {articleName: 'Telestico Coffee 1 kg', country: 'Columbia', price: 6.99, id: 5},
             {articleName: 'Telestico Coffee 1 kg', country: 'Brazil', price: 6.99, id: 6},
         ],
         term: '',
@@ -53,6 +53,11 @@ export default class CoffeeShopSection extends Component{
         this.setState({
             filter: newFilter
         })
+    }
+
+    createButtonsTitle = () => {
+        const countries = this.state.data.map(item => item.country);
+        return Array.from(new Set(countries));
     }
 
     render() {
@@ -78,6 +83,7 @@ export default class CoffeeShopSection extends Component{
                     <Filter 
                         changeTerm={this.changeTerm}
                         changeFilter={this.changeFilter}
+                        createButtonsTitle={this.createButtonsTitle}
                     />
                     <ShopGridWrap>
                         <ShopGrid>

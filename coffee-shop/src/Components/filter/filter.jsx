@@ -50,6 +50,7 @@ export default class Filter extends Component {
     constructor(props){
         super(props);
         this.state = {
+            buttonsTitles: this.props.createButtonsTitle(),
             term: '',
             filter: ''
         }
@@ -64,7 +65,22 @@ export default class Filter extends Component {
 
     render() {
         const {changeTerm, changeFilter} = this.props
-        
+        const buttons = this.state.buttonsTitles.map((buttonTitle, index) => {
+            const styles = this.state.filter.toLowerCase() === buttonTitle.toLowerCase() ? {background: 'rgba(0,0,0,0.4)', color: '#fff'} : {}
+            return (
+                <button key={index} style={styles} onClick={
+                        (e) => {
+                            this.changeStateValue(
+                                e.target.textContent,
+                                changeFilter,
+                                'filter'
+                            )
+                        }
+                    }
+                >{buttonTitle}</button>
+            )
+            
+        })
         return (
             <FilterEl>
                 <TitledGroup $width={285}>
@@ -91,35 +107,7 @@ export default class Filter extends Component {
                 <TitledGroup $width={325}>
                     <span>Or filter</span>
                     <div className='wrap'>
-                        <button onClick={
-                            (e) => {
-                                this.changeStateValue(
-                                    e.target.textContent,
-                                    changeFilter,
-                                    'filter'
-                                )
-                            }
-                        }
-                        >Brazil</button>
-                        <button onClick={
-                            (e) => {
-                                this.changeStateValue(
-                                    e.target.textContent,
-                                    changeFilter,
-                                    'filter'
-                                )
-                            }
-                        }
-                        >Kenya</button>
-                        <button onClick={
-                            (e) => {
-                                this.changeStateValue(
-                                    e.target.textContent,
-                                    changeFilter,
-                                    'filter'
-                                );
-                            }
-                        }>Columbia</button>
+                        {buttons}
                     </div>
                 </TitledGroup>
             </FilterEl>
