@@ -31,12 +31,12 @@ export default class CoffeeShopSection extends Component{
 
     state = {
         data: [
-            {articleName: 'AROMISTICO Coffee 1 kg', country: 'Brazil', price: 6.99, id: 1},
-            {articleName: 'AROMISTICO Coffee 1 kg', country: 'Kenya', price: 6.99, id: 2},
-            {articleName: 'Arabica Coffee 1 kg', country: 'Columbia', price: 6.99, id: 3},
-            {articleName: 'Arabica Coffee 1 kg', country: 'Brazil', price: 6.99, id: 4},
-            {articleName: 'Telestico Coffee 1 kg', country: 'Columbia', price: 6.99, id: 5},
-            {articleName: 'Telestico Coffee 1 kg', country: 'Brazil', price: 6.99, id: 6},
+            {articleName: 'AROMISTICO Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Brazil', price: 6.99, id: 1},
+            {articleName: 'AROMISTICO Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Kenya', price: 6.99, id: 2},
+            {articleName: 'Arabica Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Columbia', price: 6.99, id: 3},
+            {articleName: 'Arabica Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Brazil', price: 6.99, id: 4},
+            {articleName: 'Telestico Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Columbia', price: 6.99, id: 5},
+            {articleName: 'Telestico Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Brazil', price: 6.99, id: 6},
         ],
         term: '',
         filter: ''
@@ -61,7 +61,7 @@ export default class CoffeeShopSection extends Component{
     }
 
     render() {
-        const {appState} = this.props;
+        const {changeAppState,sendDescData, appState} = this.props;
         const {data, term, filter} = this.state;
         const hideSection = appState !== 'ourCoffee' && appState !== 'yourPleasure'
         let cardsToShow = data.filter(element => element.articleName.toLowerCase().includes(term.toLowerCase()))
@@ -71,9 +71,12 @@ export default class CoffeeShopSection extends Component{
             <ShopCard 
                 src={aramisticoCoffeeImg} 
                 title = {element.articleName}
+                desc = {element.desc}
                 country = {element.country}
                 price = {element.price}
-                key = {element.id}   
+                key = {element.id}
+                changeAppState = {changeAppState}
+                sendDescData={sendDescData}    
             />
         )
 

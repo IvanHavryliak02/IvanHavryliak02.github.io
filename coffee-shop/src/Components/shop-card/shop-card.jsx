@@ -13,6 +13,9 @@ const ShopCardEl = styled.div`
         font-size: 14px;
         line-height: 20px;
     }
+    &:hover {
+        cursor: pointer
+    }
 `
 
 const ImgContainer = styled.div`
@@ -38,11 +41,16 @@ const Price = styled.span`
     margin-top: 10px;
 `
 
-export default function ShopCard({src, title, country, price}) {
+export default function ShopCard({src, title, desc, country, price, changeAppState, sendDescData}) {
     return (
-        <ShopCardEl>
+        <ShopCardEl onClick = {
+            () => {
+                changeAppState('coffeeDesc')
+                sendDescData(src,country,desc,price)
+            }}
+        >
             <ImgContainer>
-                <img src={src}/>
+                <img src={src} alt='coffee'/>
             </ImgContainer>
             <Title>{title}</Title>
             <span>{country}</span>

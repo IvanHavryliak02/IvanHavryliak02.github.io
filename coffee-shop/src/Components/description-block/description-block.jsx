@@ -4,9 +4,9 @@ import BeansDivider from '../beans-divider/beans-divider'
 import SubHeader from '../sub-header/sub-header'
 
 const DescriptionBlockEl = styled.div`
-    text-align: center;
     width: 100%;
     margin: 0 auto;
+    text-align: ${({$stateIsCoffeeDesc}) => $stateIsCoffeeDesc ? 'start' : 'center'}
 `
 
 const TextWrapper = styled.div`
@@ -15,7 +15,10 @@ const TextWrapper = styled.div`
     font-size: 14px;
     p {
         &:nth-child(1){
-            margin-bottom: 20px
+            margin-bottom: 20px;
+        }
+        &:nth-last-child(2){
+            margin-bottom: ${({$stateIsCoffeeDesc}) => $stateIsCoffeeDesc ? '20px' : 'auto'};
         }
     }
 `
@@ -23,17 +26,16 @@ const TextWrapper = styled.div`
 
 export default class DescriptionBlock extends Component {
     render(){
-        const {title, paragraphs} = this.props;
-        let i = 0;
-        const content = paragraphs.map((paragraph) => {
-            i++
+        const {title, paragraphs, appState} = this.props;
+        const stateIsCoffeeDesc = appState === 'coffeeDesc'
+        const content = paragraphs.map((paragraph, i) => {
             return <p key={i}>{paragraph}</p>
         })
         return (
-            <DescriptionBlockEl>
+            <DescriptionBlockEl $stateIsCoffeeDesc={stateIsCoffeeDesc}>
                 <SubHeader type={'dark'}>{title}</SubHeader>
                 <BeansDivider type={'dark'}/>
-                <TextWrapper>
+                <TextWrapper $stateIsCoffeeDesc={stateIsCoffeeDesc}>
                     {content}
                 </TextWrapper>
             </DescriptionBlockEl>

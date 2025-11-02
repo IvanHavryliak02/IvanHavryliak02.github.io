@@ -10,22 +10,39 @@ import CoffeeShopSection from "../../sections/coffee-shop-section/coffee-shop-se
 export default class App extends Component {
 	
 	state = {
-		appState: 'ourCoffee' // 'ourCoffee', 'yourPleasure', 'coffeeDesc'
+		appState: 'primary', // 'ourCoffee', 'yourPleasure', 'coffeeDesc', 'primary'
+		coffeeDescData: {
+			img: '',
+			country: '',
+			desc: '',
+			price: ''
+		}
 	}
 
 	changeAppState = (newAppState) => {
 		this.setState({appState: newAppState})
 	}
 
+	sendDescData = (img, country, desc ,price) => {
+		this.setState({coffeeDescData: {img, country, desc, price}})
+	}
+
 	render() {
-		const {appState} = this.state;
+		const {appState, coffeeDescData} = this.state;
 		return (
 			<>
 				<MainSection changeAppState={this.changeAppState} appState = {appState}/>
 				<AboutSection appState = {appState}/>
 				<BestSection appState = {appState}/>
-				<ImgAboutSection appState = {appState}/>
-				<CoffeeShopSection appState = {appState}/>
+				<ImgAboutSection 
+					appState = {appState}
+					coffeeDescData = {coffeeDescData}
+				/>
+				<CoffeeShopSection
+					sendDescData={this.sendDescData} 
+					changeAppState={this.changeAppState}
+					appState = {appState}
+				/>
 				<Footer changeAppState={this.changeAppState}/>
 			</>
 		);

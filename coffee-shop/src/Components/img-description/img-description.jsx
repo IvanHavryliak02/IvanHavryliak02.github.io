@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import womenDrinkCoffeeImg from './women-drink-coffee.png'
+
 import DescriptionBlock from "../description-block/description-block";
 
 const ImgDescriptionEl = styled.div`
@@ -25,24 +25,16 @@ const ImgWrap = styled.div`
     }
 `
 
-export default function ImgDescription(img, description) {
+export default function ImgDescription({img, title, paragraphs, appState}) {
     return (
         <ImgDescriptionEl>
             <ImgWrap>
-                <img src={womenDrinkCoffeeImg} alt="women drinks coffee" />
+                <img src={img.src} alt={img.alt} />
             </ImgWrap>
             <DescriptionBlock
-                title={'About our beans'}
-                paragraphs={[
-                    `Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible.`,
-                    `Afraid at highly months do things on at. `,
-                    `Situation recommend objection do intention
-                    so questions. `,
-                    `As greatly removed calling pleased improve an. Last ask him cold feel`,
-                    `met spot shy want. Children me laughing we `,
-                    `prospect answered followed. At it went`,
-                    `is song that held help face.`
-                ]}
+                title={title}
+                paragraphs={paragraphs}
+                appState={appState}
             />
         </ImgDescriptionEl>
     )
