@@ -29,6 +29,7 @@ export default class DescriptionBlock extends Component {
         const {title, paragraphs, appState} = this.props;
         const stateIsCoffeeDesc = appState === 'coffeeDesc'
         const content = paragraphs.map((paragraph, i) => {
+            
             return <p key={i}>{paragraph}</p>
         })
         return (

@@ -31,6 +31,15 @@ export default function ImgAboutSection({appState, coffeeDescData}){
     const {img, country,desc,price} = coffeeDescData;
     let settings;
 
+    const setTextStyle = (text, rules) => {    
+        return <span style={rules}>{text}</span>
+    }
+
+    const CountryBolded = setTextStyle('Country: ', {fontWeight: 'bold'});
+    const DescBolded = setTextStyle('Description: ', {fontWeight: 'bold'});
+    const PriceBolded = setTextStyle('Price: ', {fontWeight: 'bold'})
+    const PriceSized = setTextStyle(`${price}$`, {fontSize: '24px'})
+
     switch(appState){
         case 'yourPleasure': 
             settings = {
@@ -53,9 +62,9 @@ export default function ImgAboutSection({appState, coffeeDescData}){
                 img: {alt: 'choosed coffee', src: img}, 
                 title: 'About it',
                 paragraphs:[
-                    `Country: ${country}`,
-                    `Description: ${desc}`,
-                    `Price: ${price}$`
+                    [CountryBolded, country],
+                    [DescBolded, desc],
+                    [PriceBolded, PriceSized],
                 ],
             };
             break;
