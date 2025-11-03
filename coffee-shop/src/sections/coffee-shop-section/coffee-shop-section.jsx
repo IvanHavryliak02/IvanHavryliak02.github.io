@@ -30,14 +30,6 @@ const ShopGridWrap = styled.div`
 export default class CoffeeShopSection extends Component{
 
     state = {
-        data: [
-            {articleName: 'AROMISTICO Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Brazil', price: 6.99, id: 1},
-            {articleName: 'AROMISTICO Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Kenya', price: 6.99, id: 2},
-            {articleName: 'Arabica Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Columbia', price: 6.99, id: 3},
-            {articleName: 'Arabica Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Brazil', price: 6.99, id: 4},
-            {articleName: 'Telestico Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Columbia', price: 6.99, id: 5},
-            {articleName: 'Telestico Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Brazil', price: 6.99, id: 6},
-        ],
         term: '',
         filter: ''
     }
@@ -56,13 +48,13 @@ export default class CoffeeShopSection extends Component{
     }
 
     createButtonsTitle = () => {
-        const countries = this.state.data.map(item => item.country);
+        const countries = this.props.data.map(item => item.country);
         return Array.from(new Set(countries));
     }
 
     render() {
-        const {changeAppState,sendDescData, appState} = this.props;
-        const {data, term, filter} = this.state;
+        const {changeAppState,sendDescData, appState, data} = this.props;
+        const {term, filter} = this.state;
         const hideSection = appState !== 'ourCoffee' && appState !== 'yourPleasure'
         let cardsToShow = data.filter(element => element.articleName.toLowerCase().includes(term.toLowerCase()))
             .filter(element => element.country.toLowerCase().includes(filter.toLowerCase()))

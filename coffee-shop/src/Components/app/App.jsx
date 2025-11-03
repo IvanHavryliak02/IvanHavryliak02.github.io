@@ -44,7 +44,15 @@ export default class App extends Component {
 					price: 6.99,
 					desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				},
-			]
+			],
+			data: [
+				{articleName: 'AROMISTICO Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Brazil', price: 6.99, id: 1},
+				{articleName: 'AROMISTICO Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Kenya', price: 5.99, id: 2},
+				{articleName: 'Arabica Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Columbia', price: 8.99, id: 3},
+				{articleName: 'Arabica Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Brazil', price: 18.99, id: 4},
+				{articleName: 'Telestico Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Columbia', price: 6.99, id: 5},
+				{articleName: 'Telestico Coffee 1 kg', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', country: 'Brazil', price: 6.99, id: 6},
+        	]
 		}
 	}
 
@@ -76,6 +84,7 @@ export default class App extends Component {
 					sendDescData={this.sendDescData} 
 					changeAppState={this.changeAppState}
 					appState = {appState}
+					data = {APIData.data}
 				/>
 				<Footer changeAppState={this.changeAppState}/>
 			</>
