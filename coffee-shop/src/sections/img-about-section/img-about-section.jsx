@@ -32,7 +32,7 @@ export default function ImgAboutSection({appState, coffeeDescData}){
     let settings;
 
     const setTextStyle = (text, rules) => {    
-        return <span style={rules}>{text}</span>
+        return <span key={text} style={rules}>{text}</span>
     }
 
     const CountryBolded = setTextStyle('Country: ', {fontWeight: 'bold'});

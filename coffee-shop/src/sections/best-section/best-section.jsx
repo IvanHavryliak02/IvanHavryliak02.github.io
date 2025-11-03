@@ -5,9 +5,6 @@ import CoffeeCard from '../../Components/coffee-card/coffee-card'
 import Container from '../../Components/container/container'
 
 import imageBg from './best-bg.png'
-import imageCoffA from './coffeeA.png'
-import imageCoffB from './coffeeB.png'
-import imageCoffC from './coffeeC.png'
 
 const BestSectionEl = styled.section`
     min-height: 500px;
@@ -23,28 +20,28 @@ const CardsWrap = styled.div`
     margin: 40px auto 0 auto;
 `
 
-export default function BestSection({appState}) {
+export default function BestSection({appState, changeAppState, bestGoods, sendDescData}) {
     const hideSection = appState !== 'primary';
+
+    const coffeeCards = bestGoods.map((bestGood, i) => (
+        <CoffeeCard 
+            imgSrc={bestGood.img.src}
+            alt={bestGood.img.alt} 
+            title={bestGood.title}
+            price={bestGood.price}
+            country={bestGood.country}
+            desc={bestGood.desc}
+            key={i}
+            changeAppState={changeAppState}
+            sendDescData={sendDescData}
+        />
+    ))
     return (
         <BestSectionEl $hideSection={hideSection}>
             <Container>
                 <SubHeader type={'dark'}>Our best</SubHeader>
                 <CardsWrap>
-                    <CoffeeCard 
-                        imgSrc={imageCoffA} 
-                        title={'Solimo Coffee Beans 2 kg'}
-                        price={10.73}
-                    />
-                    <CoffeeCard
-                        imgSrc={imageCoffB} 
-                        title={'Presto Coffee Beans 1 kg'}
-                        price={15.99}
-                    />
-                    <CoffeeCard
-                        imgSrc={imageCoffC} 
-                        title={'AROMISTICO Coffee 1 kg'}
-                        price={6.99}
-                    />
+                    {coffeeCards}
                 </CardsWrap>
             </Container>
         </BestSectionEl>

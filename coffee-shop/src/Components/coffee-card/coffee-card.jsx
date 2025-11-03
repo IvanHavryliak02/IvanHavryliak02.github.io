@@ -38,11 +38,14 @@ const Price = styled.span`
 `
 
 
-export default function CoffeeCard({imgSrc, title, price}) {
+export default function CoffeeCard({imgSrc, country, desc, alt, title, price, changeAppState, sendDescData}) {
     return(
-        <CoffeeCardEl>
+        <CoffeeCardEl onClick={() => {
+                sendDescData(imgSrc,country,desc,price)
+                changeAppState('coffeeDesc')
+            }}>
             <CardImg>
-                <img src={imgSrc} alt="coffee"></img>
+                <img src={imgSrc} alt={alt}></img>
             </CardImg>
             <CardHeader>{title}</CardHeader>
             <Price>{price}$</Price>
