@@ -4,9 +4,6 @@
 # ignore coverage everywhere
 **/coverage
 
-# ignore build folders everywhere (if not needed)
-**/build
-
 # miscellaneous
 .DS_Store
 .env.local
