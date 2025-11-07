@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { media } from '../../utils/media'
 
 import SubHeader from '../../Components/sub-header/sub-header'
 import CoffeeCard from '../../Components/coffee-card/coffee-card'
@@ -14,10 +15,21 @@ const BestSectionEl = styled.section`
 `
 
 const CardsWrap = styled.div`
-    width: 800px;
-    display: flex;
-    justify-content: space-between;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(3, 220px);
+    gap: 70px;
     margin: 40px auto 0 auto;
+
+    ${media.laptop`
+        grid-template-columns: repeat(2, 220px);
+        justify-content: center;
+    `}
+
+    ${media.mobile`
+        grid-template-columns: auto;
+            
+    `}
 `
 
 export default function BestSection({appState, changeAppState, bestGoods, sendDescData}) {

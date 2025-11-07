@@ -1,6 +1,8 @@
 
 import styled from 'styled-components'
 import { Component } from 'react'
+import { media } from '../../utils/media'
+
 import Container from '../../Components/container/container'
 import Filter from '../../Components/filter/filter'
 import ShopCard from '../../Components/shop-card/shop-card'
@@ -19,6 +21,14 @@ const ShopGrid = styled.div`
     grid-auto-rows: 260px;
     grid-auto-flow: row;
     gap: 60px 70px;
+
+    ${media.laptop`
+        gap: 30px 40px;    
+    `}
+
+    ${media.tablet`
+        grid-template: auto / 220px;   
+    `}
 `
 
 const ShopGridWrap = styled.div`

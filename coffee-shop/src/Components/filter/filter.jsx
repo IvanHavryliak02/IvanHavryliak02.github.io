@@ -1,11 +1,17 @@
 import {Component} from 'react'
 import styled from 'styled-components'
+import { media } from '../../utils/media'
 
 const FilterEl = styled.div`
     max-width: 800px;
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
+
+    ${media.tablet`
+        flex-direction: column;
+        align-items: center    
+    `}
 `
 
 const TitledGroup = styled.div`
@@ -43,6 +49,20 @@ const TitledGroup = styled.div`
             }
         }
     }
+
+    ${media.tablet`
+        &:first-child {
+            margin-bottom: 50px
+        }
+    `}
+
+    ${media.mobile`
+        flex-direction: column;
+        min-width: auto;
+        span {
+            margin-bottom: 10px
+        }    
+    `}
 `
 
 export default class Filter extends Component {

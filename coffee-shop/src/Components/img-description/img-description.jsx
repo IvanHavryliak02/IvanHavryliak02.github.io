@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { media } from '../../utils/media'
 import DescriptionBlock from "../description-block/description-block";
 
 const ImgDescriptionEl = styled.div`
@@ -7,6 +7,16 @@ const ImgDescriptionEl = styled.div`
     gap: ${({$stateIsCoffeeDesc}) => $stateIsCoffeeDesc ? '0 55px' : '0 80px'};
     grid-template: 1fr / ${({$stateIsCoffeeDesc}) => $stateIsCoffeeDesc ? '392px 420px' : '272px 346px'};
     justify-content: center;
+
+    ${media.laptop`
+        grid-template: 1fr / ${({$stateIsCoffeeDesc}) => $stateIsCoffeeDesc ? '340px 310px' : '272px 346px'};
+        gap: ${({$stateIsCoffeeDesc}) => $stateIsCoffeeDesc ? '0 55px' : '0 50px'}; 
+    `}
+
+    ${media.tablet`
+        grid-template: ${({$stateIsCoffeeDesc}) => $stateIsCoffeeDesc ? 'auto auto' : 'auto auto'} / 272px ;
+        gap: ${({$stateIsCoffeeDesc}) => $stateIsCoffeeDesc ? '50px 0' : '50px 0'}; 
+    `}
 `
 
 const ImgWrap = styled.div`

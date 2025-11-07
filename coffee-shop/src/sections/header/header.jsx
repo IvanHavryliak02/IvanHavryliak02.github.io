@@ -12,7 +12,7 @@ export default class Header extends Component {
         const {changeAppState} = this.props
         return (
             <HeaderEl>
-                <NavMenu changeAppState={changeAppState}/>
+                <NavMenu changeAppState={changeAppState} selector="header_nav"/>
             </HeaderEl>
         )
     }

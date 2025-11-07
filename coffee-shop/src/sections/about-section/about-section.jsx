@@ -12,7 +12,7 @@ const AboutSectionEl = styled.section`
 
 const TextWrap = styled.div`
     height: 100%;
-    width: 590px;
+    max-width: 590px;
     margin: 0 auto;
 `
 export default function AboutSection({appState}) {

@@ -6,6 +6,9 @@ const CoffeeCardEl = styled.div`
     padding: 20px;
     background: rgba(255,255,255, .65);
     border-radius: 8px;
+    &:hover {
+        cursor: pointer
+    }
 `
 
 const CardImg = styled.div`

@@ -2,26 +2,21 @@
 import styled from 'styled-components';
 import lightLiImg from './light-beans.svg'
 import darkLiImg from './dark-beans.svg'
+import { media } from '../../utils/media'
 
 const NavMenuEl = styled.nav`
     height: 40px;
-    ul {
-        li {
-            &:first-child {
-                &::before {
-                    background: url(${({$type}) => $type === 'dark' ? darkLiImg : lightLiImg }) center / cover no-repeat;
-                }
-            }
-            &::after {
-                background: ${({$type}) => $type === 'dark' ? '#000' : '#fff' };
-            }
-            button {
-                color: ${({$type}) => $type === 'dark' ? '#000' : '#fff' };
-            }
-        }
-    }
-` 
 
+    ${media.tablet`
+        font-size: 13px;    
+    `}
+
+    ${media.mobile`
+        &.header_nav {
+            display: none;
+        }
+    `}
+` 
 const UnList = styled.ul`
     display: flex;
     list-style: none;
@@ -29,6 +24,10 @@ const UnList = styled.ul`
     margin: 0;
     height: 100%;
     align-items: flex-end;
+    ${media.mobile`
+        flex-direction: column;
+        align-items: center;    
+    `}
 `
 
 const ListItem = styled.li`
@@ -38,8 +37,6 @@ const ListItem = styled.li`
     position: relative;
     &:first-child {
         margin-left: 35px;
-    };
-    &:first-child {
         position: relative;
         &::before {
             content: '';
@@ -48,7 +45,9 @@ const ListItem = styled.li`
             position: absolute;
             left: -32px;
             bottom: 7px;
-        };  
+
+            background: url(${({$type}) => $type === 'dark' ? darkLiImg : lightLiImg }) center / cover no-repeat;
+        }; 
     };
     &::after {
         content: '';
@@ -59,6 +58,8 @@ const ListItem = styled.li`
         transform: translateX(-50%);
         bottom: -5px;
         transition: 0.3s width;
+
+        background: ${({$type}) => $type === 'dark' ? '#000' : '#fff' };
     }
     &:hover {
         &::after {
@@ -69,17 +70,39 @@ const ListItem = styled.li`
         cursor: pointer;
         background: transparent; 
         border: none;
+
+        color: ${({$type}) => $type === 'dark' ? '#000' : '#fff' };
     }
+
+    ${media.mobile`
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        &::after {
+            display: none
+        }
+        &:first-child {
+            margin-left: 0px;
+            &::before {
+                display: none
+            }
+        }
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    `}
 `
 
-export default function NavMenu({type, changeAppState}) {
+export default function NavMenu({type, changeAppState, selector = ''}) {
 
     return (
-        <NavMenuEl $type={type}>
+        <NavMenuEl className={selector}>
             <UnList>
-                <ListItem><button onClick={() => changeAppState('primary')}>Coffee house</button></ListItem>
-                <ListItem><button onClick={() => changeAppState('ourCoffee')}>Our coffee</button></ListItem>
-                <ListItem><button onClick={() => changeAppState('yourPleasure')}>For your pleasure</button></ListItem>
+                <ListItem $type={type}><button onClick={() => changeAppState('primary')}>Coffee house</button></ListItem>
+                <ListItem $type={type}><button onClick={() => changeAppState('ourCoffee')}>Our coffee</button></ListItem>
+                <ListItem $type={type}><button onClick={() => changeAppState('yourPleasure')}>For your pleasure</button></ListItem>
             </UnList>
         </NavMenuEl>
         

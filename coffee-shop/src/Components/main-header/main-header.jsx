@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from '../../utils/media'
 
 const MainHeaderEl = styled.h1`
     font-weight: 700;
@@ -7,6 +8,12 @@ const MainHeaderEl = styled.h1`
     text-align: center;
     
     margin-top: ${({$margt}) => $margt}px;
+
+    ${media.tablet`
+        font-size: 34px;    
+    `}
+
+
 `
 
 export default function MainHeader({children, margt}) {

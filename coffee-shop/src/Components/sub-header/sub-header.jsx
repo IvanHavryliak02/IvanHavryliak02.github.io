@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {media} from '../../utils/media'
 
 const SubHeaderEl = styled.h2`
     font-weight: 700;
@@ -9,6 +10,10 @@ const SubHeaderEl = styled.h2`
     margin-top: ${({$mt}) => $mt ? $mt : 0}px;
     margin-bottom: ${({$mb}) => $mb ? $mb : 0}px;
     display: ${({$hide}) => $hide ? 'none' : 'block'};
+
+    ${media.tablet`
+        font-size: 18px;    
+    `}
 `
 
 export default function SubHeader({children, margt, margb, type, hide}) {

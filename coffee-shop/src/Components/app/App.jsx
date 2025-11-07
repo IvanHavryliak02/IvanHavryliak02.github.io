@@ -10,6 +10,7 @@ import BestSection from "../../sections/best-section/best-section";
 import ImgAboutSection from '../../sections/img-about-section/img-about-section'
 import Footer from "../../sections/footer/footer";
 import CoffeeShopSection from "../../sections/coffee-shop-section/coffee-shop-section";
+import BurgerMenu from "../burger-menu/burger-menu";
 
 export default class App extends Component {
 	
@@ -67,7 +68,8 @@ export default class App extends Component {
 	render() {
 		const {appState, coffeeDescData, APIData} = this.state;
 		return (
-			<>
+			<>	
+				<BurgerMenu changeAppState={this.changeAppState}/>
 				<MainSection changeAppState={this.changeAppState} appState = {appState}/>
 				<AboutSection appState = {appState}/>
 				<BestSection 
