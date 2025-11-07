@@ -25,7 +25,7 @@ This project helped me solidify my understanding of how data flows in React and 
 ## 🚀 Live Demo
 
 You can view the live version of Coffee Shop here:  
-[Coffee Shop](https://ivanhavryliak02.github.io/сoffee-shop/build/index.html)
+[Coffee Shop](https://ivanhavryliak02.github.io/CoffeeShop/build/index.html)
 
 ---
 
