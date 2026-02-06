@@ -45,9 +45,8 @@ export default {
         "PL": `Nazywam się Ivan`
     },
     "me-descr": {
-        "EN": `I am a front-end developer currently living in Lublin, Poland. Nowadays, I am a full-time student at Lublin University of Technology. I became interested in computers from an early age, ever since I received my first personal computer. That is why, at the first opportunity, I enrolled in a polytechnic college. There I realized that I was truly passionate about exact sciences such as mathematics, physics, and especially computer science. I particularly enjoyed writing code in C during informatics classes. In college, I also gained my first knowledge of computer networks and got acquainted with Linux (variouse distributions). In my free time outside of college, I was fascinated by web development. At first, it was just a hobby — I loved “drawing with code.” Over time, however, this hobby grew into a serious pursuit that I am eager to keep developing. `,
-        "PL": `Jestem front-end developerem i obecnie mieszkam w Lublinie. Studiuję w formie stacjonarnej na Politechnice Lubelskiej. Zainteresowałem się komputerami już we wczesnym dzieciństwie, odkąd otrzymałem swój pierwszy komputer osobisty. Dlatego przy pierwszej okazji zapisałem się do technikum politechnicznego. Tam zrozumiałem, że naprawdę pasjonują mnie nauki ścisłe, takie jak matematyka, fizyka, a szczególnie informatyka. Bardzo mi się podobało pisanie kodu w języku Pascal, Delphi, C na zajęciach z informatyki. W technikum zdobyłem też pierwszą wiedzę o sieciach komputerowych i zapoznałem się z systemem Linux (różne dystrybucje). W wolnym czasie poza zajęciami fascynowałem się tworzeniem stron internetowych. Początkowo było to tylko hobby — uwielbiałem „rysować kodem”. Z czasem jednak to hobby przerodziło się w poważne zajęcie, w którym bardzo chcę się rozwijać.
-`
+        "EN": `As a Front-end Developer, I combine creative interface design with engineering precision and analytical thinking. My technical background is grounded in a degree in Electrical Engineering from the Lublin University of Technology and specialized education in Computer Engineering. My expertise extends beyond the standard web stack: proficiency in algorithms, C/C++, and Delphi, along with a strong command of Linux systems and network architecture, allows me to deeply understand the mechanics of web applications. What began as a passion for programming has evolved into my primary professional focus. I am currently seeking commercial opportunities in the web industry where I can leverage my technical strengths to build efficient, modern software solutions.`,
+        "PL": `Jako Front-end Developer łączę kreatywne tworzenie interfejsów z inżynierską precyzją i analitycznym myśleniem. Posiadam solidne zaplecze techniczne poparte dyplomem z Elektrotechniki na Politechnice Lubelskiej oraz wykształceniem w kierunku inżynierii komputerowej. Moja wiedza wykracza poza standardowy stack webowy - znajomość algorytmiki, języków C/C++ i Delphi, a także systemów Linux i architektury sieci pozwala mi głębiej rozumieć działanie aplikacji internetowych. Programowanie, które początkowo traktowałem jako pasję, stało się moją główną specjalizacją zawodową. Obecnie poszukuję komercyjnych wyzwań w branży webowej, gdzie będę mógł wykorzystać swoje techniczne atuty do tworzenia wydajnego i nowoczesnego oprogramowania.`
     },
     "webdev": {
         "EN": `Web-development`,
@@ -74,12 +73,12 @@ export default {
         "PL": `Politechnika Lubelska, Polska<br>`
     },
     "un-stat": {
-        "EN": `Currently in the fourth year of study`,
-        "PL": `Obecnie na czwartym roku studiów`
+        "EN": `Engineer’s Degree in Electrical Engineering (2021–2026)`,
+        "PL": `Dyblom inżyniera w zakresie Elektrotechniki (2021-2026)`
     },
     "un-descr": {
-        "EN": `<p>Department of Electrical Engineering and Computer Science, majoring in Electrical Engineering, full-time studies, Bachelor of Engineering.<br>The program included basic programming in C/C++, with the programming course lasting a total of one year. The rest of the time was spent on calculating the parameters of electromechanical machines, electrical circuits, and more. The entire curriculum was grounded in mathematics and specialized physics.</p>`,
-        "PL": `<p>Wydział Elektrotechniki i Informatyki, kierunek Elektrotechnika, studia stacjonarne, inżynierskie.<br>Kurs programowania obejmował podstawowe programowanie w C/C++, trwany przez rok. Pozostały czas poświęcony był na obliczanie parametrów maszyn elektromechanicznych, obwodów elektrycznych i innych. Cały program nauczania był oparty na matematyce i fizyce specjalistycznej.</p>`
+        "EN": `<p>Full-time engineering studies in Electrical Engineering at the Faculty of Electrical Engineering and Computer Science, graduating with the highest honors (GPA 5.0/A). The rigorous curriculum, rooted in advanced mathematics and physics, shaped my analytical mindset and engineering precision. A year-long course in C provided me with strong algorithmic foundations, which, combined with my academic excellence, demonstrates my ability to master complex technical concepts efficiently.</p>`,
+        "PL": `<p>Studia stacjonarne inżynierskie na kierunku Elektrotechnika (Wydział Elektrotechniki i Informatyki), uzyskując ocenę bardzo dobrą na dyplomie. Intensywny program oparty na zaawansowanej matematyce i fizyce ukształtował moje analityczne podejście do rozwiązywania problemów oraz inżynierską precyzję. Roczny kurs C zapewnił mi solidne fundamenty algorytmiczne, co w połączeniu z wyróżniającymi wynikami w nauce potwierdza moją zdolność do szybkiego przyswajania złożonej wiedzy technicznej</p>`
     },
     "academ-name": {
         "EN": `Udemy online aсademy<br>`,
@@ -95,15 +94,15 @@ export default {
     },
     "col-name": {
         "EN": `Khmelnytskyi College of Technology, Ukraine<br>`,
-        "PL": `Kolegium Techniczne w Chmielnickim, Ukraina<br>`
+        "PL": `Kolegium Techniczne w Chmelnyckim, Ukraina<br>`
     },
     "col-stat": {
         "EN": `Associate's degree in Computer Systems and Networks | (2017-2021)`,
         "PL": `Dyplom Associate w zakresie Systemów i Sieci Komputerowych | (2017-2021)`
     },
     "col-descr": {
-        "EN": `Studies at the college were conducted in a full-time format and lasted 4 years. During this time, I became familiar with basic algorithm concepts (Pascal, Delphi) and began studying the C++ programming language. Additionally, I gained fundamental knowledge in computer network configuration and operation.<p></p>`,
-        "PL": `Studia w kolegium odbywały się w trybie dziennym i trwały 4 lata. W tym czasie zapoznałem się z podstawowymi koncepcjami algorytmów (Pascal, Delphi) i rozpocząłem naukę języka programowania C++. Ponadto zdobyłem podstawową wiedzę na temat konfiguracji i działania sieci komputerowych.<p></p>`
+        "EN": `<p>Full-time technical program in Computer Engineering, gaining a comprehensive foundation in Information Technology. My education focused on core algorithmic concepts and data structures using Pascal and Delphi, followed by advanced programming in C++. Additionally, I acquired practical knowledge of network architecture and configuration. I am also proficient in managing Windows and Linux operating systems, with hands-on experience in installation, configuration, and cross-platform workflows.</p>`,
+        "PL": `<p>Dzienne studia techniczne na kierunku Inżynieria Komputerowa, zapewniające szerokie kompetencje w obszarze IT. Program obejmował naukę algorytmiki i struktur danych w językach Pascal oraz Delphi, a także rozszerzony kurs programowania w C++. Równolegle zdobyłem praktyczną wiedzę z zakresu architektury i konfiguracji sieci komputerowych. Posiadam również doświadczenie w administracji systemami operacyjnymi z rodziny Windows oraz Linux, obejmujące ich instalację, konfigurację oraz codzienną pracę w obu środowiskach</p>`
     },
     "wexp": {
         "EN": `Work Experience`,
@@ -119,7 +118,11 @@ export default {
         <br>
         WeatherApp — the most complex project I have developed. It is a single-page web widget that displays the current weather forecast, the next 7 days, and hourly updates for the current day. What makes it unique is that if you open the src folder of this project on GitHub, you won’t find any HTML or SASS code. That’s because the entire project was built on my own mini-framework based on JavaScript classes and their instances. More details can be found in the project’s ReadMe on GitHub.<br>
         <br>
-        ES module Circular Menu — fully designed and implemented by me, starting from the mathematical formula to the coding solution. You can check it out in the Projects section of my Portfolio. This circular menu is the component used to showcase the Pulse, Encrypto, and Tpass projects.</p>`,
+        ES module Circular Menu — fully designed and implemented by me, starting from the mathematical formula to the coding solution. You can check it out in the Projects section of my Portfolio. This circular menu is the component used to showcase the Pulse, Encrypto, Tpass, and Coffee Shop projects.
+        <br>
+        <br>
+        Coffee Shop – a Single Page Application (SPA) built with React, designed to implement and reinforce core front-end development patterns. The project focuses on advanced component logic, including State Management, Props distribution, and the Lifting State Up pattern. It features dynamic data filtering and efficient method delegation to child components. This project served as a practical application of React fundamentals, such as component modularization, style integration, and optimizing unidirectional data flow for a seamless user experience.</p>`,
+
         "PL": `<p>Całe moje doświadczenie pochodzi z realizacji projektów, które są dołączone do tego portfolio, wraz z samym portfolio.
         Wśród nich znajdują się:<br>
         <br>
@@ -129,7 +132,11 @@ export default {
         <br>
         WeatherApp — najbardziej złożony projekt, który stworzyłem. To jednostronicowy widżet webowy pokazujący prognozę pogody na bieżącą godzinę, na kolejne 7 dni oraz aktualizacje godzinowe dla bieżącego dnia. Unikalne jest to, że jeśli otworzysz folder src tego projektu na GitHubie, nie znajdziesz tam żadnego kodu HTML ani SASS. Cały projekt został bowiem napisany na moim własnym mini-frameworku opartym na klasach JavaScript i ich instancjach. Więcej szczegółów można znaleźć w pliku ReadMe tego projektu na GitHubie.<br>
         <br>
-        Moduł ES Circular Menu — w pełni zaprojektowany i zaimplementowany przeze mnie, począwszy od formuły matematycznej aż po kodową realizację. Można go zobaczyć w sekcji Projektów w moim Portfolio. Ten okrągły selector jest komponentem użytym do prezentacji projektów Pulse, Encrypto i TPass.</p>
+        Moduł ES Circular Menu — w pełni zaprojektowany i zaimplementowany przeze mnie, począwszy od formuły matematycznej aż po kodową realizację. Można go zobaczyć w sekcji Projektów w moim Portfolio. Ten okrągły selector jest komponentem użytym do prezentacji projektów Pulse, Encrypto, Tpass, i Coffee Shop.
+        <br>
+        <br>
+        Coffee Shop - aplikacja typu Single Page Application (SPA) zbudowana w bibliotece React, stworzona w celu praktycznego zastosowania kluczowych wzorców projektowych. Głównym założeniem projektu była implementacja zaawansowanej logiki komponentów, w tym zarządzanie stanem (State Management), przekazywanie danych poprzez Props oraz mechanizm Lifting State Up (podnoszenie stanu). Aplikacja oferuje dynamiczne filtrowanie danych oraz efektywne delegowanie metod do komponentów potomnych. Projekt pozwolił mi na dopracowanie struktury kodu, modularyzację stylów oraz optymalizację przepływu danych wewnątrz aplikacji
+        </p>
         `
     },
     "skills-header": {
@@ -163,6 +170,10 @@ export default {
     "vite-descr": {
         "EN": `Vite is a newer build tool that performs the same main tasks as Gulp—optimizing files, ensuring browser compatibility, and building the project—but also provides a super fast development server with instant browser updates, making the coding process much quicker.`,
         "PL": `Vite to nowsze narzędzie do budowania, które wykonuje te same główne zadania co Gulp — optymalizuje pliki, zapewnia zgodność z przeglądarkami i buduje projekt — ale dodatkowo oferuje bardzo szybki serwer deweloperski z natychmiastowymi aktualizacjami w przeglądarce, co znacznie przyspiesza pracę programisty.`
+    },
+    "react-descr": {
+        "EN": `React is a component-based JavaScript library designed for building high-performance user interfaces. By utilizing a Virtual DOM and a declarative approach, it enables the creation of fast SPAs that respond instantly to state changes without page reloads.`,
+        "PL": `React to biblioteka JavaScript oparta na komponentach, służąca do budowania wydajnych interfejsów użytkownika. Dzięki wykorzystaniu Virtual DOM i deklaratywnemu podejściu, umożliwia tworzenie szybkich aplikacji typu SPA, które błyskawicznie reagują na zmiany stanów bez przeładowywania strony.`
     },
     "works-header": {
         "EN": `Portfolio`,
