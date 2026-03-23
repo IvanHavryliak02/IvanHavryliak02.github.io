@@ -15,7 +15,6 @@ export default class AppBody extends Component{
         const width = 1693 * scale;
         const height = 960 * scale;
         const borderRadius = 70 * scale;
-        this.makeStylesPublic(this.elementSelector, {width:width, height:height, borderRadius: borderRadius});
 
         const theme = userData.theme;
         const backgroundColor = theme === 'light' ? '#efefef' : '#3A3A3A'

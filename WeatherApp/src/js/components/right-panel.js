@@ -19,8 +19,6 @@ export default class RightPanel extends Component{
         const height = 960 * scale;
         const widthPadding = 45 * scale;
         const heightPadding = 50 * scale;
-        this.makeStylesPublic('#right-panel', {width: width, height: height});
-
 
         return {
             width: `${width}px`,

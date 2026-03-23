@@ -21,7 +21,6 @@ export default class LeftPanel extends Component{
         const theme = userData.theme;
         const backgroundColor = theme === 'light' ? '#ffffff' : '#4A4A4A';
         const color = theme === 'light' ? '#4c4c4c' : '#ffffff';
-        this.makeStylesPublic('#left-panel', {height:height, width: width});
         return {
             width: `${width}px`,
             height: `${height}px`,

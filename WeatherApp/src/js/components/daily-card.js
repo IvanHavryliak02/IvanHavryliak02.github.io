@@ -28,7 +28,6 @@ export default class DailyCard extends Component{
             const minTempBlock = this.element.querySelector('.daily-card__min-temp');
 
             const data = Component.dataOperator.APIData;
-            const dataOperator = Component.dataOperator;
 
             const todayNumber = userData.weekday;
             let dayNumber = i + todayNumber;

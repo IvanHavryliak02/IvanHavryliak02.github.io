@@ -13,7 +13,6 @@ export default class Container extends Component{
     getStyles(){
         const width = window.innerWidth;
         const height = window.innerHeight;
-        this.makeStylesPublic(this.elementSelector, {width: width, height: height});
         
         const theme = userData.theme;
         const background = theme === 'light' ? '#dddddd' : '#313131';
