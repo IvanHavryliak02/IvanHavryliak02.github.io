@@ -1,26 +1,24 @@
 import './Header.sass'
-import blub from './../../icons/blub.svg'
+
 import Cart from '../Cart/Cart'
+
+import Logo from '../Logo/Logo'
 
 export default function Header({goodCount, onCartShow}) {
     return (
         <header className='header'>
             <div className="container">
                 <div className="header__wrap">
-                    <a href="" className="header__logo">
-                        <span className='header__logo-text'>Nordic Świat</span>
-                        <div className="header__logo-container">
-                            <img src={blub} alt="blub" className="header__ico"/>
-                        </div>
-                    </a>
-
+                    <Logo/>
                     <nav className='header__menu'>
                         <ul>
+                            <li><a href="#" className="header__link">Filtruj</a></li>
                             <li onClick={() => {onCartShow(true)}}>
                                 <a href="#" className="header__link">
                                     <Cart goodCount={goodCount}/>
                                 </a>
                             </li>
+                            
                         </ul>
                     </nav>
                 </div>

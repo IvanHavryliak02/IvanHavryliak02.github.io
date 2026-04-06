@@ -51,7 +51,10 @@ export default function MainSection({onGoodsSet}) {
                                 {item.short_description}
                             </p>
                             <div className="card__price-container">
-                                <button onClick={() => {onGoodsSet(item)}}className="card__btn-buy">
+                                <button 
+                                    onClick={() => {onGoodsSet(item)}} 
+                                    className="card__btn-buy"
+                                >
                                     kupuję
                                 </button>
                                 <div className="card__price-wrap">

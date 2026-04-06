@@ -8,7 +8,7 @@ export default function CartGoods({goods, show, onCartShow, onGoodRemove, total}
 
     return (
         <div className={`cart-goods ${blockClass}`}>
-            <h2 className="cart-goods__header">My Cart</h2>
+            <h2 className="cart-goods__header">Mój koszyk</h2>
             <ul className="cart-goods__goods-list">
                 {goods.map((item, i) => (
                     <li className="cart-goods__good">

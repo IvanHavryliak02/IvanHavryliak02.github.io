@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from './components/Header/Header'
 import MainSection from './components/MainSection/MainSection'
 import CartGoods from './components/CartGoods/CartGoods'
+import Footer from './components/Footer/Footer'
 
 
 
@@ -33,6 +34,11 @@ function App() {
                 goodCount={goodsInCart.length}
                 onCartShow={setShowCartGoods}
             />
+            <div className="container">
+                <h2 className="app__header">
+                    Nasze produkty
+                </h2>
+            </div>
             <MainSection onGoodsSet={addGoodToCart}/>
             <CartGoods 
                 show={showCartGoods} 
@@ -41,6 +47,7 @@ function App() {
                 onGoodRemove={removeGoodFromCart}
                 total={totalPrice}
             />
+            <Footer/>
         </>
     )
 }
