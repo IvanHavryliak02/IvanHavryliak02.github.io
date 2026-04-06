@@ -1,0 +1,78 @@
+.shop-content
+    margin-top: 50px
+    &__wrap-grid
+        width: 90%
+        display: grid
+        grid-template: 300px / repeat(4, 200px)
+        grid-auto-rows: 300px
+        justify-content: space-between
+        margin: 0 auto
+        gap: 50px
+    
+.card
+    width: 100% 
+    height: 100%
+    font-size: 16px
+    display: flex
+    flex-direction: column
+    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.27)
+    border-radius: 3px
+    position: relative
+    &__text-wrap
+        padding: 15px
+        height: 50%
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: space-between 
+    &__img-container
+        height: 50%
+        width: 100%
+    img
+        object-fit: cover
+        width: 100%
+        height: 100%
+    &__price-container
+        display: flex
+        justify-content: space-between
+        align-items: center
+        min-height: 40px
+        width: 100%
+    &__btn-buy
+        width: 90px
+        height: 40px
+        border: 1px solid #8ab822
+        color: #649200
+        background: #fff
+        border-radius: 3px
+        font-size: 16px
+        font-weight: 400
+        text-transform: uppercase
+        transition: 0.5s all
+        &:hover
+            background: #D6ECA7
+            color: #435c13
+            cursor: pointer
+    &__price-wrap
+        min-width: 30px
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        font-size: 15px
+    &__name
+        font-size: 16px
+        text-align: start
+    &__descr
+        margin: 0
+        font-size: 14px
+        text-align: start
+        width: 100%
+    &__sale-item
+        width: 50px
+        height: 50px
+        position: absolute
+        top: -25px
+        left: -25px
+
