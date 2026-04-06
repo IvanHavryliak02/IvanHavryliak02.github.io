@@ -12,7 +12,9 @@
   "dependencies": {
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "sass": "^1.99.0"
+    "sass": "^1.99.0",
+    "styled-component": "^2.8.0",
+    "styled-components": "^6.3.12"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",

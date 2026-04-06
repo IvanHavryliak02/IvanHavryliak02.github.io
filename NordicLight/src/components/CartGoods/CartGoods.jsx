@@ -1,6 +1,7 @@
 import './CartGoods.sass'
-import lamp from './../../images/lamp.jpg'
 import bin from './../../icons/bin.svg'
+
+import Button from '../Button/Button'
 
 export default function CartGoods({goods, show, onCartShow, onGoodRemove, total}) {
 
@@ -25,8 +26,8 @@ export default function CartGoods({goods, show, onCartShow, onGoodRemove, total}
             </ul>
             <div className="cart-goods__final-action">
                 <div className="cart-goods__btn-group">
-                    <button onClick={() => onCartShow(false)} className="cart-goods__btn cart-goods__btn_back">cofnij</button>
-                    <button className="cart-goods__btn cart-goods__btn_buy">kupuje</button>
+                    <Button onClickHandler={() => onCartShow(false)} color='gray'>cofnij</Button>
+                    <Button>kupuje</Button>
                 </div>
                 <span className="cart__goods__total">{total} zł</span>
             </div>

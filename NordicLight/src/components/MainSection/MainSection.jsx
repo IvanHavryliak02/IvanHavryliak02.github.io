@@ -2,7 +2,9 @@ import './MainSection.sass'
 import { useEffect, useState } from 'react'
 import sale from './../../icons/sale.svg'
 
-export default function MainSection({onGoodsSet}) {
+import Button from '../Button/Button'
+
+export default function MainSection({onGoodsSet, onCategoriesChange}) {
 
     const [data, setData] = useState([])
 
@@ -27,9 +29,17 @@ export default function MainSection({onGoodsSet}) {
         })
     }, [])
 
-    const createCards = () => {
+    useEffect(() => {
+        const resObj = {}
+        data.forEach(item => {
+            if(!resObj[item.category]){
+                resObj[item.category] = item.category
+            }
+        })
+        onCategoriesChange(resObj)
+    }, [data])
 
-        console.log(data[0])
+    const createCards = () => {
 
 
         return data.map(item =>{
@@ -51,12 +61,11 @@ export default function MainSection({onGoodsSet}) {
                                 {item.short_description}
                             </p>
                             <div className="card__price-container">
-                                <button 
-                                    onClick={() => {onGoodsSet(item)}} 
-                                    className="card__btn-buy"
+                                <Button 
+                                    onClickHandler={() => {onGoodsSet(item)}}
                                 >
                                     kupuję
-                                </button>
+                                </Button>
                                 <div className="card__price-wrap">
                                     <span className="card__price" style={lineTrough}>{item.regular_price} zł</span>
                                     {discPrice}

@@ -5,6 +5,8 @@ import Header from './components/Header/Header'
 import MainSection from './components/MainSection/MainSection'
 import CartGoods from './components/CartGoods/CartGoods'
 import Footer from './components/Footer/Footer'
+import Filter from './components/Filter/Filter'
+import Cover from './components/Cover/Cover'
 
 
 
@@ -13,6 +15,8 @@ function App() {
     const [goodsInCart, setGoodsInCart] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
     const [showCartGoods, setShowCartGoods] = useState(false)
+    const [showFiltration, setShowFiltration] = useState(false)
+    const [categories, setCategories] = useState({})
 
     const addGoodToCart = (good) => {
         const lighterObj = {name: good.name, image: good.image, price: good.price}
@@ -30,16 +34,26 @@ function App() {
 
     return (
         <>
+            <Cover render={showFiltration}/>
+            <Filter 
+                render={showFiltration} 
+                onShowFiltration={setShowFiltration}
+                categories={categories}
+            />
             <Header 
                 goodCount={goodsInCart.length}
                 onCartShow={setShowCartGoods}
+                onFilterShow={setShowFiltration}
             />
             <div className="container">
                 <h2 className="app__header">
                     Nasze produkty
                 </h2>
             </div>
-            <MainSection onGoodsSet={addGoodToCart}/>
+            <MainSection 
+                onGoodsSet={addGoodToCart}
+                onCategoriesChange={setCategories}
+            />
             <CartGoods 
                 show={showCartGoods} 
                 onCartShow={setShowCartGoods}

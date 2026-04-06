@@ -4,7 +4,7 @@ import Cart from '../Cart/Cart'
 
 import Logo from '../Logo/Logo'
 
-export default function Header({goodCount, onCartShow}) {
+export default function Header({goodCount, onCartShow, onFilterShow}) {
     return (
         <header className='header'>
             <div className="container">
@@ -12,8 +12,8 @@ export default function Header({goodCount, onCartShow}) {
                     <Logo/>
                     <nav className='header__menu'>
                         <ul>
-                            <li><a href="#" className="header__link">Filtruj</a></li>
-                            <li onClick={() => {onCartShow(true)}}>
+                            <li onClick={() => onFilterShow(true)}><a href="#" className="header__link">Filtruj</a></li>
+                            <li onClick={() => onCartShow(true)}>
                                 <a href="#" className="header__link">
                                     <Cart goodCount={goodCount}/>
                                 </a>
