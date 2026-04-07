@@ -4,9 +4,18 @@ import sale from './../../icons/sale.svg'
 
 import Button from '../Button/Button'
 
-export default function MainSection({onGoodsSet, onCategoriesChange}) {
+export default function MainSection({onGoodsSet, onCategoriesChange, filters}) {
 
     const [data, setData] = useState([])
+    const [filteredData, setFilteredData] = useState([])
+
+    const dataFiltration = () => {
+        if(filters.length !== 0) {
+            setFilteredData(data.filter(obj => filters.includes(obj.category)))
+        } else {
+            setFilteredData(data)
+        }
+    }
 
     const options = {
         method: "GET",
@@ -15,7 +24,7 @@ export default function MainSection({onGoodsSet, onCategoriesChange}) {
         }
     }
 
-    const _URL = 'https://nordik-swiat.locale/wp-json/wc/v3/products?consumer_key=ck_1ff24d44e015e216779d0848a53fb99884ece24d&consumer_secret=cs_878a8ea1382122f8f22263c89cb9a4ccc10e8f20'
+    const _URL = 'https://nordik-swiat.locale/wp-json/wc/v3/products?per_page=50&consumer_key=ck_1ff24d44e015e216779d0848a53fb99884ece24d&consumer_secret=cs_878a8ea1382122f8f22263c89cb9a4ccc10e8f20'
 
     useEffect(() => {
         fetch(_URL, options)
@@ -25,7 +34,7 @@ export default function MainSection({onGoodsSet, onCategoriesChange}) {
             }; 
             return resp.json()
         }).then(resp => {
-            setData(resp); 
+            setData(resp);
         })
     }, [])
 
@@ -37,12 +46,15 @@ export default function MainSection({onGoodsSet, onCategoriesChange}) {
             }
         })
         onCategoriesChange(resObj)
+        dataFiltration() 
     }, [data])
+
+    useEffect(dataFiltration, [filters])
 
     const createCards = () => {
 
 
-        return data.map(item =>{
+        return filteredData.map(item =>{
                 const discPrice = item.on_sale ? <span className="card__disc-price">{item.sale_price} zł</span> : null
                 const lineTrough = item.on_sale ? {textDecoration: 'line-through', color: '#8a7f7f'} : {}
                 const saleHtmlComp = item.on_sale ? <div className='card__sale-item'>

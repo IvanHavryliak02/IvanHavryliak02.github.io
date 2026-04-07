@@ -17,6 +17,7 @@ function App() {
     const [showCartGoods, setShowCartGoods] = useState(false)
     const [showFiltration, setShowFiltration] = useState(false)
     const [categories, setCategories] = useState({})
+    const [filters, setFilters] = useState([])
 
     const addGoodToCart = (good) => {
         const lighterObj = {name: good.name, image: good.image, price: good.price}
@@ -24,11 +25,11 @@ function App() {
         setGoodsInCart(prevArr => [...prevArr, lighterObj])
     }
 
-    const removeGoodFromCart = (goodId, goodPrice) => {
+    const removeGoodFromCart = (goodInd, goodPrice) => {
         setTotalPrice(prevPrice => prevPrice - +goodPrice)
         setGoodsInCart(prev => [
-            ...prev.slice(0, goodId),
-            ...prev.slice(goodId + 1)
+            ...prev.slice(0, goodInd),
+            ...prev.slice(goodInd + 1)
         ]);
     }
 
@@ -39,6 +40,7 @@ function App() {
                 render={showFiltration} 
                 onShowFiltration={setShowFiltration}
                 categories={categories}
+                onFiltersChange={setFilters}
             />
             <Header 
                 goodCount={goodsInCart.length}
@@ -53,6 +55,7 @@ function App() {
             <MainSection 
                 onGoodsSet={addGoodToCart}
                 onCategoriesChange={setCategories}
+                filters={filters}
             />
             <CartGoods 
                 show={showCartGoods} 
