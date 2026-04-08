@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form"
 import Button from './../Button/Button'
 
 
-export default function Form() {
-    const { register, handleSubmit, formState: { errors } } = useForm()
+export default function Form({createOrder, cartIsEmpty}) {
+    const { register, handleSubmit, reset, formState: { errors } } = useForm()
 
-    const onSubmit = (data) => {console.log(data)}
+    const onSubmit = (data) => {createOrder(data); reset()}
 
     let firstError
     for(let key in errors) {
@@ -112,8 +112,8 @@ export default function Form() {
                     {firstError}
                 </span>
             )}
-            <Button 
-                onClickHandler={onSubmit} 
+            <Button
+                disabled={cartIsEmpty} 
                 type='submit'
                 style={{marginTop: '10px'}}
             >

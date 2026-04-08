@@ -11,7 +11,7 @@ const StyledButton = styled.button`
     }
 `;
 
-export default function Button({children, onClickHandler, color, style, type}) {
+export default function Button({children, onClickHandler, color, style, type, disabled}) {
 
     const brd = color === 'gray' ? '#838383' : '#8ab822'
     const clr = color === 'gray' ? '#676767' : '#649200'
@@ -28,6 +28,7 @@ export default function Button({children, onClickHandler, color, style, type}) {
             className="button"
             onClick={onClickHandler}
             type={type}
+            disabled={disabled}
         >
             {children}
         </StyledButton>
