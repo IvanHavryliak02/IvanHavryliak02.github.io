@@ -7,7 +7,7 @@ import CartGoods from './components/CartGoods/CartGoods'
 import Footer from './components/Footer/Footer'
 import Filter from './components/Filter/Filter'
 import Cover from './components/Cover/Cover'
-
+import Modal from './components/Modal/Modal'
 
 
 function App() {
@@ -18,9 +18,10 @@ function App() {
     const [showFiltration, setShowFiltration] = useState(false)
     const [categories, setCategories] = useState({})
     const [filters, setFilters] = useState([])
+    const [showModal, setShowModal] = useState(false)
 
     const addGoodToCart = (good) => {
-        const lighterObj = {name: good.name, image: good.image, price: good.price}
+        const lighterObj = {name: good.name, image: good.image, price: good.price, id: good.id}
         setTotalPrice(prevPrice => prevPrice + +good.price)
         setGoodsInCart(prevArr => [...prevArr, lighterObj])
     }
@@ -35,7 +36,13 @@ function App() {
 
     return (
         <>
-            <Cover render={showFiltration}/>
+            <Modal 
+                render={showModal} 
+                setShowModal={setShowModal}
+                goodsInCart={goodsInCart}
+                totalPrice={totalPrice}
+            />
+            <Cover render={showFiltration || showModal}/>
             <Filter 
                 render={showFiltration} 
                 onShowFiltration={setShowFiltration}
@@ -63,6 +70,7 @@ function App() {
                 goods={goodsInCart}
                 onGoodRemove={removeGoodFromCart}
                 total={totalPrice}
+                onShowedForm={setShowModal}
             />
             <Footer/>
         </>

@@ -48,7 +48,10 @@ export default function Filter({render, onShowFiltration, categories, onFiltersC
                 </div>
                 <div className="filter__btn-group">
                     <Button color='gray' onClickHandler={() => onShowFiltration(false)}>zamknij</Button>
-                    <Button onClickHandler={changeFilters}>filtruj</Button>
+                    <Button onClickHandler={() => {
+                        onShowFiltration(false)
+                        changeFilters()
+                    }}>filtruj</Button>
                 </div>
             </div>
         </div>
