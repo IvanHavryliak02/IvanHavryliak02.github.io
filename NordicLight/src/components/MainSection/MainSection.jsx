@@ -2,12 +2,14 @@ import './MainSection.sass'
 import { useEffect, useState } from 'react'
 import sale from './../../icons/sale.svg'
 
-import Button from '../Button/Button'
+import Button from './../Button/Button'
+import Spinner from './../Spinner/Spinner'
 
 export default function MainSection({onGoodsSet, onCategoriesChange, filters}) {
 
     const [data, setData] = useState([])
     const [filteredData, setFilteredData] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const dataFiltration = () => {
         if(filters.length !== 0) {
@@ -27,6 +29,7 @@ export default function MainSection({onGoodsSet, onCategoriesChange, filters}) {
     const _URL = 'https://nordik-swiat.locale/wp-json/wc/v3/products?per_page=50&consumer_key=ck_1ff24d44e015e216779d0848a53fb99884ece24d&consumer_secret=cs_878a8ea1382122f8f22263c89cb9a4ccc10e8f20'
 
     useEffect(() => {
+        setLoading(true)
         fetch(_URL, options)
         .then(resp => {
             if(!resp.ok) {
@@ -35,6 +38,7 @@ export default function MainSection({onGoodsSet, onCategoriesChange, filters}) {
             return resp.json()
         }).then(resp => {
             setData(resp);
+            setLoading(false)
         })
     }, [])
 
@@ -92,11 +96,13 @@ export default function MainSection({onGoodsSet, onCategoriesChange, filters}) {
         )
     }
 
+    const content = loading ? <Spinner/> : createCards()
+
     return (
         <main className='shop-content'>
             <div className="container">
                 <div className="shop-content__wrap-grid">
-                    {createCards()}
+                    {content}
                 </div>
             </div>
         </main>
