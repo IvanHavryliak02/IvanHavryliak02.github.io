@@ -3,10 +3,14 @@ import { useForm } from "react-hook-form"
 import Button from './../Button/Button'
 
 
-export default function Form({createOrder, cartIsEmpty}) {
+export default function Form({createOrder, cartIsEmpty, setGoodsInCart}) {
     const { register, handleSubmit, reset, formState: { errors } } = useForm()
 
-    const onSubmit = (data) => {createOrder(data); reset()}
+    const onSubmit = (data) => {
+        createOrder(data); 
+        reset(); 
+        setGoodsInCart([]);
+    }
 
     let firstError
     for(let key in errors) {

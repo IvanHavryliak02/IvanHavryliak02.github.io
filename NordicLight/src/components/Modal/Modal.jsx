@@ -1,11 +1,17 @@
 import './Modal.sass'
 import Form from '../Form/Form'
 import Button from '../Button/Button'
+import Spinner from '../Spinner/Spinner'
+import {useState} from 'react'
 
-export default function Modal({render, setShowModal, goodsInCart, totalPrice}){
+export default function Modal({render, setShowModal, goodsInCart, totalPrice, setGoodsInCart, setTotalPrice}){
+
+    const [loading, setLoading] = useState(false)
+        
     let groupedGoods = {}
 
     const createOrder = (billingData) => {
+        setLoading(true)
         console.log(billingData)
         const order = {
             payment_method: "cod",
@@ -33,7 +39,18 @@ export default function Modal({render, setShowModal, goodsInCart, totalPrice}){
         const _orderUrl = `https://nordik-swiat.locale/wp-json/wc/v3/orders?consumer_key=${_CK}&consumer_secret=${_CS}`;
 
         console.log('Posting order...')
-        fetch(_orderUrl, settings).then(resp => console.log(resp)).catch(err => console.error(err))
+        fetch(_orderUrl, settings)
+        .then(resp => {
+            setLoading(false);
+            setShowModal(false)
+            setTotalPrice(0)
+        })
+        .catch(err => {
+            console.error(err)
+            setLoading(false);
+            setShowModal(false)
+            setTotalPrice(0)
+        })
     } 
 
     const rowGenerator = (goods) => {
@@ -60,25 +77,37 @@ export default function Modal({render, setShowModal, goodsInCart, totalPrice}){
         ))
     }
 
+    const FormBody = () => {
+        return (
+            <>
+                <h2 className="modal__title">Złóż zamówienie</h2>
+                <div className="modal__sheet">
+                    {rowGenerator(goodsInCart)}
+                </div>
+                <span className="modal__total-price">{`Należność ogółem: ${totalPrice} zł`}</span>
+                <Form 
+                    setGoodsInCart={setGoodsInCart} 
+                    createOrder={createOrder} 
+                    cartIsEmpty={groupedGoods?.length === 0}
+                />
+                <Button 
+                    style={
+                        {position: 'absolute',
+                        bottom: '20px',
+                        right: '20px'}
+                    }
+                    color='gray'
+                    onClickHandler={() => {setShowModal(false)}}
+                >
+                    Zamknij
+                </Button>
+            </>
+        )
+    }
+
     return (
         <div className={`modal ${render ? 'modal_show' : ''}`}>
-            <h2 className="modal__title">Złóż zamówienie</h2>
-            <div className="modal__sheet">
-                {rowGenerator(goodsInCart)}
-            </div>
-            <span className="modal__total-price">{`Należność ogółem: ${totalPrice} zł`}</span>
-            <Form createOrder={createOrder} cartIsEmpty={groupedGoods?.length === 0}/>
-            <Button 
-                style={
-                    {position: 'absolute',
-                    bottom: '20px',
-                    right: '20px'}
-                }
-                color='gray'
-                onClickHandler={() => {setShowModal(false)}}
-            >
-                Zamknij
-            </Button>
+            { loading ? <Spinner/> : <FormBody/>}
         </div>
     )
 

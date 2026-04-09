@@ -41,6 +41,8 @@ function App() {
                 setShowModal={setShowModal}
                 goodsInCart={goodsInCart}
                 totalPrice={totalPrice}
+                setGoodsInCart={setGoodsInCart}
+                setTotalPrice={setTotalPrice}
             />
             <Cover render={showFiltration || showModal}/>
             <Filter 
