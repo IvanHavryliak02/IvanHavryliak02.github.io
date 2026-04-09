@@ -6,6 +6,31 @@
     font-size: 16px
     font-weight: 400
     text-transform: uppercase
-    transition: 0.5s all
+    transition: background 0.5s ease, color 0.5s ease, transform 0.1s ease 
     &:hover
         cursor: pointer
+    &:active
+        transform: scale(0.96) translateY(2px)
+
+.bubble
+    border: 1px solid #D6ECA7
+    background: #ffffff
+    border-radius: 50% 
+    position: absolute
+    left: 50%
+    animation: floatUp 1s ease-out forwards
+    pointer-events: none
+    font-weight: 500
+    color: #7aa321
+    font-size: 11px
+    padding: 5px
+
+
+@keyframes floatUp
+    0%
+        opacity: 1
+        transform: translateY(50%, 0) scale(1)
+    100%
+        opacity: 0
+        transform: translate(50%, -40px) scale(1.3)
+    

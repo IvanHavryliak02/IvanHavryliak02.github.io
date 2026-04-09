@@ -73,7 +73,8 @@ export default function MainSection({onGoodsSet, onCategoriesChange, filters}) {
                                 {item.short_description}
                             </p>
                             <div className="card__price-container">
-                                <Button 
+                                <Button
+                                    buy={true} 
                                     onClickHandler={() => {onGoodsSet(item)}}
                                 >
                                     kupuję
