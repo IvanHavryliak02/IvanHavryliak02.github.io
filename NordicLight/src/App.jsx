@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer'
 import Filter from './components/Filter/Filter'
 import Cover from './components/Cover/Cover'
 import Modal from './components/Modal/Modal'
+import Alert from './components/Alert/Alert'
 
 
 function App() {
@@ -19,6 +20,14 @@ function App() {
     const [categories, setCategories] = useState({})
     const [filters, setFilters] = useState([])
     const [showModal, setShowModal] = useState(false)
+    const [statusShowed, setStatusShowed] = useState({showed: false, message: '', success: ''})
+
+    const showOrderStatus = (message, success) => {
+        setStatusShowed({showed: true, message, success})
+        setTimeout(() => {
+            setStatusShowed(prev => ({...prev, showed: false}))
+        }, 1500)
+    }
 
     const addGoodToCart = (good) => {
         const lighterObj = {name: good.name, image: good.image, price: good.price, id: good.id}
@@ -36,6 +45,12 @@ function App() {
 
     return (
         <>
+            {statusShowed.showed ? 
+                <Alert 
+                    message={statusShowed.message} 
+                    success={statusShowed.success}
+                /> : 
+            null}
             <Modal 
                 render={showModal} 
                 setShowModal={setShowModal}
@@ -43,8 +58,9 @@ function App() {
                 totalPrice={totalPrice}
                 setGoodsInCart={setGoodsInCart}
                 setTotalPrice={setTotalPrice}
+                showOrderStatus={showOrderStatus}
             />
-            <Cover render={showFiltration || showModal}/>
+            <Cover render={showFiltration || showModal || statusShowed.showed}/>
             <Filter 
                 render={showFiltration} 
                 onShowFiltration={setShowFiltration}

@@ -44,7 +44,8 @@ export default function Button({children, onClickHandler, color, style, type, di
                 style={style}  
                 className="button"
                 onClick={() => {
-                    onClickHandler()
+                    if(onClickHandler){onClickHandler()}
+                    
                     if(buy) {
                         handleClick()
                     }

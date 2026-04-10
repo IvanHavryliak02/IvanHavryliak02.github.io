@@ -2,9 +2,19 @@ import './Modal.sass'
 import Form from '../Form/Form'
 import Button from '../Button/Button'
 import Spinner from '../Spinner/Spinner'
-import {useState} from 'react'
+import React, {useState} from 'react'
 
-export default function Modal({render, setShowModal, goodsInCart, totalPrice, setGoodsInCart, setTotalPrice}){
+export default function Modal(props){
+
+    const {
+        render, 
+        setShowModal, 
+        goodsInCart, 
+        totalPrice, 
+        setGoodsInCart, 
+        setTotalPrice, 
+        showOrderStatus
+    } = props
 
     const [loading, setLoading] = useState(false)
         
@@ -12,7 +22,6 @@ export default function Modal({render, setShowModal, goodsInCart, totalPrice, se
 
     const createOrder = (billingData) => {
         setLoading(true)
-        console.log(billingData)
         const order = {
             payment_method: "cod",
             payment_method_title: "Cash on delivery",
@@ -38,18 +47,21 @@ export default function Modal({render, setShowModal, goodsInCart, totalPrice, se
 
         const _orderUrl = `https://nordik-swiat.locale/wp-json/wc/v3/orders?consumer_key=${_CK}&consumer_secret=${_CS}`;
 
-        console.log('Posting order...')
         fetch(_orderUrl, settings)
         .then(resp => {
-            setLoading(false);
-            setShowModal(false)
-            setTotalPrice(0)
+            if(resp.ok){
+                setLoading(false);
+                setShowModal(false)
+                setTotalPrice(0)
+                showOrderStatus('Your order was sended!', true)
+            }
         })
         .catch(err => {
             console.error(err)
             setLoading(false);
             setShowModal(false)
             setTotalPrice(0)
+            showOrderStatus('Oops... something went wrong!', false)
         })
     } 
 
@@ -67,13 +79,13 @@ export default function Modal({render, setShowModal, goodsInCart, totalPrice, se
         groupedGoods = Object.values(groupedGoods)
 
         return groupedGoods.map((good, i) => (
-            <>
+            <React.Fragment key={i}>
                 <div className="modal__good-img">
                     <img src={good.image} alt="good" />
                 </div>
                 <div className="modal__good-name">{good.name}</div>
                 <div className="modal__good-price">{`${good.quantity} x ${good.price}zł`}</div>
-            </>
+            </React.Fragment>
         ))
     }
 
