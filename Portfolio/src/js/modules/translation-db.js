@@ -52,9 +52,25 @@ export default {
         "EN": `Web-development`,
         "PL": `Tworzenie stron internetowych`
     },
-    "webdev-discr": {
+    "webdev-descr": {
         "EN": `Creating the front-end of web pages using various interactive elements—animations, sliders, forms, tabs, API data and more.`,
         "PL": `Tworzenie front-endu stron internetowych z użyciem różnych elementów interaktywnych — animacji, sliderów, formularzy, zakładek, danych otrzymanych z API i innych narzędzi.`
+    },
+    "spadev": {
+        "EN": `SPA creation`,
+        "PL": `Tworzenie web-aplikacji`
+    },
+    "spadev-descr": {
+        "EN": `Creating single-page applications using the React library, featuring centralized data storage with Redux.`,
+        "PL": `Tworzenie aplikacji jednostronicowych przy użyciu biblioteki React, z scentralizowanym przechowywaniem danych za pomocą Redux.`
+    },
+    "modules": {
+        "EN": `Independent modules creation`,
+        "PL": `Tworzenie niezależnych modułów`
+    },
+    "modules-descr": {
+        "EN": `Development of separate UI modules as ES-modules that can be quickly and easily integrated into other websites.`,
+        "PL": `Tworzenie oddzielnych modułów UI w formacie modułów ES (ES-modules), które można szybko i łatwo wykorzystać na innych stronach internetowych.`
     },
     "exp-header": {
         "EN": `Experience`,
@@ -68,6 +84,26 @@ export default {
         "EN": `Education`,
         "PL": `Edukacja`
     },
+
+
+
+
+    "academ-adv-name": {
+        "EN": `Udemy online aсademy<br>`,
+        "PL": `Online akademia Udemy<br>`
+    },
+    "academ-adv-stat": {
+        "EN": `Comprehensive JavaScript, React, and Redux Course`,
+        "PL": `Kompleksowy kurs JavaScript, React i Redux`
+    },
+    "academ-adv-descr": {
+        "EN": `<p>Complete study of JavaScript, including variables, data types, loops, conditions, objects, classes, closures, asynchronous operations, DOM manipulation, language architecture, and algorithm theory. Additionally covers React in both legacy and modern syntax. Includes the Redux toolset, ranging from its basic standalone version to advanced integration with the React library</p>`,
+        "PL": `<p>Pełna nauka języka JavaScript: zmienne, typy danych, pętle, warunki, obiekty, klasy, domknięcia, operacje asynchroniczne, manipulacje DOM, architektura języka oraz teoria algorytmów. Dodatkowo opanowanie biblioteki React zarówno w starszej, jak i nowoczesnej składni. Nauka narzędzia Redux od jego najprostszej wersji autonomicznej po zaawansowaną integrację z biblioteką React.</p>`
+    },
+
+
+
+
     "unive-name": {
         "EN": `Lublin University of Technology, Poland<br>`,
         "PL": `Politechnika Lubelska, Polska<br>`
@@ -85,8 +121,8 @@ export default {
         "PL": `Online akademia Udemy<br>`
     },
     "ac-stat": {
-        "EN": `Front-end Web Development Courses`,
-        "PL": `Kursy Rozwoju Front-endu`
+        "EN": `HTML/CSS Course`,
+        "PL": `Kurs HTML/CSS`
     },
     "ac-descr": {
         "EN": `<p>Studied and reinforced knowledge through working on projects attached to this portfolio. Experience includes working with: project bundler Gulp, creating interactive elements such as tabs, sliders, forms (including submission using mailer technology), various types of menus, styling effects, animations, Flexbox and Grid technologies, the Bootstrap library, integrating Google Maps into projects, and pixel-perfect layout techniques. Acquired basic knowledge of JavaScript sufficient for writing simple scripts or editing existing technologies.</p>`,
@@ -94,7 +130,7 @@ export default {
     },
     "col-name": {
         "EN": `Khmelnytskyi College of Technology, Ukraine<br>`,
-        "PL": `Kolegium Techniczne w Chmelnyckim, Ukraina<br>`
+        "PL": `Technikum w Chmelnyckim, Ukraina<br>`
     },
     "col-stat": {
         "EN": `Associate's degree in Computer Systems and Networks | (2017-2021)`,
@@ -174,6 +210,10 @@ export default {
     "react-descr": {
         "EN": `React is a component-based JavaScript library designed for building high-performance user interfaces. By utilizing a Virtual DOM and a declarative approach, it enables the creation of fast SPAs that respond instantly to state changes without page reloads.`,
         "PL": `React to biblioteka JavaScript oparta na komponentach, służąca do budowania wydajnych interfejsów użytkownika. Dzięki wykorzystaniu Virtual DOM i deklaratywnemu podejściu, umożliwia tworzenie szybkich aplikacji typu SPA, które błyskawicznie reagują na zmiany stanów bez przeładowywania strony.`
+    },
+    "redux-descr": {
+        "EN": `Redux is a centralized system used by applications to store and manage all their essential information in one organized place. It ensures that data remains consistent and predictable, acting like a master ledger that tracks every change made within the program.`,
+        "PL": `Redux to scentralizowany system służący aplikacjom do przechowywania i zarządzania wszystkimi istotnymi informacjami w jednym, uporządkowanym miejscu. Zapewnia on spójność i przewidywalność danych, działając jak główna księga wieczysta, która rejestruje każdą zmianę wprowadzoną w programie.`
     },
     "works-header": {
         "EN": `Portfolio`,
