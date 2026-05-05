@@ -1,0 +1,61 @@
+@use './../../sass/core/_color-vars.sass' as *
+
+.footer
+    width: 100%
+    min-height: 240px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background: $bg-color
+    padding: 0 30px
+    &__first-logo
+        width: 160px
+        height: 65px
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+    &__last-logo
+        width: 160px
+        height: 160px
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+    [data-inst]
+        width: 33px
+    [data-yt]
+        width: 40px
+    [data-teleg]
+        width: 34px
+    [data-tiktok]
+        width: 38px
+    &__links
+        list-style: none
+        width: 200px
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__link
+        a
+            display: block
+    &__central
+        width: 365px
+        height: 190px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+    &__divider
+        width: 240px
+        height: 2px
+        background: $text-color
+    .menu
+        &__items
+            flex-wrap: wrap
+            min-width: 365px
+            align-content: space-between
+            height: 112px
+        &__item
+            &:last-child
+                margin: 0 auto

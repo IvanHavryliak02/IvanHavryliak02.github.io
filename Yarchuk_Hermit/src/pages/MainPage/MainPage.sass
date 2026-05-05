@@ -1,0 +1,40 @@
+@use './../../sass/core/_color-vars.sass' as *
+
+.main-page
+    position: relative
+    &__hero-section
+        width: 100%
+        height: 100vh
+        background: url('./img/hero-bg.png') center / cover no-repeat
+    &__hero-wrapper
+        display: flex
+        justify-content: center
+        align-items: flex-end
+        height: 100%
+    &__hero
+        width: 73.25vw
+        aspect-ratio: 1055 / 517
+        position: absolute
+        bottom: 0
+        left: 50%
+        transform: translate(-50%, 0)
+    &__about-section
+        min-height: 500px
+        padding: 75px
+        background: $bg-color
+    &__about-wrapper
+        display: flex
+        align-items: center
+        justify-content: center
+    &__img
+        height: 100%
+        img
+            object-fit: cover
+            width: 100%
+            height: 100%
+    &__about-descr
+        font-weight: 400
+        font-size: 18px
+        color: $text-color
+        text-align: justify
+        line-height: 25px

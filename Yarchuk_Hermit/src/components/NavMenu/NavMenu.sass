@@ -1,0 +1,27 @@
+@use './../../sass/core/_color-vars.sass' as *
+
+.menu
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    &__items
+        min-width: 655px
+        height: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
+        list-style: none
+    &__item
+        text-transform: uppercase
+        font-weight: 500
+        font-size: 20px
+        a
+            color: $text-color
+            text-decoration: none
+        &:first-child
+            a
+                color: $active-color
+                text-shadow: $link-glowing-shadow
+    button
+        width: 190px
+        height: 70px
