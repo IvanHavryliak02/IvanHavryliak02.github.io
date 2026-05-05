@@ -1,24 +1,25 @@
 import './NavMenu.sass'
 import ActionButton from './../Buttons/ActionButton/ActionButton'
+import { NavLink } from 'react-router-dom'
 
 export default function NavMenu(){
     return (
         <nav className="menu">
             <ul className="menu__items">
                 <li className="menu__item">
-                    <a href="#">
+                    <NavLink to="/">
                         головна
-                    </a>
+                    </NavLink>
                 </li>
                 <li className="menu__item">
-                    <a href="#">
-                        новини
-                    </a>
+                    <NavLink to="/blog">
+                        Новини
+                    </NavLink>
                 </li>
                 <li className="menu__item">
-                    <a href="#">
-                        контакт
-                    </a>
+                    <NavLink to="/contact">
+                        Контакт
+                    </NavLink>
                 </li>
                 <li className="menu__item">
                     <ActionButton>підписатися</ActionButton>

@@ -1,0 +1,38 @@
+@use './../../sass/core/_color-vars' as *
+
+.blog
+    background: $bg-color
+    min-height: 1000px
+    padding: 140px 0 0 0
+    &__wrapper
+        display: flex
+        width: 100%
+        justify-content: space-between
+        align-items: flex-start
+    &__content
+        width: 82.2%
+    &__filter
+        width: 115px
+        margin-top: 45px
+    &__filters
+        list-style-type: none
+        width: 100%
+        min-height: 183px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: flex-start
+    &__button
+        text-transform: uppercase
+        color: $text-color
+        width: 100%
+        height: 100%
+        border: none
+        background: transparent
+        font-weight: 500
+        font-size: 20px
+        &:hover
+            cursor: pointer
+        &.active
+            color: $active-color
+            text-shadow: $link-glowing-shadow
