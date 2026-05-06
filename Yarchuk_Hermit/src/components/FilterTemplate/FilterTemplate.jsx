@@ -10,7 +10,7 @@ export default function FilterTemplate(props) {
         currFilter
     } = props
 
-    const createListItems = (filters) => {
+    const createFilterItems = (filters) => {
         return filters.map(filter => { 
 
             const activeSelector = currFilter === filter.id ? 'active' : ''
@@ -19,6 +19,7 @@ export default function FilterTemplate(props) {
                 <li 
                     className={`${className}__filters-item`}
                     onClick={() => onFilterChoose(filter.id)}
+                    key={filter.id}
                 >
                     <button className={`${className}__button ${activeSelector}`}>
                         {filter.label}
@@ -26,18 +27,28 @@ export default function FilterTemplate(props) {
                 </li>
             )
         })
-    } 
+    }
+
+    const createListItems = (items) => {
+        return items.map(item => {
+            return <li 
+                key={item.key}
+            >
+                {item}
+            </li>
+        })
+    }
 
     return (
         <section className={className}>
             <div className="container">
                 <div className={`${className}__wrapper`}>
-                    <div className={`${className}__content`}>
-                        {content}
-                    </div>
+                    <ul className={`${className}__content`}>
+                        {createListItems(content)}
+                    </ul>
                     <aside className={`${className}__filter`}>
                         <ul className={`${className}__filters`}>
-                            {createListItems(filters)}
+                            {createFilterItems(filters)}
                         </ul>
                     </aside>
                 </div>

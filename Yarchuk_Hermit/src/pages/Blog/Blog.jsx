@@ -2,7 +2,8 @@ import './Blog.sass'
 import { useState } from 'react'
 
 import FilterTemplate from './../../components/FilterTemplate/FilterTemplate'
-import Post from './../../components/postsItems/Post/Post'
+import ImgPost from './../../components/postsItems/Post/ImgPost/ImgPost'
+import GalleryPost from './../../components/postsItems/Post/GalleryPost/GalleryPost'
 
 export default function Blog() {
 
@@ -15,13 +16,10 @@ export default function Blog() {
     return (
         <FilterTemplate 
             className='blog'
-            content={
-                <>
-                    <Post/>
-                    <Post/>
-                    <Post/>
-                </>
-            }
+            content={[
+                <ImgPost key={1}/>,
+                <GalleryPost key={2}/>
+            ]}
             filters={[
                 {id:'post', label: 'пост'},
                 {id:'film', label: 'фільм'}, 

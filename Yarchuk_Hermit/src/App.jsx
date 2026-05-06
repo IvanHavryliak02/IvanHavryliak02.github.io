@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import ScrollToTop from './utils/ScrollToTop/ScrollToTop'
 import './App.sass'
 
 import Header from './components/Header/Header'
@@ -12,6 +13,7 @@ function App() {
 
     return (
         <>
+            <ScrollToTop/>
             <Header/>
             <main className="main-content">
                 <Routes>

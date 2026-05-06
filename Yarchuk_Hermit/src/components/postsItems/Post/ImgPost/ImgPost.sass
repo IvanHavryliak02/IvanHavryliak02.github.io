@@ -1,0 +1,24 @@
+@use './../../../../sass/core/_color-vars' as *
+
+.img-post
+    width: 100%
+    min-height: 270px
+    border: 1px solid $card-border-color
+    padding: 50px
+    border-radius: 10px
+    &__title
+        color: $text-color
+        text-align: center
+        font-size: 24px
+        text-transform: uppercase
+    &__main-text, &__additional-text
+        margin: 0
+        color: $text-color
+        font-weight: 400
+        font-size: 18px
+        line-height: 22px
+        text-align: justify
+    &__main-text
+        padding-top: 3px
+    &__additional-text
+        grid-column: span 2
