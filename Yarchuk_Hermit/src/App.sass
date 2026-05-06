@@ -1,11 +1,19 @@
 @use './sass/core/_grids.sass'
 @use './sass/core/_container.sass'
+@use './sass/core/_color-vars.sass' as *
+
 *
     font-family: "Inter", sans-serif
     font-optical-sizing: auto
     font-weight: 500
     font-style: normal
     box-sizing: border-box
+    color: $text-color
+    font-size: 18px
+    line-height: 22px
+
+h1,h2,h3,h4
+    line-height: 30px
 
 body
     margin: 0

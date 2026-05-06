@@ -1,0 +1,29 @@
+@use './../../../../sass/core/_color-vars.sass' as *
+
+.voting
+    margin-top: 35px
+    &__title
+        font-weight: 400
+        font-size: 19px
+        text-align: center
+    &__list
+        list-style-type: none
+        padding-left: 90px
+        text-align: justify
+        li
+            font-weight: 400
+            position: relative
+            line-height: 24px
+            span
+                font-weight: 600
+                color: $active-color
+    &__img
+        width: 30px
+        height: 30px
+        position: absolute
+        top: 0
+        left: -60px
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover

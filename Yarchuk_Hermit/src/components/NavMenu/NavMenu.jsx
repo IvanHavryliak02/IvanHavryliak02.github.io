@@ -7,7 +7,7 @@ export default function NavMenu(){
         <nav className="menu">
             <ul className="menu__items">
                 <li className="menu__item">
-                    <NavLink to="/">
+                    <NavLink to="/home">
                         головна
                     </NavLink>
                 </li>

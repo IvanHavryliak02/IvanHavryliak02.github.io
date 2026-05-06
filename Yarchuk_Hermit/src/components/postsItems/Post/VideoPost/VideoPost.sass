@@ -1,6 +1,7 @@
+
 @use './../../../../sass/core/_color-vars' as *
 
-.gall-post
+.video-post
     width: 100%
     min-height: 270px
     border: 1px solid $card-border-color
@@ -11,11 +12,14 @@
         text-align: center
         font-size: 24px
         text-transform: uppercase
-    &__main-text
+    &__main-text, &__additional-text
         margin: 0
         color: $text-color
         font-weight: 400
         font-size: 18px
         line-height: 22px
         text-align: justify
-        margin-top: 65px
+    &__main-text
+        padding-top: 3px
+    &__additional-text
+        grid-column: span 2
