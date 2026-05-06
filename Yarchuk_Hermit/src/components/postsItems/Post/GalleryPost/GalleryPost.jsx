@@ -13,6 +13,9 @@ export default function GalleryPost() {
                 КАДР НА ШВИДКОСТІ: КОНКУРС ДЛЯ ТИХ, ХТО БАЧИТЬ ДРАЙВ
             </h2>
             <Slider photos={[img1, img2, img3]} style={{marginTop: '30px'}}/>
+            <p className="gall-post__main-text">
+
+            </p>
         </article>
     )
 }
