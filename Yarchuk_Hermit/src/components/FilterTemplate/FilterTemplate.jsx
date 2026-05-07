@@ -1,4 +1,4 @@
-import './FilterTemplate.sass'
+import Button from './../Buttons/ActionButton/ActionButton'
 
 export default function FilterTemplate(props) {
 
@@ -52,6 +52,7 @@ export default function FilterTemplate(props) {
                         </ul>
                     </aside>
                 </div>
+                <Button className={`${className}_btn`}>Показати ще</Button>
             </div>
         </section>
     )
