@@ -30,9 +30,9 @@ export default function FilterTemplate(props) {
     }
 
     const createListItems = (items) => {
-        return items.map(item => {
+        return items.map((item, i) => {
             return <li 
-                key={item.key}
+                key={i}
             >
                 {item}
             </li>

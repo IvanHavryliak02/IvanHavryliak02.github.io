@@ -1,0 +1,21 @@
+@use './../../../../sass/core/_color-vars' as *
+
+.deadline
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+    &__group
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        justify-content: space-between
+        width: 345px
+        height: 100%
+        span
+            color: $active-color
+    &_btn
+        width: 190px
+        height: 70px
+    &__expired
+        color: $active-color

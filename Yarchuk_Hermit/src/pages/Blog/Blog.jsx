@@ -1,12 +1,11 @@
 import './Blog.sass'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
+
 
 import FilterTemplate from './../../components/FilterTemplate/FilterTemplate'
-import ImgPost from './../../components/postsItems/posts/ImgPost/ImgPost'
-import GalleryPost from './../../components/postsItems/posts/GalleryPost/GalleryPost'
-import VideoPost from '../../components/postsItems/posts/VideoPost/VideoPost'
-import FilmPost from './../../components/postsItems/FilmPost/FilmPost'
-import PodcastPost from './../../components/postsItems/PodcastPost/PodcastPost'
+import PostsController from '../../components/postsItems/posts/PostsController/PostsController.jsx'
+
+import data from './data.js'
 
 export default function Blog() {
 
@@ -16,16 +15,14 @@ export default function Blog() {
         setCurrFilter(filterId)
     }
 
+    const filteredData = useMemo(() => {
+        return data.filter(obj => obj.type === currFilter)
+    }, [currFilter, data])
+
     return (
         <FilterTemplate 
             className='blog'
-            content={[
-                <ImgPost key={1}/>,
-                <GalleryPost key={2}/>,
-                <VideoPost key={3}/>,
-                <FilmPost key={4}/>,
-                <PodcastPost key={5}/>
-            ]}
+            content={PostsController(filteredData)}
             filters={[
                 {id:'post', label: 'пост'},
                 {id:'film', label: 'фільм'}, 

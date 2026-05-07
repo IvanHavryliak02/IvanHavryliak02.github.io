@@ -1,5 +1,6 @@
 import './Slider.sass'
 import { useState } from 'react'
+import { nanoid } from 'nanoid'
 
 import arrow from './img/chevron.svg'
 
@@ -10,10 +11,10 @@ export default function Slider({photos, style}) {
     const slideToShow = slideIndex / photos.length
 
     const createSlides = (photos) => {
-        return photos.map((photoSrc, i) => {
+        return photos.map((photoObj) => {
             return (
-                <div key={i} className="slider__photo-container">
-                    <img src={photoSrc} alt="фото для слайдеру"/>
+                <div key={nanoid()} className="slider__photo-container">
+                    <img src={photoObj.photo} alt={photoObj.alt}/>
                 </div>
             )
         })
