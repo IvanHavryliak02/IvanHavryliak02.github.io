@@ -8,9 +8,9 @@ export default function MainPage() {
     return (
         <>
             <section className="main-page__hero-section">
-            <div className="main-page__hero-wrapper">
-                <img src={heroImg} alt="Yarchuk Hermit" className="main-page__hero"/>
-            </div>
+                <div className="main-page__hero-wrapper">
+                    <img src={heroImg} alt="Yarchuk Hermit" className="main-page__hero"/>
+                </div>
             </section>
             <section className="main-page__about-section">
                 <div className="container">

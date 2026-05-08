@@ -17,7 +17,7 @@ function App() {
             <Header/>
             <main className="main-content">
                 <Routes>
-                    <Route path='/home' element={ <MainPage/> }/>
+                    <Route path='/' element={ <MainPage/> }/>
                     <Route path='/blog' element={ <Blog/> }/>
                     <Route path='/contact' element={ <Contact/> }/>
                 </Routes>
