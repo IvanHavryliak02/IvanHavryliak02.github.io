@@ -9,10 +9,14 @@ export default function GalleryEventPost({data}){
             <h2 className="gallery-event-post__title">
                 {data.title}
             </h2>
-            <Slider photos={data.imgs} style={{marginTop: '65px'}}/>
-            <p className="gallery-event-post__main-text">
-                {data.primText}
-            </p>
+            <div className="grid__gallery-event-post">
+                <div className="gallery-event-post__container">
+                    <Slider photos={data.imgs}/>
+                </div>
+                <p className="gallery-event-post__main-text">
+                    {data.primText}
+                </p>
+            </div>
             <DeadlineItem eventData={data.eventData}/>
         </article>
     )

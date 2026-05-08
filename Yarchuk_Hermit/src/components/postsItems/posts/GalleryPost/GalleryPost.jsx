@@ -5,14 +5,18 @@ import Terms from '../Terms/Terms'
 
 export default function GalleryPost({data}) {
     return (
-        <article className="gall-post">
-            <h2 className="gall-post__title">
+        <article className="gallery-post">
+            <h2 className="gallery-post__title">
                 {data.title}
             </h2>
-            <Slider photos={data.imgs} style={{marginTop: '65px'}}/>
-            <p className="gall-post__main-text">
-                {data.primText}
-            </p>
+            <div className="grid__gallery-post">
+                <div className="gallery-post__container">
+                    <Slider photos={data.imgs}/>
+                </div>
+                <p className="gallery-post__main-text">
+                    {data.primText}
+                </p>
+            </div>
             <Terms data={data.terms}/>
         </article>
     )

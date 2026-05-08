@@ -16,9 +16,6 @@ export default function VideoPost({data}){
                 <p className="video-post__main-text">
                     {data.primText}
                 </p>
-                {secText ? <p className="video-post__additional-text">
-                    {secText} 
-                </p> : null}
             </div>
             <Terms data={data.terms}/>
         </article>

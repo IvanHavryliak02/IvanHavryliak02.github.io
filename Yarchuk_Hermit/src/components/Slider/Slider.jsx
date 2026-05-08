@@ -8,8 +8,6 @@ export default function Slider({photos, style}) {
 
     const [slideIndex, setSlideIndex] = useState(0)
 
-    const slideToShow = slideIndex / photos.length
-
     const createSlides = (photos) => {
         return photos.map((photoObj) => {
             return (
@@ -38,7 +36,7 @@ export default function Slider({photos, style}) {
                 <img src={arrow} alt="Кнопка для перегортання фото вправо" />
             </button>
             <div className="slider__window">
-                <div style={{transform: `translateX(-${slideToShow * 100}%)`}} className="slider__track">
+                <div style={{transform: `translateX(-${slideIndex * 100}%)`}} className="slider__track">
                     {createSlides(photos)}
                 </div>
             </div>

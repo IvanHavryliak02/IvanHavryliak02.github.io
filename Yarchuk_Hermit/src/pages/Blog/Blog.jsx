@@ -24,10 +24,10 @@ export default function Blog() {
             className='blog'
             content={PostsController(filteredData)}
             filters={[
-                {id:'post', label: 'пост'},
-                {id:'film', label: 'фільм'}, 
-                {id:'podcast', label: 'Подкаст'}, 
-                {id:'event', label: 'подія'}
+                {id:'post', label: 'дописи'},
+                {id:'film', label: 'фільми'}, 
+                {id:'podcast', label: 'Подкасти'}, 
+                {id:'event', label: 'події'}
             ]}
             onFilterChoose={onFilterChoose}
             currFilter={currFilter}

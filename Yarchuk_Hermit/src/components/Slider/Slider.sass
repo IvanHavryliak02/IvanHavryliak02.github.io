@@ -1,6 +1,6 @@
 .slider
-    height: 300px
-    width: 560px
+    height: 100%
+    width: 100%
     margin: 0 auto
     display: flex
     justify-content: space-between
@@ -19,21 +19,20 @@
     &__forward
         transform: rotate(180deg)
     &__window
-        width: 400px
+        width: 70.8%
         height: 100%
         overflow: hidden
-        position: relative
     &__track
+        width: 100%
         height: 100%
         display: flex
-        position: absolute
         top: 0
         transition: 0.5s transform ease
         will-change: transform
         backface-visibility: hidden
     &__photo-container
         height: 100%
-        width: 400px
+        flex: 0 0 100%
         img
             width: 100%
             height: 100%
