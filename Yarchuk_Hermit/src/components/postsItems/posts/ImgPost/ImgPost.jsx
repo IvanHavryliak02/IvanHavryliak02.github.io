@@ -20,7 +20,7 @@ export default function ImgPost({data}) {
                     {secText} 
                 </p> : null}
             </div>
-            {data.terms ? <Terms data={data.terms}/> : null}
+            <Terms data={data.terms}/>
         </article>
     )
 }

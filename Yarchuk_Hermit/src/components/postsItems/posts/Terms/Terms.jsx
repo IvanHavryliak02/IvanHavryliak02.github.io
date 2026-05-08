@@ -5,6 +5,8 @@ import { nanoid } from 'nanoid'
 
 export default function Terms({data}) {
 
+    if(!data) return null
+
     const createList = (data) => {
         return data.map(obj => {
             return (

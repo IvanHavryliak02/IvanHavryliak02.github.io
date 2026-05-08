@@ -30,12 +30,17 @@ export default function FilterTemplate(props) {
     }
 
     const createListItems = (items) => {
-        return items.map(item => {
-            return <li 
-                key={item.key}
-            >
-                {item}
-            </li>
+
+        return items.map((item, i) => {
+            if(typeof item !== 'string'){
+                return <li 
+                    key={item.key}
+                >
+                    {item}
+                </li>
+            }else{
+                return <li key={i}>ERROR: {item}</li>
+            }
         })
     }
 

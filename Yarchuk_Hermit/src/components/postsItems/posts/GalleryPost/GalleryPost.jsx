@@ -13,7 +13,7 @@ export default function GalleryPost({data}) {
             <p className="gall-post__main-text">
                 {data.primText}
             </p>
-            {data.terms ? <Terms data={data.terms}/> : null}
+            <Terms data={data.terms}/>
         </article>
     )
 }

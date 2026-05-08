@@ -4,25 +4,34 @@ import Button from './../../../Buttons/ActionButton/ActionButton'
 
 export default function DeadlineItem({eventData}) {
 
+    if(!eventData) return null
+
     const {location, eventDate, deadline} = eventData
 
     const checkDeadline = (eventData) => {
-        const {location, eventDate, deadline} = eventData
+        const {deadline} = eventData
         const [day, month, year] = deadline.split('.').map(str => +str)
 
         const ISODeadline = new Date(year, month - 1, day)
         const now = new Date()
 
-        return now < ISODeadline
+        if(now < ISODeadline){
+            return [true, '']
+        }else {
+            return [false, 'deadline_expired']
+        }
     }
+
+    const deadlineData = checkDeadline(eventData);
     return (
-        <div className="deadline">
-            {checkDeadline(eventData) ? <DeadlineNotExpired eventDate={eventDate}/> : <DeadlineExpired/>}
+        <div className={`deadline ${deadlineData[1]}`}>
+            {deadlineData[0] ? <DeadlineNotExpired data={eventData}/> : <DeadlineExpired/>}
         </div>
     )
 }
 
-const DeadlineNotExpired = ({location, eventDate, deadline}) => {
+const DeadlineNotExpired = ({data}) => {
+    const {location, eventDate, deadline} = data
     return (
         <>
             <div className="deadline__group">
