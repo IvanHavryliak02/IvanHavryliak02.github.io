@@ -9,7 +9,7 @@ export default function Terms({data}) {
         return data.map(obj => {
             return (
                 <li key={nanoid()}>
-                    <span>{obj.title}:</span>{obj.descr}
+                    <span>{obj.title}: </span>{obj.descr}
                     <div className="terms__img">
                         <img src={liIco} alt="іконка колеса - прикраса елементу списку" />
                     </div>

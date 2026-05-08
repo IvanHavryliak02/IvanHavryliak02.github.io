@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 
 
 import FilterTemplate from './../../components/FilterTemplate/FilterTemplate'
-import PostsController from '../../components/postsItems/posts/PostsController/PostsController.jsx'
+import PostsController from './../../components/postsItems/PostsController/PostsController.jsx'
 
 import data from './data.js'
 

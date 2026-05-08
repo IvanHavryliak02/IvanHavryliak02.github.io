@@ -3,6 +3,9 @@ import './ImgPost.sass'
 import Terms from '../Terms/Terms'
 
 export default function ImgPost({data}) {
+
+    const secText = data.secText ? data.secText : ''
+
     return (
         <article className="img-post">
             <h2 className="img-post__title">
@@ -13,9 +16,9 @@ export default function ImgPost({data}) {
                 <p className="img-post__main-text">
                     {data.primText}
                 </p>
-                <p className="img-post__additional-text">
-                    {data.secText}
-                </p>
+                {secText ? <p className="img-post__additional-text">
+                    {secText} 
+                </p> : null}
             </div>
             {data.terms ? <Terms data={data.terms}/> : null}
         </article>

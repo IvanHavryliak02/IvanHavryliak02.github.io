@@ -1,17 +1,15 @@
 import './PodcastPost.sass'
 
-import img from './img/podcast.png'
-
-export default function PodcastPost() {
+export default function PodcastPost({data}) {
     return (
         <article className="podcast-post">
             <h2 className="podcast-post__title">
-                НА ШВИДКОСТІ СВІТЛА: ЯК ДОРОГА СТАЄ ІСТОРІЄЮ
+                {data.title}
             </h2>
             <div className="grid__podcast-post">
-                <img src={img} alt="Ярослав у студії на мотоциклі" className="podcast-post__img"/>
+                <img src={data.video} alt="Ярослав у студії на мотоциклі" className="podcast-post__img"/>
                 <p className="podcast-post__main-text">
-                    Це подкаст про рух — не лише фізичний, а й внутрішній. Тут дорога стає сценою, а камера — способом бачити глибше. Ми говоримо про те, як швидкість змінює сприйняття, як народжується візуальний сторітелінг у русі та чому іноді найкращі кадри трапляються там, де закінчується маршрут. У кожному епізоді — розмови з фотографами, відеографами та креаторами, які ловлять драйв у кадрі. Про помилки, натхнення, ризик і моменти, які неможливо повторити, але можна відчути знову через об’єктив. Це місце для тих, хто не просто дивиться — а бачить.
+                    {data.primText}
                 </p>
             </div>
         </article>
