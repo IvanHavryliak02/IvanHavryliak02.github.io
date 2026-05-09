@@ -1,0 +1,71 @@
+@use './../../sass/core/_color-vars' as *
+
+.contact
+    min-height: 500px
+    background-color: $bg-color
+    padding: 140px 0 90px 0
+    &__wrapper
+        width: 920px
+        color: $text-color
+        margin: 0 auto
+        height: 100%
+    &__input-wrapper
+        position: relative
+        &:not(:last-child)
+            margin-bottom: 20px
+        textarea
+            resize: none
+            height: 200px
+        input
+            height: 40px
+        input, label
+            display: block
+        label
+            font-size: 16px
+            text-transform: uppercase
+            &:not(:last-child)
+                margin-bottom: 10px
+        input, textarea
+            font-weight: 400
+            background: $input-bg-color
+            width: 100%
+            border: none
+            border-radius: 4px
+            padding: 10px
+            &:focus
+                outline: none
+            &::placeholder
+                color: $input-placeholder-color
+    &__left-col
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+    &__right-col
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: flex-end
+        padding: 30px 0 0 0
+    &__text
+        font-size: 18px
+        font-weight: 400
+        text-align: left
+        line-height: 24px
+    &_btn
+        width: 190px
+        height: 70px
+    &__error-message
+        font-size: 18px
+        color: $input-error-color
+        display: block
+        margin-top: 10px
+    &__symbol-counter
+        position: absolute
+        display: block
+        font-size: 16px
+        color: $textarea-counter-color
+        display: flex
+        justify-content: center
+        align-items: center
+        top: 0px
+        right: 10px
