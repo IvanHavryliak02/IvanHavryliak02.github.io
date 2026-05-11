@@ -2,6 +2,7 @@ import './VideoPost.sass'
 
 import Terms from '../Terms/Terms'
 import DateOfPost from './../../DateOfPost/DateOfPost'
+import Pin from './../Pin/Pin'
 
 
 export default function VideoPost({data}){
@@ -10,6 +11,7 @@ export default function VideoPost({data}){
 
     return (
         <article className="video-post">
+            {data.pinned && <Pin/>}
             <h2 className="video-post__title">
                 {data.title}
             </h2>

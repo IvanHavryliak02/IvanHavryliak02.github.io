@@ -19,7 +19,17 @@ export default function Blog() {
     }
 
     const filteredData = useMemo(() => {
-        return data.filter(obj => obj.type === currFilter)
+        const pinned = []
+        const unpinned = []
+        data.map(obj => {
+            if(obj.type === currFilter && obj.pinned){
+                pinned.push(obj)
+            }else if(obj.type === currFilter){
+                unpinned.push(obj)
+            }
+        })
+        console.log([...pinned, ...unpinned])
+        return  [...pinned, ...unpinned]
     }, [currFilter, data])
 
     return (

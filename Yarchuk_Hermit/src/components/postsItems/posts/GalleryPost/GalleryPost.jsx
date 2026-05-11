@@ -3,10 +3,12 @@ import './GalleryPost.sass'
 import Slider from './../../../Slider/Slider'
 import Terms from '../Terms/Terms'
 import DateOfPost from './../../DateOfPost/DateOfPost'
+import Pin from './../Pin/Pin'
 
 export default function GalleryPost({data}) {
     return (
         <article className="gallery-post">
+            {data.pinned && <Pin/>}
             <h2 className="gallery-post__title">
                 {data.title}
             </h2>

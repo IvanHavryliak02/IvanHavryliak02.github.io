@@ -2,6 +2,7 @@ import './ImgPost.sass'
 
 import Terms from '../Terms/Terms'
 import DateOfPost from './../../DateOfPost/DateOfPost'
+import Pin from './../Pin/Pin'
 
 export default function ImgPost({data}) {
 
@@ -9,6 +10,7 @@ export default function ImgPost({data}) {
 
     return (
         <article className="img-post">
+            {data.pinned && <Pin/>}
             <h2 className="img-post__title">
                 {data.title}
             </h2>
