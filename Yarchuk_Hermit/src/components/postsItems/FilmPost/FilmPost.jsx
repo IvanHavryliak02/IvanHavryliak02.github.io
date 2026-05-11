@@ -1,5 +1,7 @@
 import './FilmPost.sass'
 
+import DateOfPost from './../DateOfPost/DateOfPost'
+
 export default function Film({data}) {
 
     const secText = data.secText ? data.secText : ''
@@ -18,6 +20,7 @@ export default function Film({data}) {
                     {secText} 
                 </p> : null}
             </div>
+            <DateOfPost date={data.date}/>
         </article>
     )
 }

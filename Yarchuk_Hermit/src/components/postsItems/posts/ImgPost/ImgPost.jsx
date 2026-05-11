@@ -1,6 +1,7 @@
 import './ImgPost.sass'
 
 import Terms from '../Terms/Terms'
+import DateOfPost from './../../DateOfPost/DateOfPost'
 
 export default function ImgPost({data}) {
 
@@ -21,6 +22,7 @@ export default function ImgPost({data}) {
                 </p> : null}
             </div>
             <Terms data={data.terms}/>
+            <DateOfPost date={data.date}/>
         </article>
     )
 }

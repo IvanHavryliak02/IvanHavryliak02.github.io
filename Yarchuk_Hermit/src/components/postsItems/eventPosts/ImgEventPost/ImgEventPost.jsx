@@ -1,6 +1,7 @@
 import './ImgEventPost.sass'
 
 import DeadlineItem from './../DeadlineItem/DeadlineItem'
+import DateOfPost from './../../DateOfPost/DateOfPost'
 
 export default function ImgEventPost({data}) {
     return (
@@ -17,6 +18,7 @@ export default function ImgEventPost({data}) {
                 </p>
                 <DeadlineItem eventData = {data.eventData}/>
             </div>
+            <DateOfPost date={data.date}/>
         </article>
     )
 }

@@ -1,6 +1,8 @@
 import './VideoEventPost.sass'
 import DeadlineItem from './../DeadlineItem/DeadlineItem'
 
+import DateOfPost from './../../DateOfPost/DateOfPost'
+
 export default function VideoEventPost({data}){
     
 
@@ -18,6 +20,7 @@ export default function VideoEventPost({data}){
                 </p>
                 <DeadlineItem eventData={data.eventData}/>
             </div>
+            <DateOfPost date={data.date}/>
         </article>
     )
 } 

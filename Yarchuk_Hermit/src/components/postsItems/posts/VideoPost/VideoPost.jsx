@@ -1,6 +1,8 @@
 import './VideoPost.sass'
 
 import Terms from '../Terms/Terms'
+import DateOfPost from './../../DateOfPost/DateOfPost'
+
 
 export default function VideoPost({data}){
 
@@ -18,6 +20,7 @@ export default function VideoPost({data}){
                 </p>
             </div>
             <Terms data={data.terms}/>
+            <DateOfPost date={data.date}/>
         </article>
     )
 }

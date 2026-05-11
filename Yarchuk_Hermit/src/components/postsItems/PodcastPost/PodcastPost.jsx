@@ -1,5 +1,7 @@
 import './PodcastPost.sass'
 
+import DateOfPost from './../DateOfPost/DateOfPost'
+
 export default function PodcastPost({data}) {
     return (
         <article className="podcast-post">
@@ -12,6 +14,7 @@ export default function PodcastPost({data}) {
                     {data.primText}
                 </p>
             </div>
+            <DateOfPost date={data.date}/>
         </article>
     )
 }

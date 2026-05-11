@@ -2,6 +2,7 @@ import './GalleryEventPost.sass'
 
 import DeadlineItem from './../DeadlineItem/DeadlineItem'
 import Slider from '../../../Slider/Slider'
+import DateOfPost from './../../DateOfPost/DateOfPost'
 
 export default function GalleryEventPost({data}){
     return (
@@ -18,6 +19,7 @@ export default function GalleryEventPost({data}){
                 </p>
             </div>
             <DeadlineItem eventData={data.eventData}/>
+            <DateOfPost date={data.date}/>
         </article>
     )
 }

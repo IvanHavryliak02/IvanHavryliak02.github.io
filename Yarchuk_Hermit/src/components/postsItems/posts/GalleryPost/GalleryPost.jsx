@@ -2,6 +2,7 @@ import './GalleryPost.sass'
 
 import Slider from './../../../Slider/Slider'
 import Terms from '../Terms/Terms'
+import DateOfPost from './../../DateOfPost/DateOfPost'
 
 export default function GalleryPost({data}) {
     return (
@@ -18,6 +19,7 @@ export default function GalleryPost({data}) {
                 </p>
             </div>
             <Terms data={data.terms}/>
+            <DateOfPost date={data.date}/>
         </article>
     )
 }
