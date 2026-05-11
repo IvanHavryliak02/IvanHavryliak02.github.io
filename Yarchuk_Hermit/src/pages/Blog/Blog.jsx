@@ -1,5 +1,6 @@
 import './Blog.sass'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 
 import FilterTemplate from './../../components/FilterTemplate/FilterTemplate'
@@ -9,10 +10,12 @@ import data from './data.js'
 
 export default function Blog() {
 
-    const [currFilter, setCurrFilter] = useState('post')
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    const currFilter = searchParams.get('type') || 'post'
 
     const onFilterChoose = (filterId) => {
-        setCurrFilter(filterId)
+        setSearchParams({type: filterId})
     }
 
     const filteredData = useMemo(() => {
