@@ -14,7 +14,7 @@ export default function PodcastPost({data}) {
                     {data.primText}
                 </p>
             </div>
-            <DateOfPost date={data.date}/>
+            <DateOfPost data={data}/>
         </article>
     )
 }

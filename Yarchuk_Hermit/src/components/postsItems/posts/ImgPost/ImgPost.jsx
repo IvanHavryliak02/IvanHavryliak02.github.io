@@ -24,7 +24,7 @@ export default function ImgPost({data}) {
                 </p> : null}
             </div>
             <Terms data={data.terms}/>
-            <DateOfPost date={data.date}/>
+            <DateOfPost data={data}/>
         </article>
     )
 }

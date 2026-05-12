@@ -18,7 +18,7 @@ export default function ImgEventPost({data}) {
                 </p>
                 <DeadlineItem eventData = {data.eventData}/>
             </div>
-            <DateOfPost date={data.date}/>
+            <DateOfPost data={data}/>
         </article>
     )
 }

@@ -28,7 +28,6 @@ export default function Blog() {
                 unpinned.push(obj)
             }
         })
-        console.log([...pinned, ...unpinned])
         return  [...pinned, ...unpinned]
     }, [currFilter, data])
 

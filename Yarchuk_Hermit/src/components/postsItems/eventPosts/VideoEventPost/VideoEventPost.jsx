@@ -20,7 +20,7 @@ export default function VideoEventPost({data}){
                 </p>
                 <DeadlineItem eventData={data.eventData}/>
             </div>
-            <DateOfPost date={data.date}/>
+            <DateOfPost data={data}/>
         </article>
     )
 } 

@@ -20,7 +20,7 @@ export default function Film({data}) {
                     {secText} 
                 </p> : null}
             </div>
-            <DateOfPost date={data.date}/>
+            <DateOfPost data={data}/>
         </article>
     )
 }

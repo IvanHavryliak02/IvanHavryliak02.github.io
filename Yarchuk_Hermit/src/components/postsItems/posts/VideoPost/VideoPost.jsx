@@ -22,7 +22,7 @@ export default function VideoPost({data}){
                 </p>
             </div>
             <Terms data={data.terms}/>
-            <DateOfPost date={data.date}/>
+            <DateOfPost data={data}/>
         </article>
     )
 }

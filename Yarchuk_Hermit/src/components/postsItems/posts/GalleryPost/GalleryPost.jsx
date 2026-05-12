@@ -21,7 +21,7 @@ export default function GalleryPost({data}) {
                 </p>
             </div>
             <Terms data={data.terms}/>
-            <DateOfPost date={data.date}/>
+            <DateOfPost data={data}/>
         </article>
     )
 }

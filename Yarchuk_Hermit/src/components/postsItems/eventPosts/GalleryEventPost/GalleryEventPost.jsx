@@ -19,7 +19,7 @@ export default function GalleryEventPost({data}){
                 </p>
             </div>
             <DeadlineItem eventData={data.eventData}/>
-            <DateOfPost date={data.date}/>
+            <DateOfPost data={data}/>
         </article>
     )
 }
