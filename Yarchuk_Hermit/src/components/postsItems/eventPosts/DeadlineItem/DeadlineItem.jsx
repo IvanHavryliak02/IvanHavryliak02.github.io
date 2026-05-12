@@ -31,7 +31,7 @@ export default function DeadlineItem({eventData}) {
 }
 
 const DeadlineNotExpired = ({data}) => {
-    const {location, eventDate, deadline} = data
+    const {location, eventDate, deadline, spots} = data
     return (
         <>
             <div className="deadline__group">
@@ -39,7 +39,12 @@ const DeadlineNotExpired = ({data}) => {
                 <div className="deadline__text">Подія запланована на <span>{eventDate}</span> </div>
                 <div className="deadline__text">Запис доступний до <span>{deadline}</span></div>
             </div>
-            <Button className='deadline_btn'>Записатися</Button>
+            <div className="deadline__btn-group">
+                <span>
+                    Залишилось <span className="deadline__spots">лише {spots} місць</span>, записуйся скоріше!
+                </span>
+                <Button className='deadline_btn'>Записатися</Button>
+            </div>
         </>
     )
 }

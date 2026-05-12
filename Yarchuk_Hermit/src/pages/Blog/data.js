@@ -267,7 +267,8 @@ export default [
         eventData: {
             location: 'Хрещатик',
             deadline: '01.01.2030', // No later than eventDate
-            eventDate: '01.02.2030 14:00'
+            eventDate: '01.02.2030 14:00',
+            spots: 96,
         },
         date: '01.01.2026',
         id: nanoid()
@@ -284,7 +285,8 @@ export default [
         eventData: {
             location: 'Хрещатик',
             deadline: '01.01.2023', // No later than eventDate
-            eventDate: '01.02.2030 14:00'
+            eventDate: '01.02.2030 14:00',
+            spots: 150,
         },
         date: '01.01.2026',
         id: nanoid()
@@ -311,7 +313,8 @@ export default [
         eventData: {
             location: 'Хрещатик',
             deadline: '01.01.2023', // No later than eventDate
-            eventDate: '01.02.2030 14:00'
+            eventDate: '01.02.2030 14:00',
+            spots: 200,
         },
         date: '01.01.2026',
         id: nanoid()
