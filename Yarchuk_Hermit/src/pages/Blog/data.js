@@ -16,7 +16,7 @@ import img6 from './img/img6.jpg'
 
 export default [
     {
-        type: 'post', // is needed for filtration
+        category: 'post', // category // is needed for filtration
         style: 'post', // style, needed to decide what design of post is used
         imgs: [{
             photo: yarchuk,
@@ -33,7 +33,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'post',
+        category: 'post',
         style: 'post',  
         imgs: [{
             photo: yarchuk,
@@ -49,7 +49,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'post',
+        category: 'post',
         style: 'post', 
         imgs: [{
             photo: yarchuk,
@@ -86,7 +86,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'post',
+        category: 'post',
         style: 'post',  
         imgs: [{
             photo: yarchuk,
@@ -123,7 +123,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'post',
+        category: 'post',
         style: 'post',  
         imgs: [{
             photo: img1,
@@ -144,7 +144,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'post',
+        category: 'post',
         style: 'post',  
         imgs: [{
             photo: img1,
@@ -186,7 +186,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'post',
+        category: 'post',
         style: 'post', 
         imgs: null,
         video: video,
@@ -198,7 +198,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'post',
+        category: 'post',
         style: 'post', 
         imgs: null,
         video: video,
@@ -231,7 +231,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'film',
+        category: 'film',
         style: 'film', 
         video: film, // in this case only video
         title: "Мотокульт",
@@ -241,7 +241,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'film',
+        category: 'film',
         style: 'film', 
         video: film, // in this case only video
         title: "Мотокульт",
@@ -250,7 +250,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'podcast',
+        category: 'podcast',
         style: 'podcast', 
         video: podcast, // in this case only video
         title: 'Подкаст мотокультура',
@@ -259,7 +259,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'event',
+        category: 'event',
         style: 'event',
         video: eventVideo, // or arr of 2+ img, arr of 1 img
         title: 'Механічна душа',
@@ -274,7 +274,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'event',
+        category: 'event',
         style: 'event',
         imgs: [{
             photo: eventImg,
@@ -292,7 +292,7 @@ export default [
         id: nanoid()
     },
     {
-        type: 'event',
+        category: 'event',
         style: 'event',
         imgs: [
             {

@@ -45,7 +45,7 @@ export default function PostsController(data) {
                     }
                 }
             }
-            default: return `Website can't recognise "${obj.style}" style of post. Please add it to categories`
+            default: return `Website can't recognise "${obj.style}" style of post. Ask your developer to create post with "${obj.style}" style or choose style that already exist`
         }
     })
 

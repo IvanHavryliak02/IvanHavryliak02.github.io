@@ -22,9 +22,9 @@ export default function Blog() {
         const pinned = []
         const unpinned = []
         data.map(obj => {
-            if(obj.type === currFilter && obj.pinned){
+            if(obj.category === currFilter && obj.pinned){
                 pinned.push(obj)
-            }else if(obj.type === currFilter){
+            }else if(obj.category === currFilter){
                 unpinned.push(obj)
             }
         })
