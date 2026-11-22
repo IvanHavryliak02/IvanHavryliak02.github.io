@@ -45,8 +45,8 @@ export default {
         "PL": `Nazywam się Ivan`
     },
     "me-descr": {
-        "EN": `As a Front-end Developer, I combine creative interface design with engineering precision and analytical thinking. My technical background is grounded in a degree in Electrical Engineering from the Lublin University of Technology and specialized education in Computer Engineering. My expertise extends beyond the standard web stack: proficiency in algorithms, C/C++, and Delphi, along with a strong command of Linux systems and network architecture, allows me to deeply understand the mechanics of web applications. What began as a passion for programming has evolved into my primary professional focus. I am currently seeking commercial opportunities in the web industry where I can leverage my technical strengths to build efficient, modern software solutions.`,
-        "PL": `Jako Front-end Developer łączę kreatywne tworzenie interfejsów z inżynierską precyzją i analitycznym myśleniem. Posiadam solidne zaplecze techniczne poparte dyplomem z Elektrotechniki na Politechnice Lubelskiej oraz wykształceniem w kierunku inżynierii komputerowej. Moja wiedza wykracza poza standardowy stack webowy - znajomość algorytmiki, języków C/C++ i Delphi, a także systemów Linux i architektury sieci pozwala mi głębiej rozumieć działanie aplikacji internetowych. Programowanie, które początkowo traktowałem jako pasję, stało się moją główną specjalizacją zawodową. Obecnie poszukuję komercyjnych wyzwań w branży webowej, gdzie będę mógł wykorzystać swoje techniczne atuty do tworzenia wydajnego i nowoczesnego oprogramowania.`
+        "EN": `Front-end Developer with an engineering background (Electrical and Computer Engineering, Lublin University of Technology). I build web applications with HTML, CSS, JavaScript, React and Redux, and I'm comfortable learning new libraries straight from the documentation. Experience with C/C++ and low-level programming from my studies helps me understand how web applications work under the hood. I write automated tests with WebdriverIO (Mocha, Chai), Playwright and Cypress, and I trained in testing theory through EPAM's QA in JS programme. I use AI daily for research and drafting components, but I always review and refine the code so it stays readable and fits the project. Open to commercial opportunities in web development.`,
+        "PL": `Front-end Developer z wykształceniem inżynierskim (Elektrotechnika i inżynieria komputerowa, Politechnika Lubelska). Tworzę aplikacje webowe w HTML, CSS, JavaScript, React i Redux, a nowych bibliotek swobodnie uczę się bezpośrednio z dokumentacji. Doświadczenie z C/C++ i programowaniem niskopoziomowym ze studiów pomaga mi rozumieć, jak aplikacje internetowe działają "pod maską". Piszę testy automatyczne w WebdriverIO (Mocha, Chai), Playwright i Cypress, a teorię testowania poznałem w programie EPAM QA in JS. Na co dzień używam AI do researchu i szkiców komponentów, ale zawsze weryfikuję i poprawiam kod, aby był czytelny i pasował do projektu. Otwarty na komercyjne projekty w branży webowej.`
     },
     "webdev": {
         "EN": `Web-development`,
@@ -72,6 +72,14 @@ export default {
         "EN": `Development of separate UI modules as ES-modules that can be quickly and easily integrated into other websites.`,
         "PL": `Tworzenie oddzielnych modułów UI w formacie modułów ES (ES-modules), które można szybko i łatwo wykorzystać na innych stronach internetowych.`
     },
+    "qa": {
+        "EN": 'Quality assurance',
+        "PL": 'Zapewnianie jakości'
+    },
+    "qa-descr": {
+        "EN": 'Knowledge of the most popular modern JS frameworks gives me the opportunity to test products and be confident in their quality',
+        "PL": 'Znajomość najpopularniejszych nowoczesnych frameworków JS daje mi możliwość testowania produktów i pewność co do ich jakości'
+    },
     "exp-header": {
         "EN": `Experience`,
         "PL": `Doświadczenie`
@@ -85,8 +93,32 @@ export default {
         "PL": `Edukacja`
     },
 
+    "EPAM-spec-name": {
+        "EN": `EPAM<br>`,
+        "PL": `EPAM<br>`
+    },
+    "EPAM-spec-stat": {
+        "EN": `QA in JavaScript automative testing [specialization]`,
+        "PL": `QA in JavaScript automative testing [specialization]`
+    },
+    "EPAM-spec-descr": {
+        "EN": `<p>Studied testing theory in depth, expanded my WebdriverIO knowledge, learned Playwright and Cypress, explored popular approaches to code organization, and discussed my solutions with a mentor, refining them according to best practices from real-world projects. Selected through a competitive intake into EPAM's QA in JS programme</p>`,
+        "PL": `<p>Pogłębiłem znajomość teorii testowania, rozszerzyłem wiedzę o WebdriverIO, poznałem Playwright i Cypress, zapoznałem się z popularnymi podejściami do organizacji kodu oraz omawiałem swoje rozwiązania z mentorem, poprawiając je zgodnie z dobrymi praktykami z prawdziwych projektów. Przyjęty w drodze konkurencyjnej rekrutacji do programu EPAM QA in JS</p>`
+    },
 
 
+    "EPAM-fund-name": {
+        "EN": `EPAM<br>`,
+        "PL": `EPAM<br>`
+    },
+    "EPAM-fund-stat": {
+        "EN": `QA in JavaScript automative testing [fundamentals]`,
+        "PL": `QA in JavaScript automative testing [fundamentals]`
+    },
+    "EPAM-fund-descr": {
+        "EN": `<p>Refreshed my JavaScript knowledge and learned unit testing with Mocha and Chai, E2E testing with WebdriverIO, and testing theory</p>`,
+        "PL": `<p>Odświeżyłem wiedzę z JavaScriptu oraz poznałem testy jednostkowe z użyciem Mocha i Chai, testy E2E z WebdriverIO i teorię testowania</p>`
+    },
 
     "academ-adv-name": {
         "EN": `Udemy online aсademy<br>`,
@@ -144,7 +176,14 @@ export default {
         "EN": `Work Experience`,
         "PL": `Doświadczenie Zawodowe`
     },
+
+
     "workexp": {
+        "EN": `<p>Project for a real client, a content creator, built in a team with a backend developer. I designed the UI/UX, built the frontend and worked directly with the client, explaining the technical decisions and defining the data the backend should provide. The site and admin panel are SPAs built with low hardware resource consumption in mind. I created a custom WYSIWYG post editor and category editor with 4 post display styles that can be linked to any category, a request management system for the contact form with a status workflow (new, read, processed, with the option to revert to "read" and deletion only after processing), and a custom analytics tab with site metrics. Status: MVP, development temporarily paused due to my participation in the EPAM QA in JS programme. Source code is private (client project); demo available on request.</p>`,
+        "PL": `<p>Projekt dla prawdziwego klienta, twórcy internetowego, realizowany w zespole z backend developerem. Zaprojektowałem UI/UX, stworzyłem frontend i współpracowałem bezpośrednio z klientem: wyjaśniałem decyzje techniczne i określałem, jakie dane powinien dostarczać backend. Strona i panel administracyjny to aplikacje SPA tworzone z myślą o niskim zużyciu zasobów sprzętowych. Stworzyłem własny edytor WYSIWYG do postów oraz edytor kategorii z 4 stylami wyświetlania postów, które można przypisać do dowolnej kategorii, system obsługi zgłoszeń z formularza kontaktowego z przepływem statusów (nowe, przeczytane, przetworzone, z możliwością powrotu do "przeczytane" i usuwaniem dopiero po przetworzeniu) oraz własną zakładkę analityczną z metrykami strony. Status: MVP, rozwój tymczasowo wstrzymany z powodu mojego udziału w programie EPAM QA in JS. Kod źródłowy jest prywатny (projekt dla klienta); demo dostępne na życzenie.</p>`
+    },
+
+    "portfexp": {
         "EN": `<p>All my experience comes from working on projects, which are attached to this portfolio along with the portfolio itself.
         Among them are:<br>
         <br>
@@ -214,6 +253,18 @@ export default {
     "redux-descr": {
         "EN": `Redux is a centralized system used by applications to store and manage all their essential information in one organized place. It ensures that data remains consistent and predictable, acting like a master ledger that tracks every change made within the program.`,
         "PL": `Redux to scentralizowany system służący aplikacjom do przechowywania i zarządzania wszystkimi istotnymi informacjami w jednym, uporządkowanym miejscu. Zapewnia on spójność i przewidywalność danych, działając jak główna księga wieczysta, która rejestruje każdą zmianę wprowadzoną w programie.`
+    },
+    "wdio-descr": {
+        "EN": 'The oldest testing automation framework. It controls the browser from the outside using a long-established standard, which makes it compatible with many browsers, tools and even mobile apps. The price of this flexibility is a more involved setup.',
+        "PL": 'Najstarsze i najbardziej elastyczne z trzech. Steruje przeglądarką z zewnątrz, korzystając z dobrze ugruntowanego standardu, dzięki czemu współpracuje z wieloma przeglądarkami, narzędziami, a nawet aplikacjami mobilnymi. Ceną tej elastyczności jest bardziej złożona konfiguracja.'
+    },
+    "cypress-descr": {
+        "EN": 'Test automation framework that younger than WebdriverIO. It runs inside the browser itself and shows every step live in a visual window, which helps to follow what the robot does. The same design, however, makes it more limited in complex scenarios, and it has its own unusual way of writing tests.',
+        "PL": 'Młodsze niż WebdriverIO. Działa wewnątrz samej przeglądarki i pokazuje każdy krok na żywo w wizualnym oknie, co pomaga śledzić działania robota. Ta sama konstrukcja sprawia jednak, że ma więcej ograniczeń w złożonych scenariuszach, a testy pisze się w nim w nietypowy sposób.'
+    },
+    "playwright-descr": {
+        "EN": 'The newest test automation framework and the most feature-rich. Created by Microsoft, it controls all major browsers directly and runs many checks in parallel, so tests finish faster. Convenient to work with: a test recorder, video recordings and automatic waiting for the page come built in.',
+        "PL": 'Najnowsze i najbogatsze w funkcje. Stworzone przez Microsoft, steruje wszystkimi głównymi przeglądarkami bezpośrednio i uruchamia wiele testów równolegle, dzięki czemu kończą się szybciej. Wygodne w pracy: rejestrator testów, nagrywanie wideo i automatyczne oczekiwanie na stronę są wbudowane.'
     },
     "works-header": {
         "EN": `Portfolio`,
