@@ -80,7 +80,7 @@ export default class CitiesDropDown extends Component{
             }
             try{
                 Component.loader.setStatus('Requesting city and country names')
-                const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}%2C+${longitude}&key=6a52067d80dc4a93ac2484d789e46886&language=en`,
+                const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}%2C+${longitude}&key=188b31e18d7e4a80ab3f763c6cbeb071&language=en`,
                 {
                     method: 'GET',
                     headers: {
@@ -130,7 +130,7 @@ export default class CitiesDropDown extends Component{
             const inputData = input.value.match(/^(.*?),(.*)$/) || input.value.match(/^(.*?)\s(.*)$/);
             const city = inputData[1].trim();
             const country = inputData[2].trim();
-            const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${city}%2C+${country}&key=6a52067d80dc4a93ac2484d789e46886`,
+            const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${city}%2C+${country}&key=188b31e18d7e4a80ab3f763c6cbeb071`,
             {
                 method: 'GET',
                 headers: {
